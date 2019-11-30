@@ -1,5 +1,5 @@
-project/vendor
-project/node-modules
-project/public/storage
-project/.env
-project/.idea
+/vendor
+/node-modules
+/public/storage
+/.env
+/.idea
