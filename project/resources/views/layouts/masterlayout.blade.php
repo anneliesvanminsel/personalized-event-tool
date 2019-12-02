@@ -6,14 +6,18 @@
 
     <title>@yield('title')</title>
 
-    <!-- Fonts -->
+    <!-- Styles & fonts -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}" >
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
 </head>
 <body>
-<div class="flex-center position-ref full-height">
     @include('partials.header')
-    @yield('content')
-</div>
+
+    <main>
+        @yield('content')
+    </main>
+
+    @include('partials.footer')
 </body>
 </html>
