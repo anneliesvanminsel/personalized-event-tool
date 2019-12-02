@@ -4,5 +4,37 @@
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+* {
+	margin: 0;
+	padding: O;
+}
+
+html {
+	min-height: 100vh;
+}
+
+body {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	flex-grow: 1;
+}
+
+.logo {
+	font-size: 24px;
+}
+
+.row {
+	display: flex;
+
+	&--stretch {
+		align-items: stretch;
+	}
+}
+
+//Components
+@import 'header';
+@import 'footer';

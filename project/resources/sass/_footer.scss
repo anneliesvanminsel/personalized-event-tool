@@ -1,0 +1,40 @@
+.footer {
+	position: relative;
+	margin-top: 80px;
+	padding: 0 80px;
+	max-width: 960px;
+	padding-bottom: 40px;
+
+	&::before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		bottom: 60px;
+		left: 0;
+		width: 160px;
+		height: 150px;
+		background-color: $blue;
+	}
+
+	.row {
+		justify-content: space-between;
+	}
+
+	.list {
+		list-style: none;
+		padding: 0;
+
+		&__item {
+			padding: 10px 0;
+
+			&:first-child {
+				font-weight: 700;
+			}
+		}
+
+		&__link {
+			text-decoration: none;
+			color: black;
+		}
+	}
+}
