@@ -47,7 +47,7 @@ h1::before {
   position: absolute;
   top: 65%;
   left: 40%;
-  width: 130%;
+  width: 60%;
   height: 1px;
   background-color: #262323;
 }
@@ -98,7 +98,7 @@ h1::before {
   list-style: none;
   display: -webkit-box;
   display: flex;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .header .nav__item {
@@ -117,14 +117,15 @@ h1::before {
 
 .header .nav__link::before {
   content: "";
+  display: block;
   position: absolute;
-  z-index: -1;
-  bottom: 2px;
-  left: 20%;
-  right: 20%;
-  width: 60%;
-  height: 6px;
-  background-color: #85CBCC;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #262323;
+  -webkit-transition: width 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out;
 }
 
 .header .nav__link:hover::before {
@@ -136,29 +137,31 @@ h1::before {
 .footer {
   position: relative;
   margin-top: 80px;
-  padding: 0 80px;
-  max-width: 960px;
   padding-bottom: 40px;
 }
 
-.footer::before {
+.footer::after {
   content: "";
+  display: block;
   position: absolute;
-  z-index: -1;
-  bottom: 60px;
+  bottom: 0;
   left: 0;
-  width: 160px;
-  height: 150px;
-  background-color: #85CBCC;
+  width: 100%;
+  height: 40px;
+  background-color: #FE676E;
 }
 
 .footer .row {
   -webkit-box-pack: justify;
           justify-content: space-between;
+  padding: 0 80px;
+  max-width: 960px;
 }
 
 .footer .logo {
   position: relative;
+  padding: 0 80px;
+  max-width: 960px;
 }
 
 .footer .logo::before {
@@ -166,8 +169,8 @@ h1::before {
   display: block;
   position: absolute;
   top: 65%;
-  left: calc(-35% - 30px);
-  width: 35%;
+  left: -10px;
+  width: 5%;
   height: 1px;
   background-color: #262323;
 }
@@ -177,8 +180,8 @@ h1::before {
   display: block;
   position: absolute;
   top: 65%;
-  left: 15%;
-  width: 130%;
+  left: 20%;
+  width: 87%;
   height: 1px;
   background-color: #262323;
 }
@@ -202,21 +205,27 @@ h1::before {
   position: relative;
 }
 
-.footer .list__link:hover::before {
+.footer .list__link::before {
   content: "";
+  display: block;
   position: absolute;
-  z-index: -1;
-  bottom: 2px;
-  left: 20%;
-  right: 20%;
-  width: 60%;
-  height: 6px;
-  background-color: #85CBCC;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #262323;
+  -webkit-transition: width 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out;
+}
+
+.footer .list__link:hover::before {
+  width: 100%;
 }
 
 .slideshow {
   background-color: #FE676E;
   width: 100%;
+  margin-bottom: 80px;
 }
 
 .slideshow__content {

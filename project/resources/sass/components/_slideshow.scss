@@ -1,6 +1,7 @@
 .slideshow {
 	background-color: $red;
 	width: 100%;
+	margin-bottom: 80px;
 
 	&__content {
 		@include grid();

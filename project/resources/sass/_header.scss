@@ -23,7 +23,7 @@
 		&__bar {
 			list-style: none;
 			display: flex;
-			font-size: 20px;
+			font-size: 16px;
 		}
 
 		&__item {
@@ -40,15 +40,13 @@
 			position: relative;
 
 			&::before {
-				content: "";
-				position: absolute;
-				z-index: -1;
-				bottom: 2px;
-				left: 20%;
-				right: 20%;
-				width: 60%;
-				height: 6px;
-				background-color: $blue;
+				@include pseudo;
+				bottom: -2px;
+				left: 0;
+				width: 0;
+				height: 1px;
+				background-color: $text-color-dark;
+				transition: width .2s ease-in-out;
 			}
 
 			&:hover {
