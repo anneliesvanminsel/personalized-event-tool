@@ -1,0 +1,28 @@
+.slideshow {
+	background-color: $red;
+	width: 100%;
+
+	&__content {
+		@include grid();
+	}
+
+	&__text {
+		flex-grow: 1;
+		padding: 40px;
+	}
+
+	.ctn--image {
+		width: 400px;
+		height: 650px;
+		margin-top: -40px;
+		margin-bottom: -40px;
+		overflow: hidden;
+
+		img {
+			height: 100%;
+			width: auto;
+			position: relative;
+			right: 50%;
+		}
+	}
+}

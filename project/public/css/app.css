@@ -20,6 +20,7 @@ body {
 main {
   -webkit-box-flex: 1;
           flex-grow: 1;
+  margin-top: 80px;
 }
 
 .logo {
@@ -34,6 +35,23 @@ h4 {
   font-family: "Poiret One", cursive;
 }
 
+h1 {
+  font-size: 35px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+h1::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 65%;
+  left: 40%;
+  width: 130%;
+  height: 1px;
+  background-color: #262323;
+}
+
 .row {
   display: -webkit-box;
   display: flex;
@@ -42,6 +60,11 @@ h4 {
 .row--stretch {
   -webkit-box-align: stretch;
           align-items: stretch;
+}
+
+.ctn--image img {
+  width: 100%;
+  height: auto;
 }
 
 .header {
@@ -189,5 +212,36 @@ h4 {
   width: 60%;
   height: 6px;
   background-color: #85CBCC;
+}
+
+.slideshow {
+  background-color: #FE676E;
+  width: 100%;
+}
+
+.slideshow__content {
+  padding: 0 80px;
+  max-width: 960px;
+}
+
+.slideshow__text {
+  -webkit-box-flex: 1;
+          flex-grow: 1;
+  padding: 40px;
+}
+
+.slideshow .ctn--image {
+  width: 400px;
+  height: 650px;
+  margin-top: -40px;
+  margin-bottom: -40px;
+  overflow: hidden;
+}
+
+.slideshow .ctn--image img {
+  height: 100%;
+  width: auto;
+  position: relative;
+  right: 50%;
 }
 

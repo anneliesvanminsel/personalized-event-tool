@@ -8,6 +8,11 @@
 	position: $pos;
 }
 
+@mixin grid($padding: 80px, $maxWidth: 960px) {
+	padding: 0 $padding;
+	max-width: $maxWidth;
+}
+
 * {
 	margin: 0;
 	padding: O;
@@ -26,6 +31,7 @@ body {
 
 main {
 	flex-grow: 1;
+	margin-top: 80px;
 }
 
 .logo {
@@ -36,6 +42,22 @@ main {
 h1, h2, h3, h4 {
 	@include font-heading;
 }
+
+h1 {
+	font-size: 35px;
+	margin-bottom: 20px;
+	position: relative;
+
+	&::before {
+		@include pseudo();
+		top: 65%;
+		left: 40%;
+		width: 130%;
+		height: 1px;
+		background-color: $text-color-dark;
+	}
+}
+
 .row {
 	display: flex;
 
@@ -44,6 +66,14 @@ h1, h2, h3, h4 {
 	}
 }
 
+.ctn--image {
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+
 //Components
 @import 'header';
 @import 'footer';
+@import 'components/slideshow';

@@ -4,15 +4,19 @@
 @endsection
 @section('content')
     <section class="slideshow">
-        <div>
-            <img src="" alt="">
+        <div class="slideshow__content row row--stretch">
+            <div class="ctn--image">
+                <img src="https://images.pexels.com/photos/196652/pexels-photo-196652.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+            </div>
+            <div class="slideshow__text">
+                <h1>
+                    Kleurenfeest
+                </h1>
+                <p>
+                    Geniet mee van de spetterende kleuren.
+                </p>
+            </div>
         </div>
-        <h1>
-            Kleurenfeest
-        </h1>
-        <p>
-            Geniet mee van de spetterende kleuren.
-        </p>
     </section>
     <section>
         <h1>
