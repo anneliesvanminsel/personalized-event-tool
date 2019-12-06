@@ -1,8 +1,17 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
+@import '_font.scss';
 @import 'variables';
+
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+	content: $content;
+	display: $display;
+	position: $pos;
+}
+
+@mixin grid($padding: 80px, $maxWidth: 960px) {
+	padding: 0 $padding;
+	max-width: $maxWidth;
+}
 
 * {
 	margin: 0;
@@ -17,14 +26,36 @@ body {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
+	@include font-base;
 }
 
 main {
 	flex-grow: 1;
+	margin-top: 80px;
 }
 
 .logo {
-	font-size: 24px;
+	@include font-heading;
+	font-size: 35px;
+}
+
+h1, h2, h3, h4 {
+	@include font-heading;
+}
+
+h1 {
+	font-size: 35px;
+	margin-bottom: 20px;
+	position: relative;
+
+	&::before {
+		@include pseudo();
+		top: 65%;
+		left: 40%;
+		width: 60%;
+		height: 1px;
+		background-color: $text-color-dark;
+	}
 }
 
 .row {
@@ -35,6 +66,14 @@ main {
 	}
 }
 
+.ctn--image {
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+
 //Components
 @import 'header';
 @import 'footer';
+@import 'components/slideshow';

@@ -1,0 +1,10 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Poiret+One&display=swap');
+
+@mixin font-heading {
+	font-family: 'Poiret One', cursive;
+}
+
+@mixin font-base {
+	font-family: 'Montserrat', sans-serif;
+}

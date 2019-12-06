@@ -1,6 +1,6 @@
 <header class="header">
     <div class="logo">
-        Eventify__
+        eventify
     </div>
     <nav class="nav">
         <ul class="nav__bar">
