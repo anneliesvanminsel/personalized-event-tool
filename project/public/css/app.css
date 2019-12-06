@@ -154,8 +154,8 @@ h4 {
   display: block;
   position: absolute;
   top: 65%;
-  right: calc(-35% - 30px);
-  width: 70%;
+  left: 15%;
+  width: 130%;
   height: 1px;
   background-color: #262323;
 }
