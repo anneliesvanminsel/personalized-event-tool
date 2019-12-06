@@ -20,6 +20,28 @@
 		justify-content: space-between;
 	}
 
+	.logo {
+		position: relative;
+
+		&::before {
+			@include pseudo;
+			top: 65%;
+			left: calc(-35% - 30px);
+			width: 35%;
+			height: 1px;
+			background-color: $text-color-dark;
+		}
+
+		&::after {
+			@include pseudo;
+			top: 65%;
+			right: calc(-35% - 30px);
+			width: 70%;
+			height: 1px;
+			background-color: $text-color-dark;
+		}
+	}
+
 	.list {
 		list-style: none;
 		padding: 0;

@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);* {
+@import url(https://fonts.googleapis.com/css?family=Montserrat|Poiret+One&display=swap);* {
   margin: 0;
   padding: O;
 }
@@ -14,6 +14,7 @@ body {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
+  font-family: "Montserrat", sans-serif;
 }
 
 main {
@@ -22,7 +23,15 @@ main {
 }
 
 .logo {
-  font-size: 24px;
+  font-family: "Poiret One", cursive;
+  font-size: 35px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Poiret One", cursive;
 }
 
 .row {
@@ -48,6 +57,18 @@ main {
 .header .logo {
   -webkit-box-flex: 1;
           flex-grow: 1;
+  position: relative;
+}
+
+.header .logo::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 65%;
+  left: calc(-35% - 30px);
+  width: 35%;
+  height: 1px;
+  background-color: #262323;
 }
 
 .header .nav__bar {
@@ -111,6 +132,32 @@ main {
 .footer .row {
   -webkit-box-pack: justify;
           justify-content: space-between;
+}
+
+.footer .logo {
+  position: relative;
+}
+
+.footer .logo::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 65%;
+  left: calc(-35% - 30px);
+  width: 35%;
+  height: 1px;
+  background-color: #262323;
+}
+
+.footer .logo::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 65%;
+  right: calc(-35% - 30px);
+  width: 70%;
+  height: 1px;
+  background-color: #262323;
 }
 
 .footer .list {

@@ -8,7 +8,7 @@
 
     <!-- Styles & fonts -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" >
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Poiret+One&display=swap" rel="stylesheet">
 
 </head>
 <body>

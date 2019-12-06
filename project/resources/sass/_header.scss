@@ -7,6 +7,16 @@
 
 	.logo {
 		flex-grow: 1;
+		position: relative;
+
+		&::before {
+			@include pseudo;
+			top: 65%;
+			left: calc(-35% - 30px);
+			width: 35%;
+			height: 1px;
+			background-color: $text-color-dark;
+		}
 	}
 
 	.nav {

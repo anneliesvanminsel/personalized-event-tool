@@ -1,8 +1,12 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
+@import '_font.scss';
 @import 'variables';
+
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+	content: $content;
+	display: $display;
+	position: $pos;
+}
 
 * {
 	margin: 0;
@@ -17,6 +21,7 @@ body {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
+	@include font-base;
 }
 
 main {
@@ -24,9 +29,13 @@ main {
 }
 
 .logo {
-	font-size: 24px;
+	@include font-heading;
+	font-size: 35px;
 }
 
+h1, h2, h3, h4 {
+	@include font-heading;
+}
 .row {
 	display: flex;
 

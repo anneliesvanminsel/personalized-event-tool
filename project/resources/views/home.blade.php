@@ -1,6 +1,6 @@
 @extends('layouts.masterlayout')
 @section('title')
-    Eventify__
+    eventify_
 @endsection
 @section('content')
     <section class="slideshow">
