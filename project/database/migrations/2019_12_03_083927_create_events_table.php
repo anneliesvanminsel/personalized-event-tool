@@ -20,6 +20,7 @@ class CreateEventsTable extends Migration
 			$table->string('birthday');
 			$table->string('type');
 			$table->boolean('status')->default(0);
+			$table->softDeletes();
             $table->timestamps();
         });
     }

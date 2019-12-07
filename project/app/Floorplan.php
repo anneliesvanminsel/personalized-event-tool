@@ -4,8 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Address extends Model
+class Floorplan extends Model
 {
-	use SoftDeletes;
-	//
+    //
 }

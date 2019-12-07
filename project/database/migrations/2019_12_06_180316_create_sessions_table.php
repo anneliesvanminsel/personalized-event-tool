@@ -20,7 +20,7 @@ class CreateSessionsTable extends Migration
 			$table->date('date');
 			$table->string('locationname')->nullable();
 			$table->number('totaltickets');
-			$table->string('grondplan')->nullable(); //TODO: moet een afbeelding worden
+			$table->softDeletes();
 			$table->timestamps();
         });
     }

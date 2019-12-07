@@ -15,6 +15,7 @@ class CreateSaleItemsTable extends Migration
     {
         Schema::create('sale_items', function (Blueprint $table) {
             $table->bigIncrements('id');
+			$table->softDeletes();
             $table->timestamps();
         });
     }
