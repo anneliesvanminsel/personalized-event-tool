@@ -9,4 +9,7 @@ class Address extends Model
 {
 	use SoftDeletes;
 	//
+	protected $fillable = [
+		'street', 'streetnumber', 'box', 'postalcode', 'city',
+	];
 }
