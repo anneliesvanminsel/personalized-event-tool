@@ -15,6 +15,8 @@ class CreateSessionFloorplanTable extends Migration
     {
         Schema::create('session_floorplan', function (Blueprint $table) {
             $table->bigIncrements('id');
+			$table->integer('session_id');
+			$table->integer('floorplan_id');
             $table->timestamps();
         });
     }

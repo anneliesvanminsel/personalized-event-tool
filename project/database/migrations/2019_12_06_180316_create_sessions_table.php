@@ -20,6 +20,7 @@ class CreateSessionsTable extends Migration
 			$table->date('date');
 			$table->string('locationname')->nullable();
 			$table->integer('totaltickets');
+			$table->integer('event_id');
 			$table->softDeletes();
 			$table->timestamps();
         });

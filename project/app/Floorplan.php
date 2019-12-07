@@ -12,4 +12,11 @@ class Floorplan extends Model
 	protected $fillable = [
 		'title', 'afbeelding',
 	];
+
+	public function sessions(){
+		return $this->belongsToMany('App\Session',
+			'session_floorplan',
+			'session_id',
+			'floorplan_id')->withTimestamps();
+	}
 }

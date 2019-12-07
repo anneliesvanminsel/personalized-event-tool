@@ -15,6 +15,8 @@ class CreateOrganisationEventTable extends Migration
     {
         Schema::create('organisation_event', function (Blueprint $table) {
             $table->bigIncrements('id');
+			$table->integer('organisation_id');
+			$table->integer('event_id');
             $table->timestamps();
         });
     }

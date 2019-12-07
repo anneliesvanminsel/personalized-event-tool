@@ -12,4 +12,15 @@ class Event extends Model
 	protected $fillable = [
 		'title', 'description', 'type', 'status',
 	];
+
+	public function session(){
+		return $this->hasMany('App\Session');
+	}
+
+	public function organisations(){
+		return $this->belongsToMany('App\Organisation',
+			'organisation_event',
+			'organisation_id',
+			'event_id')->withTimestamps();
+	}
 }
