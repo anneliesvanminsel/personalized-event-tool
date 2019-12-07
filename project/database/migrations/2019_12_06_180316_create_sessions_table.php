@@ -19,7 +19,7 @@ class CreateSessionsTable extends Migration
 			$table->string('city');
 			$table->date('date');
 			$table->string('locationname')->nullable();
-			$table->number('totaltickets');
+			$table->integer('totaltickets');
 			$table->softDeletes();
 			$table->timestamps();
         });
