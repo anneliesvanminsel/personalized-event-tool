@@ -2,10 +2,16 @@
 @import '_font.scss';
 @import 'variables';
 
-@mixin pseudo($display: block, $pos: absolute, $content: ''){
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
 	content: $content;
 	display: $display;
 	position: $pos;
+}
+
+@mixin accentline($height: 1px) {
+	@include pseudo;
+	height: $height;
+	background-color: $black;
 }
 
 @mixin grid($padding: 80px, $maxWidth: 960px) {
