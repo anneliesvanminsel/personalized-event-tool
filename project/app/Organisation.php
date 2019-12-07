@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Organisation extends Model
 {
-    //
+	use SoftDeletes;
+	//
+	protected $fillable = [
+		'name',
+	];
 }

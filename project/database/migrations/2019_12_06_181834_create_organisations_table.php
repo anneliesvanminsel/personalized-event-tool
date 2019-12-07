@@ -15,6 +15,7 @@ class CreateOrganisationsTable extends Migration
     {
         Schema::create('organisations', function (Blueprint $table) {
             $table->bigIncrements('id');
+			$table->string('name');
 			$table->softDeletes();
             $table->timestamps();
         });
