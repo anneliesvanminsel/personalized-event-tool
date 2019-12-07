@@ -18,7 +18,7 @@ class CreateMessagesTable extends Migration
 			$table->string('title')->nullable();
 			$table->string('message');
 			$table->date('type')->nullable();
-			$table->string('afbeelding')->nullable(); //TODO: moet een afbeelding worden
+			$table->string('image')->nullable(); //TODO: moet een afbeelding worden
 			$table->softDeletes();
             $table->timestamps();
         });

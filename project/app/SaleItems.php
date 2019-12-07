@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class SaleItems extends Model
 {
+	use SoftDeletes;
     //
+	protected $fillable = [
+		'name', 'description', 'price', 'image',
+	];
 }
