@@ -13,7 +13,7 @@ class Session extends Model
 		'name', 'city', 'date', 'status', 'locationname', 'totaltickets', 'event_id',
 	];
 
-	//TODO: link tickets, planning, taak, adres, etc.
+	//TODO: link adres
 	public function event(){
 		return $this->belongsTo('App\Event', 'event_id');
 	}
@@ -33,21 +33,21 @@ class Session extends Model
 	public function floorplans(){
 		return $this->belongsToMany('App\Floorplan',
 			'session_floorplan',
-			'session_id',
-			'floorplan_id')->withTimestamps();
+			'floorplan_id',
+			'session_id')->withTimestamps();
 	}
 
 	public function saleitems(){
 		return $this->belongsToMany('App\SaleItems',
 			'session_saleitems',
-			'session_id',
-			'saleitem_id')->withTimestamps();
+			'saleitem_id',
+			'session_id')->withTimestamps();
 	}
 
 	public function schedules(){
 		return $this->belongsToMany('App\Schedule',
 			'session_schedules',
-			'session_id',
-			'schedule_id')->withTimestamps();
+			'schedule_id',
+			'session_id')->withTimestamps();
 	}
 }

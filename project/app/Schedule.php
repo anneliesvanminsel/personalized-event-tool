@@ -12,4 +12,11 @@ class Schedule extends Model
 	protected $fillable = [
 		'title', 'description', 'starttime', 'endtime', 'location',
 	];
+
+	public function sessions(){
+		return $this->belongsToMany('App\Session',
+			'session_schedules',
+			'session_id',
+			'schedule_id')->withTimestamps();
+	}
 }

@@ -16,6 +16,7 @@ class CreateOrganisationsTable extends Migration
         Schema::create('organisations', function (Blueprint $table) {
             $table->bigIncrements('id');
 			$table->string('name');
+			$table->integer('subscription_id');
 			$table->softDeletes();
             $table->timestamps();
         });

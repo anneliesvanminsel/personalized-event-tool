@@ -12,4 +12,8 @@ class Subscription extends Model
 	protected $fillable = [
 		'title', 'description', 'price',
 	];
+
+	public function organisations(){
+		return $this->hasMany('App\Organisation');
+	}
 }

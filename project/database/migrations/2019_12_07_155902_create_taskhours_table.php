@@ -17,6 +17,7 @@ class CreateTaskhoursTable extends Migration
             $table->bigIncrements('id');
             $table->string('starttime');
             $table->string('endtime');
+            $table->integer('task_id');
             $table->timestamps();
         });
     }

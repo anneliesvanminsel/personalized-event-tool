@@ -10,6 +10,17 @@ class Taskhour extends Model
 	use SoftDeletes;
 	//
 	protected $fillable = [
-		'starttime', 'endtime',
+		'starttime', 'endtime', 'task_id'
 	];
+
+	public function task(){
+		return $this->belongsTo('App\Task', 'task_id');
+	}
+
+	public function workers(){
+		return $this->belongsToMany('App\User',
+			'user_hour',
+			'user_id',
+			'hour_id')->withTimestamps();
+	}
 }

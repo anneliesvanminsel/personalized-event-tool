@@ -19,6 +19,7 @@ class CreateMessagesTable extends Migration
 			$table->string('message');
 			$table->date('type')->nullable();
 			$table->string('image')->nullable(); //TODO: moet een afbeelding worden
+			$table->integer('session_id');
 			$table->softDeletes();
             $table->timestamps();
         });

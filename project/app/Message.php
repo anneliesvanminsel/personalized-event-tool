@@ -10,6 +10,10 @@ class Message extends Model
 	use SoftDeletes;
 	//
 	protected $fillable = [
-		'title', 'message', 'type', 'image',
+		'title', 'message', 'type', 'image', 'session_id',
 	];
+
+	public function session(){
+		return $this->belongsTo('App\Session', 'session_id');
+	}
 }
