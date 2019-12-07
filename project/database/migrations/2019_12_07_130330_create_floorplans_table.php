@@ -17,7 +17,8 @@ class CreateFloorplansTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('afbeelding'); //TODO: moet een afbeelding worden
-            $table->timestamps();
+			$table->softDeletes();
+			$table->timestamps();
         });
     }
 
