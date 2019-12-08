@@ -17,6 +17,7 @@
 @mixin grid($padding: 80px, $maxWidth: 960px) {
 	padding: 0 $padding;
 	max-width: $maxWidth;
+	margin: 0 auto;
 }
 
 * {
@@ -51,16 +52,35 @@ h1, h2, h3, h4 {
 
 h1 {
 	font-size: 35px;
-	margin-bottom: 20px;
-	position: relative;
+	padding-bottom: 20px;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 
-	&::before {
-		@include pseudo();
-		top: 65%;
-		left: 40%;
-		width: 60%;
-		height: 1px;
-		background-color: $text-color-dark;
+	&::after {
+		content: '';
+		border-top: 1px solid;
+		margin: 0 0 0 40px;
+		flex: 1 0 20px;
+	}
+}
+
+h2 {
+	font-size: 25px;
+	padding: 20px 0;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+
+	&::after {
+		content: '';
+		border-top: 1px solid;
+		margin: 0 0 0 40px;
+		flex: 1 0 20px;
 	}
 }
 
@@ -77,6 +97,10 @@ h1 {
 		width: 100%;
 		height: auto;
 	}
+}
+
+.grid {
+	@include grid();
 }
 
 //Components

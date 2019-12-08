@@ -12,4 +12,11 @@ class SaleItems extends Model
 	protected $fillable = [
 		'name', 'description', 'price', 'image',
 	];
+
+	public function sessions(){
+		return $this->belongsToMany('App\Session',
+			'session_saleitems',
+			'session_id',
+			'saleitem_id')->withTimestamps();
+	}
 }

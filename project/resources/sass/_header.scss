@@ -15,7 +15,7 @@
 			left: calc(-35% - 30px);
 			width: 35%;
 			height: 1px;
-			background-color: $text-color-dark;
+			background-color: $black;
 		}
 	}
 
@@ -35,7 +35,7 @@
 		}
 
 		&__link {
-			color: $text-color-dark;
+			color: $black;
 			text-decoration: none;
 			position: relative;
 
@@ -45,7 +45,7 @@
 				left: 0;
 				width: 0;
 				height: 1px;
-				background-color: $text-color-dark;
+				background-color: $black;
 				transition: width .2s ease-in-out;
 			}
 
