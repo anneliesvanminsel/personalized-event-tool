@@ -19,6 +19,27 @@
 	max-width: $maxWidth;
 	margin: 0 auto;
 }
+$normal-transition-time: 0.2s;
+$default-ease: ease;
+@mixin default-transition($param: all) {
+	transition: $param $normal-transition-time $default-ease;
+}
+
+/*--------------------------------------------------------------
+2.0 Translate
+--------------------------------------------------------------*/
+
+@mixin translateX($value: -50%) {
+	transform: translateX($value);
+}
+
+@mixin translateY($value: -50%) {
+	transform: translateY($value);
+}
+
+@mixin translateXY($value: -50%) {
+	transform: translate($value , $value);
+}
 
 * {
 	margin: 0;
@@ -38,7 +59,6 @@ body {
 
 main {
 	flex-grow: 1;
-	margin-top: 80px;
 }
 
 .logo {
@@ -106,4 +126,11 @@ h2 {
 //Components
 @import 'header';
 @import 'footer';
+@import 'section';
+@import 'page';
 @import 'components/slideshow';
+@import 'components/button';
+@import 'components/panel';
+@import 'components/card';
+@import 'components/cardslider/functionality';
+@import 'components/cardslider/styling';

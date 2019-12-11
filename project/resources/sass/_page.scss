@@ -1,0 +1,25 @@
+.page {
+	position: relative;
+	min-height: 100vh;
+	background-color: $black;
+	z-index: -2;
+
+	&__image {
+		position: absolute;
+		top: 0;
+		right: 0;
+		z-index: -1;
+		height: 100%;
+		max-height: 100%;
+		opacity: .4;
+
+		img {
+			height: 100%;
+			width: auto;
+		}
+	}
+
+	&--auth {
+		color: $white;
+	}
+}
