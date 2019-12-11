@@ -1,0 +1,39 @@
+.section {
+	margin: 20px 0;
+	padding: 20px 80px;
+
+	&__content {
+		margin-left: 40px;
+		display: flex;
+		flex-direction: column;
+
+		h2 {
+			padding-top: 0;
+		}
+
+		&--right {
+			margin-left: 0;
+			margin-right: 40px;
+		}
+	}
+
+	&__text {
+		flex-grow: 1;
+	}
+
+	&__image {
+		min-width: 400px;
+		height: 400px;
+		overflow: hidden;
+
+		img {
+			height: 100%;
+			width: auto;
+		}
+	}
+
+	&--red {
+		background-color: $red;
+		color: $white;
+	}
+}
