@@ -23,3 +23,7 @@ Route::get('organisation', [
 	'uses' => 'SubscriptionController@showAll',
 	'as' => 'start.organisation'
 ]);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
