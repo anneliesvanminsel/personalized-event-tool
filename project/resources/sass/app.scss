@@ -43,7 +43,8 @@ $default-ease: ease;
 
 * {
 	margin: 0;
-	padding: O;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 html {
@@ -134,3 +135,4 @@ h2 {
 @import 'components/card';
 @import 'components/cardslider/functionality';
 @import 'components/cardslider/styling';
+@import 'components/form/input';

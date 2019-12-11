@@ -4,7 +4,8 @@
 
 * {
   margin: 0;
-  padding: O;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -399,7 +400,7 @@ h2::after {
   color: #262323;
   background-color: white;
   padding: 80px 80px 80px 120px;
-  width: 40%;
+  width: 60%;
   margin-top: 80px;
 }
 
@@ -860,5 +861,16 @@ https://github.com/Significa/css-only-slider
 
 .bullets__item:hover {
   background: #FE676E;
+}
+
+input[type=email],
+input[type=password],
+input[type=text],
+input[type=number] {
+  width: 100%;
+  border: 1px solid #262323;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
 }
 

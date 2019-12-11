@@ -1,0 +1,10 @@
+input[type=email],
+input[type=password],
+input[type=text],
+input[type=number] {
+	width: 100%;
+	border: 1px solid $black;
+	padding: 10px 20px;
+	font-size: 16px;
+	@include font-base;
+}
