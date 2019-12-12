@@ -1,5 +1,6 @@
-
-//TODO: add padding and margin sizes: spacing! 80px, 40px, 20px, 10px, 5px
+//
+// Variables
+//
 
 //Colors
 $black: #262323;
@@ -9,3 +10,24 @@ $red: #FE676E;
 $green: #B5D571;
 $blue: #85CBCC;
 $yellow: #FBB148;
+
+//Transition
+$normal-transition-time: 0.2s;
+$default-ease: ease;
+
+//Spacing
+$spacing-xl: 120px;
+$spacing-l: 80px;
+$spacing-m: 40px;
+$spacing-s: 20px;
+$spacing-xs: 10px;
+$spacing-xxs: 5px;
+
+//Breakpoints
+$breakpoint-mobile: 420px;
+$breakpoint-tablet-small: 640px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop-small: 960px;
+$breakpoint-desktop: 1280px;
+$breakpoint-desktop-large: 1440px;
+$breakpoint-desktop-extra-large: 1600px;

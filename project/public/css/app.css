@@ -1,5 +1,25 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat|Poiret+One&display=swap);/*--------------------------------------------------------------
-2.0 Translate
+pseudo
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+accent line
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+border
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+grid
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+transition
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+Translate
 --------------------------------------------------------------*/
 
 * {
@@ -55,7 +75,7 @@ h1 {
 h1::after {
   content: "";
   border-top: 1px solid;
-  margin: 0 0 0 40px;
+  margin: 0 0 0 20px;
   -webkit-box-flex: 1;
           flex: 1 0 20px;
 }
@@ -122,11 +142,11 @@ h2::after {
   content: "";
   display: block;
   position: absolute;
+  height: 1px;
+  background-color: #262323;
   top: 65%;
   left: calc(-35% - 30px);
   width: 35%;
-  height: 1px;
-  background-color: #262323;
 }
 
 .header .nav__bar {
@@ -219,8 +239,8 @@ h2::after {
   height: 1px;
   background-color: #262323;
   top: 65%;
-  left: 20%;
-  width: 87%;
+  right: 0;
+  width: 60%;
 }
 
 .footer .list {
@@ -306,8 +326,6 @@ h2::after {
 .page {
   position: relative;
   min-height: 100vh;
-  background-color: #262323;
-  z-index: -2;
 }
 
 .page__image {
@@ -327,6 +345,21 @@ h2::after {
 
 .page--auth {
   color: #ffffff;
+}
+
+.page--auth .logo {
+  position: relative;
+}
+
+.page--auth .logo::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 1px;
+  background-color: #ffffff;
+  top: 65%;
+  right: 0;
+  width: 60%;
 }
 
 .slideshow {
@@ -396,18 +429,35 @@ h2::after {
 }
 
 .panel {
+  position: relative;
   height: 100%;
   color: #262323;
   background-color: white;
-  padding: 80px 80px 80px 120px;
-  width: 60%;
-  margin-top: 80px;
+  padding: 20px;
+  margin-top: 120px;
+  z-index: 1;
+}
+
+@media screen and (min-width: 640px) {
+  .panel {
+    width: 70%;
+    padding: 40px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .panel {
+    max-width: 900px;
+    width: 60%;
+    padding: 80px 120px;
+  }
 }
 
 .panel__title {
   font-family: "Poiret One", cursive;
   font-size: 30px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .card {
@@ -868,9 +918,84 @@ input[type=password],
 input[type=text],
 input[type=number] {
   width: 100%;
-  border: 1px solid #262323;
-  padding: 10px 20px;
+  padding: 20px;
+  margin-bottom: 20px;
   font-size: 16px;
   font-family: "Montserrat", sans-serif;
+  border: 1px solid #262323;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  touch-action: manipulation;
+}
+
+input[type=email]:focus,
+input[type=email]:valid,
+input[type=password]:focus,
+input[type=password]:valid,
+input[type=text]:focus,
+input[type=text]:valid,
+input[type=number]:focus,
+input[type=number]:valid {
+  outline: none;
+  border: 1px solid #FE676E;
+}
+
+input:placeholder-shown + label {
+  cursor: text;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  -webkit-transform-origin: left bottom;
+          transform-origin: left bottom;
+  -webkit-transform: translate(20px, 40px) scale(1);
+          transform: translate(20px, 40px) scale(1);
+}
+
+/**
+* By default, the placeholder should be transparent. Also, it should
+* inherit the transition.
+*/
+
+::-webkit-input-placeholder {
+  opacity: 0;
+  -webkit-transition: inherit;
+  transition: inherit;
+}
+
+/**
+* Show the placeholder when the input is focused.
+*/
+
+input:focus::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+/**
+* When the element is focused, remove the label transform.
+* Also, do this when the placeholder is _not_ shown, i.e. when
+* there's something in the input at all.
+*/
+
+input:not(:placeholder-shown) + label,
+input:focus + label {
+  -webkit-transform: translate(10px, 10px) scale(0.9);
+          transform: translate(10px, 10px) scale(0.9);
+  background-color: white;
+  padding: 0 10px;
+  width: auto;
+}
+
+.form__group {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+          flex-flow: column-reverse;
+}
+
+.form__label {
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  touch-action: manipulation;
 }
 
