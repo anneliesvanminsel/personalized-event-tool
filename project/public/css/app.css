@@ -30,6 +30,7 @@ Translate
 
 html {
   min-height: 100vh;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -45,11 +46,6 @@ body {
 main {
   -webkit-box-flex: 1;
           flex-grow: 1;
-}
-
-.logo {
-  font-family: "Poiret One", cursive;
-  font-size: 35px;
 }
 
 h1,
@@ -189,6 +185,13 @@ h2::after {
   width: 100%;
 }
 
+.header .nav__link.active::before {
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: #FE676E;
+}
+
 .footer {
   position: relative;
   margin-top: 80px;
@@ -277,6 +280,11 @@ h2::after {
 
 .footer .list__link:hover::before {
   width: 100%;
+}
+
+.footer .list__link.active::before {
+  width: 100%;
+  background-color: #FE676E;
 }
 
 .section {
@@ -490,6 +498,17 @@ h2::after {
 
 .card__text {
   margin-bottom: 40px;
+}
+
+.logo {
+  font-family: "Poiret One", cursive;
+  font-size: 35px;
+  display: inline-block;
+}
+
+.logo--link {
+  text-decoration: none;
+  color: inherit;
 }
 
 /*--------------------------------------------------------------

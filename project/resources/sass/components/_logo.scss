@@ -1,0 +1,10 @@
+.logo {
+	@include font-heading;
+	font-size: 35px;
+	display: inline-block;
+
+	&--link {
+		text-decoration: none;
+		color: inherit;
+	}
+}

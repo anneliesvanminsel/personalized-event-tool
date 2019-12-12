@@ -11,19 +11,42 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [
+	'uses' => 'GeneralController@getIndex',
+	'as' => 'index'
+]);
 
-Route::get('org', function () {
-	return view('org-overview');
-});
+Route::get('index.php', [
+	'uses' => 'GeneralController@getIndex',
+	'as' => 'index'
+]);
 
 Route::get('organisation', [
-	'uses' => 'SubscriptionController@showAll',
+	'uses' => 'GeneralController@getOrganisationPage',
 	'as' => 'start.organisation'
 ]);
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+/*
+|--------------------------------------------------------------------------
+| Web Routes - Admin
+|--------------------------------------------------------------------------
+*/
+
+Route::group(['prefix' => 'admin'], function() {
+
+	//admin routes
+	Route::get('dashboard', [
+		'uses' => 'AdminController@getIndex',
+		'as' => 'admin.dashboard'
+	]);
+
+	//verwijder kid-events
+	Route::post('verwijder-event/{kid_id}', [
+		'uses' => 'AdminController@deleteKidDays',
+		'as' => 'admin.deletekiddays'
+	]);
+
+});
+

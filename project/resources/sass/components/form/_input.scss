@@ -20,7 +20,7 @@ input[type=number] {
 	}
 }
 
-//TODO: deze code beter schrijven + link code: https://codepen.io/team/css-tricks/pen/XVBLRM
+//TODO: deze code beter schrijven + link code: https://codepen.io/team/css-tricks/pen/XVBLRM + https://css-tricks.com/float-labels-css/
 input:placeholder-shown + label {
 	cursor: text;
 	max-width: fit-content;
