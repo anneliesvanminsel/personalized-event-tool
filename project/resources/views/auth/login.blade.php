@@ -24,51 +24,49 @@
 					@csrf
 
 					<div class="form__group">
-						<label for="email" class="">
-							email adres
+						<input
+							id="email"
+							type="email"
+							class="form__input @error('email') is-invalid @enderror"
+							name="email"
+							placeholder="bv. jan.peeters@mail.be"
+							value="{{ old('email') }}"
+							required
+							autocomplete="email"
+							autofocus
+						>
+						<label for="email" class="form__label">
+							e-mailadres
 						</label>
-
-						<div class="">
-							<input
-								id="email"
-								type="email"
-								class="form-control @error('email') is-invalid @enderror"
-								name="email"
-								value="{{ old('email') }}"
-								required
-								autocomplete="email"
-								autofocus
-							>
-
-							@error('email')
-								<span class="invalid-feedback" role="alert">
-									<strong>{{ $message }}</strong>
-								</span>
-							@enderror
-						</div>
+						@error('email')
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+						@enderror
 					</div>
 
-					<div class="">
-						<label for="password" class="">
+					<div class="form__group">
+
+
+						<input
+							id="password"
+							type="password"
+							class="form__input @error('password') is-invalid @enderror"
+							name="password"
+							placeholder="Jouw wachtwoord"
+							required
+							autocomplete="current-password"
+						>
+						<label for="password" class="form__label">
 							wachtwoord
 						</label>
 
-						<div class="">
-							<input
-								id="password"
-								type="password"
-								class="form-control @error('password') is-invalid @enderror"
-								name="password"
-								required
-								autocomplete="current-password"
-							>
+						@error('password')
+							<span class="invalid-feedback" role="alert">
+									<strong>{{ $message }}</strong>
+							</span>
+						@enderror
 
-							@error('password')
-								<span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-								</span>
-							@enderror
-						</div>
 					</div>
 
 					<div class="">
@@ -90,17 +88,15 @@
 					</div>
 
 					<div class="">
-						<div class="">
-							<button type="submit" class="btn btn--full">
-								aanmelden
-							</button>
+						<button type="submit" class="btn btn--full">
+							aanmelden
+						</button>
 
-							@if (Route::has('password.request'))
-								<a class="btn btn--link" href="{{ route('password.request') }}">
-									Wachtwoord vergeten?
-								</a>
-							@endif
-						</div>
+						@if (Route::has('password.request'))
+							<a class="link" href="{{ route('password.request') }}">
+								Wachtwoord vergeten?
+							</a>
+						@endif
 					</div>
 				</form>
 			</div>

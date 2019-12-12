@@ -1,15 +1,28 @@
 .panel {
+	position: relative;
  	height: 100%;
 	color: $black;
 	background-color: white;
-	padding: 80px 80px 80px 120px;
-	width: 60%;
-	margin-top: 80px;
+	padding: $spacing-s;
+	margin-top: $spacing-xl;
+	z-index: 1;
+
+	@media screen and (min-width: $breakpoint-tablet-small) {
+		width: 70%;
+		padding: $spacing-m;
+	}
+
+	@media screen and (min-width: $breakpoint-desktop-small) {
+		max-width: 900px;
+		width: 60%;
+		padding: $spacing-l $spacing-xl;
+	}
 
 	&__title {
 		@include font-heading;
 		font-size: 30px;
-		margin-bottom: 40px;
+		margin-bottom: $spacing-s;
+		text-align: center;
 	}
 
 	&__body {

@@ -1,0 +1,12 @@
+.form {
+	&__group {
+		//position: relative;
+		display: flex;
+		flex-flow: column-reverse;
+	}
+
+	&__label {
+		@include default-transition();
+		touch-action: manipulation;
+	}
+}

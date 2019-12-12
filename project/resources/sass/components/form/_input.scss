@@ -3,8 +3,53 @@ input[type=password],
 input[type=text],
 input[type=number] {
 	width: 100%;
-	border: 1px solid $black;
-	padding: 10px 20px;
+	padding: $spacing-s;
+	margin-bottom: $spacing-s;
+
 	font-size: 16px;
 	@include font-base;
+
+	@include border(1px, $black);
+	@include default-transition();
+	touch-action: manipulation;
+
+	&:focus,
+	&:valid {
+		outline: none;
+		@include border(1px, $red);
+	}
+}
+
+//TODO: deze code beter schrijven + link code: https://codepen.io/team/css-tricks/pen/XVBLRM
+input:placeholder-shown + label {
+	cursor: text;
+	max-width: fit-content;
+	transform-origin: left bottom;
+	transform: translate($spacing-s, $spacing-m) scale(1);
+}
+/**
+* By default, the placeholder should be transparent. Also, it should
+* inherit the transition.
+*/
+::-webkit-input-placeholder {
+	opacity: 0;
+	transition: inherit;
+}
+/**
+* Show the placeholder when the input is focused.
+*/
+input:focus::-webkit-input-placeholder {
+	opacity: 1;
+}
+/**
+* When the element is focused, remove the label transform.
+* Also, do this when the placeholder is _not_ shown, i.e. when
+* there's something in the input at all.
+*/
+input:not(:placeholder-shown) + label,
+input:focus + label {
+	transform: translate($spacing-xs, $spacing-xs) scale(.9);
+	background-color: white;
+	padding: 0 $spacing-xs;
+	width: auto;
 }
