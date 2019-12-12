@@ -1,17 +1,17 @@
 <header class="header">
-    <div class="logo">
+    <a class="logo logo--link" href="{{ route('index') }}">
         eventify
-    </div>
+    </a>
     <nav class="nav">
         <ul class="nav__bar">
             <li class="nav__item">
-                <a class="nav__link" href="">evenementen</a>
+                <a class="nav__link {{ (strpos(Route::currentRouteName(), 'index') === 0) ? 'active' : '' }}" href="{{ route('index') }}">evenementen</a>
             </li>
             <li class="nav__item">
-                <a class="nav__link" href="{{ route('start.organisation') }}">voor organisatoren</a>
+                <a class="nav__link {{ (strpos(Route::currentRouteName(), 'start.organisation') === 0) ? 'active' : '' }}" href="{{ route('start.organisation') }}">voor organisatoren</a>
             </li>
             <li class="nav__item">
-                <a class="nav__link" href="">aanmelden</a>
+                <a class="nav__link" href="{{ route('login') }}">aanmelden</a>
             </li>
         </ul>
     </nav>

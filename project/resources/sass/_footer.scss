@@ -66,6 +66,13 @@
 					width: 100%;
 				}
 			}
+
+			&.active {
+				&::before {
+					width: 100%;
+					background-color: $red;
+				}
+			}
 		}
 	}
 }
