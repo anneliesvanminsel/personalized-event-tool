@@ -25,13 +25,53 @@
 		<h1 class="schedule__title">
 			Planning
 		</h1>
-		<div class="">
-			@foreach($sessions as $session)
-				{{ $loop->iteration }}: {{ $session['name'] }} - {{ $session['date'] }}
-			@endforeach
-		</div>
-		<div>
-			uren
+		<div class="schedule__content">
+			<div class="schedule__headcontainer row row--stretch">
+				@foreach($sessions as $session)
+					<div class="schedule__heading">
+						<div>
+							{{ $session['name'] }}
+						</div>
+						<div>
+							{{ $session['date'] }}
+						</div>
+					</div>
+				@endforeach
+			</div>
+
+			<div class="table">
+				<div class="table__heading row row--stretch">
+					<div>
+						Uur
+					</div>
+					<div>
+						Wat
+					</div>
+					<div>
+						Waar
+					</div>
+				</div>
+				<div class="table__content">
+					@foreach($schedule as $sched)
+						<div class="table__item row row--stretch">
+							<div class="">
+								{{ $sched['starttime'] }} - {{ $sched['endtime'] }}
+							</div>
+							<div class="">
+								<div class="">
+									{{ $sched['title'] }}
+								</div>
+								<p class="">
+									{{ $sched['description'] }}
+								</p>
+							</div>
+							<div class="">
+								{{ $sched['location'] }}
+							</div>
+						</div>
+					@endforeach
+				</div>
+			</div>
 		</div>
 	</section>
 	<section class="photowall">

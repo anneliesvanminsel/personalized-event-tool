@@ -68,6 +68,23 @@ class EventController extends Controller
 
 		];
 
-		return view('content.event.detail', ['event' => $event, 'tickets' => $tickets, 'sessions' => $sessions]);
+		$schedule = [
+			[
+				'title' => 'Ada Thorne',
+				'description' => 'talk with the one and only',
+				'starttime' => '15:00',
+				'endtime' => '16:00',
+				'location' => 'campus bloemenhof',
+			],
+			[
+				'title' => 'Gina Gray',
+				'description' => 'talk with the only',
+				'starttime' => '16:00',
+				'endtime' => '15:00',
+				'location' => 'campus Kaai',
+			],
+		];
+
+		return view('content.event.detail', ['event' => $event, 'tickets' => $tickets, 'sessions' => $sessions, 'schedule' => $schedule]);
 	}
 }

@@ -1,0 +1,12 @@
+.schedule {
+	&__content {}
+
+	&__headcontainer {
+		justify-content: space-between;
+
+		@include font-heading;
+		font-size: 25px;
+	}
+
+	&__heading {}
+}

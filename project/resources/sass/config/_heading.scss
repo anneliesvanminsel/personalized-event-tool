@@ -1,0 +1,37 @@
+h1, h2, h3, h4 {
+	@include font-heading;
+}
+
+h1 {
+	font-size: 35px;
+	padding-bottom: 20px;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+
+	&::after {
+		content: '';
+		border-top: 1px solid;
+		margin: 0 0 0 20px;
+		flex: 1 0 20px;
+	}
+}
+
+h2 {
+	font-size: 25px;
+	padding: 20px 0;
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+
+	&::after {
+		content: '';
+		border-top: 1px solid;
+		margin: 0 0 0 40px;
+		flex: 1 0 20px;
+	}
+}
