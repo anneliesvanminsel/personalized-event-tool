@@ -1070,3 +1070,7 @@ input:focus + label {
   }
 }
 
+.photowall {
+  margin: 80px 0;
+}
+

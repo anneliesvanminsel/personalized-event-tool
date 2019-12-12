@@ -21,12 +21,14 @@
 			</div>
 		</div>
 	</section>
-	<section class="grid">
-		<h1>
+	<section class="grid schedule">
+		<h1 class="schedule__title">
 			Planning
 		</h1>
-		<div>
-			dagen
+		<div class="">
+			@foreach($sessions as $session)
+				{{ $loop->iteration }}: {{ $session['name'] }} - {{ $session['date'] }}
+			@endforeach
 		</div>
 		<div>
 			uren

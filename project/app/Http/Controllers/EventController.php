@@ -39,6 +39,35 @@ class EventController extends Controller
 			],
 
 		];
-		return view('content.event.detail', ['event' => $event, 'tickets' => $tickets]);
+
+		$sessions = [
+			[
+				'name' => 'Dag 1',
+				'location' => 'campus bloemenhof',
+				'date' => '19/12/2019',
+				'status' => '',
+				'locationname' => 'verschillende campussen van de ehb',
+				'totaltickets' => '20',
+			],
+			[
+				'name' => 'Dag 2',
+				'location' => 'campus bloemenhof',
+				'date' => '20/12/2019',
+				'status' => '',
+				'locationname' => 'verschillende campussen van de ehb',
+				'totaltickets' => '20',
+			],
+			[
+				'name' => 'Dag 3',
+				'location' => 'campus bloemenhof',
+				'date' => '21/12/2019',
+				'status' => '',
+				'locationname' => 'verschillende campussen van de ehb',
+				'totaltickets' => '20',
+			],
+
+		];
+
+		return view('content.event.detail', ['event' => $event, 'tickets' => $tickets, 'sessions' => $sessions]);
 	}
 }
