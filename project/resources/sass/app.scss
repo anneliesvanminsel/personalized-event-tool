@@ -65,6 +65,11 @@ h2 {
 	}
 }
 
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
 .row {
 	display: flex;
 
@@ -98,3 +103,4 @@ h2 {
 @import 'components/cardslider/styling';
 @import 'components/form/input';
 @import 'components/form/form';
+@import 'components/photowall/photos';

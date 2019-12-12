@@ -1,0 +1,41 @@
+// BASIC
+//https://css-tricks.com/adaptive-photo-layout-with-flexbox/
+//https://codepen.io/maxvoltar/pen/eYOPdMG
+//https://css-tricks.com/seamless-responsive-photo-grid/
+//https://www.w3schools.com/howto/howto_css_image_grid_responsive.asp
+
+.photolist {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+
+	&__item {
+		height: 20vh;
+		flex-grow: 1;
+		width: 50%;
+
+		@media screen and (min-width: $breakpoint-tablet-small) {
+			height: 15vh;
+			flex-grow: 1;
+			width: auto;
+		}
+
+		&:last-child {
+			flex-grow: 10;	// There's no science in using "10" here. In all my testing, this delivered the best results.
+		}
+
+		img {
+			width: 100%;
+			max-height: 100%;
+			min-height: 100%;
+			min-width: 0;
+			object-fit: cover;
+			vertical-align: bottom;
+
+			@media screen and (min-width: $breakpoint-tablet-small) {
+				width: auto;
+				min-width: 100%;
+			}
+		}
+	}
+}
