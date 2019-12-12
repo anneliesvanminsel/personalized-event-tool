@@ -15,6 +15,7 @@
                 <p>
                     Geniet mee van de spetterende kleuren.
                 </p>
+                <a class="btn btn--white" href="{{ route('event.detail') }}"> bekijk event</a>
             </div>
         </div>
     </section>
