@@ -1,0 +1,60 @@
+
+/*--------------------------------------------------------------
+pseudo
+--------------------------------------------------------------*/
+
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+	content: $content;
+	display: $display;
+	position: $pos;
+}
+
+/*--------------------------------------------------------------
+accent line
+--------------------------------------------------------------*/
+
+@mixin accentline($height: 1px, $color: $black) {
+	@include pseudo;
+	height: $height;
+	background-color: $color;
+}
+
+/*--------------------------------------------------------------
+border
+--------------------------------------------------------------*/
+
+@mixin border($height: 1px, $color) {
+	border: $height solid $color;
+}
+
+/*--------------------------------------------------------------
+grid
+--------------------------------------------------------------*/
+@mixin grid($padding: 80px, $maxWidth: 960px) {
+	padding: 0 $padding;
+	max-width: $maxWidth;
+	margin: 0 auto;
+}
+
+/*--------------------------------------------------------------
+transition
+--------------------------------------------------------------*/
+@mixin default-transition($param: all) {
+	transition: $param $normal-transition-time $default-ease;
+}
+
+/*--------------------------------------------------------------
+Translate
+--------------------------------------------------------------*/
+
+@mixin translateX($value: -50%) {
+	transform: translateX($value);
+}
+
+@mixin translateY($value: -50%) {
+	transform: translateY($value);
+}
+
+@mixin translateXY($value: -50%) {
+	transform: translate($value , $value);
+}
