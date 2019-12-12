@@ -9,9 +9,9 @@
 			<img src="https://images.pexels.com/photos/2283996/pexels-photo-2283996.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
 		</div>
 
-		<div class="logo">
+		<a class="logo logo--link" href="{{ route('index') }}">
 			eventify
-		</div>
+		</a>
 
 		<div class="panel">
 
