@@ -107,48 +107,12 @@
 				</label>
 			@endforeach
 
-		</div><!-- slider__holder -->
+		</div>
+
 		<div class="bullets">
 			@foreach($subs as $sub)
 				<label for="slide-{{ $loop->iteration }}" class="bullets__item bullets__item--{{ $loop->iteration }}"></label>
 			@endforeach
 		</div>
-
 	</section>
-	<!--section class="grid section slider">
-
-		<div class="radio">
-			@foreach($subs as $sub)
-				<input
-					type="radio"
-					name="slider"
-					id="slide-{{ $loop->iteration }}"
-					class="slider__radio"
-					{{ $loop->iteration == 2 ? 'checked' : ''}}
-				/>
-			@endforeach
-		</div>
-		<div class="slider__holder">
-			@foreach($subs as $sub)
-				<label for="slide-{{ $loop->iteration }}" class="slider__item slider__item--{{ $loop->iteration }} card">
-					<div class="slider__item-content">
-						<h3 class="">
-							{{ $sub['title'] }}
-						</h3>
-						<div class="slider__item-price">
-							€ {{ $sub['price'] }}
-						</div>
-						<p class="slider__item-text">
-							{{ $sub['description'] }}
-						</p>
-
-						<button class="button">
-							Ik wil deze
-						</button>
-					</div>
-				</label>
-			@endforeach
-		</div>
-
-	</section-->
 @endsection

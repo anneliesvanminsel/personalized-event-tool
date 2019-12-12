@@ -26,7 +26,7 @@
 				Organisatoren
 			</li>
 			<li class="list__item">
-				<a class="list__link {{ (strpos(Route::currentRouteName(), 'start.organisation') === 0) ? 'active' : '' }}" href="">overzicht</a>
+				<a class="list__link {{ (strpos(Route::currentRouteName(), 'start.organisation') === 0) ? 'active' : '' }}" href="{{ route('start.organisation') }}">overzicht</a>
 			</li>
 			<li class="list__item">
 				<a class="list__link" href="{{ route('start.organisation') }}#feature-1">onze features</a>
