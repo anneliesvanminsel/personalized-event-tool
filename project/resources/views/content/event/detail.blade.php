@@ -3,12 +3,12 @@
 	eventify - {{ $event['title'] }}
 @endsection
 @section('content')
-	<section class="slideshow">
-		<div class="slideshow__content row row--stretch">
+	<section class="hero">
+		<div class="hero__content row row--stretch">
 			<div class="ctn--image">
 				<img src="https://images.pexels.com/photos/801863/pexels-photo-801863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
 			</div>
-			<div class="slideshow__text">
+			<div class="hero__text">
 				<h1>
 					{{ $event['title'] }}
 				</h1>
@@ -19,6 +19,10 @@
 					Bestel tickets
 				</a>
 			</div>
+		</div>
+		<div>
+			Georganiseerd door
+			<a href=""> Erasmushogeschoool Brussel</a>
 		</div>
 	</section>
 	<section class="grid schedule">

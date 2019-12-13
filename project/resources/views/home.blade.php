@@ -19,7 +19,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section class="grid">
         <h1>
             Ga op avontuur
         </h1>

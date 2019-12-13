@@ -83,6 +83,8 @@
       <path value="$PROJECT_DIR$/project/vendor/vlucas/phpdotenv" />
       <path value="$PROJECT_DIR$/project/vendor/erusev/parsedown" />
       <path value="$PROJECT_DIR$/project/vendor/composer" />
+      <path value="$PROJECT_DIR$/project/vendor/mobiledetect/mobiledetectlib" />
+      <path value="$PROJECT_DIR$/project/vendor/riverskies/laravel-mobile-detect" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

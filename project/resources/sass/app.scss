@@ -8,13 +8,20 @@
 @import 'config/image';
 @import 'config/heading';
 
-
-
 .row {
 	display: flex;
+	flex-direction: column;
+
+	@media screen and (min-width: $breakpoint-tablet-small) {
+		flex-direction: row;
+	}
 
 	&--stretch {
-		align-items: stretch;
+		align-items: center;
+
+		@media screen and (min-width: $breakpoint-tablet-small) {
+			align-items: stretch;
+		}
 	}
 }
 
@@ -26,11 +33,12 @@
 @import 'grid';
 
 //Components
-@import 'components/slideshow';
 @import 'components/button';
 @import 'components/panel';
 @import 'components/card';
 @import 'components/logo';
+
+@import 'components/slideshow/slideshow';
 
 @import 'components/cardslider/functionality';
 @import 'components/cardslider/styling';
@@ -42,4 +50,5 @@
 @import 'components/photowall/photowall';
 
 @import 'components/table/table';
+
 @import 'components/schedule/schedule';
