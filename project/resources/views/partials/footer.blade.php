@@ -1,7 +1,7 @@
 @desktop
 	<footer class="footer">
 		<div class="logo">
-			eventify
+			evento
 		</div>
 		<div class="row row--stretch">
 			<ul class="list">

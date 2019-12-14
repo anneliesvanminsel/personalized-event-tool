@@ -1,7 +1,7 @@
 @desktop
     <header class="header">
         <a class="logo logo--link" href="{{ route('index') }}">
-            eventify
+            evento
         </a>
         <nav class="nav">
             <ul class="nav__bar">
