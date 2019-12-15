@@ -1148,7 +1148,9 @@ https://github.com/Significa/css-only-slider
 input[type=email],
 input[type=password],
 input[type=text],
-input[type=number] {
+input[type=number],
+input[type=textarea],
+input[type=file] {
   width: 100%;
   padding: 20px;
   margin-bottom: 20px;
@@ -1167,7 +1169,11 @@ input[type=password]:valid,
 input[type=text]:focus,
 input[type=text]:valid,
 input[type=number]:focus,
-input[type=number]:valid {
+input[type=number]:valid,
+input[type=textarea]:focus,
+input[type=textarea]:valid,
+input[type=file]:focus,
+input[type=file]:valid {
   outline: none;
   border: 1px solid #FE676E;
 }
@@ -1302,7 +1308,7 @@ input:focus + label {
   padding: 20px 0;
 }
 
-.table__item:nth-child(even) {
+.table__item:nth-child(odd) {
   background-color: rgba(254, 103, 110, 0.5);
 }
 

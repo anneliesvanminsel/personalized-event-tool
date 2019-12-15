@@ -1,7 +1,10 @@
 input[type=email],
 input[type=password],
 input[type=text],
-input[type=number] {
+input[type=number],
+input[type=textarea],
+input[type=file]
+{
 	width: 100%;
 	padding: $spacing-s;
 	margin-bottom: $spacing-s;
