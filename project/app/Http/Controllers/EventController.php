@@ -87,4 +87,59 @@ class EventController extends Controller
 
 		return view('content.event.detail', ['event' => $event, 'tickets' => $tickets, 'sessions' => $sessions, 'schedule' => $schedule]);
 	}
+
+	public function createEvent($user_id) {
+		$user = User::where('id', $user_id)->first(); //TODO: niet de user_id maar org id ?! en wat met meerdere orgsss
+
+		if(is_null($user)) {
+			return view('errors.401');
+		}
+
+		return view('content.event.detail', ['user_id' => $user['id']);
+	}
+
+	public function postCreateEvent(Request $request, $user_id) {
+
+		$user = User::where('id', $user_id)->first();
+
+		//validatie
+		$this->validate($request, [
+			'title' => 'required|string|max:255',
+			'description'=> 'required|string|max:255',
+			'type'=> 'required|integer|min:1000|max:10000',
+			'status'=> 'required|string|max:255',
+			'bkg-color'=> 'nullable|string|max:255',
+			'text-color'=> 'nullable|string|max:255',
+			'logo'=> 'nullable|string|max:255',
+		]);
+
+		$event = new Event(
+			[
+				'title' => 'Ehb Rock',
+				'description' => 'Iedereen welkom op ons eerste festival. Verspreid over onze campussen bevinden zich podia met artiesten uit onze regio.',
+				'type' => 'festival',
+				'status' => 'published',
+				'bkg-color' => 'red',
+				'text-color' => 'purple',
+				'logo' => 'Erasmushogeschool Brussel',
+			]
+		);
+
+		$familie = new Familie;
+		$familie->email = $user['email'];
+
+		$familie->street = $request->input('street');
+		$familie->street_number = $request->input('street_number');
+		$familie->box = $request->input('box');
+		$familie->zipcode = $request->input('zipcode');
+		$familie->city = $request->input('city');
+		$familie->user_id = $user['id'];
+		$familie->email = $user['email'];
+		$familie->save();
+
+		$user->account()->associate($familie);
+		$user->save();
+
+		return redirect()->route('account', ['id' => $user['id']]);
+	}
 }

@@ -48,6 +48,7 @@ input:focus::-webkit-input-placeholder {
 */
 input:not(:placeholder-shown) + label,
 input:focus + label {
+	max-width: fit-content;
 	transform: translate($spacing-xs, $spacing-xs) scale(.9);
 	background-color: white;
 	padding: 0 $spacing-xs;

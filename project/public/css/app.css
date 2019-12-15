@@ -591,7 +591,6 @@ h2::after {
 @media screen and (min-width: 960px) {
   .slideshow .ctn--image {
     width: 400px;
-    width: 50%;
     margin-top: -40px;
     margin-bottom: -40px;
     overflow: hidden;
@@ -603,10 +602,125 @@ h2::after {
   height: auto;
 }
 
+@media screen and (min-width: 640px) {
+  .slideshow .ctn--image img {
+    height: 100%;
+    width: auto;
+  }
+}
+
 @media screen and (min-width: 960px) {
   .slideshow .ctn--image img {
     position: relative;
+  }
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  margin: 20px 0;
+  background-color: #FE676E;
+}
+
+@media screen and (min-width: 640px) {
+  .hero {
+    margin-bottom: 80px;
+    margin-top: 80px;
+  }
+}
+
+.hero__content {
+  padding: 0 20px;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 640px) {
+  .hero__content {
+    padding: 0 40px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .hero__content {
+    padding: 0 80px;
+  }
+}
+
+.hero__text {
+  -webkit-box-flex: 1;
+          flex-grow: 1;
+  padding: 40px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+
+.hero .ctn--image {
+  width: 100%;
+  max-height: 40vh;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+@media screen and (min-width: 640px) {
+  .hero .ctn--image {
+    height: 40vh;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .hero .ctn--image {
+    width: 400px;
+    margin-top: -40px;
+    margin-bottom: -40px;
+    overflow: hidden;
+  }
+}
+
+.hero .ctn--image img {
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (min-width: 640px) {
+  .hero .ctn--image img {
+    height: 100%;
+    width: auto;
+    position: relative;
+    right: 30%;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .hero .ctn--image img {
     right: 50%;
+  }
+}
+
+.hero__post {
+  padding: 0 20px;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  text-align: right;
+  font-size: 11px;
+}
+
+@media screen and (min-width: 640px) {
+  .hero__post {
+    padding: 0 40px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .hero__post {
+    padding: 0 80px;
   }
 }
 
@@ -1096,6 +1210,9 @@ input:focus::-webkit-input-placeholder {
 
 input:not(:placeholder-shown) + label,
 input:focus + label {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
   -webkit-transform: translate(10px, 10px) scale(0.9);
           transform: translate(10px, 10px) scale(0.9);
   background-color: white;

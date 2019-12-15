@@ -24,9 +24,13 @@
 		height: 40vh;
 		overflow: hidden;
 
+		@media screen and (min-width: $breakpoint-tablet-small) {
+			//height: 100%;
+		}
+
 		@media screen and (min-width: $breakpoint-desktop-small) {
 			width: 400px;
-			width: 50%;
+			//width: 50%;
 			margin-top: -40px;
 			margin-bottom: -40px;
 			overflow: hidden;
@@ -36,9 +40,14 @@
 			width: 100%;
 			height: auto;
 
+			@media screen and (min-width: $breakpoint-tablet-small) {
+				height: 100%;
+				width: auto;
+			}
+
 			@media screen and (min-width: $breakpoint-desktop-small) {
 				position: relative;
-				right: 50%;
+				//right: 50%;
 			}
 		}
 	}

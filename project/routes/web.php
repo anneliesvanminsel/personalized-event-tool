@@ -26,10 +26,15 @@ Route::get('organisation', [
 	'as' => 'start.organisation'
 ]);
 
-	Route::get('event', [
-		'uses' => 'EventController@getEventDetail',
-		'as' => 'event.detail'
-	]);
+Route::get('account/{user_id}', [
+	'uses' => 'GeneralController@getAccount',
+	'as' => 'user.account'
+]);
+
+Route::get('event', [
+	'uses' => 'EventController@getEventDetail',
+	'as' => 'event.detail'
+]);
 
 Auth::routes();
 

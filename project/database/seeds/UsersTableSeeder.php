@@ -39,7 +39,7 @@ class UsersTableSeeder extends Seeder
 				'name' => 'medewerker',
 				'email' => 'medewerker@bedrijf.be',
 				'password' => \Illuminate\Support\Facades\Hash::make("bedrijf"),
-				'role' => 'medewerker',
+				'role' => 'volunteer',
 			]
 		);
 		$user->save();
@@ -49,7 +49,7 @@ class UsersTableSeeder extends Seeder
 				'name' => 'bezoeker',
 				'email' => 'bezoeker@mail.be',
 				'password' => \Illuminate\Support\Facades\Hash::make("bedrijf"),
-				'role' => 'bezoeker',
+				'role' => 'guest',
 			]
 		);
 		$user->save();

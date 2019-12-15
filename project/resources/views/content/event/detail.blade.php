@@ -20,9 +20,9 @@
 				</a>
 			</div>
 		</div>
-		<div>
+		<div class="hero__post">
 			Georganiseerd door
-			<a href=""> Erasmushogeschoool Brussel</a>
+			<a href="link"> Erasmushogeschool Brussel</a>
 		</div>
 	</section>
 	<section class="grid schedule">

@@ -26,13 +26,24 @@ class LoginController extends Controller
      *
      * @var string
      */
-    //protected $redirectTo = '/home';
 
     protected function authenticated(Request $request, $user)
 	{
-//		if ( $user ) {
-//			return redirect()->route('account', [$user['id']]);
-//		}
+		if ( $user ) {
+			if ($user['role'] === 'organisator') {
+				return redirect()->route('start.organisation');
+			}
+
+			if ($user['role'] === 'volunteer') {
+				return redirect()->route('start.organisation');
+			}
+
+			if ($user['role'] === 'guest') {
+				return redirect()->route('start.organisation');
+			}
+
+			return redirect()->route('login');
+		}
 
 		return redirect('/index.php');
 	}
