@@ -40,7 +40,7 @@ const Slide = ({ index, image }) => {
     };
 
     return (
-        <div className="slide" style={styles}>
+        <div className={ "slide-item slide-" + (index) } style={styles}>
             <div className="hero__content row row--stretch">
                 <div className="ctn--image">
                     <img src={image} alt=""/>

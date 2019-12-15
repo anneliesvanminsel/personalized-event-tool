@@ -68997,7 +68997,7 @@ var Slide = function Slide(_ref) {
     height: '100%'
   };
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "slide",
+    className: "slide-item slide-" + index,
     style: styles
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "hero__content row row--stretch"
@@ -69114,12 +69114,11 @@ function (_Component) {
     });
 
     _defineProperty(_assertThisInitialized(_this), "slideWidth", function () {
-      console.log(document.querySelector('.slide').clientWidth);
-      return document.querySelector('.slide').clientWidth;
+      return document.querySelector('.slide-item').clientWidth;
     });
 
     _this.state = {
-      images: ["https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/aurora.jpg", "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/canyon.jpg", "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/city.jpg", "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/desert.jpg", "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/mountains.jpg", "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/redsky.jpg", "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/sandy-shores.jpg", "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/tree-of-life.jpg"],
+      images: ["https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/aurora.jpg", "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/canyon.jpg", "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/city.jpg"],
       currentIndex: 0,
       translateValue: 0
     };
@@ -69143,7 +69142,8 @@ function (_Component) {
       }, this.state.images.map(function (image, i) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slide__WEBPACK_IMPORTED_MODULE_2__["default"], {
           key: i,
-          image: image
+          image: image,
+          index: i
         });
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LeftArrow__WEBPACK_IMPORTED_MODULE_3__["default"], {
         goToPrevSlide: this.goToPrevSlide

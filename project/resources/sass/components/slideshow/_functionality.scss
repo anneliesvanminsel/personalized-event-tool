@@ -1,0 +1,122 @@
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 Variables
+2.0 Cards
+3.0 Bullets
+
+https://medium.com/significa/css-only-slider-71727effff0b
+https://significa.github.io/css-only-slider/
+https://github.com/Significa/css-only-slider
+
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.0 Variables
+--------------------------------------------------------------*/
+
+// Define number of slides
+$start: 1; // Always 1
+$end: 3; // Number of slides: 5 slides in this case
+
+/*--------------------------------------------------------------
+2.0 Cards
+--------------------------------------------------------------*/
+
+.slideshow {
+
+	// .slider__item
+	.slide {
+		@include default-transition(all);
+
+		// Loop through .slider__item--(slide-number)
+		@for $slide from $start through $end {
+
+			// .slider__item--(slide-number)
+			&-#{$slide} {
+
+				// Within each .slider__item--(slide-number) loop through #slide-(number)
+				@for $i from $start through $end {
+
+					@if $i == $slide - 2 {
+						// For the slide 2 positions on the right
+						// #slide-(number):checked ~ .slider__holder .slider__item--(slide-number)
+						#slide-#{$i}:checked ~ .slideshow & {
+							z-index: 0;
+
+							transform: translateX(300px) scale(0.75);
+
+							@media (max-width: 900px) {
+								transform: translateX(170px) scale(0.65);
+							}
+
+							@media (max-width: 768px) {
+								opacity: 0;
+							}
+						}
+					}
+
+					@if $i == $slide - 1 {
+						// For the slide 1 positions on the right
+						// #slide-(number):checked ~ .slider__holder .slider__item--(slide-number)
+						#slide-#{$i}:checked ~ .slideshow & {
+							z-index: 1;
+
+							transform: translateX(200px) scale(0.85);
+
+							@media (max-width: 768px) {
+								transform: translateX(100px) scale(0.85);
+								opacity: 0.6;
+							}
+						}
+					}
+
+					@if $i == $slide {
+						// For the slide 1 positions under the active one
+						// #slide-(number):checked ~ .slider__holder .slider__item--(slide-number)
+						#slide-#{$i}:checked ~ .slideshow & {
+							position: relative;
+							z-index: 2;
+
+							transform: translate(0) scale(1);
+						}
+					}
+
+					@if $i == $slide + 1 {
+						// For the slide 1 positions on the left
+						// #slide-(number):checked ~ .slider__holder .slider__item--(slide-number)
+						#slide-#{$i}:checked ~ .slideshow & {
+							z-index: 1;
+
+							transform: translateX(-200px) scale(0.85);
+
+							@media (max-width: 768px) {
+								transform: translateX(-100px) scale(0.85);
+								opacity: 0.6;
+							}
+						}
+					}
+
+					@if $i == $slide + 2 {
+						// For the slide 2 positions on the left
+						// #slide-(number):checked ~ .slider__holder .slider__item--(slide-number)
+						#slide-#{$i}:checked ~ .slideshow & {
+							z-index: 0;
+
+							transform: translateX(-300px) scale(0.75);
+
+							@media (max-width: 900px) {
+								transform: translateX(-170px) scale(0.65);
+							}
+
+							@media (max-width: 768px) {
+								opacity: 0;
+							}
+						}
+					}
+
+				}
+			}
+		}
+	}
+}

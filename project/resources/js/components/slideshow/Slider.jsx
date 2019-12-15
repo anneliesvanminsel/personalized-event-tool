@@ -12,12 +12,7 @@ class Slider extends Component {
             images: [
                 "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/aurora.jpg",
                 "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/canyon.jpg",
-                "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/city.jpg",
-                "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/desert.jpg",
-                "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/mountains.jpg",
-                "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/redsky.jpg",
-                "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/sandy-shores.jpg",
-                "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/tree-of-life.jpg"
+                "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/city.jpg"
             ],
             currentIndex: 0,
             translateValue: 0
@@ -60,8 +55,7 @@ class Slider extends Component {
     };
 
     slideWidth = () => {
-        console.log(document.querySelector('.slide').clientWidth);
-        return document.querySelector('.slide').clientWidth;
+        return document.querySelector('.slide-item').clientWidth;
     };
 
     render() {
@@ -78,7 +72,7 @@ class Slider extends Component {
                          }}>
                         {
                             this.state.images.map((image, i) => (
-                                <Slide key={i} image={image} />
+                                <Slide key={i} image={image} index={i}/>
                             ))
                         }
                     </div>
