@@ -16,8 +16,8 @@ class EventController extends Controller
 				'description' => 'Iedereen welkom op ons eerste festival. Verspreid over onze campussen bevinden zich podia met artiesten uit onze regio.',
 				'type' => 'festival',
 				'status' => 'published',
-				'bkg-color' => 'red',
-				'text-color' => 'purple',
+				'bkgcolor' => 'purple',
+				'textcolor' => 'white',
 				'logo' => 'Erasmushogeschool Brussel',
 			]
 		);
@@ -88,16 +88,17 @@ class EventController extends Controller
 		return view('content.event.detail', ['event' => $event, 'tickets' => $tickets, 'sessions' => $sessions, 'schedule' => $schedule]);
 	}
 
-	public function createEvent($user_id) {
+	public function createEvent() {
+		/*
 		$user = User::where('id', $user_id)->first(); //TODO: niet de user_id maar org id ?! en wat met meerdere orgsss
 
 		if(is_null($user)) {
 			return view('errors.401');
 		}
-
-		return view('content.event.detail', ['user_id' => $user['id']);
+*/
+		return view('content.event.create');
 	}
-
+/*
 	public function postCreateEvent(Request $request, $user_id) {
 
 		$user = User::where('id', $user_id)->first();
@@ -106,11 +107,11 @@ class EventController extends Controller
 		$this->validate($request, [
 			'title' => 'required|string|max:255',
 			'description'=> 'required|string|max:255',
-			'type'=> 'required|integer|min:1000|max:10000',
-			'status'=> 'required|string|max:255',
-			'bkg-color'=> 'nullable|string|max:255',
-			'text-color'=> 'nullable|string|max:255',
-			'logo'=> 'nullable|string|max:255',
+			'type'=> 'required|integer|min:1000|max:10000', //with examples
+			'status'=> 'required|string|max:255', //select
+			'bkg-color'=> 'nullable|string|max:255', //hex
+			'text-color'=> 'nullable|string|max:255', //hex
+			'logo'=> 'nullable|string|max:255', //image
 		]);
 
 		$event = new Event(
@@ -125,21 +126,21 @@ class EventController extends Controller
 			]
 		);
 
-		$familie = new Familie;
-		$familie->email = $user['email'];
+		$event = new Event;
+		$event->email = $user['email'];
 
-		$familie->street = $request->input('street');
-		$familie->street_number = $request->input('street_number');
-		$familie->box = $request->input('box');
-		$familie->zipcode = $request->input('zipcode');
-		$familie->city = $request->input('city');
-		$familie->user_id = $user['id'];
-		$familie->email = $user['email'];
-		$familie->save();
+		$event->street = $request->input('street');
+		$event->street_number = $request->input('street_number');
+		$event->box = $request->input('box');
+		$event->zipcode = $request->input('zipcode');
+		$event->city = $request->input('city');
+		$event->user_id = $user['id'];
+		$event->email = $user['email'];
+		$event->save();
 
 		$user->account()->associate($familie);
 		$user->save();
 
 		return redirect()->route('account', ['id' => $user['id']]);
-	}
+	} */
 }

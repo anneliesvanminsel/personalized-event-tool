@@ -1,9 +1,9 @@
 @extends('layouts.masterlayout')
 @section('title')
-	eventify - {{ $event['title'] }}
+	evento - {{ $event['title'] }}
 @endsection
 @section('content')
-	<section class="hero">
+	<section class="hero" style="background-color: {{ $event['bkgcolor'] }}; color: {{ $event['textcolor'] }}">
 		<div class="hero__content row row--stretch">
 			<div class="ctn--image">
 				<img src="https://images.pexels.com/photos/801863/pexels-photo-801863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
@@ -14,8 +14,16 @@
 				</h1>
 				<p>
 					{{ $event['description'] }}
+
 				</p>
-				<a class="btn btn--white" href="#tickets">
+				<p>
+					{{ $event['bkgcolor'] }} <br>
+					{{ $event['textcolor'] }} <br>
+					{{ $event['logo'] }} <br>
+					{{ $event['status'] }} <br>
+					{{ $event['type'] }} <br>
+				</p>
+				<a class="btn btn--white" href="#tickets" style="border-color: {{ $event['textcolor'] }}; color: {{ $event['textcolor'] }}">
 					Bestel tickets
 				</a>
 			</div>
@@ -44,7 +52,7 @@
 			</div>
 
 			<div class="table">
-				<div class="table__heading row row--stretch">
+				<div class="table__heading row row--stretch" style="border-color: {{ $event['bkgcolor'] }}">
 					<div>
 						Uur
 					</div>
@@ -56,6 +64,12 @@
 					</div>
 				</div>
 				<div class="table__content">
+					<style>
+						.table__item:nth-child(odd) {
+							background-color: {{ $event['bkgcolor'] }}55;
+						}
+					</style>
+					<!-- laatste twee cijfers zijn opacity -->
 					@foreach($schedule as $sched)
 						<div class="table__item row row--stretch">
 							<div class="">
@@ -126,7 +140,7 @@
 
 		<div class="slider__holder">
 			@foreach($tickets as $ticket)
-				<label for="slide-{{ $loop->iteration }}" class="slider__item slider__item--{{ $loop->iteration }} card">
+				<label for="slide-{{ $loop->iteration }}" class="slider__item slider__item--{{ $loop->iteration }} card" style="border-color: {{ $event['bkgcolor'] }}">
 					<!-- Card Content goes here -->
 					<h3 class="card__title">
 						{{ $ticket['name'] }}
@@ -138,15 +152,27 @@
 						{{ $ticket['description'] }}
 					</p>
 
-					<button class="btn btn--full">
+					<button class="btn btn--full" style="border-color: {{ $event['bkgcolor'] }}; background-color: {{ $event['bkgcolor'] }}; color: {{ $event['textcolor'] }};">
 						Ik wil deze
 					</button>
 				</label>
 			@endforeach
+		</div>
 
-		</div><!-- slider__holder -->
+
+
 		<div class="bullets">
 			@foreach($tickets as $ticket)
+				<style>
+					.bullets__item:hover {
+						background-color: {{ $event['bkgcolor'] }};
+					}
+
+					#slide-{{$loop->iteration}}:checked ~ .bullets .bullets__item--{{$loop->iteration}}  {
+						background-color: {{ $event['bkgcolor'] }};
+					}
+				</style>
+
 				<label for="slide-{{ $loop->iteration }}" class="bullets__item bullets__item--{{ $loop->iteration }}"></label>
 			@endforeach
 		</div>

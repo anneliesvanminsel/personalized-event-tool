@@ -36,6 +36,11 @@ Route::get('event', [
 	'as' => 'event.detail'
 ]);
 
+Route::get('newevent', [
+	'uses' => 'EventController@createEvent',
+	'as' => 'event.create'
+]);
+
 Auth::routes();
 
 /*

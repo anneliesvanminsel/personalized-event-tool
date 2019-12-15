@@ -3,22 +3,8 @@
     eventify
 @endsection
 @section('content')
-    <section class="slideshow">
-        <div class="slideshow__content row row--stretch">
-            <div class="ctn--image">
-                <img src="https://images.pexels.com/photos/196652/pexels-photo-196652.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
-            </div>
-            <div class="slideshow__text">
-                <h1>
-                    Kleurenfeest
-                </h1>
-                <p>
-                    Geniet mee van de spetterende kleuren.
-                </p>
-                <a class="btn btn--white" href="{{ route('event.detail') }}"> bekijk event</a>
-            </div>
-        </div>
-    </section>
+    <div id="event-slider"></div>
+
     <section class="grid">
         <h1>
             Ga op avontuur

@@ -18,6 +18,9 @@ class CreateEventsTable extends Migration
 			$table->string('title');
 			$table->string('description');
 			$table->string('type');
+			$table->string('bkgcolor');
+			$table->string('textcolor');
+			$table->string('logo'); //TODO: fix afbeeldingg
 			$table->boolean('status')->default(0);
 			$table->softDeletes();
             $table->timestamps();
