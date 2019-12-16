@@ -68989,28 +68989,28 @@ class Slide extends Component {
 export default Slide;
 */
 
-var Slide = function Slide(_ref) {
-  var index = _ref.index,
-      event = _ref.event;
+var Slide = function Slide(props) {
   var styles = {
-    width: '100%',
-    height: '100%'
+    width: "100%",
+    height: "100%"
   };
+  var event = JSON.parse(props.event);
+  var url = props.url;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "slide-item slide-" + index,
+    className: "slide-item slide-" + props.index,
     style: styles
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "hero__content row row--stretch"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "ctn--image"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: event[6],
+    src: event.logo,
     alt: ""
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "hero__text"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, event[0]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, event[1]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, event.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, event.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "btn btn--white",
-    href: "#"
+    href: url
   }, "Bestel tickets"))));
 };
 
@@ -69141,13 +69141,16 @@ function (_Component) {
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slide__WEBPACK_IMPORTED_MODULE_2__["default"], {
         index: 1,
-        event: Object.values(this.props.event1)
+        event: this.props.event1,
+        url: this.props.url1
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slide__WEBPACK_IMPORTED_MODULE_2__["default"], {
         index: 2,
-        event: Object.values(this.props.event2)
+        event: this.props.event2,
+        url: this.props.url2
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slide__WEBPACK_IMPORTED_MODULE_2__["default"], {
         index: 3,
-        event: Object.values(this.props.event3)
+        event: this.props.event3,
+        url: this.props.url3
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LeftArrow__WEBPACK_IMPORTED_MODULE_3__["default"], {
         goToPrevSlide: this.goToPrevSlide
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RightArrow__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -69163,9 +69166,12 @@ function (_Component) {
 
 if (document.getElementById('event-slider')) {
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Slider, {
-    event1: JSON.parse(document.getElementById('event-slider').dataset.event1),
-    event2: JSON.parse(document.getElementById('event-slider').dataset.event2),
-    event3: JSON.parse(document.getElementById('event-slider').dataset.event3)
+    event1: document.getElementById('event-slider').dataset.event1,
+    event2: document.getElementById('event-slider').dataset.event2,
+    event3: document.getElementById('event-slider').dataset.event3,
+    url1: document.getElementById('event-slider').dataset.url1,
+    url2: document.getElementById('event-slider').dataset.url2,
+    url3: document.getElementById('event-slider').dataset.url3
   }), document.getElementById('event-slider'));
 }
 

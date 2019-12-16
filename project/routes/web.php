@@ -31,7 +31,7 @@ Route::get('account/{user_id}', [
 	'as' => 'user.account'
 ]);
 
-Route::get('event', [
+Route::get('event/{event_id}', [
 	'uses' => 'EventController@getEventDetail',
 	'as' => 'event.detail'
 ]);

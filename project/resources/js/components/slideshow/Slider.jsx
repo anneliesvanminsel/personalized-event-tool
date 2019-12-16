@@ -71,9 +71,9 @@ class Slider extends Component {
                                 <Slide key={i} image={image} index={i}/>
                             ))
                         }*/}
-                        <Slide index={1} event={Object.values(this.props.event1)}  />
-                        <Slide index={2} event={Object.values(this.props.event2)} />
-                        <Slide index={3} event={Object.values(this.props.event3)} />
+                        <Slide index={1} event={this.props.event1} url={this.props.url1}/>
+                        <Slide index={2} event={this.props.event2} url={this.props.url2}/>
+                        <Slide index={3} event={this.props.event3} url={this.props.url3}/>
                     </div>
                 </div>
 
@@ -95,8 +95,11 @@ if (document.getElementById('event-slider')) {
 
     ReactDOM.render(
         <Slider
-            event1={JSON.parse(document.getElementById('event-slider').dataset.event1)}
-            event2={JSON.parse(document.getElementById('event-slider').dataset.event2)}
-            event3={JSON.parse(document.getElementById('event-slider').dataset.event3)}
+            event1={document.getElementById('event-slider').dataset.event1}
+            event2={document.getElementById('event-slider').dataset.event2}
+            event3={document.getElementById('event-slider').dataset.event3}
+            url1={document.getElementById('event-slider').dataset.url1}
+            url2={document.getElementById('event-slider').dataset.url2}
+            url3={document.getElementById('event-slider').dataset.url3}
         />, document.getElementById('event-slider'));
 }

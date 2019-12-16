@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
 /*
 class Slide extends Component {
     render() {
@@ -33,26 +33,29 @@ class Slide extends Component {
 
 export default Slide;
 */
-const Slide = ({ index, event }) => {
+const Slide = (props) => {
     const styles = {
-        width: '100%',
-        height: '100%'
+        width: "100%",
+        height: "100%"
     };
 
+    const event = JSON.parse(props.event);
+    const url = props.url;
+
     return (
-        <div className={ "slide-item slide-" + (index) } style={styles}>
+        <div className={ "slide-item slide-" + (props.index) } style={styles}>
             <div className="hero__content row row--stretch">
                 <div className="ctn--image">
-                    <img src={event[6]} alt=""/>
+                    <img src={event.logo} alt=""/>
                 </div>
                 <div className="hero__text">
                     <h1>
-                        {event[0]}
+                        {event.title}
                     </h1>
                     <p>
-                        {event[1]}
+                        {event.description}
                     </p>
-                    <a className="btn btn--white" href="#">
+                    <a className="btn btn--white" href={url}>
                         Bestel tickets
                     </a>
                 </div>
