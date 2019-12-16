@@ -33,7 +33,7 @@ class Slide extends Component {
 
 export default Slide;
 */
-const Slide = ({ index, image }) => {
+const Slide = ({ index, event }) => {
     const styles = {
         width: '100%',
         height: '100%'
@@ -43,17 +43,14 @@ const Slide = ({ index, image }) => {
         <div className={ "slide-item slide-" + (index) } style={styles}>
             <div className="hero__content row row--stretch">
                 <div className="ctn--image">
-                    <img src={image} alt=""/>
+                    <img src={event[6]} alt=""/>
                 </div>
                 <div className="hero__text">
                     <h1>
-                        lala
+                        {event[0]}
                     </h1>
                     <p>
-                       kdklkff
-                    </p>
-                    <p>
-                        woepsiepoepsie
+                        {event[1]}
                     </p>
                     <a className="btn btn--white" href="#">
                         Bestel tickets

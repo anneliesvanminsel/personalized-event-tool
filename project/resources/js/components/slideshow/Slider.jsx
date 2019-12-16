@@ -9,13 +9,9 @@ class Slider extends Component {
         super(props);
 
         this.state = {
-            images: [
-                "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/aurora.jpg",
-                "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/canyon.jpg",
-                "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/city.jpg"
-            ],
             currentIndex: 0,
-            translateValue: 0
+            translateValue: 0,
+            length: 3,
         }
     }
 
@@ -39,7 +35,7 @@ class Slider extends Component {
         // Exiting the method early if we are at the end of the images array.
         // We also want to reset currentIndex and translateValue, so we return
         // to the first image in the array.
-        if(this.state.currentIndex === this.state.images.length - 1) {
+        if(this.state.currentIndex === this.state.length - 1) {
             return this.setState({
                 currentIndex: 0,
                 translateValue: 0
@@ -58,7 +54,7 @@ class Slider extends Component {
         return document.querySelector('.slide-item').clientWidth;
     };
 
-    render() {
+    render(props) {
         return (
             <div className="hero">
 
@@ -70,11 +66,14 @@ class Slider extends Component {
                              transition: 'transform ease-out 0.45s',
                              width: '100%',
                          }}>
-                        {
+                       {/* {
                             this.state.images.map((image, i) => (
                                 <Slide key={i} image={image} index={i}/>
                             ))
-                        }
+                        }*/}
+                        <Slide index={1} event={Object.values(this.props.event1)}  />
+                        <Slide index={2} event={Object.values(this.props.event2)} />
+                        <Slide index={3} event={Object.values(this.props.event3)} />
                     </div>
                 </div>
 
@@ -93,5 +92,11 @@ class Slider extends Component {
 export default Slider;
 
 if (document.getElementById('event-slider')) {
-    ReactDOM.render(<Slider/>, document.getElementById('event-slider'));
+
+    ReactDOM.render(
+        <Slider
+            event1={JSON.parse(document.getElementById('event-slider').dataset.event1)}
+            event2={JSON.parse(document.getElementById('event-slider').dataset.event2)}
+            event3={JSON.parse(document.getElementById('event-slider').dataset.event3)}
+        />, document.getElementById('event-slider'));
 }

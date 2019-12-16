@@ -3,7 +3,7 @@
     eventify
 @endsection
 @section('content')
-    <div id="event-slider"></div>
+    <div id="event-slider" data-event1="{{ $event1 }}" data-event2="{{ $event2 }}" data-event3="{{ $event3 }}"></div>
 
     <section class="grid">
         <h1>

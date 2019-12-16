@@ -68991,7 +68991,7 @@ export default Slide;
 
 var Slide = function Slide(_ref) {
   var index = _ref.index,
-      image = _ref.image;
+      event = _ref.event;
   var styles = {
     width: '100%',
     height: '100%'
@@ -69004,11 +69004,11 @@ var Slide = function Slide(_ref) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "ctn--image"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: image,
+    src: event[6],
     alt: ""
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "hero__text"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "lala"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "kdklkff"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "woepsiepoepsie"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, event[0]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, event[1]), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "btn btn--white",
     href: "#"
   }, "Bestel tickets"))));
@@ -69095,7 +69095,7 @@ function (_Component) {
       // Exiting the method early if we are at the end of the images array.
       // We also want to reset currentIndex and translateValue, so we return
       // to the first image in the array.
-      if (_this.state.currentIndex === _this.state.images.length - 1) {
+      if (_this.state.currentIndex === _this.state.length - 1) {
         return _this.setState({
           currentIndex: 0,
           translateValue: 0
@@ -69118,16 +69118,16 @@ function (_Component) {
     });
 
     _this.state = {
-      images: ["https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/aurora.jpg", "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/canyon.jpg", "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/city.jpg"],
       currentIndex: 0,
-      translateValue: 0
+      translateValue: 0,
+      length: 3
     };
     return _this;
   }
 
   _createClass(Slider, [{
     key: "render",
-    value: function render() {
+    value: function render(props) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "hero"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -69139,12 +69139,15 @@ function (_Component) {
           transition: 'transform ease-out 0.45s',
           width: '100%'
         }
-      }, this.state.images.map(function (image, i) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slide__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          key: i,
-          image: image,
-          index: i
-        });
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slide__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        index: 1,
+        event: Object.values(this.props.event1)
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slide__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        index: 2,
+        event: Object.values(this.props.event2)
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slide__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        index: 3,
+        event: Object.values(this.props.event3)
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LeftArrow__WEBPACK_IMPORTED_MODULE_3__["default"], {
         goToPrevSlide: this.goToPrevSlide
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RightArrow__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -69159,7 +69162,11 @@ function (_Component) {
 /* harmony default export */ __webpack_exports__["default"] = (Slider);
 
 if (document.getElementById('event-slider')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Slider, null), document.getElementById('event-slider'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Slider, {
+    event1: JSON.parse(document.getElementById('event-slider').dataset.event1),
+    event2: JSON.parse(document.getElementById('event-slider').dataset.event2),
+    event3: JSON.parse(document.getElementById('event-slider').dataset.event3)
+  }), document.getElementById('event-slider'));
 }
 
 /***/ }),
