@@ -45,22 +45,37 @@ Auth::routes();
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes - Admin
+| Web Routes - Organisator
 |--------------------------------------------------------------------------
 */
 
 Route::group(['prefix' => 'admin'], function() {
 
-	//admin routes
-	Route::get('dashboard', [
-		'uses' => 'AdminController@getIndex',
-		'as' => 'admin.dashboard'
+	Route::get('dashboard/{org_id}', [
+		'uses' => 'OrganisationController@getDashboard',
+		'as' => 'org.dashboard'
 	]);
 
-	//verwijder kid-events
-	Route::post('verwijder-event/{kid_id}', [
-		'uses' => 'AdminController@deleteKidDays',
-		'as' => 'admin.deletekiddays'
+	//add event
+	Route::get('newevent', [
+		'uses' => 'EventController@createEvent',
+		'as' => 'event.create'
+	]);
+
+	Route::post('newevent/action', [
+		'uses' => 'EventController@postCreateEvent',
+		'as' => 'event.postcreate'
+	]);
+
+	//edit/update event
+	Route::get('editevent/{event_id}', [
+		'uses' => 'EventController@updateEvent',
+		'as' => 'event.update'
+	]);
+
+	Route::post('editevent/action/{event_id}', [
+		'uses' => 'EventController@postUpdateEvent',
+		'as' => 'event.postupdate'
 	]);
 
 });

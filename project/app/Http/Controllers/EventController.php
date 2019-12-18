@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Event;
 use App\Ticket;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class EventController extends Controller
 {
@@ -16,58 +17,104 @@ class EventController extends Controller
 	}
 
 	public function createEvent() {
-		/*
-		$user = User::where('id', $user_id)->first(); //TODO: niet de user_id maar org id ?! en wat met meerdere orgsss
+		//TODO: niet de user_id maar org id ?! en wat met meerdere orgsss
 
-		if(is_null($user)) {
-			return view('errors.401');
-		}
-*/
 		return view('content.event.create');
 	}
-/*
-	public function postCreateEvent(Request $request, $user_id) {
 
-		$user = User::where('id', $user_id)->first();
+	public function postCreateEvent(Request $request) {
 
 		//validatie
 		$this->validate($request, [
 			'title' => 'required|string|max:255',
 			'description'=> 'required|string|max:255',
-			'type'=> 'required|integer|min:1000|max:10000', //with examples
+			'type'=> 'required|string', //with examples
 			'status'=> 'required|string|max:255', //select
-			'bkg-color'=> 'nullable|string|max:255', //hex
-			'text-color'=> 'nullable|string|max:255', //hex
-			'logo'=> 'nullable|string|max:255', //image
+			'bkgcolor'=> 'nullable|string|max:255', //hex
+			'textcolor'=> 'nullable|string|max:255', //hex
+			'logo'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
 
-		$event = new Event(
-			[
-				'title' => 'Ehb Rock',
-				'description' => 'Iedereen welkom op ons eerste festival. Verspreid over onze campussen bevinden zich podia met artiesten uit onze regio.',
-				'type' => 'festival',
-				'status' => 'published',
-				'bkg-color' => 'red',
-				'text-color' => 'purple',
-				'logo' => 'Erasmushogeschool Brussel',
-			]
-		);
+		$imageName = time().'.'.request()->logo->getClientOriginalExtension();
+		request()->logo->move(public_path('images'), $imageName);
+
+		$boolStatus = $request->input('status');
+
+		if ($boolStatus === '1') {
+			$boolStatus = 1;
+		} else {
+			$boolStatus = 0;
+		}
 
 		$event = new Event;
-		$event->email = $user['email'];
 
-		$event->street = $request->input('street');
-		$event->street_number = $request->input('street_number');
-		$event->box = $request->input('box');
-		$event->zipcode = $request->input('zipcode');
-		$event->city = $request->input('city');
-		$event->user_id = $user['id'];
-		$event->email = $user['email'];
+		$event->title = $request->input('title');
+		$event->description = $request->input('description');
+		$event->type = $request->input('type');;
+		$event->status = (int)$boolStatus;
+		$event->bkgcolor = $request->input('bkgcolor');
+		$event->textcolor = $request->input('textcolor');
+		$event->logo = $imageName;
+
+
 		$event->save();
 
-		$user->account()->associate($familie);
-		$user->save();
+		return redirect()->route('index');
+	}
 
-		return redirect()->route('account', ['id' => $user['id']]);
-	} */
+	public function UpdateEvent($id) {
+		$event = Event::where('id', $id)->first();
+
+		return view('content.event.edit',['event' => $event]);
+	}
+
+	public function postUpdateEvent(Request $request, $event_id) {
+
+		//validatie
+		$this->validate($request, [
+			'title' => 'required|string|max:255',
+			'description'=> 'required|string|max:255',
+			'eventtype'=> 'required|string|max:255', //with examples
+			'eventstatus'=> 'required|string|max:255', //select
+			'bkgcolor'=> 'nullable|string|max:255', //hex
+			'textcolor'=> 'nullable|string|max:255', //hex
+			'logo'=> 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
+		]);
+
+		$event = Event::find($event_id);
+
+
+		$boolStatus = $request->input('eventstatus');
+
+		if ($boolStatus === '1') {
+			$boolStatus = 1;
+		} else {
+			$boolStatus = 0;
+		}
+
+		$event->title = $request->input('title');
+		$event->description = $request->input('description');
+		$event->type = $request->input('eventtype');
+		$event->status = (int)$boolStatus;
+		$event->bkgcolor = $request->input('bkgcolor');
+		$event->textcolor = $request->input('textcolor');
+
+		if (request()->logo) {
+
+			$image_path = "/images/" . $event['logo'];  // Value is not URL but directory file path
+
+			if(File::exists($image_path)) {
+				File::delete($image_path);
+			}
+
+			$imageName = time().'.'.request()->logo->getClientOriginalExtension();
+			request()->logo->move(public_path('images'), $imageName);
+
+			$event->logo = $imageName;
+		}
+
+		$event->save();
+
+		return redirect()->route('event.detail', ['id' => $event['id']]);
+	}
 }

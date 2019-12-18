@@ -1,14 +1,14 @@
 @extends('layouts.masterlayout')
 @section('title')
-	evento - maak event
+	evento - edit event
 @endsection
 @section('content')
 	<section class="page-alignment">
 		<h1>
-			Maak jouw evenement
+			Bewerk {{ $event['title'] }}
 		</h1>
 
-		<form method="POST" action="{{ route('event.postcreate') }}" class="form" enctype="multipart/form-data">
+		<form method="POST" action="{{ route('event.postupdate', ['event_id' => $event['id']]) }}" class="form" enctype="multipart/form-data">
 			@csrf
 
 			<h2>
@@ -22,7 +22,7 @@
 					class="form__input @error('title') is-invalid @enderror"
 					name="title"
 					placeholder="bv. Rock Werchter of Kerstdrink 2019"
-					value="{{ old('title') }}"
+					value="{{ $event['title'] }}"
 					required
 					autofocus
 					autocomplete="off"
@@ -33,7 +33,7 @@
 				</label>
 
 				@error('title')
-					<span class="invalid-feedback" role="alert">
+				<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
 					</span>
 				@enderror
@@ -47,7 +47,7 @@
 					class="form__input @error('description') is-invalid @enderror"
 					name="description"
 					placeholder="bv. het event van de eeuw"
-					value="{{ old('description') }}"
+					value="{{ $event['description'] }}"
 					required
 					autocomplete="off"
 				>
@@ -70,8 +70,7 @@
 					class="form__input @error('logo') is-invalid @enderror"
 					name="logo"
 					placeholder="bv. het event van de eeuw"
-					value="{{ old('logo') }}"
-					required
+					value="{{ $event['logo'] }}"
 					autocomplete="off"
 				>
 
@@ -92,21 +91,21 @@
 
 			<div class="form__group">
 				<input
-					id="type"
+					id="eventtype"
 					type="text"
-					class="form__input @error('type') is-invalid @enderror"
-					name="type"
+					class="form__input @error('eventtype') is-invalid @enderror"
+					name="eventtype"
 					placeholder="bv. het event van de eeuw"
-					value="{{ old('type') }}"
+					value="{{ $event['type'] }}"
 					required
 					autocomplete="off"
 				>
 
-				<label for="type" class="form__label">
+				<label for="eventtype" class="form__label">
 					evenementstype
 				</label>
 
-				@error('type')
+				@error('eventtype')
 				<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
 					</span>
@@ -116,21 +115,21 @@
 
 			<div class="form__group">
 				<input
-					id="status"
+					id="eventstatus"
 					type="text"
-					class="form__input @error('status') is-invalid @enderror"
-					name="status"
+					class="form__input @error('eventstatus') is-invalid @enderror"
+					name="eventstatus"
 					placeholder="bv. het event van de eeuw"
-					value="{{ old('status') }}"
+					value="{{ $event['status'] }}"
 					required
 					autocomplete="off"
 				>
 
-				<label for="status" class="form__label">
+				<label for="eventstatus" class="form__label">
 					status
 				</label>
 
-				@error('status')
+				@error('eventstatus')
 				<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
 					</span>
@@ -148,7 +147,7 @@
 					class="form__input @error('bkgcolor') is-invalid @enderror"
 					name="bkgcolor"
 					placeholder="bv. #112233"
-					value="{{ old('bkgcolor') }}"
+					value="{{ $event['bkgcolor'] }}"
 					autocomplete="off"
 				>
 
@@ -171,7 +170,7 @@
 					class="form__input @error('textcolor') is-invalid @enderror"
 					name="textcolor"
 					placeholder="bv. #112233"
-					value="{{ old('textcolor') }}"
+					value="{{ $event['textcolor'] }}"
 					autocomplete="off"
 				>
 
@@ -189,7 +188,7 @@
 
 			<div class="">
 				<button type="submit" class="btn btn--full">
-					Maak het evenement aan
+					Sla wijzigingen op
 				</button>
 			</div>
 		</form>

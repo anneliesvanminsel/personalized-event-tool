@@ -6,16 +6,24 @@
 	<section class="hero" style="background-color: {{ $event['bkgcolor'] }}; color: {{ $event['textcolor'] }}">
 		<div class="hero__content row row--stretch">
 			<div class="ctn--image">
-				<img src="{{ $event['logo'] }}" alt="">
+				<img src="{{ asset('images/' . $event['logo'] ) }}" alt="{{ $event['title'] }}" loading="lazy">
 			</div>
+
 			<div class="hero__text">
-				<h1>
-					{{ $event['title'] }}
-				</h1>
+				<div class="row">
+					<h1>
+						{{ $event['title'] }}
+					</h1>
+
+					<a href="{{route('event.update', ['event_id' => $event['id']])}}" class="btn btn--white">
+						Bewerken
+					</a>
+				</div>
+
 				<p>
 					{{ $event['description'] }}
-
 				</p>
+
 				<style>
 					.btn {
 						border-color: {{ $event['textcolor'] }};
@@ -27,11 +35,14 @@
 						color: {{ $event['bkgcolor'] }};
 					}
 				</style>
-				<a class="btn" href="#tickets">
-					Bestel tickets
-				</a>
+				@if($event->tickets)
+					<a class="btn" href="#tickets">
+						Bestel tickets
+					</a>
+				@endif
 			</div>
 		</div>
+
 		@if($event->organisator)
 			<div class="hero__post">
 				Georganiseerd door
@@ -39,8 +50,9 @@
 			</div>
 		@endif
 	</section>
+
 	@if($event->sessions)
-		<section class="grid schedule">
+		<section class="page-alignment schedule">
 			<h1 class="schedule__title">
 				Planning
 			</h1>
@@ -52,6 +64,7 @@
 							<div>
 								{{ $session['name'] }}
 							</div>
+
 							<div>
 								{{ $session['date'] }}
 							</div>
@@ -104,36 +117,36 @@
 	<section class="photowall">
 		<ul class="photolist">
 			<li class="photolist__item">
-				<img src="https://images.pexels.com/photos/2399097/pexels-photo-2399097.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+				<img src="https://images.pexels.com/photos/2399097/pexels-photo-2399097.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" loading="lazy">
 			</li>
 			<li class="photolist__item">
-				<img src="https://images.pexels.com/photos/2311713/pexels-photo-2311713.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+				<img src="https://images.pexels.com/photos/2311713/pexels-photo-2311713.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" loading="lazy">
 			</li>
 			<li class="photolist__item">
-				<img src="https://images.pexels.com/photos/2897462/pexels-photo-2897462.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+				<img src="https://images.pexels.com/photos/2897462/pexels-photo-2897462.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" loading="lazy">
 			</li>
 			<li class="photolist__item">
-				<img src="https://images.pexels.com/photos/2705089/pexels-photo-2705089.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+				<img src="https://images.pexels.com/photos/2705089/pexels-photo-2705089.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" loading="lazy">
 			</li>
 			<li class="photolist__item">
-				<img src="https://images.pexels.com/photos/2284004/pexels-photo-2284004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+				<img src="https://images.pexels.com/photos/2284004/pexels-photo-2284004.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" loading="lazy">
 			</li>
 			<li class="photolist__item">
-				<img src="https://images.pexels.com/photos/2820898/pexels-photo-2820898.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="">
+				<img src="https://images.pexels.com/photos/2820898/pexels-photo-2820898.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="" loading="lazy">
 			</li>
 			<li class="photolist__item">
-				<img src="https://images.pexels.com/photos/1983046/pexels-photo-1983046.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+				<img src="https://images.pexels.com/photos/1983046/pexels-photo-1983046.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" loading="lazy">
 			</li>
 			<li class="photolist__item">
-				<img src="https://images.pexels.com/photos/2952834/pexels-photo-2952834.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+				<img src="https://images.pexels.com/photos/2952834/pexels-photo-2952834.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" loading="lazy">
 			</li>
 			<li class="photolist__item">
-				<img src="https://images.pexels.com/photos/518389/pexels-photo-518389.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+				<img src="https://images.pexels.com/photos/518389/pexels-photo-518389.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" loading="lazy">
 			</li>
 		</ul>
 	</section>
 	@if($event->tickets)
-		<section class="grid" id="tickets">
+		<section class="page-alignment" id="tickets">
 			<h2>
 				tickets
 			</h2>
