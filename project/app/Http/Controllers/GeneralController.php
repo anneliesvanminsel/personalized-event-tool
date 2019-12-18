@@ -16,7 +16,7 @@ class GeneralController extends Controller
 		$event2 = $slideevents[1];
 		$event3 = $slideevents[2];
 
-		$searchedevents = Event::orderBy('id', 'asc')->get();
+		$searchedevents = Event::orderBy('id', 'asc')->paginate(5);
 
 
 		return view('home', ['event1' => $event1, 'event2' => $event2, 'event3' => $event3, 'searchedevents' => $searchedevents]);
