@@ -31,7 +31,7 @@ class LoginController extends Controller
 	{
 		if ( $user ) {
 			if ($user['role'] === 'organisator') {
-				return redirect()->route('start.organisation');
+				return redirect()->route('org.dashboard', ['id' => $user['id']]);
 			}
 
 			if ($user['role'] === 'volunteer') {
