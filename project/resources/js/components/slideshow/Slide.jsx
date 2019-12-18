@@ -27,7 +27,9 @@ const Slide = (props) => {
                 </div>
                 <div className="slide__text">
                     <h1>
-                        {event.title}
+                        <span>
+                            {event.title}
+                        </span>
                     </h1>
                     <p>
                         {event.description}

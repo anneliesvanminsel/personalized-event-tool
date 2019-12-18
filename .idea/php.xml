@@ -85,6 +85,7 @@
       <path value="$PROJECT_DIR$/project/vendor/composer" />
       <path value="$PROJECT_DIR$/project/vendor/mobiledetect/mobiledetectlib" />
       <path value="$PROJECT_DIR$/project/vendor/riverskies/laravel-mobile-detect" />
+      <path value="$PROJECT_DIR$/project/vendor/symfony/error-handler" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

@@ -65,6 +65,7 @@
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/symfony/console" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/symfony/css-selector" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/symfony/debug" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/symfony/error-handler" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/symfony/event-dispatcher" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/symfony/event-dispatcher-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/symfony/finder" />

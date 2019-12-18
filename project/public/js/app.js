@@ -68984,7 +68984,7 @@ var Slide = function Slide(props) {
     loading: "lazy"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "slide__text"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, event.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, event.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, event.title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, event.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "btn btn--white",
     href: url
   }, "Bekijk details"))));
