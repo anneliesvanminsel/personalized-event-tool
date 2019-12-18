@@ -2,8 +2,8 @@ import React from 'react';
 
 const RightArrow = (props) => {
     return (
-        <div className="nextArrow" onClick={props.goToNextSlide}>
-            VOLGENDE
+        <div className="slideshow__nextArrow slideshow__arrow" onClick={props.goToNextSlide}>
+            Next
         </div>
     );
 };

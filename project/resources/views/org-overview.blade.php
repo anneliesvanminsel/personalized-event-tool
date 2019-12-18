@@ -3,7 +3,7 @@
 	e - organiseren
 @endsection
 @section('content')
-	<section class="grid">
+	<section class="page-alignment">
 		<h1>
 			Breng je evenementen tot een hoger niveau
 		</h1>
@@ -13,7 +13,7 @@
 			croissant pastry. Biscuit candy biscuit jujubes gingerbread muffin cotton candy cake.
 		</p>
 	</section>
-	<section class="grid section" id="feature-1">
+	<section class="page-alignment section" id="feature-1">
 		<div class="row row--stretch">
 			<div class="ctn--image section__image">
 				<img src="https://images.pexels.com/photos/2422278/pexels-photo-2422278.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
@@ -33,7 +33,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="grid section section--red" id="feature-2">
+	<section class="page-alignment section section--red" id="feature-2">
 		<div class="row row--stretch">
 			<div class="section__content section__content--right">
 				<h2>
@@ -53,7 +53,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="grid section" id="feature-3">
+	<section class="page-alignment section" id="feature-3">
 		<div class="row row--stretch">
 			<div class="ctn--image section__image">
 				<img src="https://images.pexels.com/photos/336948/pexels-photo-336948.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">

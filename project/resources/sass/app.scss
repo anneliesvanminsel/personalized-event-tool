@@ -8,6 +8,10 @@
 @import 'config/image';
 @import 'config/heading';
 
+.page-alignment {
+	@include grid();
+}
+
 .row {
 	display: flex;
 	flex-direction: column;
@@ -38,10 +42,10 @@
 @import 'components/card';
 @import 'components/logo';
 
-@import 'components/slideshow/slideshow';
-@import 'components/slideshow/functionality';
-
 @import 'components/hero/hero';
+
+@import 'components/slideshow/slideshow';
+@import 'components/slideshow/slide';
 
 @import 'components/cardslider/functionality';
 @import 'components/cardslider/styling';
@@ -55,3 +59,5 @@
 @import 'components/table/table';
 
 @import 'components/schedule/schedule';
+
+@import 'components/grid/h-grid';

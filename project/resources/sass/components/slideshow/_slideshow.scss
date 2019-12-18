@@ -1,54 +1,31 @@
 .slideshow {
 	position: relative;
-	width: 100%;
-	margin: $spacing-s 0;
-	background-color: $red;
-
-	@media screen and (min-width: $breakpoint-tablet-small) {
-		margin-bottom: $spacing-l;
-		margin-top: $spacing-l;
-	}
+	overflowx: hidden;
+	color: $white;
 
 	&__content {
 		@include grid();
 	}
 
-	&__text {
-		flex-grow: 1;
-		padding: 40px;
+	&__arrow {
+		display: flex;
+		align-items: center;
+
+		position: absolute;
+		bottom: 0;
+
+		height: 100%;
+		width: 50px;
+
+		cursor: pointer;
 	}
 
-	.ctn--image {
-		width: 100%;
-		max-width: 100%;
-		height: 40vh;
-		overflow: hidden;
+	&__backArrow {
+		margin-left: $spacing-xs;
+	}
 
-		@media screen and (min-width: $breakpoint-tablet-small) {
-			//height: 100%;
-		}
-
-		@media screen and (min-width: $breakpoint-desktop-small) {
-			width: 400px;
-			//width: 50%;
-			margin-top: -40px;
-			margin-bottom: -40px;
-			overflow: hidden;
-		}
-
-		img {
-			width: 100%;
-			height: auto;
-
-			@media screen and (min-width: $breakpoint-tablet-small) {
-				height: 100%;
-				width: auto;
-			}
-
-			@media screen and (min-width: $breakpoint-desktop-small) {
-				position: relative;
-				//right: 50%;
-			}
-		}
+	&__nextArrow {
+		right: 0;
+		margin-right: $spacing-xs;
 	}
 }

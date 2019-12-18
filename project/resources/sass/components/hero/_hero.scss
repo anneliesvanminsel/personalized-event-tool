@@ -26,6 +26,7 @@
 		max-height: 40vh;
 		max-width: 100%;
 		overflow: hidden;
+		flex-shrink: 0;
 
 		@media screen and (min-width: $breakpoint-tablet-small) {
 			height: 40vh;
@@ -33,7 +34,7 @@
 		}
 
 		@media screen and (min-width: $breakpoint-desktop-small) {
-			width: 400px;
+			max-width: 400px;
 			//width: 50%;
 			margin-top: -40px;
 			margin-bottom: -40px;
@@ -41,19 +42,17 @@
 		}
 
 		img {
-			width: 100%;
-			height: auto;
+			min-width: 100%;
+			min-height: 100%;
 
 			@media screen and (min-width: $breakpoint-tablet-small) {
-				height: 100%;
-				width: auto;
 				position: relative;
-				right: 30%;
+				//right: 30%;
 			}
 
 			@media screen and (min-width: $breakpoint-desktop-small) {
 				//position: relative;
-				right: 50%;
+				//right: 50%;
 			}
 		}
 	}

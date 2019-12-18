@@ -22,11 +22,19 @@
                         </a>
                     </li>
                 @else
-                    <li class="nav__item">
-                        <a class="nav__link {{ (strpos(Route::currentRouteName(), 'user.account') === 0) ? 'active' : '' }}" href="{{ route('user.account', ['id' => Auth::user()->id]) }}">
-                            account
-                        </a>
-                    </li>
+                    @if(Auth::user()->role == "organisator")
+                        <li class="nav__item">
+                            <a class="nav__link {{ (strpos(Route::currentRouteName(), 'org.dashboard') === 0) ? 'active' : '' }}" href="{{ route('org.dashboard', ['id' => Auth::user()->id]) }}">
+                                dashboard
+                            </a>
+                        </li>
+                    @else
+                        <li class="nav__item">
+                            <a class="nav__link {{ (strpos(Route::currentRouteName(), 'user.account') === 0) ? 'active' : '' }}" href="{{ route('user.account', ['id' => Auth::user()->id]) }}">
+                                account
+                            </a>
+                        </li>
+                    @endif
                     <li class="nav__item">
                         <a class="nav__link"
                            href="{{ route('logout') }}"

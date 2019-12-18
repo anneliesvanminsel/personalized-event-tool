@@ -68907,9 +68907,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var LeftArrow = function LeftArrow(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "backArrow",
+    className: "slideshow__backArrow slideshow__arrow",
     onClick: props.goToPrevSlide
-  }, "TERUG");
+  }, "Back");
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (LeftArrow);
@@ -68931,9 +68931,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var RightArrow = function RightArrow(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "nextArrow",
+    className: "slideshow__nextArrow slideshow__arrow",
     onClick: props.goToNextSlide
-  }, "VOLGENDE");
+  }, "Next");
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (RightArrow);
@@ -68951,67 +68951,43 @@ var RightArrow = function RightArrow(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 
-
-/*
-class Slide extends Component {
-    render() {
-        return (
-            <div className="row row--stretch">
-                <div className="ctn--image">
-                    <img
-                        src="https://images.pexels.com/photos/801863/pexels-photo-801863.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                        alt=""
-                    />
-                </div>
-                <div className="hero__text">
-                    <h1>
-                        lala
-                    </h1>
-                    <p>
-                        sflkqsmldkfkqsfmlkqmldfklmqksdflm
-
-                    </p>
-                    <p>
-                        LSKDLKDFMQ
-                    </p>
-                    <a className="btn btn--white" href="#">
-                        Bekijk tickets
-                    </a>
-                </div>
-            </div>
-        );
-    }
-}
-
-export default Slide;
-*/
 
 var Slide = function Slide(props) {
   var styles = {
     width: "100%",
-    height: "100%"
+    height: "100%",
+    opacity: 0,
+    transition: 'all ease-out 0.45s'
   };
   var event = JSON.parse(props.event);
   var url = props.url;
+
+  if (props.index === props.currentIndex + 1) {
+    styles = {
+      width: "100%",
+      height: "100%",
+      opacity: 1
+    };
+  }
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "slide-item slide-" + props.index,
     style: styles
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "hero__content row row--stretch"
+    className: "slide__content row row--stretch"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "ctn--image"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-    src: event.logo,
-    alt: ""
+    src: props.image,
+    alt: event.title,
+    loading: "lazy"
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "hero__text"
+    className: "slide__text"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, event.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, event.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "btn btn--white",
     href: url
-  }, "Bestel tickets"))));
+  }, "Bekijk details"))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Slide);
@@ -69129,28 +69105,34 @@ function (_Component) {
     key: "render",
     value: function render(props) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "hero"
+        className: "hero slideshow"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "hero__content"
+        className: "slideshow__content"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "slider-wrapper row row--stretch",
         style: {
           transform: "translateX(".concat(this.state.translateValue, "px)"),
-          transition: 'transform ease-out 0.45s',
+          transition: 'all ease-out 0.45s',
           width: '100%'
         }
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slide__WEBPACK_IMPORTED_MODULE_2__["default"], {
         index: 1,
         event: this.props.event1,
-        url: this.props.url1
+        url: this.props.url1,
+        currentIndex: this.state.currentIndex,
+        image: this.props.image1
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slide__WEBPACK_IMPORTED_MODULE_2__["default"], {
         index: 2,
         event: this.props.event2,
-        url: this.props.url2
+        url: this.props.url2,
+        currentIndex: this.state.currentIndex,
+        image: this.props.image2
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slide__WEBPACK_IMPORTED_MODULE_2__["default"], {
         index: 3,
         event: this.props.event3,
-        url: this.props.url3
+        url: this.props.url3,
+        currentIndex: this.state.currentIndex,
+        image: this.props.image3
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LeftArrow__WEBPACK_IMPORTED_MODULE_3__["default"], {
         goToPrevSlide: this.goToPrevSlide
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RightArrow__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -69171,7 +69153,10 @@ if (document.getElementById('event-slider')) {
     event3: document.getElementById('event-slider').dataset.event3,
     url1: document.getElementById('event-slider').dataset.url1,
     url2: document.getElementById('event-slider').dataset.url2,
-    url3: document.getElementById('event-slider').dataset.url3
+    url3: document.getElementById('event-slider').dataset.url3,
+    image1: document.getElementById('event-slider').dataset.image1,
+    image2: document.getElementById('event-slider').dataset.image2,
+    image3: document.getElementById('event-slider').dataset.image3
   }), document.getElementById('event-slider'));
 }
 

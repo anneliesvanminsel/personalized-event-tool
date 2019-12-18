@@ -56,24 +56,37 @@ class Slider extends Component {
 
     render(props) {
         return (
-            <div className="hero">
+            <div className="hero slideshow">
 
 
-                <div className="hero__content">
+                <div className="slideshow__content">
                     <div className="slider-wrapper row row--stretch"
                          style={{
                              transform: `translateX(${this.state.translateValue}px)`,
-                             transition: 'transform ease-out 0.45s',
+                             transition: 'all ease-out 0.45s',
                              width: '100%',
                          }}>
-                       {/* {
-                            this.state.images.map((image, i) => (
-                                <Slide key={i} image={image} index={i}/>
-                            ))
-                        }*/}
-                        <Slide index={1} event={this.props.event1} url={this.props.url1}/>
-                        <Slide index={2} event={this.props.event2} url={this.props.url2}/>
-                        <Slide index={3} event={this.props.event3} url={this.props.url3}/>
+                        <Slide
+                            index={1}
+                            event={this.props.event1}
+                            url={this.props.url1}
+                            currentIndex={this.state.currentIndex}
+                            image={this.props.image1}
+                        />
+                        <Slide
+                            index={2}
+                            event={this.props.event2}
+                            url={this.props.url2}
+                            currentIndex={this.state.currentIndex}
+                            image={this.props.image2}
+                        />
+                        <Slide
+                            index={3}
+                            event={this.props.event3}
+                            url={this.props.url3}
+                            currentIndex={this.state.currentIndex}
+                            image={this.props.image3}
+                        />
                     </div>
                 </div>
 
@@ -101,5 +114,8 @@ if (document.getElementById('event-slider')) {
             url1={document.getElementById('event-slider').dataset.url1}
             url2={document.getElementById('event-slider').dataset.url2}
             url3={document.getElementById('event-slider').dataset.url3}
+            image1={document.getElementById('event-slider').dataset.image1}
+            image2={document.getElementById('event-slider').dataset.image2}
+            image3={document.getElementById('event-slider').dataset.image3}
         />, document.getElementById('event-slider'));
 }

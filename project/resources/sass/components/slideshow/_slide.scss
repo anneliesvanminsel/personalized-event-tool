@@ -1,0 +1,23 @@
+.slide {
+	&-item {
+		min-width: 100%;
+	}
+
+	&__content {
+		.ctn-image {
+			width: 100%;
+			flex-shrink: 1;
+		}
+	}
+
+	&__text {
+		display: flex;
+		flex-direction: column;
+		padding: $spacing-m 0 $spacing-m $spacing-m;
+		flex-grow: 1;
+
+		p {
+			flex-grow: 1;
+		}
+	}
+}

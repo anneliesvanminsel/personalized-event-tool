@@ -108,6 +108,25 @@ h2::after {
           flex: 1 0 20px;
 }
 
+.page-alignment {
+  padding: 0 20px;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 640px) {
+  .page-alignment {
+    padding: 0 40px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .page-alignment {
+    padding: 0 80px;
+  }
+}
+
 .row {
   display: -webkit-box;
   display: flex;
@@ -413,25 +432,6 @@ h2::after {
   width: 60%;
 }
 
-.grid {
-  padding: 0 20px;
-  max-width: 960px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-@media screen and (min-width: 640px) {
-  .grid {
-    padding: 0 40px;
-  }
-}
-
-@media screen and (min-width: 960px) {
-  .grid {
-    padding: 0 80px;
-  }
-}
-
 .btn {
   width: 100%;
   font-size: 16px;
@@ -542,220 +542,6 @@ h2::after {
   color: inherit;
 }
 
-.slideshow {
-  position: relative;
-  width: 100%;
-  margin: 20px 0;
-  background-color: #FE676E;
-}
-
-@media screen and (min-width: 640px) {
-  .slideshow {
-    margin-bottom: 80px;
-    margin-top: 80px;
-  }
-}
-
-.slideshow__content {
-  padding: 0 20px;
-  max-width: 960px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-@media screen and (min-width: 640px) {
-  .slideshow__content {
-    padding: 0 40px;
-  }
-}
-
-@media screen and (min-width: 960px) {
-  .slideshow__content {
-    padding: 0 80px;
-  }
-}
-
-.slideshow__text {
-  -webkit-box-flex: 1;
-          flex-grow: 1;
-  padding: 40px;
-}
-
-.slideshow .ctn--image {
-  width: 100%;
-  max-width: 100%;
-  height: 40vh;
-  overflow: hidden;
-}
-
-@media screen and (min-width: 960px) {
-  .slideshow .ctn--image {
-    width: 400px;
-    margin-top: -40px;
-    margin-bottom: -40px;
-    overflow: hidden;
-  }
-}
-
-.slideshow .ctn--image img {
-  width: 100%;
-  height: auto;
-}
-
-@media screen and (min-width: 640px) {
-  .slideshow .ctn--image img {
-    height: 100%;
-    width: auto;
-  }
-}
-
-@media screen and (min-width: 960px) {
-  .slideshow .ctn--image img {
-    position: relative;
-  }
-}
-
-/*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-1.0 Variables
-2.0 Cards
-3.0 Bullets
-
-https://medium.com/significa/css-only-slider-71727effff0b
-https://significa.github.io/css-only-slider/
-https://github.com/Significa/css-only-slider
-
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-1.0 Variables
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-2.0 Cards
---------------------------------------------------------------*/
-
-.slideshow .slide {
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-}
-
-#slide-1:checked ~ .slideshow .slideshow .slide-1 {
-  position: relative;
-  z-index: 2;
-  -webkit-transform: translate(0) scale(1);
-          transform: translate(0) scale(1);
-}
-
-#slide-2:checked ~ .slideshow .slideshow .slide-1 {
-  z-index: 1;
-  -webkit-transform: translateX(-200px) scale(0.85);
-          transform: translateX(-200px) scale(0.85);
-}
-
-@media (max-width: 768px) {
-  #slide-2:checked ~ .slideshow .slideshow .slide-1 {
-    -webkit-transform: translateX(-100px) scale(0.85);
-            transform: translateX(-100px) scale(0.85);
-    opacity: 0.6;
-  }
-}
-
-#slide-3:checked ~ .slideshow .slideshow .slide-1 {
-  z-index: 0;
-  -webkit-transform: translateX(-300px) scale(0.75);
-          transform: translateX(-300px) scale(0.75);
-}
-
-@media (max-width: 900px) {
-  #slide-3:checked ~ .slideshow .slideshow .slide-1 {
-    -webkit-transform: translateX(-170px) scale(0.65);
-            transform: translateX(-170px) scale(0.65);
-  }
-}
-
-@media (max-width: 768px) {
-  #slide-3:checked ~ .slideshow .slideshow .slide-1 {
-    opacity: 0;
-  }
-}
-
-#slide-1:checked ~ .slideshow .slideshow .slide-2 {
-  z-index: 1;
-  -webkit-transform: translateX(200px) scale(0.85);
-          transform: translateX(200px) scale(0.85);
-}
-
-@media (max-width: 768px) {
-  #slide-1:checked ~ .slideshow .slideshow .slide-2 {
-    -webkit-transform: translateX(100px) scale(0.85);
-            transform: translateX(100px) scale(0.85);
-    opacity: 0.6;
-  }
-}
-
-#slide-2:checked ~ .slideshow .slideshow .slide-2 {
-  position: relative;
-  z-index: 2;
-  -webkit-transform: translate(0) scale(1);
-          transform: translate(0) scale(1);
-}
-
-#slide-3:checked ~ .slideshow .slideshow .slide-2 {
-  z-index: 1;
-  -webkit-transform: translateX(-200px) scale(0.85);
-          transform: translateX(-200px) scale(0.85);
-}
-
-@media (max-width: 768px) {
-  #slide-3:checked ~ .slideshow .slideshow .slide-2 {
-    -webkit-transform: translateX(-100px) scale(0.85);
-            transform: translateX(-100px) scale(0.85);
-    opacity: 0.6;
-  }
-}
-
-#slide-1:checked ~ .slideshow .slideshow .slide-3 {
-  z-index: 0;
-  -webkit-transform: translateX(300px) scale(0.75);
-          transform: translateX(300px) scale(0.75);
-}
-
-@media (max-width: 900px) {
-  #slide-1:checked ~ .slideshow .slideshow .slide-3 {
-    -webkit-transform: translateX(170px) scale(0.65);
-            transform: translateX(170px) scale(0.65);
-  }
-}
-
-@media (max-width: 768px) {
-  #slide-1:checked ~ .slideshow .slideshow .slide-3 {
-    opacity: 0;
-  }
-}
-
-#slide-2:checked ~ .slideshow .slideshow .slide-3 {
-  z-index: 1;
-  -webkit-transform: translateX(200px) scale(0.85);
-          transform: translateX(200px) scale(0.85);
-}
-
-@media (max-width: 768px) {
-  #slide-2:checked ~ .slideshow .slideshow .slide-3 {
-    -webkit-transform: translateX(100px) scale(0.85);
-            transform: translateX(100px) scale(0.85);
-    opacity: 0.6;
-  }
-}
-
-#slide-3:checked ~ .slideshow .slideshow .slide-3 {
-  position: relative;
-  z-index: 2;
-  -webkit-transform: translate(0) scale(1);
-          transform: translate(0) scale(1);
-}
-
 .hero {
   position: relative;
   width: 100%;
@@ -805,6 +591,7 @@ https://github.com/Significa/css-only-slider
   max-height: 40vh;
   max-width: 100%;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 @media screen and (min-width: 640px) {
@@ -815,7 +602,7 @@ https://github.com/Significa/css-only-slider
 
 @media screen and (min-width: 960px) {
   .hero .ctn--image {
-    width: 400px;
+    max-width: 400px;
     margin-top: -40px;
     margin-bottom: -40px;
     overflow: hidden;
@@ -823,22 +610,13 @@ https://github.com/Significa/css-only-slider
 }
 
 .hero .ctn--image img {
-  width: 100%;
-  height: auto;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 @media screen and (min-width: 640px) {
   .hero .ctn--image img {
-    height: 100%;
-    width: auto;
     position: relative;
-    right: 30%;
-  }
-}
-
-@media screen and (min-width: 960px) {
-  .hero .ctn--image img {
-    right: 50%;
   }
 }
 
@@ -863,6 +641,77 @@ https://github.com/Significa/css-only-slider
   .hero__post {
     padding: 0 80px;
   }
+}
+
+.slideshow {
+  position: relative;
+  overflowx: hidden;
+  color: #ffffff;
+}
+
+.slideshow__content {
+  padding: 0 20px;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 640px) {
+  .slideshow__content {
+    padding: 0 40px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .slideshow__content {
+    padding: 0 80px;
+  }
+}
+
+.slideshow__arrow {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 50px;
+  cursor: pointer;
+}
+
+.slideshow__backArrow {
+  margin-left: 10px;
+}
+
+.slideshow__nextArrow {
+  right: 0;
+  margin-right: 10px;
+}
+
+.slide-item {
+  min-width: 100%;
+}
+
+.slide__content .ctn-image {
+  width: 100%;
+  flex-shrink: 1;
+}
+
+.slide__text {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  padding: 40px 0 40px 40px;
+  -webkit-box-flex: 1;
+          flex-grow: 1;
+}
+
+.slide__text p {
+  -webkit-box-flex: 1;
+          flex-grow: 1;
 }
 
 /*--------------------------------------------------------------
@@ -1458,5 +1307,65 @@ input:focus + label {
           justify-content: space-between;
   font-family: "Poiret One", cursive;
   font-size: 25px;
+}
+
+.h-grid {
+  margin-top: 40px;
+  max-width: 100%;
+}
+
+.h-grid .item {
+  width: 100%;
+  max-width: 100%;
+  height: 10vh;
+  margin: 20px 0;
+}
+
+.h-grid .item > * {
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.h-grid .item__date {
+  font-family: "Poiret One", cursive;
+  font-size: 25px;
+  text-align: center;
+  background-color: #FE676E;
+  color: #ffffff;
+  height: 100%;
+  width: 10vh;
+  padding: 10px;
+}
+
+.h-grid .item__content {
+  -webkit-box-flex: 1;
+          flex-grow: 1;
+}
+
+.h-grid .item__title {
+  font-family: "Poiret One", cursive;
+  font-size: 20px;
+}
+
+.h-grid .item__image {
+  position: relative;
+  overflow: hidden;
+  width: 250px;
+}
+
+.h-grid .item__image img {
+  min-height: 100%;
+  min-width: 100%;
+  position: absolute;
+}
+
+.h-grid .item__actions {
+  text-align: center;
+  margin-right: 0;
+}
+
+.h-grid .item__remind {
+  color: #FE676E;
+  font-size: 12px;
 }
 
