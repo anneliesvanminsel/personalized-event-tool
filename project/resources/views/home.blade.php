@@ -11,9 +11,23 @@
         data-url1="{{ route('event.detail', ['event_id' => $event1->id]) }}"
         data-url2="{{ route('event.detail', ['event_id' => $event2->id]) }}"
         data-url3="{{ route('event.detail', ['event_id' => $event3->id]) }}"
-        data-image1="{{ asset('images/' . $event1['logo']) }}"
-        data-image2="{{ asset('images/' . $event2['logo']) }}"
-        data-image3="{{ asset('images/' . $event3['logo']) }}"
+        @if(File::exists(public_path() . "/images/" . $event1['logo']))
+            data-image1="{{ asset('images/' . $event1['logo']) }}"
+        @else
+            data-image1="https://placekitten.com/600/600"
+        @endif
+
+        @if(File::exists(public_path() . "/images/" . $event2['logo']))
+            data-image2="{{ asset('images/' . $event2['logo']) }}"
+        @else
+            data-image2="https://placekitten.com/600/600"
+        @endif
+
+        @if(File::exists(public_path() . "/images/" . $event3['logo']))
+            data-image3="{{ asset('images/' . $event3['logo']) }}"
+        @else
+            data-image3="https://placekitten.com/600/600"
+        @endif
     ></div>
 
     <section class="page-alignment">
@@ -79,9 +93,17 @@
                     <div class="item__date bkg-red">
                         17 dec
                     </div>
-                    <div class="item__image ctn--image">
-                        <img src="{{ asset('images/' . $event['logo'] ) }}" alt="{{ $event['title'] }}" loading="lazy">
-                    </div>
+
+                    @if(File::exists(public_path() . "/images/" . $event['logo']))
+                        <div class="item__image ctn--image">
+                            <img src="{{ asset('images/' . $event['logo'] ) }}" alt="{{ $event['title'] }}" loading="lazy">
+                        </div>
+                    @else
+                        <div class="item__image ctn--image">
+                            <img src="https://placekitten.com/600/600" alt="{{ $event['title'] }}" loading="lazy">
+                        </div>
+                    @endif
+
                     <div class="item__content">
                         <div class="item__title">
                             {{ $event->title }}

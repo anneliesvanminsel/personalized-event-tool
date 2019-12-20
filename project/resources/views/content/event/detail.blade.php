@@ -5,9 +5,15 @@
 @section('content')
 	<section class="hero" style="background-color: {{ $event['bkgcolor'] }}; color: {{ $event['textcolor'] }}">
 		<div class="hero__content row row--stretch">
-			<div class="ctn--image">
-				<img src="{{ asset('images/' . $event['logo'] ) }}" alt="{{ $event['title'] }}" loading="lazy">
-			</div>
+			@if(File::exists(public_path() . "/images/" . $event['logo']))
+				<div class="ctn--image">
+					<img src="{{ asset('images/' . $event['logo'] ) }}" alt="{{ $event['title'] }}" loading="lazy">
+				</div>
+			@else
+				<div class="ctn--image">
+					<img src="https://placekitten.com/600/600" alt="{{ $event['title'] }}" loading="lazy">
+				</div>
+			@endif
 
 			<div class="hero__text">
 				<div class="row">

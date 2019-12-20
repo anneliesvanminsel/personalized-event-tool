@@ -101,9 +101,10 @@ class EventController extends Controller
 
 		if (request()->logo) {
 
-			$image_path = "/images/" . $event['logo'];  // Value is not URL but directory file path
+			$image_path = public_path() . "/images/" . $event['logo'];  // Value is not URL but directory file path
 
 			if(File::exists($image_path)) {
+
 				File::delete($image_path);
 			}
 
