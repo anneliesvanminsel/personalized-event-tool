@@ -20,7 +20,7 @@ class Organisation extends Model
 	public function events(){
 		return $this->belongsToMany('App\Event',
 			'organisation_event',
-			'event_id',
-			'organisation_id')->withTimestamps();
+			'organisation_id',
+			'event_id')->withTimestamps();
 	}
 }

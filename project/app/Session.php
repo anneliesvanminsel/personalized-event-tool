@@ -22,10 +22,6 @@ class Session extends Model
 		return $this->hasMany('App\Message');
 	}
 
-	public function tickets(){
-		return $this->hasMany('App\Ticket');
-	}
-
 	public function tasks(){
 		return $this->hasMany('App\Task');
 	}

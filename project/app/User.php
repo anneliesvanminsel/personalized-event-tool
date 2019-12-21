@@ -38,4 +38,11 @@ class User extends Authenticatable
 		];
 	 *
 	 */
+
+	public function workhours(){
+		return $this->belongsToMany('App\Taskhour',
+			'user_hour',
+			'user_id',
+			'hour_id')->withTimestamps();
+	}
 }

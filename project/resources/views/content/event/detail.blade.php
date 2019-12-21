@@ -20,10 +20,6 @@
 					<h1>
 						{{ $event['title'] }}
 					</h1>
-
-					<a href="{{route('event.update', ['event_id' => $event['id']])}}" class="btn btn--white">
-						Bewerken
-					</a>
 				</div>
 
 				<p>
@@ -47,17 +43,22 @@
 					</a>
 				@endif
 			</div>
-		</div>
 
-		@if($event->organisator)
+		</div>
+		@if($event->organisations())
 			<div class="hero__post">
-				Georganiseerd door
-				<a href="#"> Erasmushogeschool Brussel</a>
+				Georganiseerd door:
+				@foreach( $event->organisations()->get() as $org)
+
+					<span>
+						{{ $org['name'] }}
+					</span>
+				@endforeach
 			</div>
 		@endif
 	</section>
 
-	@if($event->sessions)
+	@if($event->sessions())
 		<section class="page-alignment schedule">
 			<h1 class="schedule__title">
 				Planning
@@ -65,7 +66,7 @@
 
 			<div class="schedule__content">
 				<div class="schedule__headcontainer row row--stretch">
-					@foreach($sessions as $session)
+					@foreach($event->sessions()->get() as $session)
 						<div class="schedule__heading">
 							<div>
 								{{ $session['name'] }}
@@ -151,13 +152,13 @@
 			</li>
 		</ul>
 	</section>
-	@if($event->tickets)
+	@if($event->tickets())
 		<section class="page-alignment" id="tickets">
 			<h2>
 				tickets
 			</h2>
 
-			@foreach($tickets as $ticket)
+			@foreach($event->tickets()->get() as $ticket)
 				<input
 					type="radio"
 					name="slider"

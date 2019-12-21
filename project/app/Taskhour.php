@@ -20,7 +20,7 @@ class Taskhour extends Model
 	public function workers(){
 		return $this->belongsToMany('App\User',
 			'user_hour',
-			'user_id',
-			'hour_id')->withTimestamps();
+			'hour_id',
+			'user_id')->withTimestamps();
 	}
 }
