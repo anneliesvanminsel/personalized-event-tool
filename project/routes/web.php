@@ -46,7 +46,7 @@ Route::get('registreer/{subscription_id}', [
 	'as' => 'organisation.create'
 ]);
 
-Route::post('postregistreer/{subscription_id}', [
+Route::post('registreer/{subscription_id}/post', [
 	'uses' => 'OrganisationController@postCreateOrganisation',
 	'as' => 'organisation.postcreate'
 ]);
@@ -72,7 +72,7 @@ Route::group(['prefix' => 'admin'], function() {
 		'as' => 'event.create'
 	]);
 
-	Route::post('newevent/action', [
+	Route::post('newevent/post', [
 		'uses' => 'EventController@postCreateEvent',
 		'as' => 'event.postcreate'
 	]);
@@ -83,10 +83,21 @@ Route::group(['prefix' => 'admin'], function() {
 		'as' => 'event.update'
 	]);
 
-	Route::post('editevent/action/{event_id}', [
+	Route::post('editevent/post/{event_id}', [
 		'uses' => 'EventController@postUpdateEvent',
 		'as' => 'event.postupdate'
 	]);
 
+
+	//add event
+	Route::get('organisation/{organisation_id}/newadmin', [
+		'uses' => 'OrganisationController@createAdmin',
+		'as' => 'organisation.admin.create'
+	]);
+
+	Route::post('organisation/{organisation_id}/newadmin/post', [
+		'uses' => 'OrganisationController@postCreateAdmin',
+		'as' => 'organisation.admin.postcreate'
+	]);
 });
 

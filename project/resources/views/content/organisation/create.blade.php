@@ -3,7 +3,17 @@
 	evento - registreer organisatie
 @endsection
 @section('content')
-	<section class="page-alignment">
+	<section class="page-alignment steps spacing-top-m">
+		<div class="row row--stretch">
+			<div class="steps__item active">
+				Organisatiegegevens
+			</div>
+			<div class="steps__item">
+				Gebruikergegevens
+			</div>
+		</div>
+	</section>
+	<section class="page-alignment spacing-top-l">
 		<h1>
 			Start nu jouw organisatie
 		</h1>
@@ -14,7 +24,7 @@
 		<form method="POST" action="{{ route('organisation.postcreate', ['subscription_id' => $subscription['id']]) }}" class="form" enctype="multipart/form-data">
 			@csrf
 
-			<h2>
+			<h2 class="spacing-top-m">
 				1. Algemene gegevens
 			</h2>
 
@@ -65,7 +75,7 @@
 				@enderror
 			</div>
 
-			<h2>
+			<h2 class="spacing-top-m">
 				2. Opmaak mogelijkheden van de bedrijfspagina
 			</h2>
 

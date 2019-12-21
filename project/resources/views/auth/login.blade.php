@@ -105,4 +105,13 @@
 			</div>
 		</div>
 	</div>
+	{{--<script> TODO: fix this
+        $(document).ready(function(){
+            $('#checkbox').on('change', function(){
+                $('#password').attr('type',$('#checkbox').prop('checked')==true?"text":"password");
+            });
+        });
+	</script>
+	<input type="password" id="password">
+	<input type="checkbox" id="checkbox">Show Password--}}
 @endsection

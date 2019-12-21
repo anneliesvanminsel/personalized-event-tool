@@ -467,6 +467,18 @@ span.invalid-feedback {
   color: red;
 }
 
+.spacing-top-m {
+  margin-top: 40px;
+}
+
+.spacing-top-l {
+  margin-top: 80px;
+}
+
+.spacing-top-s {
+  margin-top: 20px;
+}
+
 .btn {
   width: 100%;
   font-size: 16px;

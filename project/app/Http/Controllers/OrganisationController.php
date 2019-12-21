@@ -8,6 +8,7 @@ use App\Subscription;
 use Illuminate\Http\Request;
 use App\User;
 use App\Event;
+use Illuminate\Support\Facades\Hash;
 
 class OrganisationController extends Controller
 {
@@ -59,6 +60,33 @@ class OrganisationController extends Controller
 
 		$organisation->save();
 
-		return redirect()->route('start.organisation');
+		return redirect()->route('organisation.admin.create', ['organisation_id' => $organisation['id']]);
+	}
+
+	public function createAdmin($organisation_id) {
+		$org = Organisation::where('id', $organisation_id)->first();
+
+		return view('content.user.create', ['organisation' => $org]);
+	}
+
+	public function postCreateAdmin(Request $request, $organisation_id) {
+		$org = Organisation::where('id', $organisation_id)->first();
+
+		//validatie
+		$this->validate($request, [
+			'email' => 'required|email|max:255|unique:users',
+			'password' => 'required|string|min:8]',
+		]);
+
+		$user = new User();
+
+		$user->email = $request->input('email');
+		$user->password = Hash::make($request->input('password'));
+		$user->role = 'organisator';
+		$user->organisation_id = $organisation_id;
+
+		$user->save();
+
+		return redirect()->route('org.dashboard', ['organisation_id' => $organisation_id]);
 	}
 }
