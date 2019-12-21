@@ -1,6 +1,7 @@
 <?php
 
 	use App\Event;
+	use App\Organisation;
 	use Illuminate\Database\Seeder;
 
 class EventTableSeeder extends Seeder
@@ -13,6 +14,14 @@ class EventTableSeeder extends Seeder
     public function run()
     {
         //
+		$organisation = new Organisation(
+			[
+				"name" => "Annelies Van Minsel",
+				"subscription_id" => 1,
+			]
+		);
+		$organisation->save();
+
 		$event = new Event(
 			[
 				"title" => "Middelton Christmas Fair",
@@ -25,6 +34,8 @@ class EventTableSeeder extends Seeder
 			]
 		);
 		$event->save();
+
+		$organisation->events()->attach($event);
 
 		$event = new Event(
 			[
@@ -39,6 +50,8 @@ class EventTableSeeder extends Seeder
 		);
 		$event->save();
 
+		$organisation->events()->attach($event);
+
 		$event = new Event(
 			[
 				"title" => "Ehb rock",
@@ -52,7 +65,9 @@ class EventTableSeeder extends Seeder
 		);
 		$event->save();
 
-		$event = new Event(
+		$organisation->events()->attach($event);
+
+		$event4 = new Event(
 			[
 				"title" => "Rock Werchter",
 				"description" => "Iedereen welkom op ons eerste festival. Verspreid over onze campussen bevinden zich podia met artiesten uit onze regio.",
@@ -63,6 +78,8 @@ class EventTableSeeder extends Seeder
 				"logo" => "rockwerchter.jpg",
 			]
 		);
-		$event->save();
+		$event4->save();
+
+		$organisation->events()->attach($event4);
 	}
 }

@@ -13,14 +13,18 @@ class Event extends Model
 		'title', 'description', 'type', 'status', 'bkgcolor', 'textcolor', 'logo',
 	];
 
-	public function session(){
+	public function sessions(){
 		return $this->hasMany('App\Session');
 	}
 
 	public function organisations(){
 		return $this->belongsToMany('App\Organisation',
 			'organisation_event',
-			'organisation_id',
-			'event_id')->withTimestamps();
+			'event_id',
+			'organisation_id')->withTimestamps();
+	}
+
+	public function tickets(){
+		return $this->hasMany('App\Ticket');
 	}
 }
