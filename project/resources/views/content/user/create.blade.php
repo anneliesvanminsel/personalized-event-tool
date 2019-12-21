@@ -18,7 +18,8 @@
 			Voeg jouw hoofdgebruiker toe
 		</h1>
 		<p class="subheading">
-			Voeg het adminaccount van het bedrijf {{ $organisation['name'] }}
+			Voeg het adminaccount van het bedrijf <span class="accent">{{ $organisation['name'] }}</span> toe. <br>
+			Dit wordt het account waarmee u vanaf nu kunt inloggen en evenementen kunt aanpassen.
 		</p>
 
 		<form method="POST" action="{{ route('organisation.admin.postcreate', ['organisation_id' => $organisation['id']]) }}" class="form" enctype="multipart/form-data">
@@ -75,7 +76,7 @@
 
 			<div class="spacing-top-m">
 				<button type="submit" class="btn btn--full">
-					Start nu jouw bedrijf
+					Link dit account
 				</button>
 			</div>
 		</form>

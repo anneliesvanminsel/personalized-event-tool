@@ -3,12 +3,12 @@
 	evento - maak event
 @endsection
 @section('content')
-	<section class="page-alignment">
+	<section class="page-alignment spacing-top-m">
 		<h1>
 			Maak jouw evenement
 		</h1>
 
-		<form method="POST" action="{{ route('event.postcreate') }}" class="form" enctype="multipart/form-data">
+		<form method="POST" action="{{ route('event.postcreate', ['organisation_id' => $organisation_id]) }}" class="form" enctype="multipart/form-data">
 			@csrf
 
 			<h2>

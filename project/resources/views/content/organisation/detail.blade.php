@@ -3,29 +3,41 @@
 	evento - {{ $organisation->name }}
 @endsection
 @section('content')
-	<section class="hero" style="background-color: {{ $organisation['bkgcolor'] }}; color: {{ $organisation['textcolor'] }}">
-		<div class="hero__content row row--stretch">
-			@if($organisation['logo'] && File::exists(public_path() . "/images/" . $organisation['logo']))
-				<div class="ctn--image">
-					<img src="{{ asset('images/' . $organisation['logo'] ) }}" alt="{{ $organisation['name'] }}" loading="lazy">
-				</div>
-			@else
-				<div class="ctn--image">
-					<img src="https://placekitten.com/600/600" alt="{{ $organisation['name'] }}" loading="lazy">
-				</div>
-			@endif
-
-			<div class="hero__text">
-				<div class="row">
-					<h1>
-						{{ $organisation['name'] }}
-					</h1>
-				</div>
+	<section class="page-alignment spacing-top-m">
+		<h1>
+			{{ $organisation['name'] }}
+		</h1>
+		<div class="row row--stretch spacing-top-s">
+			<div>
+				Danish carrot cake pudding bonbon toffee marzipan cake. Donut ice cream dessert. Croissant wafer ice
+				cream gummi bears lollipop topping. Candy canes croissant sweet roll tootsie roll gummi bears jelly
+				beans. Liquorice marzipan lollipop wafer. Tiramisu liquorice apple pie jelly-o. Sugar plum ice cream
+				tiramisu ice cream apple pie oat cake jelly. Bear claw pastry pudding candy canes jelly. Icing oat
+				cake tootsie roll biscuit chupa chups gummies apple pie. Jelly-o cake sweet roll wafer tiramisu cupcake
+				candy. Pie toffee cotton candy pudding jujubes. Sesame snaps ice cream powder tart soufflé fruitcake
+				cheesecake brownie sugar plum. Marshmallow dessert danish sugar plum icing.
+			</div>
+			<div>
+				@if($organisation['logo'] && File::exists(public_path() . "/images/" . $organisation['logo']))
+					<div class="ctn--image">
+						<img src="{{ asset('images/' . $organisation['logo'] ) }}" alt="{{ $organisation['name'] }}" loading="lazy">
+					</div>
+				@else
+					<div class="ctn--image">
+						<img src="https://placekitten.com/600/600" alt="{{ $organisation['name'] }}" loading="lazy">
+					</div>
+				@endif
+					<div class="spacing-top-s">
+						bedrijfstraat 45
+						3000 Leuven
+						+32 456 78 92 34
+						bedrijf@mail.be
+					</div>
 			</div>
 		</div>
 	</section>
 	@if($organisation->events()->exists())
-		<section class="page-alignment">
+		<section class="page-alignment spacing-top-m">
 			<h2>
 				Onze evenementen
 			</h2>

@@ -61,18 +61,18 @@ Auth::routes();
 
 Route::group(['prefix' => 'admin'], function() {
 
-	Route::get('dashboard/{org_id}', [
+	Route::get('dashboard/{user_id}', [
 		'uses' => 'OrganisationController@getDashboard',
 		'as' => 'org.dashboard'
 	]);
 
 	//add event
-	Route::get('newevent', [
+	Route::get('newevent/{organisation_id}', [
 		'uses' => 'EventController@createEvent',
 		'as' => 'event.create'
 	]);
 
-	Route::post('newevent/post', [
+	Route::post('newevent/{organisation_id}/post', [
 		'uses' => 'EventController@postCreateEvent',
 		'as' => 'event.postcreate'
 	]);

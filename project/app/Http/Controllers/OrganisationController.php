@@ -13,14 +13,13 @@ use Illuminate\Support\Facades\Hash;
 class OrganisationController extends Controller
 {
     //
-	public function getDashboard($org_id) {
-		$user = User::where('organisation_id', $org_id)->first();
+	public function getDashboard($user_id) {
+		$user = User::where('id', $user_id)->first();
+		$organisation = Organisation::where('id', $user['organisation_id'])->first();
 
-		$organisation = Organisation::where('id', $org_id)->first();
+		//$events = Event::where('organisation_id', $org_id)->paginate(5);
 
-		$events = Event::where('organisation_id', $org_id)->paginate(5);
-
-		return view('content.organisation.dashboard', ['user' => $user, '$organisation' => $organisation]);
+		return view('content.organisation.dashboard', ['user' => $user, 'organisation' => $organisation]);
 	}
 
 	public function getOrganisationDetail($id) {
@@ -83,9 +82,10 @@ class OrganisationController extends Controller
 		$user->email = $request->input('email');
 		$user->password = Hash::make($request->input('password'));
 		$user->role = 'organisator';
-		$user->organisation_id = $organisation_id;
+		$user['organisation_id'] = $org->id;
 
 		$user->save();
+		$org->users()->save($user);
 
 		return redirect()->route('org.dashboard', ['organisation_id' => $organisation_id]);
 	}

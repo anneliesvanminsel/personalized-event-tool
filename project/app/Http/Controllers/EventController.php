@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Organisation;
 use App\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -16,13 +17,14 @@ class EventController extends Controller
 		return view('content.event.detail', ['event' => $event]);
 	}
 
-	public function createEvent() {
-		//TODO: niet de user_id maar org id ?! en wat met meerdere orgsss
+	public function createEvent($organisation_id) {
+		$organisation = Organisation::where('id', $organisation_id)->first();
 
-		return view('content.event.create');
+		return view('content.event.create', ['organisation_id' => $organisation->id]);
 	}
 
-	public function postCreateEvent(Request $request) {
+	public function postCreateEvent(Request $request, $organisation_id) {
+		$organisation = Organisation::where('id', $organisation_id)->first();
 
 		//validatie
 		$this->validate($request, [
@@ -58,8 +60,9 @@ class EventController extends Controller
 
 
 		$event->save();
+		$organisation->events()->attach($event);
 
-		return redirect()->route('index');
+		return redirect()->route('event.detail', ['id' => $event['id']]);
 	}
 
 	public function UpdateEvent($id) {
