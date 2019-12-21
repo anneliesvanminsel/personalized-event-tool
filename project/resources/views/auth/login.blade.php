@@ -95,8 +95,11 @@
 						@if (Route::has('password.request'))
 							<a class="link" href="{{ route('password.request') }}">
 								Wachtwoord vergeten?
-							</a>
+							</a> <br> <br>
 						@endif
+						<a class="link" href="{{ route('register') }}">
+							Nog geen account? Maak er snel één aan.
+						</a>
 					</div>
 				</form>
 			</div>

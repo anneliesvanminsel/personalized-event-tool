@@ -5,7 +5,7 @@
 @section('content')
 	<section class="hero" style="background-color: {{ $organisation['bkgcolor'] }}; color: {{ $organisation['textcolor'] }}">
 		<div class="hero__content row row--stretch">
-			@if(File::exists(public_path() . "/images/" . $organisation['logo']))
+			@if($organisation['logo'] && File::exists(public_path() . "/images/" . $organisation['logo']))
 				<div class="ctn--image">
 					<img src="{{ asset('images/' . $organisation['logo'] ) }}" alt="{{ $organisation['name'] }}" loading="lazy">
 				</div>
@@ -24,6 +24,60 @@
 			</div>
 		</div>
 	</section>
+	@if($organisation->events()->exists())
+		<section class="page-alignment">
+			<h2>
+				Onze evenementen
+			</h2>
+			<div class="h-grid">
+				@foreach($organisation->events()->get() as $event)
+					<div class="h-grid__item item row row--stretch">
+						<div class="item__date" style="background-color: {{ $organisation['bkgcolor'] }}; color: {{ $organisation['textcolor'] }}">
+							17 dec
+						</div>
+
+						@if(File::exists(public_path() . "/images/" . $event['logo']))
+							<div class="item__image ctn--image">
+								<img src="{{ asset('images/' . $event['logo'] ) }}" alt="{{ $event['title'] }}" loading="lazy">
+							</div>
+						@else
+							<div class="item__image ctn--image">
+								<img src="https://placekitten.com/600/600" alt="{{ $event['title'] }}" loading="lazy">
+							</div>
+						@endif
+
+						<div class="item__content">
+							<div class="item__title">
+								{{ $event->title }}
+							</div>
+							<div class="item__text">
+								{{ $event->type }}
+							</div>
+						</div>
+						<style>
+							.btn {
+								border-color: {{ $organisation['bkgcolor'] }};
+								color: {{ $organisation['bkgcolor'] }}
+							}
+
+							.btn:hover {
+								background-color: {{ $organisation['bkgcolor'] }};
+								color: {{ $organisation['textcolor'] }};
+							}
+						</style>
+						<div class="item__actions">
+							<a class="btn" href={{route('event.detail', ['event_id' => $event->id])}}>
+								Bekijk details
+							</a>
+							<a class="item__remind" href="#" style="color: {{ $organisation['bkgcolor'] }}">
+								Herinner mij
+							</a>
+						</div>
+					</div>
+				@endforeach
+			</div>
+		</section>
+	@endif
 
 	<section class="photowall">
 		<ul class="photolist">

@@ -50,9 +50,9 @@
 				Georganiseerd door:
 				@foreach( $event->organisations()->get() as $org)
 
-					<span>
+					<a href="{{ route('organisation.detail', ['id' => $org['id']]) }}" class="link">
 						{{ $org['name'] }}
-					</span>
+					</a>
 				@endforeach
 			</div>
 		@endif

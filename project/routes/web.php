@@ -36,6 +36,11 @@ Route::get('account/{user_id}', [
 	'as' => 'user.account'
 ]);
 
+Route::get('organisatie/{organisation_id}', [
+	'uses' => 'OrganisationController@getOrganisationDetail',
+	'as' => 'organisation.detail'
+]);
+
 Route::get('registreer/{subscription_id}', [
 	'uses' => 'OrganisationController@createOrganisation',
 	'as' => 'organisation.create'

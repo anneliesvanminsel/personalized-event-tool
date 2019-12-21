@@ -22,6 +22,12 @@ class OrganisationController extends Controller
 		return view('content.organisation.dashboard', ['user' => $user, '$organisation' => $organisation]);
 	}
 
+	public function getOrganisationDetail($id) {
+		$organisation = Organisation::where('id', $id)->first();
+
+		return view('content.organisation.detail', ['organisation' => $organisation]);
+	}
+
 	public function createOrganisation($subscription_id) {
 		$subscription = Subscription::where('id', $subscription_id)->first();
 

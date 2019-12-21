@@ -24,30 +24,6 @@
 					@csrf
 
 					<div class="form__group">
-						<input
-							id="name"
-							type="text"
-							class="form__input @error('name') is-invalid @enderror"
-							name="name" value="{{ old('name') }}"
-							placeholder="bv. Jan Peeters"
-							required
-							autocomplete="name"
-							autofocus
-						>
-
-						<label for="name" class="form__label">
-							Naam
-						</label>
-
-						@error('name')
-							<span class="invalid-feedback" role="alert">
-								<strong>{{ $message }}</strong>
-							</span>
-						@enderror
-
-					</div>
-
-					<div class="form__group">
 
 
 							<input
@@ -113,10 +89,14 @@
 					</div>
 
 					<div class="form__group">
-							<button type="submit" class="btn btn--full">
-								Maak een account
-							</button>
+						<button type="submit" class="btn btn--full">
+							Maak een account
+						</button>
 					</div>
+					<br>
+					<a class="link" href="{{ route('login') }}">
+						Al een account? Meld je nu aan.
+					</a>
 				</form>
 			</div>
 		</div>
