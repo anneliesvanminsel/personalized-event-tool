@@ -101,9 +101,9 @@
 						{{ $sub['description'] }}
 					</p>
 
-					<button class="btn btn--full">
+					<a class="btn btn--full" href="{{ route('organisation.create', ['subscription_id' => $sub->id]) }}">
 						Ik wil deze
-					</button>
+					</a>
 				</label>
 			@endforeach
 

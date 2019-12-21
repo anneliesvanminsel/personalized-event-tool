@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
+	use Carbon\Carbon;
+	use Illuminate\Database\Seeder;
 use App\Session;
 
 class SessionTableSeeder extends Seeder
@@ -16,13 +17,24 @@ class SessionTableSeeder extends Seeder
 
 		$session = new Session(
 			[
-				'name' => 'organisator',
-				'city' => 'organisator@bedrijf.be',
-				'date' => 'lala',
-				'status' => 'organisator',
-				'locationname' => 'organisator',
-				'totaltickets' => 'organisator',
-				'event_id' => '1',
+				'name' => 'Dag 1',
+				'city' => 'Leuven',
+				'date' => Carbon::parse('2020-10-21'),
+				'locationname' => '300CC',
+				'totaltickets' => 50,
+				'event_id' => 1,
+			]
+		);
+		$session->save();
+
+		$session = new Session(
+			[
+				'name' => 'Dag 2',
+				'city' => 'Leuven',
+				'date' => Carbon::parse('2020-10-22'),
+				'locationname' => '300CC',
+				'totaltickets' => 50,
+				'event_id' => 1,
 			]
 		);
 		$session->save();

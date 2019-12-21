@@ -10,7 +10,7 @@ class Organisation extends Model
 	use SoftDeletes;
 	//
 	protected $fillable = [
-		'name', 'subscription_id',
+		'name', 'subscription_id', 'bkgcolor', 'textcolor', 'logo',
 	];
 
 	public function subscription() {
@@ -22,5 +22,9 @@ class Organisation extends Model
 			'organisation_event',
 			'organisation_id',
 			'event_id')->withTimestamps();
+	}
+
+	public function users(){
+		return $this->hasMany('App\User');
 	}
 }

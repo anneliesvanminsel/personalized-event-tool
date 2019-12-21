@@ -155,6 +155,29 @@ h2::after {
   }
 }
 
+a.link {
+  position: relative;
+}
+
+a.link::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #262323;
+  -webkit-transition: width 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out;
+}
+
+a.link:hover::before {
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
 .header {
   display: -webkit-box;
   display: flex;
@@ -430,6 +453,18 @@ h2::after {
   top: 65%;
   right: 0;
   width: 60%;
+}
+
+span.accent {
+  color: #FE676E;
+}
+
+span.info {
+  color: #B5D571;
+}
+
+span.invalid-feedback {
+  color: red;
 }
 
 .btn {

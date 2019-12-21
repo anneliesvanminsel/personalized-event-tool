@@ -42,7 +42,7 @@ class Session extends Model
 
 	public function schedules(){
 		return $this->belongsToMany('App\Schedule',
-			'session_schedules',
+			'session_schedule',
 			'schedule_id',
 			'session_id')->withTimestamps();
 	}

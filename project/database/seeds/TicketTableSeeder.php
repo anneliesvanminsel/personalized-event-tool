@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Ticket;
+use Carbon\Carbon;
 
 class TicketTableSeeder extends Seeder
 {
@@ -18,7 +19,8 @@ class TicketTableSeeder extends Seeder
 				'name' => 'dagticket',
 				'price' => 19.99,
 				'type' => 'daypass',
-				'date' => '28/10/2020',
+				'description' => 'dagticket voor 21 oktober 2020',
+				'date' => Carbon::parse('2020-10-21'),
 				'totaltickets' => 200,
 				'event_id' => 1,
 			]

@@ -1,6 +1,7 @@
 <?php
 
 	use App\User;
+	use Carbon\Carbon;
 	use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
@@ -30,6 +31,9 @@ class UsersTableSeeder extends Seeder
 				'email' => 'organisator@bedrijf.be',
 				'password' => \Illuminate\Support\Facades\Hash::make("bedrijf"),
 				'role' => 'organisator',
+				'organisation_id' => 1,
+				'birthday' => Carbon::parse('1994-12-01'),
+				'phonenumber' => "0456 78 90 43",
 			]
 		);
 		$user->save();
@@ -40,6 +44,9 @@ class UsersTableSeeder extends Seeder
 				'email' => 'medewerker@bedrijf.be',
 				'password' => \Illuminate\Support\Facades\Hash::make("bedrijf"),
 				'role' => 'volunteer',
+				'organisation_id' => 1,
+				'birthday' => Carbon::parse('1995-12-01'),
+				'phonenumber' => "0456 78 90 43",
 			]
 		);
 		$user->save();
@@ -50,6 +57,8 @@ class UsersTableSeeder extends Seeder
 				'email' => 'bezoeker@mail.be',
 				'password' => \Illuminate\Support\Facades\Hash::make("bedrijf"),
 				'role' => 'guest',
+				'birthday' => Carbon::parse('1992-12-01'),
+				'phonenumber' => "0456 78 90 43",
 			]
 		);
 		$user->save();

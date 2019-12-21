@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'organisation_id', 'birthday', 'phonenumber', 'role',
     ];
 
     /**
@@ -38,6 +38,17 @@ class User extends Authenticatable
 		];
 	 *
 	 */
+
+	public function organisation() {
+		return $this->belongsTo('App\Organisation', 'organisation_id');
+	}
+
+	public function groups(){
+		return $this->belongsToMany('App\User',
+			'user_group',
+			'user_id',
+			'group_id')->withTimestamps();
+	}
 
 	public function workhours(){
 		return $this->belongsToMany('App\Taskhour',

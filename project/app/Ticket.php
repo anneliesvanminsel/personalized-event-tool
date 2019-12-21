@@ -10,14 +10,7 @@ class Ticket extends Model
 	use SoftDeletes;
 	//
 	protected $fillable = [
-		'name', 'price', 'type', 'totaltickets', 'date','event_id',
-	];
-
-	protected $dateFormat = 'dd/mm/yyyy';
-
-	protected $casts = [
-		'created_at' => 'datetime:d-m-y',
-		'date' => 'datetime:d-m-y',
+		'name', 'price', 'type', 'totaltickets', 'date', 'event_id', 'description',
 	];
 
 	public function session(){

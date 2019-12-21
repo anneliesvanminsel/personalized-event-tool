@@ -26,19 +26,24 @@ Route::get('organisation', [
 	'as' => 'start.organisation'
 ]);
 
-Route::get('account/{user_id}', [
-	'uses' => 'GeneralController@getAccount',
-	'as' => 'user.account'
-]);
-
 Route::get('event/{event_id}', [
 	'uses' => 'EventController@getEventDetail',
 	'as' => 'event.detail'
 ]);
 
-Route::get('newevent', [
-	'uses' => 'EventController@createEvent',
-	'as' => 'event.create'
+Route::get('account/{user_id}', [
+	'uses' => 'GeneralController@getAccount',
+	'as' => 'user.account'
+]);
+
+Route::get('registreer/{subscription_id}', [
+	'uses' => 'OrganisationController@createOrganisation',
+	'as' => 'organisation.create'
+]);
+
+Route::post('postregistreer/{subscription_id}', [
+	'uses' => 'OrganisationController@postCreateOrganisation',
+	'as' => 'organisation.postcreate'
 ]);
 
 Auth::routes();

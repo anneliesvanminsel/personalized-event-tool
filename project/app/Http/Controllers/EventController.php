@@ -30,8 +30,8 @@ class EventController extends Controller
 			'description'=> 'required|string|max:255',
 			'type'=> 'required|string', //with examples
 			'status'=> 'required|string|max:255', //select
-			'bkgcolor'=> 'nullable|string|max:255', //hex
-			'textcolor'=> 'nullable|string|max:255', //hex
+			'bkgcolor'=> 'nullable|string|max:255', //TODO: hex
+			'textcolor'=> 'nullable|string|max:255', //TODO: hex
 			'logo'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
 
@@ -76,8 +76,8 @@ class EventController extends Controller
 			'description'=> 'required|string|max:255',
 			'eventtype'=> 'required|string|max:255', //with examples
 			'eventstatus'=> 'required|string|max:255', //select
-			'bkgcolor'=> 'nullable|string|max:255', //hex
-			'textcolor'=> 'nullable|string|max:255', //hex
+			'bkgcolor'=> 'nullable|string|max:255', //TODO: hex
+			'textcolor'=> 'nullable|string|max:255', //TODO: hex
 			'logo'=> 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
 
