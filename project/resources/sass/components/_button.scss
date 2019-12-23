@@ -34,4 +34,11 @@
 	&--small {
 		width: 300px;
 	}
+
+	&.is-icon {
+		border: none;
+		background-color: transparent;
+		margin: 0;
+		padding: 0;
+	}
 }

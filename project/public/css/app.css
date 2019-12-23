@@ -518,6 +518,13 @@ span.invalid-feedback {
   width: 300px;
 }
 
+.btn.is-icon {
+  border: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
 .panel {
   position: relative;
   height: 100%;
@@ -1419,5 +1426,27 @@ input:focus + label {
 .h-grid .item__remind {
   color: #FE676E;
   font-size: 12px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: #262323;
+}
+
+.icon:hover {
+  fill: #FE676E;
+}
+
+.icon.is-red {
+  fill: #FE676E;
+}
+
+.icon.is-red:hover {
+  fill: #262323;
+}
+
+.icon.is-white {
+  fill: #ffffff;
 }
 

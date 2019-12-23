@@ -53,13 +53,13 @@
 							{{ $event->type }}
 						</div>
 					</div>
-					<div class="item__actions">
+					<div class="item__actions row row--stretch">
 						{{-- TODO: fix iconen --}}
-						<a class="btn" href={{route('event.detail', ['event_id' => $event->id])}}>
-							Bewerken
+						<a class="btn is-icon" href={{route('event.detail', ['event_id' => $event->id])}}>
+							@svg('edit', 'is-small')
 						</a>
-						<a class="btn" href={{route('event.detail', ['event_id' => $event->id])}}>
-							Verwijderen
+						<a class="btn is-icon" href={{route('event.detail', ['event_id' => $event->id])}}>
+							@svg('delete', 'is-small')
 						</a>
 					</div>
 				</div>

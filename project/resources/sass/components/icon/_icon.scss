@@ -1,0 +1,23 @@
+.icon {
+	width: 20px;
+	height: 20px;
+	fill: $black;
+
+	&:hover {
+		fill: $red;
+	}
+
+	&.is-red {
+		fill: $red;
+
+		&:hover{
+			fill: $black;
+		}
+	}
+
+	&.is-white {
+		fill: $white;
+	}
+
+
+}
