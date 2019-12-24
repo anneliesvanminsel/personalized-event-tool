@@ -9,6 +9,7 @@
 		</h1>
 		<div class="row row--stretch spacing-top-s">
 			<div>
+				{{ $organisation['description'] }}
 				Danish carrot cake pudding bonbon toffee marzipan cake. Donut ice cream dessert. Croissant wafer ice
 				cream gummi bears lollipop topping. Candy canes croissant sweet roll tootsie roll gummi bears jelly
 				beans. Liquorice marzipan lollipop wafer. Tiramisu liquorice apple pie jelly-o. Sugar plum ice cream

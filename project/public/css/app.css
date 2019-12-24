@@ -1199,7 +1199,8 @@ input[type=password],
 input[type=text],
 input[type=number],
 input[type=textarea],
-input[type=file] {
+input[type=file],
+textarea {
   width: 100%;
   padding: 20px;
   margin-bottom: 20px;
@@ -1222,12 +1223,15 @@ input[type=number]:valid,
 input[type=textarea]:focus,
 input[type=textarea]:valid,
 input[type=file]:focus,
-input[type=file]:valid {
+input[type=file]:valid,
+textarea:focus,
+textarea:valid {
   outline: none;
   border: 1px solid #FE676E;
 }
 
-input:placeholder-shown + label {
+input:placeholder-shown + label,
+textarea:placeholder-shown + label {
   cursor: text;
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
@@ -1253,7 +1257,8 @@ input:placeholder-shown + label {
 * Show the placeholder when the input is focused.
 */
 
-input:focus::-webkit-input-placeholder {
+input:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder {
   opacity: 1;
 }
 
@@ -1264,7 +1269,9 @@ input:focus::-webkit-input-placeholder {
 */
 
 input:not(:placeholder-shown) + label,
-input:focus + label {
+input:focus + label,
+textarea:not(:placeholder-shown) + label,
+textarea:focus + label {
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
@@ -1273,6 +1280,15 @@ input:focus + label {
   background-color: white;
   padding: 0 10px;
   width: auto;
+}
+
+textarea {
+  min-width: 100%;
+  max-width: 100%;
+  resize: none;
+  min-height: -webkit-fit-content;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
 }
 
 .form__group {
@@ -1432,10 +1448,18 @@ input:focus + label {
   width: 20px;
   height: 20px;
   fill: #262323;
+  margin-left: 5px;
+  margin-right: 5px;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .icon:hover {
   fill: #FE676E;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 .icon.is-red {
