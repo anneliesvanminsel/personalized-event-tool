@@ -57,7 +57,7 @@
 					Korte beschrijving
 				</label>
 
-				<div id="word-counter" for="description" class="form__label is-counter"></div>
+				<div id="word-counter" class="form__label is-counter"></div>
 
 				@error('description')
 					<span class="invalid-feedback" role="alert">
@@ -129,7 +129,7 @@
 				Gelieve deze te noteren in <span class="accent">hex-notatie.</span>
 			</p>
 
-			<div class="form__group spacing-top-m">
+			<div class="form__group spacing-top-s">
 				<input
 					id="bkgcolor"
 					type="text"
@@ -175,7 +175,7 @@
 			</div>
 
 
-			<div class="">
+			<div class="spacing-top-m">
 				<button type="submit" class="btn btn--full">
 					Sla wijzigingen op
 				</button>

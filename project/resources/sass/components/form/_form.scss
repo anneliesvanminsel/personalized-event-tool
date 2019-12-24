@@ -1,6 +1,6 @@
 .form {
 	&__group {
-		//position: relative;
+		position: relative;
 		display: flex;
 		flex-flow: column-reverse;
 	}
@@ -8,5 +8,17 @@
 	&__label {
 		@include default-transition();
 		touch-action: manipulation;
+
+		&.is-counter {
+			position: absolute;
+			top: 0;
+			right: 20px;
+			color: $red;
+			max-width: fit-content;
+			transform: translate($spacing-xs, $spacing-xs) scale(.9);
+			background-color: white;
+			padding: 0 $spacing-xs;
+			width: auto;
+		}
 	}
 }
