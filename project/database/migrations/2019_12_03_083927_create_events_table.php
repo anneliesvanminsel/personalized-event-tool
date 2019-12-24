@@ -20,7 +20,7 @@ class CreateEventsTable extends Migration
 			$table->string('type');
 			$table->string('bkgcolor')->nullable();
 			$table->string('textcolor')->nullable();
-			$table->string('logo'); //TODO: fix afbeeldingg
+			$table->string('logo');
 			$table->boolean('status')->default(0);
 			$table->softDeletes();
             $table->timestamps();

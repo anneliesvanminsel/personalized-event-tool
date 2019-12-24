@@ -18,10 +18,6 @@ class Session extends Model
 		return $this->belongsTo('App\Event', 'event_id');
 	}
 
-	public function messages(){
-		return $this->hasMany('App\Message');
-	}
-
 	public function tasks(){
 		return $this->hasMany('App\Task');
 	}

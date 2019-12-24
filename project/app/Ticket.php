@@ -13,7 +13,7 @@ class Ticket extends Model
 		'name', 'price', 'type', 'totaltickets', 'date', 'event_id', 'description',
 	];
 
-	public function session(){
+	public function event(){
 		return $this->belongsTo('App\Event', 'event_id');
 	}
 }

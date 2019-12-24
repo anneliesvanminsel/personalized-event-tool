@@ -10,7 +10,7 @@ class Task extends Model
 	use SoftDeletes;
 	//
 	protected $fillable = [
-		'title', 'description',
+		'title', 'description', 'event_id',
 	];
 
 	public function event(){

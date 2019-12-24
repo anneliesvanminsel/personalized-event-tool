@@ -27,4 +27,12 @@ class Event extends Model
 	public function tickets(){
 		return $this->hasMany('App\Ticket');
 	}
+
+	public function messages(){
+		return $this->hasMany('App\Message');
+	}
+
+	public function tasks(){
+		return $this->hasMany('App\Task');
+	}
 }

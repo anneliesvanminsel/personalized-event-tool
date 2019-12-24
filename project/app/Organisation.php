@@ -10,7 +10,7 @@ class Organisation extends Model
 	use SoftDeletes;
 	//
 	protected $fillable = [
-		'name', 'subscription_id', 'bkgcolor', 'textcolor', 'logo',
+		'name', 'description', 'subscription_id', 'bkgcolor', 'textcolor', 'logo',
 	];
 
 	public function subscription() {
