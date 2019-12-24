@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Event;
 use App\Organisation;
 use App\Ticket;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -78,27 +80,20 @@ class EventController extends Controller
 			'title' => 'required|string|max:255',
 			'description'=> 'required|string|max:255',
 			'eventtype'=> 'required|string|max:255', //with examples
-			'eventstatus'=> 'required|string|max:255', //select
-			'bkgcolor'=> 'nullable|string|max:255', //TODO: hex
 			'textcolor'=> 'nullable|string|max:255', //TODO: hex
+			'bkgcolor' => [
+				'nullable',
+				'string',
+				'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/',
+			],
 			'logo'=> 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
 
 		$event = Event::find($event_id);
 
-
-		$boolStatus = $request->input('eventstatus');
-
-		if ($boolStatus === '1') {
-			$boolStatus = 1;
-		} else {
-			$boolStatus = 0;
-		}
-
 		$event->title = $request->input('title');
 		$event->description = $request->input('description');
 		$event->type = $request->input('eventtype');
-		$event->status = (int)$boolStatus;
 		$event->bkgcolor = $request->input('bkgcolor');
 		$event->textcolor = $request->input('textcolor');
 
@@ -120,5 +115,17 @@ class EventController extends Controller
 		$event->save();
 
 		return redirect()->route('event.detail', ['id' => $event['id']]);
+	}
+
+	public function deleteEvent($organisation_id, $event_id){
+		$event = Event::find($event_id);
+		$organisation = Organisation::where('id', $organisation_id)->first();
+
+
+		$organisation->events()->detach($event_id);
+		$event->delete();
+		$user = Auth::user();
+
+		return view('content.organisation.dashboard', ['user' => $user, 'organisation' => $organisation]);
 	}
 }

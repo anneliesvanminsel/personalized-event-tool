@@ -3,7 +3,8 @@ input[type=password],
 input[type=text],
 input[type=number],
 input[type=textarea],
-input[type=file]
+input[type=file],
+textarea
 {
 	width: 100%;
 	padding: $spacing-s;
@@ -24,7 +25,8 @@ input[type=file]
 }
 
 //TODO: deze code beter schrijven + link code: https://codepen.io/team/css-tricks/pen/XVBLRM + https://css-tricks.com/float-labels-css/
-input:placeholder-shown + label {
+input:placeholder-shown + label,
+textarea:placeholder-shown + label {
 	cursor: text;
 	max-width: fit-content;
 	transform-origin: left bottom;
@@ -41,7 +43,8 @@ input:placeholder-shown + label {
 /**
 * Show the placeholder when the input is focused.
 */
-input:focus::-webkit-input-placeholder {
+input:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder {
 	opacity: 1;
 }
 /**
@@ -50,10 +53,19 @@ input:focus::-webkit-input-placeholder {
 * there's something in the input at all.
 */
 input:not(:placeholder-shown) + label,
-input:focus + label {
+input:focus + label,
+textarea:not(:placeholder-shown) + label,
+textarea:focus + label {
 	max-width: fit-content;
 	transform: translate($spacing-xs, $spacing-xs) scale(.9);
 	background-color: white;
 	padding: 0 $spacing-xs;
 	width: auto;
+}
+
+textarea {
+	min-width: 100%;
+	max-width: 100%;
+	resize: none;
+	min-height: fit-content;
 }

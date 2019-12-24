@@ -3,15 +3,15 @@
 	evento - edit event
 @endsection
 @section('content')
-	<section class="page-alignment">
+	<section class="page-alignment spacing-top-m">
 		<h1>
 			Bewerk {{ $event['title'] }}
 		</h1>
 
-		<form method="POST" action="{{ route('event.postupdate', ['event_id' => $event['id']]) }}" class="form" enctype="multipart/form-data">
+		<form method="POST" id="form-edit" action="{{ route('event.postupdate', ['event_id' => $event['id']]) }}" class="form" enctype="multipart/form-data">
 			@csrf
 
-			<h2>
+			<h2 class="spacing-top-m">
 				1. Algemene gegevens
 			</h2>
 
@@ -41,26 +41,34 @@
 
 
 			<div class="form__group">
-				<input
+				<textarea
+					form="form-edit"
 					id="description"
 					type="text"
 					class="form__input @error('description') is-invalid @enderror"
 					name="description"
 					placeholder="bv. het event van de eeuw"
-					value="{{ $event['description'] }}"
 					required
 					autocomplete="off"
-				>
+					maxlength="255"
+				>{{ $event['description'] }}</textarea>
 
 				<label for="description" class="form__label">
 					Korte beschrijving
 				</label>
 
+				<div id="word-counter" for="description" class="form__label is-counter"></div>
+
 				@error('description')
-				<span class="invalid-feedback" role="alert">
+					<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
 					</span>
 				@enderror
+				<script>
+                    document.getElementById('description').onkeyup = function () {
+                        document.getElementById('word-counter').innerHTML = this.value.length + "/255";
+                    };
+				</script>
 			</div>
 
 			<div class="form__group">
@@ -85,7 +93,7 @@
 				@enderror
 			</div>
 
-			<h2>
+			<h2 class="spacing-top-m">
 				2. Technische informatie
 			</h2>
 
@@ -112,35 +120,16 @@
 				@enderror
 			</div>
 
-
-			<div class="form__group">
-				<input
-					id="eventstatus"
-					type="text"
-					class="form__input @error('eventstatus') is-invalid @enderror"
-					name="eventstatus"
-					placeholder="bv. het event van de eeuw"
-					value="{{ $event['status'] }}"
-					required
-					autocomplete="off"
-				>
-
-				<label for="eventstatus" class="form__label">
-					status
-				</label>
-
-				@error('eventstatus')
-				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-				@enderror
-			</div>
-
-			<h2>
+			<h2 class="spacing-top-m">
 				3. Opmaak mogelijkheden
 			</h2>
+			<p>
+				Hier zal je de evenementspagina kunnen personaliseren. Deze kleuren zullen in de applicatie en op de website terugkomen.
+				<br>
+				Gelieve deze te noteren in <span class="accent">hex-notatie.</span>
+			</p>
 
-			<div class="form__group">
+			<div class="form__group spacing-top-m">
 				<input
 					id="bkgcolor"
 					type="text"
