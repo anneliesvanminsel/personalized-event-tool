@@ -54,13 +54,20 @@
 						</div>
 					</div>
 					<div class="item__actions row row--stretch">
-						{{-- TODO: fix iconen --}}
-						<a class="btn is-icon" href={{route('event.detail', ['event_id' => $event->id])}}>
+						<a class="btn is-icon" href={{route('event.update', ['event_id' => $event->id])}}>
 							@svg('edit', 'is-small')
 						</a>
-						<a class="btn is-icon" href={{route('event.detail', ['event_id' => $event->id])}}>
-							@svg('delete', 'is-small')
-						</a>
+						<form
+							class="form"
+							onsubmit="return confirm('Ben je zeker dat je {{ $event['title'] }} wilt verwijderen? Dit kan niet ongedaan worden gemaakt.');"
+							method="POST"
+							action="{{ route('event.delete', ['event-id' => $event['id'], 'organisation_id' => $organisation['id'] ]) }}"
+						>
+							{{ csrf_field() }}
+							<button class="btn is-icon" type="submit">
+								@svg('delete', 'is-small')
+							</button>
+						</form>
 					</div>
 				</div>
 			@endforeach
