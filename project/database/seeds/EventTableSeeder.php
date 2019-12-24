@@ -16,7 +16,8 @@ class EventTableSeeder extends Seeder
         //
 		$organisation = new Organisation(
 			[
-				"name" => "Annelies Van Minsel",
+				"name" => "The Ginger Studio",
+				"description" => "The Ginger Studio is een design studio dat regelmatig een designmeeting organiseert.",
 				"subscription_id" => 1,
 			]
 		);

@@ -17,11 +17,7 @@ class SessionTableSeeder extends Seeder
 
 		$session = new Session(
 			[
-				'name' => 'Dag 1',
-				'city' => 'Leuven',
 				'date' => Carbon::parse('2020-10-21'),
-				'locationname' => '300CC',
-				'totaltickets' => 50,
 				'event_id' => 1,
 			]
 		);
@@ -29,11 +25,7 @@ class SessionTableSeeder extends Seeder
 
 		$session = new Session(
 			[
-				'name' => 'Dag 2',
-				'city' => 'Leuven',
 				'date' => Carbon::parse('2020-10-22'),
-				'locationname' => '300CC',
-				'totaltickets' => 50,
 				'event_id' => 1,
 			]
 		);

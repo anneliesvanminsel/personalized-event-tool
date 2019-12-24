@@ -21,6 +21,7 @@ class CreateOrganisationsTable extends Migration
 			$table->string('bkgcolor')->nullable();
 			$table->string('logo')->nullable();
 			$table->integer('subscription_id');
+			$table->integer('address_id')->nullable();
 			$table->softDeletes();
             $table->timestamps();
         });

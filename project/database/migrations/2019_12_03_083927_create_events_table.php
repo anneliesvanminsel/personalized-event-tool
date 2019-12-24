@@ -21,7 +21,10 @@ class CreateEventsTable extends Migration
 			$table->string('bkgcolor')->nullable();
 			$table->string('textcolor')->nullable();
 			$table->string('logo');
+			$table->date('starttime');
+			$table->date('endtime')->nullable();
 			$table->boolean('status')->default(0);
+			$table->integer('address_id')->nullable();
 			$table->softDeletes();
             $table->timestamps();
         });

@@ -16,7 +16,7 @@ class CreateFloorplansTable extends Migration
         Schema::create('floorplans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('afbeelding'); //TODO: moet een afbeelding worden
+            $table->string('afbeelding');
 			$table->softDeletes();
 			$table->timestamps();
         });
