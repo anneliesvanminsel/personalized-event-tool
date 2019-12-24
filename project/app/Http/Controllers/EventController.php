@@ -33,22 +33,23 @@ class EventController extends Controller
 			'title' => 'required|string|max:255',
 			'description'=> 'required|string|max:255',
 			'type'=> 'required|string', //with examples
-			'status'=> 'required|string|max:255', //select
-			'bkgcolor'=> 'nullable|string|max:255', //TODO: hex
-			'textcolor'=> 'nullable|string|max:255', //TODO: hex
+			'bkgcolor' => [
+				'nullable',
+				'string',
+				'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/',
+			],
+			'textcolor' => [
+				'nullable',
+				'string',
+				'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/',
+			],
 			'logo'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
 
 		$imageName = time().'.'.request()->logo->getClientOriginalExtension();
 		request()->logo->move(public_path('images'), $imageName);
 
-		$boolStatus = $request->input('status');
-
-		if ($boolStatus === '1') {
-			$boolStatus = 1;
-		} else {
-			$boolStatus = 0;
-		}
+		$boolStatus = 0;
 
 		$event = new Event;
 
@@ -80,8 +81,12 @@ class EventController extends Controller
 			'title' => 'required|string|max:255',
 			'description'=> 'required|string|max:255',
 			'eventtype'=> 'required|string|max:255', //with examples
-			'textcolor'=> 'nullable|string|max:255', //TODO: hex
 			'bkgcolor' => [
+				'nullable',
+				'string',
+				'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/',
+			],
+			'textcolor' => [
 				'nullable',
 				'string',
 				'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/',
@@ -120,11 +125,24 @@ class EventController extends Controller
 	public function deleteEvent($organisation_id, $event_id){
 		$event = Event::find($event_id);
 		$organisation = Organisation::where('id', $organisation_id)->first();
-
-
-		$organisation->events()->detach($event_id);
-		$event->delete();
 		$user = Auth::user();
+
+		$organisation->events()->detach($event_id); //event van deze organisatie verwijderen
+		$event->organisations()->detach(); //event voor alle organisaties verwijderen
+		$event->delete(); //event echt verwijderen
+
+		//TODO: wat met alle gelinkte files van events en sessions en tickets en users etc ??
+
+		return view('content.organisation.dashboard', ['user' => $user, 'organisation' => $organisation]);
+	}
+
+	public function publishEvent($organisation_id, $event_id){
+		$event = Event::find($event_id);
+		$organisation = Organisation::where('id', $organisation_id)->first();
+		$user = Auth::user();
+
+		$boolStatus = 1;
+		$event->status = (int)$boolStatus;
 
 		return view('content.organisation.dashboard', ['user' => $user, 'organisation' => $organisation]);
 	}

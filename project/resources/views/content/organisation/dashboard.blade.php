@@ -59,7 +59,7 @@
 						</a>
 						<form
 							class="form"
-							onsubmit="return confirm('Ben je zeker dat je {{ $event['title'] }} wilt verwijderen? Dit kan niet ongedaan worden gemaakt.');"
+							onsubmit="return confirm('Ben je zeker dat je {{ $event['title'] }} voor alle organisatoren wilt verwijderen? Dit kan niet ongedaan worden gemaakt.');"
 							method="POST"
 							action="{{ route('event.delete', ['event-id' => $event['id'], 'organisation_id' => $organisation['id'] ]) }}"
 						>

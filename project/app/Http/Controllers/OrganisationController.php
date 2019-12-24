@@ -40,8 +40,16 @@ class OrganisationController extends Controller
 		//validatie
 		$this->validate($request, [
 			'name' => 'required|string|max:255',
-			'bkgcolor'=> 'nullable|string|max:255', //TODO: hex
-			'textcolor'=> 'nullable|string|max:255', //TODO: hex
+			'bkgcolor' => [
+				'nullable',
+				'string',
+				'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/',
+			],
+			'textcolor' => [
+				'nullable',
+				'string',
+				'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/',
+			],
 			'logo'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
 

@@ -96,6 +96,12 @@ Route::group(['prefix' => 'admin'], function() {
 		'as' => 'event.postupdate'
 	]);
 
+	//delete event
+	Route::post('event/delete/{organisation_id}/{event_id}', [
+		'uses' => 'EventController@deleteEvent',
+		'as' => 'event.delete'
+	]);
+
 	//delete event from organisation
 	Route::post('event/delete/{organisation_id}/{event_id}', [
 		'uses' => 'EventController@deleteEvent',

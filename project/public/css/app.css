@@ -1292,6 +1292,7 @@ textarea {
 }
 
 .form__group {
+  position: relative;
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: vertical;
@@ -1303,6 +1304,21 @@ textarea {
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
   touch-action: manipulation;
+}
+
+.form__label.is-counter {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  color: #FE676E;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  -webkit-transform: translate(10px, 10px) scale(0.9);
+          transform: translate(10px, 10px) scale(0.9);
+  background-color: white;
+  padding: 0 10px;
+  width: auto;
 }
 
 .photolist {
