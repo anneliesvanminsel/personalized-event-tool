@@ -78,7 +78,7 @@
             @foreach($searchedevents as $event)
                 <div class="h-grid__item item row row--stretch">
                     <div class="item__date bkg-red">
-                        17 dec
+                        {{  date('d M', strtotime( $event['starttime'])) }}
                     </div>
 
                     @if(File::exists(public_path() . "/images/" . $event['logo']))

@@ -31,6 +31,7 @@
 		<div class="h-grid">
 			@foreach($organisation->events()->orderBy('starttime', 'ASC')->get() as $event)
 				<div class="h-grid__item item row row--stretch">
+
 					<div class="item__date" style="background-color: {{ $organisation['bkgcolor'] }}; color: {{ $organisation['textcolor'] }}">
 						{{  date('d M', strtotime( $event['starttime'])) }}
 					</div>
@@ -53,9 +54,29 @@
 							{{ $event->type }}
 						</div>
 					</div>
+
 					<div class="item__actions row row--stretch">
+						<form
+							class="form"
+							onsubmit="return confirm('Ben je zeker dat je {{ $event['title'] }} voor alle organisatoren wilt publishen?');"
+							method="POST"
+							action="{{ route('event.update', ['event-id' => $event['id'], 'organisation_id' => $organisation['id'] ]) }}"
+						>
+							{{ csrf_field() }}
+
+							<button class="btn is-icon" type="submit">
+								@if($event['status'] === 0)
+									@svg('hide', 'is-small')
+								@else
+									@svg('view', 'is-small')
+								@endif
+							</button>
+						</form>
 						<a class="btn is-icon" href={{route('event.update', ['event_id' => $event->id])}}>
 							@svg('edit', 'is-small')
+						</a>
+						<a class="btn is-icon" href={{route('event.update', ['event_id' => $event->id])}}>
+							@svg('calendar (2)', 'is-small')
 						</a>
 						<form
 							class="form"

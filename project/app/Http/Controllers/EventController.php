@@ -141,9 +141,32 @@ class EventController extends Controller
 		$organisation = Organisation::where('id', $organisation_id)->first();
 		$user = Auth::user();
 
-		$boolStatus = 1;
-		$event->status = (int)$boolStatus;
+		if ($event->status === 1) {
+			$event->status = (int)0;
+		} else {
+			$event->status = (int)1;
+		}
+
+		$event->save();
 
 		return view('content.organisation.dashboard', ['user' => $user, 'organisation' => $organisation]);
 	}
+
+	public function buyEventTicket($event_id, $ticket_id){
+		$event = Event::find($event_id);
+		$ticket = Ticket::find($ticket_id);
+		$user = Auth::user();
+
+		return view('content.ticket.payment', ['user' => $user, 'event' => $event, 'ticket' => $ticket]);
+	}
+
+	public function postBuyEventTicket($event_id, $ticket_id){
+		$event = Event::find($event_id);
+		$ticket = Ticket::find($ticket_id);
+		$user = Auth::user();
+
+		$user->tickets()->attach($ticket['id']);
+		return view('content.user.account', ['user' => $user]);
+	}
+
 }

@@ -27,6 +27,19 @@
 			align-items: stretch;
 		}
 	}
+
+	&.is-title {
+		align-items: center;
+	}
+}
+
+.is-grow {
+	flex-grow: 1;
+}
+
+.text-muted {
+	color: gray;
+	font-size: 11px;
 }
 
 a.link {

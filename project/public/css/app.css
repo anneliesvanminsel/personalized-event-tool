@@ -155,6 +155,21 @@ h2::after {
   }
 }
 
+.row.is-title {
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.is-grow {
+  -webkit-box-flex: 1;
+          flex-grow: 1;
+}
+
+.text-muted {
+  color: gray;
+  font-size: 11px;
+}
+
 a.link {
   position: relative;
 }

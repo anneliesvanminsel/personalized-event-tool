@@ -16,13 +16,23 @@
 			@endif
 
 			<div class="hero__text">
-				<div class="row">
+				<div class="row is-title">
 					<h1>
 						{{ $event['title'] }}
 					</h1>
+					@if(Auth::user() && Auth::user()->role === 'organisator')
+						<div class="item__actions row row--stretch">
+							<a class="is-icon" href={{route('event.update', ['event_id' => $event->id])}}>
+								@svg('edit', 'is-small is-white')
+							</a>
+							<a class="is-icon" href={{route('event.update', ['event_id' => $event->id])}}>
+								@svg('calendar (2)', 'is-small is-white')
+							</a>
+						</div>
+					@endif
 				</div>
 
-				<p>
+				<p class="is-grow">
 					{{ $event['description'] }}
 				</p>
 
@@ -37,18 +47,11 @@
 						color: {{ $event['bkgcolor'] }};
 					}
 				</style>
-				@if(Auth::user() && Auth::user()->role === 'organisator')
-					<div class="item__actions row row--stretch">
-						<a class="btn is-icon" href={{route('event.update', ['event_id' => $event->id])}}>
-							@svg('edit', 'is-small')
-						</a>
-					</div>
-				@else
-					@if($event->tickets)
-						<a class="btn" href="#tickets">
-							Bestel tickets
-						</a>
-					@endif
+
+				@if($event->tickets)
+					<a class="btn" href="#tickets">
+						Bestel tickets
+					</a>
 				@endif
 			</div>
 
@@ -207,9 +210,13 @@
 							</p>
 						@endif
 
-						<button class="btn btn--full" style="border-color: {{ $event['bkgcolor'] }}; background-color: {{ $event['bkgcolor'] }}; color: {{ $event['textcolor'] }};">
+						<a
+							href="{{ route('ticket.payment', ['event_id' => $event['id'], 'ticket_id' => $ticket['id']]) }}"
+							class="btn btn--full"
+							style="border-color: {{ $event['bkgcolor'] }}; background-color: {{ $event['bkgcolor'] }}; color: {{ $event['textcolor'] }};"
+						>
 							Ik wil deze
-						</button>
+						</a>
 					</label>
 				@endforeach
 			</div>

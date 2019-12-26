@@ -50,10 +50,17 @@ class User extends Authenticatable
 			'group_id')->withTimestamps();
 	}
 
-	public function workhours(){
-		return $this->belongsToMany('App\Taskhour',
-			'user_hour',
+	public function shifts(){
+		return $this->belongsToMany('App\Shift',
+			'user_shift',
 			'user_id',
-			'hour_id')->withTimestamps();
+			'shift_id')->withTimestamps();
+	}
+
+	public function tickets(){
+		return $this->belongsToMany('App\Tickets',
+			'user_ticket',
+			'user_id',
+			'ticket_id')->withTimestamps();
 	}
 }

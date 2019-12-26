@@ -16,4 +16,11 @@ class Ticket extends Model
 	public function event(){
 		return $this->belongsTo('App\Event', 'event_id');
 	}
+
+	public function users(){
+		return $this->belongsToMany('App\User',
+			'user_ticket',
+			'ticket_id',
+			'user_id')->withTimestamps();
+	}
 }

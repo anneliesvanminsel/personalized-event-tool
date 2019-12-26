@@ -31,6 +31,16 @@ Route::get('event/{event_id}', [
 	'as' => 'event.detail'
 ]);
 
+Route::get('event/{event_id}/{ticket_id}/buyticket', [
+	'uses' => 'EventController@buyEventTicket',
+	'as' => 'ticket.payment'
+]);
+
+Route::post('event/{event_id}/{ticket_id}/buyticket/post', [
+	'uses' => 'EventController@postBuyEventTicket',
+	'as' => 'ticket.postpayment'
+]);
+
 Route::get('account/{user_id}', [
 	'uses' => 'GeneralController@getAccount',
 	'as' => 'user.account'
@@ -101,13 +111,6 @@ Route::group(['prefix' => 'admin'], function() {
 		'uses' => 'EventController@deleteEvent',
 		'as' => 'event.delete'
 	]);
-
-	//delete event from organisation
-	Route::post('event/delete/{organisation_id}/{event_id}', [
-		'uses' => 'EventController@deleteEvent',
-		'as' => 'event.delete'
-	]);
-
 
 	//add organisation admin
 	Route::get('organisation/{organisation_id}/newadmin', [
