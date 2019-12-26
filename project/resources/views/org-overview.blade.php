@@ -13,8 +13,8 @@
 			croissant pastry. Biscuit candy biscuit jujubes gingerbread muffin cotton candy cake.
 		</p>
 	</section>
-	<section class="page-alignment section" id="feature-1">
-		<div class="row row--stretch">
+	<section class="page-alignment spacing-top-m" id="feature-1">
+		<div class="section row row--stretch">
 			<div class="ctn--image section__image">
 				<img src="https://images.pexels.com/photos/2422278/pexels-photo-2422278.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
 			</div>
@@ -33,8 +33,8 @@
 			</div>
 		</div>
 	</section>
-	<section class="page-alignment section section--red" id="feature-2">
-		<div class="row row--stretch">
+	<section class="spacing-top-m section--red section" id="feature-2">
+		<div class="page-alignment row row--stretch">
 			<div class="section__content section__content--right">
 				<h2>
 					second thing
@@ -53,8 +53,8 @@
 			</div>
 		</div>
 	</section>
-	<section class="page-alignment section" id="feature-3">
-		<div class="row row--stretch">
+	<section class="page-alignment spacing-top-m" id="feature-3">
+		<div class="section row row--stretch">
 			<div class="ctn--image section__image">
 				<img src="https://images.pexels.com/photos/336948/pexels-photo-336948.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
 			</div>
@@ -73,7 +73,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="section slider" id="price">
+	<section class="slider page-alignment" id="price">
 		<h2>
 			Een oplossing die bij je past
 		</h2>

@@ -110,5 +110,8 @@
                 </div>
             @endforeach
         </div>
+        <div>
+            {{ $searchedevents->links() }}
+        </div>
     </section>
 @endsection

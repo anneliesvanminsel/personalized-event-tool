@@ -1,9 +1,9 @@
 .section {
-	margin: 20px 0;
-	padding: 20px 80px;
+	margin: $spacing-m 0;
+	padding: 0;
 
 	&__content {
-		margin-left: 40px;
+		margin-left: $spacing-m;
 		display: flex;
 		flex-direction: column;
 
@@ -13,7 +13,7 @@
 
 		&--right {
 			margin-left: 0;
-			margin-right: 40px;
+			margin-right: $spacing-m;
 		}
 	}
 
@@ -33,6 +33,7 @@
 	}
 
 	&--red {
+		padding: $spacing-m 0;
 		background-color: $red;
 		color: $white;
 	}

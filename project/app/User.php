@@ -58,7 +58,7 @@ class User extends Authenticatable
 	}
 
 	public function tickets(){
-		return $this->belongsToMany('App\Tickets',
+		return $this->belongsToMany('App\Ticket',
 			'user_ticket',
 			'user_id',
 			'ticket_id')->withTimestamps();

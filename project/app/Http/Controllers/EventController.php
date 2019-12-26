@@ -31,7 +31,7 @@ class EventController extends Controller
 		//validatie
 		$this->validate($request, [
 			'title' => 'required|string|max:255',
-			'description'=> 'required|string|max:255',
+			'description'=> 'required|string|max:1000',
 			'type'=> 'required|string', //with examples
 			'bkgcolor' => [
 				'nullable',

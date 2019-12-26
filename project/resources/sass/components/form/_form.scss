@@ -21,4 +21,20 @@
 			width: auto;
 		}
 	}
+
+	&__row {
+		justify-content: space-between;
+
+		& > * {
+			width: calc(50% - 10px);
+		}
+
+		&.has-three {
+			& > * {
+				width: calc(33% - 10px);
+				padding: $spacing-xs;
+				text-align: center;
+			}
+		}
+	}
 }

@@ -50,7 +50,7 @@
 					placeholder="Een korte beschrijving van jouw evenement."
 					required
 					autocomplete="off"
-					maxlength="255"
+					maxlength="1000"
 				></textarea>
 
 				<label for="description" class="form__label">
@@ -66,7 +66,7 @@
 				@enderror
 				<script>
                     document.getElementById('description').onkeyup = function () {
-                        document.getElementById('word-counter').innerHTML = this.value.length + "/255";
+                        document.getElementById('word-counter').innerHTML = this.value.length + "/1000";
                     };
 				</script>
 			</div>
