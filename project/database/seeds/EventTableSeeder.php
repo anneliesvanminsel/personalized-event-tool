@@ -2,6 +2,7 @@
 
 	use App\Event;
 	use App\Organisation;
+	use Carbon\Carbon;
 	use Illuminate\Database\Seeder;
 
 class EventTableSeeder extends Seeder
@@ -19,6 +20,8 @@ class EventTableSeeder extends Seeder
 				"name" => "The Ginger Studio",
 				"description" => "The Ginger Studio is een design studio dat regelmatig een designmeeting organiseert.",
 				"subscription_id" => 1,
+				"logo" => 'plants.jpeg',
+				"address_id" => 1,
 			]
 		);
 		$organisation->save();
@@ -32,6 +35,7 @@ class EventTableSeeder extends Seeder
 				"bkgcolor" => "#581845",
 				"textcolor" => "white",
 				"logo" => "city.jpeg",
+				"starttime" =>  Carbon::parse('2020-10-21'),
 			]
 		);
 		$event->save();
@@ -47,6 +51,7 @@ class EventTableSeeder extends Seeder
 				"bkgcolor" => "#FF5733",
 				"textcolor" => "white",
 				"logo" => "plants.jpeg",
+				"starttime" =>  Carbon::parse('2020-01-21'),
 			]
 		);
 		$event->save();
@@ -62,6 +67,7 @@ class EventTableSeeder extends Seeder
 				"bkgcolor" => "#001C79",
 				"textcolor" => "white",
 				"logo" => "children.jpeg",
+				"starttime" =>  Carbon::parse('2019-12-17'),
 			]
 		);
 		$event->save();
@@ -77,6 +83,7 @@ class EventTableSeeder extends Seeder
 				"bkgcolor" => "#91FC9E",
 				"textcolor" => "black",
 				"logo" => "rockwerchter.jpg",
+				"starttime" =>  Carbon::parse('2020-2-04'),
 			]
 		);
 		$event4->save();

@@ -12,14 +12,9 @@ class GeneralController extends Controller
     //TODO: find places to put these (organsisatorpage? and account?)
 	public function getIndex() {
 		$slideevents = Event::orderBy('id', 'desc')->take(3)->get();
-		$event1 = $slideevents[0];
-		$event2 = $slideevents[1];
-		$event3 = $slideevents[2];
+		$searchedevents = Event::orderBy('starttime', 'asc')->paginate(5);
 
-		$searchedevents = Event::orderBy('id', 'asc')->paginate(5);
-
-
-		return view('home', ['event1' => $event1, 'event2' => $event2, 'event3' => $event3, 'searchedevents' => $searchedevents]);
+		return view('home', ['slideevents' => $slideevents, 'searchedevents' => $searchedevents]);
 	}
 
 

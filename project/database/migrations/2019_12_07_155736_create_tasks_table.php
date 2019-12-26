@@ -17,6 +17,8 @@ class CreateTasksTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('description')->nullable();
+            $table->string('location')->nullable();
+            $table->integer('session_id');
             $table->timestamps();
         });
     }

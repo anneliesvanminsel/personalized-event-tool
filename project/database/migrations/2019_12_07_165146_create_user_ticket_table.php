@@ -17,6 +17,7 @@ class CreateUserTicketTable extends Migration
             $table->bigIncrements('id');
 			$table->integer('user_id');
 			$table->integer('ticket_id');
+			$table->boolean('attendance')->default(0);
             $table->timestamps();
         });
     }

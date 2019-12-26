@@ -37,10 +37,18 @@
 						color: {{ $event['bkgcolor'] }};
 					}
 				</style>
-				@if($event->tickets)
-					<a class="btn" href="#tickets">
-						Bestel tickets
-					</a>
+				@if(Auth::user() && Auth::user()->role === 'organisator')
+					<div class="item__actions row row--stretch">
+						<a class="btn is-icon" href={{route('event.update', ['event_id' => $event->id])}}>
+							@svg('edit', 'is-small')
+						</a>
+					</div>
+				@else
+					@if($event->tickets)
+						<a class="btn" href="#tickets">
+							Bestel tickets
+						</a>
+					@endif
 				@endif
 			</div>
 
@@ -73,7 +81,7 @@
 							</div>
 
 							<div>
-								{{ $session['date'] }}
+								{{  date('d/m', strtotime( $session['date'])) }}
 							</div>
 						</div>
 					@endforeach
@@ -120,6 +128,12 @@
 								@endforeach
 							</div>
 						</div>
+					@else
+						@if(Auth::user() && Auth::user()->role === 'organisator')
+							<a href="#">
+								Voeg een nieuw item aan jouw planning toe.
+							</a>
+						@endif
 					@endif
 				@endforeach
 			</div>

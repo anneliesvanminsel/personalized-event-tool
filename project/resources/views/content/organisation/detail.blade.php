@@ -43,7 +43,7 @@
 				Onze evenementen
 			</h2>
 			<div class="h-grid">
-				@foreach($organisation->events()->get() as $event)
+				@foreach($organisation->events()->orderBy('starttime', 'ASC')->get() as $event)
 					<div class="h-grid__item item row row--stretch">
 						<div class="item__date" style="background-color: {{ $organisation['bkgcolor'] }}; color: {{ $organisation['textcolor'] }}">
 							17 dec

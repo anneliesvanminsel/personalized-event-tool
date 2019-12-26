@@ -5,29 +5,16 @@
 @section('content')
     <div
         id="event-slider"
-        data-event1="{{ $event1 }}"
-        data-event2="{{ $event2 }}"
-        data-event3="{{ $event3 }}"
-        data-url1="{{ route('event.detail', ['event_id' => $event1->id]) }}"
-        data-url2="{{ route('event.detail', ['event_id' => $event2->id]) }}"
-        data-url3="{{ route('event.detail', ['event_id' => $event3->id]) }}"
-        @if(File::exists(public_path() . "/images/" . $event1['logo']))
-            data-image1="{{ asset('images/' . $event1['logo']) }}"
-        @else
-            data-image1="https://placekitten.com/600/600"
-        @endif
+        @foreach($slideevents as $event)
+            data-event{{$loop->iteration}}="{{ $event }}"
+            data-url{{$loop->iteration}}="{{ route('event.detail', ['event_id' => $event->id]) }}"
 
-        @if(File::exists(public_path() . "/images/" . $event2['logo']))
-            data-image2="{{ asset('images/' . $event2['logo']) }}"
-        @else
-            data-image2="https://placekitten.com/600/600"
-        @endif
-
-        @if(File::exists(public_path() . "/images/" . $event3['logo']))
-            data-image3="{{ asset('images/' . $event3['logo']) }}"
-        @else
-            data-image3="https://placekitten.com/600/600"
-        @endif
+            @if(File::exists(public_path() . "/images/" . $event['logo']))
+                data-image{{$loop->iteration}}="{{ asset('images/' . $event['logo']) }}"
+            @else
+                data-image1="https://placekitten.com/600/600"
+            @endif
+        @endforeach
     ></div>
 
     <section class="page-alignment">
