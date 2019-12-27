@@ -3,15 +3,15 @@
 	evento - maak event
 @endsection
 @section('content')
-	<section class="page-alignment">
+	<section class="page-alignment spacing-top-m">
 		<h1>
 			Maak jouw evenement
 		</h1>
 
-		<form method="POST" action="{{ route('event.postcreate') }}" class="form" enctype="multipart/form-data">
+		<form method="POST" action="{{ route('event.postcreate', ['organisation_id' => $organisation_id]) }}" class="form" enctype="multipart/form-data">
 			@csrf
 
-			<h2>
+			<h2 class="spacing-top-m">
 				1. Algemene gegevens
 			</h2>
 
@@ -41,26 +41,33 @@
 
 
 			<div class="form__group">
-				<input
+				<textarea
+					form="form-edit"
 					id="description"
-					type="text"
 					class="form__input @error('description') is-invalid @enderror"
 					name="description"
-					placeholder="bv. het event van de eeuw"
-					value="{{ old('description') }}"
+					placeholder="Een korte beschrijving van jouw evenement."
 					required
 					autocomplete="off"
-				>
+					maxlength="1000"
+				>{{ old('description') }}</textarea>
 
 				<label for="description" class="form__label">
 					Korte beschrijving
 				</label>
+
+				<div id="word-counter" class="form__label is-counter"></div>
 
 				@error('description')
 				<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
 					</span>
 				@enderror
+				<script>
+                    document.getElementById('description').onkeyup = function () {
+                        document.getElementById('word-counter').innerHTML = this.value.length + "/1000";
+                    };
+				</script>
 			</div>
 
 			<div class="form__group">
@@ -85,8 +92,56 @@
 					</span>
 				@enderror
 			</div>
+			
+			<div class="form__group">
+				<input
+						id="starttime"
+						type="text"
+						class="form__input @error('starttime') is-invalid @enderror"
+						name="starttime"
+						placeholder="bv: 12/10/2022"
+						value="{{ old('starttime') }}"
+						required
+						autocomplete="off"
+				>
+				
+				<label for="title" class="form__label">
+					De begindatum van het evenement
+				</label>
+				
+				@error('starttime')
+				<span class="invalid-feedback" role="alert">
+						<strong>{{ $message }}</strong>
+					</span>
+				@enderror
+			</div>
+			<p class="spacing-top-s">
+				Wanneer het evenement op meerdere dagen valt, kan je hieronder de laatste dag van het evenement noteren.
+			</p>
+			
+			<div class="form__group spacing-top-s">
+				<input
+						id="endtime"
+						type="text"
+						class="form__input @error('endtime') is-invalid @enderror"
+						name="endtime"
+						placeholder="bv: 14/10/2022"
+						value="{{ old('endtime') }}"
+						autocomplete="off"
+				>
+				
+				<label for="title" class="form__label">
+					De einddatum van het evenement
+				</label>
+				
+				@error('endtime')
+				<span class="invalid-feedback" role="alert">
+						<strong>{{ $message }}</strong>
+					</span>
+				@enderror
+			</div>
 
-			<h2>
+			<h2 class="spacing-top-m">
 				2. Technische informatie
 			</h2>
 
@@ -113,35 +168,17 @@
 				@enderror
 			</div>
 
-
-			<div class="form__group">
-				<input
-					id="status"
-					type="text"
-					class="form__input @error('status') is-invalid @enderror"
-					name="status"
-					placeholder="bv. het event van de eeuw"
-					value="{{ old('status') }}"
-					required
-					autocomplete="off"
-				>
-
-				<label for="status" class="form__label">
-					status
-				</label>
-
-				@error('status')
-				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-				@enderror
-			</div>
-
-			<h2>
+			<h2 class="spacing-top-m">
 				3. Opmaak mogelijkheden
 			</h2>
 
-			<div class="form__group">
+			<p>
+				Hier zal je de evenementspagina kunnen personaliseren. Deze kleuren zullen in de applicatie en op de website terugkomen.
+				<br>
+				Gelieve deze te noteren in <span class="accent">hex-notatie.</span>
+			</p>
+
+			<div class="form__group spacing-top-s">
 				<input
 					id="bkgcolor"
 					type="text"
@@ -187,7 +224,7 @@
 			</div>
 
 
-			<div class="">
+			<div class="spacing-top-m">
 				<button type="submit" class="btn btn--full">
 					Maak het evenement aan
 				</button>

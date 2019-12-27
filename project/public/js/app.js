@@ -68909,7 +68909,15 @@ var LeftArrow = function LeftArrow(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "slideshow__backArrow slideshow__arrow",
     onClick: props.goToPrevSlide
-  }, "Back");
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 54 54",
+    "class": "icon is-white"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M27 0C12.112 0 0 12.112 0 27s12.112 27 27 27 27-12.112 27-27S41.888 0 27 0zm0 52C13.215 52 2 40.785 2 27S13.215 2 27 2s25 11.215 25 25-11.215 25-25 25z"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M32.413 14.293c-.391-.391-1.023-.391-1.414 0L19.501 25.791c-.667.667-.667 1.751 0 2.418l11.498 11.498c.195.195.451.293.707.293s.512-.098.707-.293c.391-.391.391-1.023 0-1.414L21.12 27l11.293-11.293c.391-.391.391-1.023 0-1.414z"
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (LeftArrow);
@@ -68933,7 +68941,15 @@ var RightArrow = function RightArrow(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "slideshow__nextArrow slideshow__arrow",
     onClick: props.goToNextSlide
-  }, "Next");
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", {
+    xmlns: "http://www.w3.org/2000/svg",
+    viewBox: "0 0 54 54",
+    "class": "icon is-white"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M27 0C12.112 0 0 12.112 0 27s12.112 27 27 27 27-12.112 27-27S41.888 0 27 0zm0 52C13.215 52 2 40.785 2 27S13.215 2 27 2s25 11.215 25 25-11.215 25-25 25z"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("path", {
+    d: "M23.001 14.293c-.391-.391-1.023-.391-1.414 0s-.391 1.023 0 1.414L32.88 27 21.587 38.293c-.391.391-.391 1.023 0 1.414.195.195.451.293.707.293s.512-.098.707-.293l11.498-11.498c.667-.667.667-1.751 0-2.418L23.001 14.293z"
+  })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (RightArrow);
@@ -69133,7 +69149,7 @@ function (_Component) {
         url: this.props.url3,
         currentIndex: this.state.currentIndex,
         image: this.props.image3
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LeftArrow__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }))), this.state.currentIndex === 0 ? '' : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LeftArrow__WEBPACK_IMPORTED_MODULE_3__["default"], {
         goToPrevSlide: this.goToPrevSlide
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RightArrow__WEBPACK_IMPORTED_MODULE_4__["default"], {
         goToNextSlide: this.goToNextSlide
@@ -69180,8 +69196,8 @@ if (document.getElementById('event-slider')) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/annelies/.bitnami/stackman/machines/xampp/volumes/root/htdocs/eventify/project/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/annelies/.bitnami/stackman/machines/xampp/volumes/root/htdocs/eventify/project/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/annelies/.bitnami/stackman/machines/xampp/volumes/root/htdocs/evento/project/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/annelies/.bitnami/stackman/machines/xampp/volumes/root/htdocs/evento/project/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

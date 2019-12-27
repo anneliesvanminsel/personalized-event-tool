@@ -89,11 +89,12 @@ class Slider extends Component {
                         />
                     </div>
                 </div>
-
-                <LeftArrow
-                    goToPrevSlide={this.goToPrevSlide}
-                />
-
+                { this.state.currentIndex === 0 ? '' :
+                        <LeftArrow
+                            goToPrevSlide={this.goToPrevSlide}
+                        />
+                }
+                
                 <RightArrow
                     goToNextSlide={this.goToNextSlide}
                 />

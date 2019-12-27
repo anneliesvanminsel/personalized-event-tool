@@ -25,75 +25,46 @@
 
 					<div class="form__group">
 						<input
-							id="name"
-							type="text"
-							class="form__input @error('name') is-invalid @enderror"
-							name="name" value="{{ old('name') }}"
-							placeholder="bv. Jan Peeters"
+							id="email"
+							type="email"
+							class="form__input @error('email') is-invalid @enderror"
+							name="email"
+							placeholder="bv. jan.peeters@mail.be"
+							value="{{ old('email') }}"
 							required
-							autocomplete="name"
-							autofocus
+							autocomplete="email"
 						>
-
-						<label for="name" class="form__label">
-							Naam
+						<label for="email" class="form__label">
+							{{ __('E-Mail Address') }}
 						</label>
 
-						@error('name')
+						@error('email')
 							<span class="invalid-feedback" role="alert">
 								<strong>{{ $message }}</strong>
 							</span>
 						@enderror
-
 					</div>
 
 					<div class="form__group">
+						<input
+							id="password"
+							type="password"
+							class="form-control @error('password') is-invalid @enderror"
+							placeholder="Jouw wachtwoord"
+							name="password"
+							required
+							autocomplete="new-password"
+						>
+						<label for="password" class="form__label text-md-right">
+							Wachtwoord
+						</label>
 
 
-							<input
-								id="email"
-								type="email"
-								class="form__input @error('email') is-invalid @enderror"
-								name="email"
-								placeholder="bv. jan.peeters@mail.be"
-								value="{{ old('email') }}"
-								required
-								autocomplete="email"
-							>
-							<label for="email" class="form__label">
-								{{ __('E-Mail Address') }}
-							</label>
-
-							@error('email')
-								<span class="invalid-feedback" role="alert">
+						@error('password')
+						<span class="invalid-feedback" role="alert">
 									<strong>{{ $message }}</strong>
 								</span>
-							@enderror
-
-					</div>
-
-					<div class="form__group">
-
-							<input
-								id="password"
-								type="password"
-								class="form-control @error('password') is-invalid @enderror"
-								placeholder="Jouw wachtwoord"
-								name="password"
-								required
-								autocomplete="new-password"
-							>
-							<label for="password" class="form__label text-md-right">
-								Wachtwoord
-							</label>
-
-
-							@error('password')
-							<span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-							@enderror
-
+						@enderror
 					</div>
 
 					<div class="form__group">
@@ -113,12 +84,25 @@
 					</div>
 
 					<div class="form__group">
-							<button type="submit" class="btn btn--full">
-								Maak een account
-							</button>
+						<button type="submit" class="btn btn--full">
+							Maak een account
+						</button>
 					</div>
+					<br>
+					<a class="link" href="{{ route('login') }}">
+						Al een account? Meld je nu aan.
+					</a>
 				</form>
 			</div>
 		</div>
 	</div>
+	{{--<script> TODO: fix this
+        $(document).ready(function(){
+            $('#checkbox').on('change', function(){
+                $('#password').attr('type',$('#checkbox').prop('checked')==true?"text":"password");
+            });
+        });
+	</script>
+	<input type="password" id="password">
+	<input type="checkbox" id="checkbox">Show Password--}}
 @endsection

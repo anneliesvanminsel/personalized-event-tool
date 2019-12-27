@@ -18,7 +18,7 @@ class CreateSaleItemsTable extends Migration
             $table->string('name');
             $table->string('description')->nullable();
             $table->string('price');
-            $table->string('image'); //TODO: zorg dat dit een afbeelding is
+            $table->string('image');
 			$table->softDeletes();
             $table->timestamps();
         });

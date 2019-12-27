@@ -95,11 +95,23 @@
 						@if (Route::has('password.request'))
 							<a class="link" href="{{ route('password.request') }}">
 								Wachtwoord vergeten?
-							</a>
+							</a> <br> <br>
 						@endif
+						<a class="link" href="{{ route('register') }}">
+							Nog geen account? Maak er snel één aan.
+						</a>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
+	{{--<script> TODO: fix this
+        $(document).ready(function(){
+            $('#checkbox').on('change', function(){
+                $('#password').attr('type',$('#checkbox').prop('checked')==true?"text":"password");
+            });
+        });
+	</script>
+	<input type="password" id="password">
+	<input type="checkbox" id="checkbox">Show Password--}}
 @endsection

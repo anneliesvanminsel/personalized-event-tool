@@ -14,5 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(SubscriptionTableSeeder::class);
         $this->call(EventTableSeeder::class);
+        $this->call(TicketTableSeeder::class);
+        $this->call(SessionTableSeeder::class);
     }
 }

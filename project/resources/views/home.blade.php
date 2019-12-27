@@ -5,15 +5,16 @@
 @section('content')
     <div
         id="event-slider"
-        data-event1="{{ $event1 }}"
-        data-event2="{{ $event2 }}"
-        data-event3="{{ $event3 }}"
-        data-url1="{{ route('event.detail', ['event_id' => $event1->id]) }}"
-        data-url2="{{ route('event.detail', ['event_id' => $event2->id]) }}"
-        data-url3="{{ route('event.detail', ['event_id' => $event3->id]) }}"
-        data-image1="{{ asset('images/' . $event1['logo']) }}"
-        data-image2="{{ asset('images/' . $event2['logo']) }}"
-        data-image3="{{ asset('images/' . $event3['logo']) }}"
+        @foreach($slideevents as $event)
+            data-event{{$loop->iteration}}="{{ $event }}"
+            data-url{{$loop->iteration}}="{{ route('event.detail', ['event_id' => $event->id]) }}"
+
+            @if(File::exists(public_path() . "/images/" . $event['logo']))
+                data-image{{$loop->iteration}}="{{ asset('images/' . $event['logo']) }}"
+            @else
+                data-image1="https://placekitten.com/600/600"
+            @endif
+        @endforeach
     ></div>
 
     <section class="page-alignment">
@@ -77,11 +78,19 @@
             @foreach($searchedevents as $event)
                 <div class="h-grid__item item row row--stretch">
                     <div class="item__date bkg-red">
-                        17 dec
+                        {{  date('d M', strtotime( $event['starttime'])) }}
                     </div>
-                    <div class="item__image ctn--image">
-                        <img src="{{ asset('images/' . $event['logo'] ) }}" alt="{{ $event['title'] }}" loading="lazy">
-                    </div>
+
+                    @if(File::exists(public_path() . "/images/" . $event['logo']))
+                        <div class="item__image ctn--image">
+                            <img src="{{ asset('images/' . $event['logo'] ) }}" alt="{{ $event['title'] }}" loading="lazy">
+                        </div>
+                    @else
+                        <div class="item__image ctn--image">
+                            <img src="https://placekitten.com/600/600" alt="{{ $event['title'] }}" loading="lazy">
+                        </div>
+                    @endif
+
                     <div class="item__content">
                         <div class="item__title">
                             {{ $event->title }}
@@ -100,6 +109,9 @@
                     </div>
                 </div>
             @endforeach
+        </div>
+        <div>
+            {{ $searchedevents->links() }}
         </div>
     </section>
 @endsection

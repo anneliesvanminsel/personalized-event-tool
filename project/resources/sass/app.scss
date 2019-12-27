@@ -27,6 +27,41 @@
 			align-items: stretch;
 		}
 	}
+
+	&.is-title {
+		align-items: center;
+	}
+}
+
+.is-grow {
+	flex-grow: 1;
+}
+
+.text-muted {
+	color: gray;
+	font-size: 11px;
+}
+
+a.link {
+	position: relative;
+
+	&::before {
+		@include pseudo;
+		bottom: -2px;
+		left: 0;
+		width: 0;
+		height: 1px;
+		background-color: $black;
+		transition: width .2s ease-in-out;
+	}
+
+	&:hover {
+		&::before {
+			left: 0;
+			right: 0;
+			width: 100%;
+		}
+	}
 }
 
 // Partials
@@ -35,6 +70,8 @@
 @import 'section';
 @import 'page';
 @import 'grid';
+@import 'span';
+@import 'spacing';
 
 //Components
 @import 'components/button';
@@ -61,3 +98,5 @@
 @import 'components/schedule/schedule';
 
 @import 'components/grid/h-grid';
+
+@import 'components/icon/icon';

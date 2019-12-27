@@ -155,6 +155,44 @@ h2::after {
   }
 }
 
+.row.is-title {
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.is-grow {
+  -webkit-box-flex: 1;
+          flex-grow: 1;
+}
+
+.text-muted {
+  color: gray;
+  font-size: 11px;
+}
+
+a.link {
+  position: relative;
+}
+
+a.link::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #262323;
+  -webkit-transition: width 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out;
+}
+
+a.link:hover::before {
+  left: 0;
+  right: 0;
+  width: 100%;
+}
+
 .header {
   display: -webkit-box;
   display: flex;
@@ -350,8 +388,8 @@ h2::after {
 }
 
 .section {
-  margin: 20px 0;
-  padding: 20px 80px;
+  margin: 40px 0;
+  padding: 0;
 }
 
 .section__content {
@@ -389,6 +427,7 @@ h2::after {
 }
 
 .section--red {
+  padding: 40px 0;
   background-color: #FE676E;
   color: #ffffff;
 }
@@ -432,6 +471,30 @@ h2::after {
   width: 60%;
 }
 
+span.accent {
+  color: #FE676E;
+}
+
+span.info {
+  color: #B5D571;
+}
+
+span.invalid-feedback {
+  color: red;
+}
+
+.spacing-top-m {
+  margin-top: 40px;
+}
+
+.spacing-top-l {
+  margin-top: 80px;
+}
+
+.spacing-top-s {
+  margin-top: 20px;
+}
+
 .btn {
   width: 100%;
   font-size: 16px;
@@ -465,6 +528,17 @@ h2::after {
 .btn--full {
   background-color: #FE676E;
   color: #ffffff;
+}
+
+.btn--small {
+  width: 300px;
+}
+
+.btn.is-icon {
+  border: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
 }
 
 .panel {
@@ -592,6 +666,7 @@ h2::after {
   max-width: 100%;
   overflow: hidden;
   flex-shrink: 0;
+  min-height: 400px;
 }
 
 @media screen and (min-width: 640px) {
@@ -606,7 +681,7 @@ h2::after {
     margin-top: -40px;
     margin-bottom: -40px;
     overflow: hidden;
-    flex-shrink: 1;
+    flex-shrink: 0;
   }
 }
 
@@ -618,6 +693,13 @@ h2::after {
 @media screen and (min-width: 640px) {
   .hero .ctn--image img {
     position: relative;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .hero .ctn--image img {
+    width: auto;
+    height: 100%;
   }
 }
 
@@ -1141,7 +1223,8 @@ input[type=password],
 input[type=text],
 input[type=number],
 input[type=textarea],
-input[type=file] {
+input[type=file],
+textarea {
   width: 100%;
   padding: 20px;
   margin-bottom: 20px;
@@ -1164,12 +1247,15 @@ input[type=number]:valid,
 input[type=textarea]:focus,
 input[type=textarea]:valid,
 input[type=file]:focus,
-input[type=file]:valid {
+input[type=file]:valid,
+textarea:focus,
+textarea:valid {
   outline: none;
   border: 1px solid #FE676E;
 }
 
-input:placeholder-shown + label {
+input:placeholder-shown + label,
+textarea:placeholder-shown + label {
   cursor: text;
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
@@ -1195,7 +1281,8 @@ input:placeholder-shown + label {
 * Show the placeholder when the input is focused.
 */
 
-input:focus::-webkit-input-placeholder {
+input:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder {
   opacity: 1;
 }
 
@@ -1206,7 +1293,9 @@ input:focus::-webkit-input-placeholder {
 */
 
 input:not(:placeholder-shown) + label,
-input:focus + label {
+input:focus + label,
+textarea:not(:placeholder-shown) + label,
+textarea:focus + label {
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
@@ -1217,7 +1306,17 @@ input:focus + label {
   width: auto;
 }
 
+textarea {
+  min-width: 100%;
+  max-width: 100%;
+  resize: none;
+  min-height: -webkit-fit-content;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
+}
+
 .form__group {
+  position: relative;
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: vertical;
@@ -1229,6 +1328,36 @@ input:focus + label {
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
   touch-action: manipulation;
+}
+
+.form__label.is-counter {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  color: #FE676E;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  -webkit-transform: translate(10px, 10px) scale(0.9);
+          transform: translate(10px, 10px) scale(0.9);
+  background-color: white;
+  padding: 0 10px;
+  width: auto;
+}
+
+.form__row {
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+
+.form__row > * {
+  width: calc(50% - 10px);
+}
+
+.form__row.has-three > * {
+  width: calc(33% - 10px);
+  padding: 10px;
+  text-align: center;
 }
 
 .photolist {
@@ -1368,5 +1497,40 @@ input:focus + label {
 .h-grid .item__remind {
   color: #FE676E;
   font-size: 12px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  fill: #262323;
+  margin-left: 5px;
+  margin-right: 5px;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.icon:hover {
+  fill: #FE676E;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.icon.is-red {
+  fill: #FE676E;
+}
+
+.icon.is-red:hover {
+  fill: #262323;
+}
+
+.icon.is-white {
+  fill: #ffffff;
+}
+
+.icon.is-small {
+  width: 20px;
+  height: 20px;
 }
 

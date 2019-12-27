@@ -1,0 +1,13 @@
+span {
+	&.accent {
+		color: $red;
+	}
+
+	&.info {
+		color: $green;
+	}
+
+	&.invalid-feedback {
+		color: red;
+	}
+}

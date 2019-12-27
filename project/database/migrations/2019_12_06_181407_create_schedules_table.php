@@ -17,9 +17,10 @@ class CreateSchedulesTable extends Migration
             $table->bigIncrements('id');
 			$table->string('title')->nullable();
 			$table->string('description')->nullable();
-			$table->string('starttime');
-			$table->double('endtime')->nullable();
-			$table->integer('location')->nullable();
+			$table->date('starttime');
+			$table->date('endtime')->nullable();
+			$table->string('location')->nullable();
+			$table->integer('session_id');
 			$table->softDeletes();
             $table->timestamps();
         });

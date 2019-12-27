@@ -1,0 +1,33 @@
+.icon {
+	width: $spacing-m;
+	height: $spacing-m;
+	fill: $black;
+	margin-left: $spacing-xxs;
+	margin-right: $spacing-xxs;
+	transform: scale(1);
+	@include default-transition(all);
+
+	&:hover {
+		fill: $red;
+		transform: scale(1.2);
+	}
+
+	&.is-red {
+		fill: $red;
+
+		&:hover{
+			fill: $black;
+		}
+	}
+
+	&.is-white {
+		fill: $white;
+	}
+
+	&.is-small {
+		width: $spacing-s;
+		height: $spacing-s;
+	}
+
+
+}
