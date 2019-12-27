@@ -40,6 +40,7 @@ class OrganisationController extends Controller
 		//validatie
 		$this->validate($request, [
 			'name' => 'required|string|max:255',
+            'description'=> 'required|string|max:1000',
 			'bkgcolor' => [
 				'nullable',
 				'string',

@@ -31,17 +31,19 @@ class EventController extends Controller
 		//validatie
 		$this->validate($request, [
 			'title' => 'required|string|max:255',
-			'description'=> 'required|string|max:1000',
+			'description' => 'required|string|max:1000',
 			'type'=> 'required|string', //with examples
+            'starttime' => 'required|string',
+            'endtime' => 'nullable|string',
 			'bkgcolor' => [
 				'nullable',
 				'string',
-				'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/',
+				'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/i',
 			],
 			'textcolor' => [
 				'nullable',
 				'string',
-				'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/',
+				'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/i',
 			],
 			'logo'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
@@ -79,17 +81,17 @@ class EventController extends Controller
 		//validatie
 		$this->validate($request, [
 			'title' => 'required|string|max:255',
-			'description'=> 'required|string|max:255',
+			'description'=> 'required|string|max:1000',
 			'eventtype'=> 'required|string|max:255', //with examples
 			'bkgcolor' => [
 				'nullable',
 				'string',
-				'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/',
+				'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/i',
 			],
 			'textcolor' => [
 				'nullable',
 				'string',
-				'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/',
+				'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/i',
 			],
 			'logo'=> 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);

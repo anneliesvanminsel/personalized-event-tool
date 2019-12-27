@@ -51,6 +51,36 @@
 					</span>
 				@enderror
 			</div>
+			
+			<div class="form__group">
+				<textarea
+						form="form-edit"
+						id="description"
+						class="form__input @error('description') is-invalid @enderror"
+						name="description"
+						placeholder="Een korte beschrijving van jouw evenement."
+						required
+						autocomplete="off"
+						maxlength="1000"
+				>{{ old('description') }}</textarea>
+				
+				<label for="description" class="form__label">
+					Korte beschrijving
+				</label>
+				
+				<div id="word-counter" class="form__label is-counter"></div>
+				
+				@error('description')
+				<span class="invalid-feedback" role="alert">
+						<strong>{{ $message }}</strong>
+					</span>
+				@enderror
+				<script>
+                    document.getElementById('description').onkeyup = function () {
+                        document.getElementById('word-counter').innerHTML = this.value.length + "/1000";
+                    };
+				</script>
+			</div>
 
 			<div class="form__group">
 				<input

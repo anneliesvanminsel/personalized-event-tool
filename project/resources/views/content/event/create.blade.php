@@ -44,14 +44,13 @@
 				<textarea
 					form="form-edit"
 					id="description"
-					type="text"
 					class="form__input @error('description') is-invalid @enderror"
 					name="description"
 					placeholder="Een korte beschrijving van jouw evenement."
 					required
 					autocomplete="off"
 					maxlength="1000"
-				></textarea>
+				>{{ old('description') }}</textarea>
 
 				<label for="description" class="form__label">
 					Korte beschrijving
@@ -88,6 +87,54 @@
 				</label>
 
 				@error('logo')
+				<span class="invalid-feedback" role="alert">
+						<strong>{{ $message }}</strong>
+					</span>
+				@enderror
+			</div>
+			
+			<div class="form__group">
+				<input
+						id="starttime"
+						type="text"
+						class="form__input @error('starttime') is-invalid @enderror"
+						name="starttime"
+						placeholder="bv: 12/10/2022"
+						value="{{ old('starttime') }}"
+						required
+						autocomplete="off"
+				>
+				
+				<label for="title" class="form__label">
+					De begindatum van het evenement
+				</label>
+				
+				@error('starttime')
+				<span class="invalid-feedback" role="alert">
+						<strong>{{ $message }}</strong>
+					</span>
+				@enderror
+			</div>
+			<p class="spacing-top-s">
+				Wanneer het evenement op meerdere dagen valt, kan je hieronder de laatste dag van het evenement noteren.
+			</p>
+			
+			<div class="form__group spacing-top-s">
+				<input
+						id="endtime"
+						type="text"
+						class="form__input @error('endtime') is-invalid @enderror"
+						name="endtime"
+						placeholder="bv: 14/10/2022"
+						value="{{ old('endtime') }}"
+						autocomplete="off"
+				>
+				
+				<label for="title" class="form__label">
+					De einddatum van het evenement
+				</label>
+				
+				@error('endtime')
 				<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
 					</span>
