@@ -60,6 +60,7 @@ class OrganisationController extends Controller
 		$organisation = new Organisation();
 
 		$organisation->name = $request->input('name');
+		$organisation->description = $request->input('description');
 		$organisation->bkgcolor = $request->input('bkgcolor');
 		$organisation->textcolor = $request->input('textcolor');
 		$organisation->logo = $imageName;

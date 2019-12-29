@@ -21,7 +21,7 @@
 			Je hebt gekozen voor het <span class="accent">{{$subscription->title}}</span> pakket.
 		</p>
 
-		<form method="POST" action="{{ route('organisation.postcreate', ['subscription_id' => $subscription['id']]) }}" class="form" enctype="multipart/form-data">
+		<form id="form-create" method="POST" action="{{ route('organisation.postcreate', ['subscription_id' => $subscription['id']]) }}" class="form" enctype="multipart/form-data">
 			@csrf
 
 			<h2 class="spacing-top-m">
@@ -54,7 +54,7 @@
 			
 			<div class="form__group">
 				<textarea
-						form="form-edit"
+						form="form-create"
 						id="description"
 						class="form__input @error('description') is-invalid @enderror"
 						name="description"
@@ -62,7 +62,7 @@
 						required
 						autocomplete="off"
 						maxlength="1000"
-				>{{ old('description') }}</textarea>
+				></textarea>
 				
 				<label for="description" class="form__label">
 					Korte beschrijving

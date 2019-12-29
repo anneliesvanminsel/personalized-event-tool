@@ -8,7 +8,7 @@
 			Maak jouw evenement
 		</h1>
 
-		<form method="POST" action="{{ route('event.postcreate', ['organisation_id' => $organisation_id]) }}" class="form" enctype="multipart/form-data">
+		<form method="POST" id="form-create" action="{{ route('event.postcreate', ['organisation_id' => $organisation_id]) }}" class="form" enctype="multipart/form-data">
 			@csrf
 
 			<h2 class="spacing-top-m">
@@ -42,7 +42,7 @@
 
 			<div class="form__group">
 				<textarea
-					form="form-edit"
+					form="form-create"
 					id="description"
 					class="form__input @error('description') is-invalid @enderror"
 					name="description"
