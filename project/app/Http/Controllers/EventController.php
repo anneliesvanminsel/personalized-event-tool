@@ -133,12 +133,6 @@ class EventController extends Controller
         return view('content.event.settings',['event' => $event]);
     }
 
-    public function postEditSettings(Request $request, $event_id) {
-        $event = Event::where('id', $event_id)->first();
-
-        return redirect()->route('event.detail', ['id' => $event['id']]);
-    }
-
 	public function deleteEvent($organisation_id, $event_id){
 		$event = Event::find($event_id);
 		$organisation = Organisation::where('id', $organisation_id)->first();

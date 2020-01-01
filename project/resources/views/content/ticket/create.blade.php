@@ -1,4 +1,4 @@
-<form action="" class="popup__content">
+<form action="{{ route('ticket.postcreate', ['event_id' => $event['id']]) }}" class="popup__content">
 	
 	<h1>Voeg een ticket toe</h1>
 	
