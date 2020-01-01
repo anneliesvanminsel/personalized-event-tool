@@ -144,5 +144,11 @@ Route::group(['prefix' => 'admin'], function() {
         'uses' => 'OrganisationController@postEditOrganisation',
         'as' => 'organisation.postupdate'
     ]);
+
+    //add ticket
+    Route::post('ticket/create/{event_id}/post', [
+        'uses' => 'TicketController@postCreateTicket',
+        'as' => 'ticket.postcreate'
+    ]);
 });
 

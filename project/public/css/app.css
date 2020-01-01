@@ -1550,3 +1550,25 @@ textarea:focus + label {
   height: 20px;
 }
 
+.popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 9;
+  background-color: rgba(254, 103, 110, 0.8);
+  padding: 40px;
+}
+
+.popup__content {
+  width: 80%;
+  max-width: 960px;
+  max-height: 100vh;
+  overflow: scroll;
+  margin: 0 auto;
+  padding: 40px 120px;
+  background-color: #fff;
+}
+

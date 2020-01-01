@@ -1,0 +1,21 @@
+.popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 9;
+  background-color: rgba($red, .8);
+  padding: $spacing-m;
+
+  &__content {
+    width: 80%;
+    max-width: 960px;
+    max-height: 100vh;
+    overflow: scroll;
+    margin: 0 auto;
+    padding: $spacing-m $spacing-xl;
+    background-color: #fff;
+  }
+}

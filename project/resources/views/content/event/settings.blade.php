@@ -88,30 +88,39 @@
 		@else
 			<a href="">Voeg een datum toe</a>
 		@endif
-			
-			<h2 class="spacing-top-m" id="grondplan">
+		<section  class="spacing-top-m" id="grondplan">
+			<h2>
 				Grondplan
 			</h2>
+			<button class="btn" onclick="openForm('floorplan-form')">
+				Voeg ticket toe
+			</button>
+			<div class="popup" id="floorplan-form">
+				@include('content.floorplan.create')
+			</div>
+		</section>
 		
 		<section  class="spacing-top-m" id="ticket">
 			<h2>
 				Tickets
 			</h2>
-			<button>Voeg ticket toe</button>
-			<div class="popup" id="myForm">
+			<button class="btn" onclick="openForm('ticket-form')">
+				Voeg ticket toe
+			</button>
+			<div class="popup" id="ticket-form">
 				@include('content.ticket.create')
 			</div>
 		</section>
-			
-			
 		
+		
+	
 			
-			<h2 class="spacing-top-m" id="medewerkers">
-				Medewerkers
-			</h2>
-			
-			<h2 class="spacing-top-m" id="shift">
-				Taken & Shiften
-			</h2>
+		<h2 class="spacing-top-m" id="medewerkers">
+			Medewerkers
+		</h2>
+		
+		<h2 class="spacing-top-m" id="shift">
+			Taken & Shiften
+		</h2>
 	</section>
 @endsection
