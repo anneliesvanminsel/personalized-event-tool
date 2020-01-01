@@ -69143,13 +69143,13 @@ function (_Component) {
         url: this.props.url2,
         currentIndex: this.state.currentIndex,
         image: this.props.image2
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slide__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }), this.props.event3 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Slide__WEBPACK_IMPORTED_MODULE_2__["default"], {
         index: 3,
         event: this.props.event3,
         url: this.props.url3,
         currentIndex: this.state.currentIndex,
         image: this.props.image3
-      }))), this.state.currentIndex === 0 ? '' : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LeftArrow__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }) : '')), this.state.currentIndex === 0 ? '' : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_LeftArrow__WEBPACK_IMPORTED_MODULE_3__["default"], {
         goToPrevSlide: this.goToPrevSlide
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RightArrow__WEBPACK_IMPORTED_MODULE_4__["default"], {
         goToNextSlide: this.goToNextSlide

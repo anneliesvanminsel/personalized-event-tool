@@ -507,6 +507,7 @@ span.invalid-feedback {
   -webkit-transition: background-color 0.2ms ease-in-out;
   transition: background-color 0.2ms ease-in-out;
   text-align: center;
+  vertical-align: middle;
 }
 
 .btn:hover {
@@ -1218,12 +1219,34 @@ https://github.com/Significa/css-only-slider
   background: #FE676E;
 }
 
+textarea {
+  min-width: 100%;
+  max-width: 100%;
+  resize: none;
+  min-height: -webkit-fit-content;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
+}
+
+::-webkit-datetime-edit {
+  padding: 0;
+}
+
+::-webkit-datetime-edit-text {
+  padding: 10px;
+}
+
+::-webkit-inner-spin-button {
+  display: none;
+}
+
 input[type=email],
 input[type=password],
 input[type=text],
 input[type=number],
 input[type=textarea],
 input[type=file],
+input[type=date],
 textarea {
   width: 100%;
   padding: 20px;
@@ -1248,6 +1271,8 @@ input[type=textarea]:focus,
 input[type=textarea]:valid,
 input[type=file]:focus,
 input[type=file]:valid,
+input[type=date]:focus,
+input[type=date]:valid,
 textarea:focus,
 textarea:valid {
   outline: none;
@@ -1304,15 +1329,6 @@ textarea:focus + label {
   background-color: white;
   padding: 0 10px;
   width: auto;
-}
-
-textarea {
-  min-width: 100%;
-  max-width: 100%;
-  resize: none;
-  min-height: -webkit-fit-content;
-  min-height: -moz-fit-content;
-  min-height: fit-content;
 }
 
 .form__group {

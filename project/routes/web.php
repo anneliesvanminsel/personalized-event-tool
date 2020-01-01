@@ -56,19 +56,18 @@ Route::get('organisatie/{organisation_id}', [
 
 
 //create an organisation account
-
 Route::get('registreer/{subscription_id}', [
 	'uses' => 'OrganisationController@createOrganisation',
 	'as' => 'organisation.create'
 ]);
-
-//create an organisation account (post)
 
 Route::post('registreer/{subscription_id}/post', [
 	'uses' => 'OrganisationController@postCreateOrganisation',
 	'as' => 'organisation.postcreate'
 ]);
 
+
+//Auth routes
 Auth::routes();
 
 /*
@@ -95,6 +94,23 @@ Route::group(['prefix' => 'admin'], function() {
 		'as' => 'event.postcreate'
 	]);
 
+    //add organisation admin
+    Route::get('organisation/{organisation_id}/newadmin', [
+        'uses' => 'OrganisationController@createAdmin',
+        'as' => 'organisation.admin.create'
+    ]);
+
+    Route::post('organisation/{organisation_id}/newadmin/post', [
+        'uses' => 'OrganisationController@postCreateAdmin',
+        'as' => 'organisation.admin.postcreate'
+    ]);
+
+    //add event settings
+    Route::get('event/settings/{event_id}', [
+        'uses' => 'EventController@EditSettings',
+        'as' => 'event.edit.settings'
+    ]);
+
 	//edit/update event
 	Route::get('event/edit/{event_id}', [
 		'uses' => 'EventController@updateEvent',
@@ -106,21 +122,27 @@ Route::group(['prefix' => 'admin'], function() {
 		'as' => 'event.postupdate'
 	]);
 
+	//change publish status
+    Route::post('{organisation_id}/event/{event_id}/publish', [
+        'uses' => 'EventController@publishEvent',
+        'as' => 'event.publish'
+    ]);
+
 	//delete event
 	Route::post('event/delete/{organisation_id}/{event_id}', [
 		'uses' => 'EventController@deleteEvent',
 		'as' => 'event.delete'
 	]);
 
-	//add organisation admin
-	Route::get('organisation/{organisation_id}/newadmin', [
-		'uses' => 'OrganisationController@createAdmin',
-		'as' => 'organisation.admin.create'
-	]);
+    //edit an organisation account
+    Route::get('bewerken/{organisation_id}', [
+        'uses' => 'OrganisationController@editOrganisation',
+        'as' => 'organisation.update'
+    ]);
 
-	Route::post('organisation/{organisation_id}/newadmin/post', [
-		'uses' => 'OrganisationController@postCreateAdmin',
-		'as' => 'organisation.admin.postcreate'
-	]);
+    Route::post('bewerken/{organisation_id}/post', [
+        'uses' => 'OrganisationController@postEditOrganisation',
+        'as' => 'organisation.postupdate'
+    ]);
 });
 

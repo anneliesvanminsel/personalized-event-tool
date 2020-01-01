@@ -8,6 +8,7 @@ use App\Subscription;
 use Illuminate\Http\Request;
 use App\User;
 use App\Event;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 
 class OrganisationController extends Controller
@@ -71,6 +72,55 @@ class OrganisationController extends Controller
 
 		return redirect()->route('organisation.admin.create', ['organisation_id' => $organisation['id']]);
 	}
+
+    public function editOrganisation($organisation_id) {
+        $organisation = Organisation::where('id', $organisation_id)->first();
+
+        return view('content.organisation.edit', ['organisation' => $organisation]);
+    }
+
+    public function postEditOrganisation(Request $request, $organisation_id) {
+        $organisation = Organisation::where('id', $organisation_id)->first();
+
+        //validatie
+        $this->validate($request, [
+            'name' => 'required|string|max:255',
+            'description'=> 'required|string|max:1000',
+            'bkgcolor' => [
+                'nullable',
+                'string',
+                'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/',
+            ],
+            'textcolor' => [
+                'nullable',
+                'string',
+                'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/',
+            ],
+            'logo'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
+        ]);
+
+        $organisation->name = $request->input('name');
+        $organisation->description = $request->input('description');
+        $organisation->bkgcolor = $request->input('bkgcolor');
+        $organisation->textcolor = $request->input('textcolor');
+
+        if (request()->logo) {
+            $image_path = public_path() . "/images/" . $organisation['logo'];  // Value is not URL but directory file path
+
+            if(File::exists($image_path)) {
+                File::delete($image_path);
+            }
+
+            $imageName = time().'.'.request()->logo->getClientOriginalExtension();
+            request()->logo->move(public_path('images'), $imageName);
+
+            $organisation->logo = $imageName;
+        }
+
+        $organisation->save();
+
+        return redirect()->route('organisation.dashboard', ['organisation_id' => $organisation['id']]);
+    }
 
 	public function createAdmin($organisation_id) {
 		$org = Organisation::where('id', $organisation_id)->first();

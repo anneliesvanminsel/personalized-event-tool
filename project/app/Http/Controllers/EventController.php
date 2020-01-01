@@ -33,8 +33,8 @@ class EventController extends Controller
 			'title' => 'required|string|max:255',
 			'description' => 'required|string|max:1000',
 			'type'=> 'required|string', //with examples
-            'starttime' => 'required|string',
-            'endtime' => 'nullable|string',
+            'starttime'=> 'required|date|max:20',
+            'endtime'=> 'nullable|date|max:20',
 			'bkgcolor' => [
 				'nullable',
 				'string',
@@ -62,9 +62,10 @@ class EventController extends Controller
 		$event->bkgcolor = $request->input('bkgcolor');
 		$event->textcolor = $request->input('textcolor');
 		$event->logo = $imageName;
+        $event->starttime = $request->input('starttime');
+        $event->endtime = $request->input('endtime');
 
-
-		$event->save();
+        $event->save();
 		$organisation->events()->attach($event);
 
 		return redirect()->route('event.detail', ['id' => $event['id']]);
@@ -94,6 +95,8 @@ class EventController extends Controller
 				'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/i',
 			],
 			'logo'=> 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
+			'starttime'=> 'required|string|max:20',
+			'endtime'=> 'nullable|string|max:20',
 		]);
 
 		$event = Event::find($event_id);
@@ -103,13 +106,13 @@ class EventController extends Controller
 		$event->type = $request->input('eventtype');
 		$event->bkgcolor = $request->input('bkgcolor');
 		$event->textcolor = $request->input('textcolor');
+		$event->endtime = $request->input('endtime');
+		$event->starttime = $request->input('starttime');
 
 		if (request()->logo) {
-
 			$image_path = public_path() . "/images/" . $event['logo'];  // Value is not URL but directory file path
 
 			if(File::exists($image_path)) {
-
 				File::delete($image_path);
 			}
 
@@ -123,6 +126,18 @@ class EventController extends Controller
 
 		return redirect()->route('event.detail', ['id' => $event['id']]);
 	}
+
+    public function EditSettings($id) {
+        $event = Event::where('id', $id)->first();
+
+        return view('content.event.settings',['event' => $event]);
+    }
+
+    public function postEditSettings(Request $request, $event_id) {
+        $event = Event::where('id', $event_id)->first();
+
+        return redirect()->route('event.detail', ['id' => $event['id']]);
+    }
 
 	public function deleteEvent($organisation_id, $event_id){
 		$event = Event::find($event_id);

@@ -10,13 +10,6 @@
 		<div class="row row--stretch spacing-top-s">
 			<div>
 				{{ $organisation['description'] }}
-				Danish carrot cake pudding bonbon toffee marzipan cake. Donut ice cream dessert. Croissant wafer ice
-				cream gummi bears lollipop topping. Candy canes croissant sweet roll tootsie roll gummi bears jelly
-				beans. Liquorice marzipan lollipop wafer. Tiramisu liquorice apple pie jelly-o. Sugar plum ice cream
-				tiramisu ice cream apple pie oat cake jelly. Bear claw pastry pudding candy canes jelly. Icing oat
-				cake tootsie roll biscuit chupa chups gummies apple pie. Jelly-o cake sweet roll wafer tiramisu cupcake
-				candy. Pie toffee cotton candy pudding jujubes. Sesame snaps ice cream powder tart soufflé fruitcake
-				cheesecake brownie sugar plum. Marshmallow dessert danish sugar plum icing.
 			</div>
 			<div>
 				@if($organisation['logo'] && File::exists(public_path() . "/images/" . $organisation['logo']))
@@ -43,7 +36,7 @@
 				Onze evenementen
 			</h2>
 			<div class="h-grid">
-				@foreach($organisation->events()->orderBy('starttime', 'ASC')->get() as $event)
+				@foreach($organisation->events()->where('status', '=', 1)->orderBy('starttime', 'ASC')->get() as $event)
 					<div class="h-grid__item item row row--stretch">
 						<div class="item__date" style="background-color: {{ $organisation['bkgcolor'] }}; color: {{ $organisation['textcolor'] }}">
 							17 dec

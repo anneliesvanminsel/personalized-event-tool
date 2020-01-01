@@ -4,6 +4,7 @@ input[type=text],
 input[type=number],
 input[type=textarea],
 input[type=file],
+input[type=date],
 textarea
 {
 	width: 100%;
@@ -63,9 +64,3 @@ textarea:focus + label {
 	width: auto;
 }
 
-textarea {
-	min-width: 100%;
-	max-width: 100%;
-	resize: none;
-	min-height: fit-content;
-}

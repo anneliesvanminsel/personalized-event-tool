@@ -9,6 +9,7 @@
 	color: $red;
 	transition: background-color .2ms ease-in-out;
 	text-align: center;
+	vertical-align: middle;
 
 	&:hover {
 		background-color: $red;

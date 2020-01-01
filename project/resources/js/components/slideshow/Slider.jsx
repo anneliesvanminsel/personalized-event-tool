@@ -80,13 +80,18 @@ class Slider extends Component {
                             currentIndex={this.state.currentIndex}
                             image={this.props.image2}
                         />
-                        <Slide
-                            index={3}
-                            event={this.props.event3}
-                            url={this.props.url3}
-                            currentIndex={this.state.currentIndex}
-                            image={this.props.image3}
-                        />
+                        { this.props.event3 ?
+                            <Slide
+                                index={3}
+                                event={this.props.event3}
+                                url={this.props.url3}
+                                currentIndex={this.state.currentIndex}
+                                image={this.props.image3}
+                            />
+                        :
+                            ''
+                        }
+
                     </div>
                 </div>
                 { this.state.currentIndex === 0 ? '' :

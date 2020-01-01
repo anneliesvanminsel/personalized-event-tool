@@ -96,11 +96,11 @@
 			<div class="form__group">
 				<input
 						id="starttime"
-						type="text"
+						type="date"
 						class="form__input @error('starttime') is-invalid @enderror"
 						name="starttime"
 						placeholder="bv: 12/10/2022"
-						value="{{ date('d/m/y', strtotime( $event['starttime'])) }}"
+						value="{{ $event['starttime'] }}"
 						required
 						autocomplete="off"
 				>
@@ -122,11 +122,11 @@
 			<div class="form__group spacing-top-s">
 				<input
 						id="endtime"
-						type="text"
+						type="date"
 						class="form__input @error('endtime') is-invalid @enderror"
 						name="endtime"
 						placeholder="bv: 14/10/2022"
-						value="{{ $event['endtime'] ? date('d/m/y', strtotime( $event['endtime'])) : ''  }}"
+						value="{{ $event['endtime'] }}"
 						autocomplete="off"
 				>
 				

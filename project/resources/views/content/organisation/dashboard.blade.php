@@ -58,13 +58,13 @@
 					<div class="item__actions row row--stretch">
 						<form
 							class="form"
-							onsubmit="return confirm('Ben je zeker dat je {{ $event['title'] }} voor alle organisatoren wilt publishen?');"
+							onsubmit="return confirm('Ben je zeker dat je {{ $event['title'] }} voor alle organisatoren wilt {{ $event['status'] === 0 ? 'zichtbaar maken' : 'onzichtbaar maken' }}?');"
 							method="POST"
-							action="{{ route('event.update', ['event-id' => $event['id'], 'organisation_id' => $organisation['id'] ]) }}"
+							action="{{ route('event.publish', ['event-id' => $event['id'], 'organisation_id' => $organisation['id'] ]) }}"
 						>
 							{{ csrf_field() }}
 
-							<button class="btn is-icon" type="submit">
+							<button title="set visiblility" class="btn is-icon" type="submit">
 								@if($event['status'] === 0)
 									@svg('hide', 'is-small')
 								@else
@@ -72,10 +72,10 @@
 								@endif
 							</button>
 						</form>
-						<a class="btn is-icon" href={{route('event.update', ['event_id' => $event->id])}}>
+						<a title="edit event information" class="btn is-icon" href={{route('event.update', ['event_id' => $event->id])}}>
 							@svg('edit', 'is-small')
 						</a>
-						<a class="btn is-icon" href={{route('event.update', ['event_id' => $event->id])}}>
+						<a title="edit event settings" class="btn is-icon" href={{route('event.edit.settings', ['event_id' => $event->id])}}>
 							@svg('calendar (2)', 'is-small')
 						</a>
 						<form

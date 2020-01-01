@@ -5,183 +5,113 @@
 @section('content')
 	<section class="page-alignment spacing-top-m">
 		<h1>
-			Maak jouw evenement
+			Evenement instellingen
 		</h1>
-
-		<form method="POST" action="{{ route('event.postcreate', ['organisation_id' => $organisation_id]) }}" class="form" enctype="multipart/form-data">
-			@csrf
-
-			<h2 class="spacing-top-m">
-				1. Algemene gegevens
+		<div class="spacing-top-m row row--stretch">
+			<a href="#planning" class="btn">Planning</a>
+			<a href="#grondplan" class="btn">Grondplan</a>
+			<a href="#ticket" class="btn">Ticket</a>
+			<a href="#medewerkers" class="btn">Mederwerkers</a>
+			<a href="#shift" class="btn">Taken & Shiften</a>
+		</div>
+		
+		<h2 class="spacing-top-m" id="planning">
+			Planning
+		</h2>
+		
+		@if($event->sessions()->exists())
+			<div class="schedule__content">
+				<div class="schedule__headcontainer row row--stretch">
+					@foreach($event->sessions()->get() as $session)
+						<div class="schedule__heading">
+							<div>
+								{{ $session['name'] }}
+							</div>
+							
+							<div>
+								{{  date('d/m', strtotime( $session['date'])) }}
+							</div>
+						</div>
+					@endforeach
+				</div>
+				@foreach($event->sessions()->get() as $session)
+					@if($session->schedules()->exists())
+						<div class="table">
+							<div class="table__heading row row--stretch" style="border-color: {{ $event['bkgcolor'] }}">
+								<div>
+									Uur
+								</div>
+								<div>
+									Wat
+								</div>
+								<div>
+									Waar
+								</div>
+							</div>
+							<div class="table__content">
+								<style>
+									.table__item:nth-child(odd) {
+										background-color: {{ $event['bkgcolor'] }}55;
+									}
+								</style>
+								
+								<!-- laatste twee cijfers zijn opacity -->
+								@foreach($session->schedules()->get() as $sched)
+									<div class="table__item row row--stretch">
+										<div class="">
+											{{ $sched['starttime'] }} - {{ $sched['endtime'] }}
+										</div>
+										<div class="">
+											<div class="">
+												{{ $sched['title'] }}
+											</div>
+											<p class="">
+												{{ $sched['description'] }}
+											</p>
+										</div>
+										<div class="">
+											{{ $sched['location'] }}
+										</div>
+									</div>
+								@endforeach
+							</div>
+						</div>
+					@else
+						@if(Auth::user() && Auth::user()->role === 'organisator')
+							<a href="#">
+								Voeg een nieuw item aan jouw planning toe.
+							</a>
+						@endif
+					@endif
+				@endforeach
+			</div>
+		@else
+			<a href="">Voeg een datum toe</a>
+		@endif
+			
+			<h2 class="spacing-top-m" id="grondplan">
+				Grondplan
 			</h2>
-
-			<div class="form__group">
-				<input
-					id="title"
-					type="text"
-					class="form__input @error('title') is-invalid @enderror"
-					name="title"
-					placeholder="bv. Rock Werchter of Kerstdrink 2019"
-					value="{{ old('title') }}"
-					required
-					autofocus
-					autocomplete="off"
-				>
-
-				<label for="title" class="form__label">
-					De titel van het event
-				</label>
-
-				@error('title')
-				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-				@enderror
-			</div>
-
-
-			<div class="form__group">
-				<textarea
-					form="form-edit"
-					id="description"
-					type="text"
-					class="form__input @error('description') is-invalid @enderror"
-					name="description"
-					placeholder="Een korte beschrijving van jouw evenement."
-					required
-					autocomplete="off"
-					maxlength="255"
-				></textarea>
-
-				<label for="description" class="form__label">
-					Korte beschrijving
-				</label>
-
-				<div id="word-counter" class="form__label is-counter"></div>
-
-				@error('description')
-				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-				@enderror
-				<script>
-                    document.getElementById('description').onkeyup = function () {
-                        document.getElementById('word-counter').innerHTML = this.value.length + "/255";
-                    };
-				</script>
-			</div>
-
-			<div class="form__group">
-				<input
-					id="logo"
-					type="file"
-					class="form__input @error('logo') is-invalid @enderror"
-					name="logo"
-					placeholder="bv. het event van de eeuw"
-					value="{{ old('logo') }}"
-					required
-					autocomplete="off"
-				>
-
-				<label for="logo" class="form__label">
-					hoofdafbeelding
-				</label>
-
-				@error('logo')
-				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-				@enderror
-			</div>
-
-			<h2 class="spacing-top-m">
-				2. Technische informatie
+		
+		<section  class="spacing-top-m" id="ticket">
+			<h2>
+				Tickets
 			</h2>
-
-			<div class="form__group">
-				<input
-					id="type"
-					type="text"
-					class="form__input @error('type') is-invalid @enderror"
-					name="type"
-					placeholder="bv. het event van de eeuw"
-					value="{{ old('type') }}"
-					required
-					autocomplete="off"
-				>
-
-				<label for="type" class="form__label">
-					evenementstype
-				</label>
-
-				@error('type')
-				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-				@enderror
+			<button>Voeg ticket toe</button>
+			<div class="popup" id="myForm">
+				@include('content.ticket.create')
 			</div>
-
-			<h2 class="spacing-top-m">
-				3. Opmaak mogelijkheden
+		</section>
+			
+			
+		
+			
+			<h2 class="spacing-top-m" id="medewerkers">
+				Medewerkers
 			</h2>
-
-			<p>
-				Hier zal je de evenementspagina kunnen personaliseren. Deze kleuren zullen in de applicatie en op de website terugkomen.
-				<br>
-				Gelieve deze te noteren in <span class="accent">hex-notatie.</span>
-			</p>
-
-			<div class="form__group spacing-top-s">
-				<input
-					id="bkgcolor"
-					type="text"
-					class="form__input @error('bkgcolor') is-invalid @enderror"
-					name="bkgcolor"
-					placeholder="bv. #112233"
-					value="{{ old('bkgcolor') }}"
-					autocomplete="off"
-				>
-
-				<label for="bkgcolor" class="form__label">
-					Achtergrondkleur
-				</label>
-
-				@error('bkgcolor')
-				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-				@enderror
-			</div>
-
-
-			<div class="form__group">
-				<input
-					id="textcolor"
-					type="text"
-					class="form__input @error('textcolor') is-invalid @enderror"
-					name="textcolor"
-					placeholder="bv. #112233"
-					value="{{ old('textcolor') }}"
-					autocomplete="off"
-				>
-
-				<label for="textcolor" class="form__label">
-					Tekstkleur
-				</label>
-
-				@error('textcolor')
-				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-				@enderror
-			</div>
-
-
-			<div class="spacing-top-m">
-				<button type="submit" class="btn btn--full">
-					Maak het evenement aan
-				</button>
-			</div>
-		</form>
+			
+			<h2 class="spacing-top-m" id="shift">
+				Taken & Shiften
+			</h2>
 	</section>
 @endsection
