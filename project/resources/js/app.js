@@ -13,4 +13,3 @@ require('./bootstrap');
  */
 
 require('./components/slideshow/Slider');
-require('./components/popup/popup');

@@ -17,6 +17,7 @@ body {
   -webkit-box-direction: normal;
           flex-direction: column;
   font-family: "Montserrat", sans-serif;
+  width: 100%;
 }
 
 main {
