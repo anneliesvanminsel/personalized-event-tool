@@ -63,4 +63,12 @@ class TicketController extends Controller
 
         return redirect()->route('event.edit.settings', ['id' => $event_id]);
     }
+
+    public function deleteTicket($event_id, $ticket_id){
+        $event = Event::find($event_id);
+        $ticket = Ticket::find($ticket_id);
+        $ticket->delete();
+
+        return redirect()->route('event.edit.settings', ['id' => $event['id']]);
+    }
 }

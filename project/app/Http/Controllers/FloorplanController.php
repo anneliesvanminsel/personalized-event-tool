@@ -56,4 +56,13 @@ class FloorplanController extends Controller
 
         return redirect()->route('event.edit.settings', ['id' => $event_id]);
     }
+
+    public function deleteFloorplan($event_id, $floorplan_id){
+        $event = Event::find($event_id);
+        $floorplan = Floorplan::find($floorplan_id);
+        $floorplan->delete();
+
+        return redirect()->route('event.edit.settings', ['id' => $event['id']]);
+    }
+
 }

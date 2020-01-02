@@ -38,6 +38,26 @@ $end: 5; // Number of slides: 5 slides in this case
 				// Within each .slider__item--(slide-number) loop through #slide-(number)
 				@for $i from $start through $end {
 
+					@if $i == $slide - 4 {
+						// For the slide 2 positions on the right
+						// #slide-(number):checked ~ .slider__holder .slider__item--(slide-number)
+						#slide-#{$i}:checked ~ .slider__holder & {
+							z-index: 0;
+
+							opacity: 0;
+						}
+					}
+
+					@if $i == $slide - 3 {
+						// For the slide 2 positions on the right
+						// #slide-(number):checked ~ .slider__holder .slider__item--(slide-number)
+						#slide-#{$i}:checked ~ .slider__holder & {
+							z-index: 0;
+
+							opacity: 0;
+						}
+					}
+
 					@if $i == $slide - 2 {
 						// For the slide 2 positions on the right
 						// #slide-(number):checked ~ .slider__holder .slider__item--(slide-number)
@@ -62,7 +82,7 @@ $end: 5; // Number of slides: 5 slides in this case
 						#slide-#{$i}:checked ~ .slider__holder & {
 							z-index: 1;
 
-							transform: translateX(200px) scale(0.85);
+							transform: translateX(280px) scale(0.85);
 
 							@media (max-width: 768px) {
 								transform: translateX(100px) scale(0.85);
@@ -115,6 +135,25 @@ $end: 5; // Number of slides: 5 slides in this case
 						}
 					}
 
+					@if $i == $slide + 3 {
+						// For the slide 2 positions on the left
+						// #slide-(number):checked ~ .slider__holder .slider__item--(slide-number)
+						#slide-#{$i}:checked ~ .slider__holder & {
+							z-index: 0;
+
+							opacity: 0;
+						}
+					}
+
+					@if $i == $slide + 4 {
+						// For the slide 2 positions on the left
+						// #slide-(number):checked ~ .slider__holder .slider__item--(slide-number)
+						#slide-#{$i}:checked ~ .slider__holder & {
+							z-index: 0;
+
+							opacity: 0;
+						}
+					}
 				}
 			}
 		}

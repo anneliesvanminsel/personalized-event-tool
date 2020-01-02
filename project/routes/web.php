@@ -157,6 +157,12 @@ Route::group(['prefix' => 'admin'], function() {
         'as' => 'ticket.postupdate'
     ]);
 
+    //delete floorplan
+    Route::post('ticket/delete/{event_id}/{ticket_id}/post', [
+        'uses' => 'TicketController@deleteTicket',
+        'as' => 'ticket.delete'
+    ]);
+
     //add floorplan
     Route::post('grondplan/create/{event_id}/post', [
         'uses' => 'FloorplanController@postCreateFloorplan',
@@ -167,6 +173,12 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('grondplan/update/{event_id}/{floorplan_id}/post', [
         'uses' => 'FloorplanController@postUpdateFloorplan',
         'as' => 'floorplan.postupdate'
+    ]);
+
+    //delete floorplan
+    Route::post('grondplan/delete/{event_id}/{floorplan_id}/post', [
+        'uses' => 'FloorplanController@deleteFloorplan',
+        'as' => 'floorplan.delete'
     ]);
 });
 
