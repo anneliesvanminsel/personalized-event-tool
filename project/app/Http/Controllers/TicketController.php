@@ -14,23 +14,23 @@ class TicketController extends Controller
 
         //validatie
         $this->validate($request, [
-            'name' => 'nullable|string|max:255',
-            'description' => 'nullable|string|max:255',
-            'type'=> 'nullable|string',
-            'date'=> 'required|date',
-            'price'=> 'required|integer',
-            'totaltickets'=> 'required|string',
+            'ticket-create-name' => 'nullable|string|max:255',
+            'ticket-create-description' => 'nullable|string|max:255',
+            'ticket-create-type'=> 'nullable|string',
+            'ticket-create-date'=> 'required|date',
+            'ticket-create-price'=> 'required|regex:/^\d*(\.\d{2})?$/',
+            'ticket-create-totaltickets'=> 'required|string',
         ]);
 
 
         $ticket = new Ticket;
 
-        $ticket->name = $request->input('name');
-        $ticket->description = $request->input('description');
-        $ticket->type = $request->input('type');;
-        $ticket->date = $request->input('date');
-        $ticket->price = $request->input('price');
-        $ticket->totaltickets = $request->input('totaltickets');
+        $ticket->name = $request->input('ticket-create-name');
+        $ticket->description = $request->input('ticket-create-description');
+        $ticket->type = $request->input('ticket-create-type');;
+        $ticket->date = $request->input('ticket-create-date');
+        $ticket->price = $request->input('ticket-create-price');
+        $ticket->totaltickets = $request->input('ticket-create-totaltickets');
         $ticket->event_id = $event['id'];
 
         $ticket->save();
@@ -48,7 +48,7 @@ class TicketController extends Controller
             'ticket-edit-description' => 'nullable|string|max:255',
             'ticket-edit-type'=> 'nullable|string',
             'ticket-edit-date'=> 'required|date',
-            'ticket-edit-price'=> 'required|integer',
+            'ticket-edit-price'=> 'required|regex:/^\d*(\.\d{2})?$/',
             'ticket-edit-totaltickets'=> 'required|string',
         ]);
 
