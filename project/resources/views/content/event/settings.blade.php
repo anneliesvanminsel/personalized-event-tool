@@ -117,20 +117,20 @@
 							@endif
 							
 							<div class="row">
-								<button class="btn is-icon" onclick="openForm('floorplan-edit-form')">
+								<button class="btn is-icon" onclick="openForm('floorplan-edit-form-{{$loop->iteration}}')">
 									@svg('edit', 'is-small')
 								</button>
 								
 							</div>
+						</div>
+						<div class="popup" id="floorplan-edit-form-{{$loop->iteration}}">
+							@include('content.floorplan.edit', ['current_floorplan' => $floorplan])
 						</div>
 					@endforeach
 				</div>
 			@endif
 			<div class="popup" id="floorplan-form">
 				@include('content.floorplan.create')
-			</div>
-			<div class="popup" id="floorplan-edit-form">
-				@include('content.floorplan.edit')
 			</div>
 		</section>
 		
@@ -139,9 +139,9 @@
 				<h2>
 					Tickets
 				</h2>
-				<a href="{{ route('ticket.create', ['event_id' => $event['id']]) }}" class="btn btn--small" >
+				<button class="btn btn--small" onclick="openForm('ticket-form')">
 					Voeg ticket toe
-				</a>
+				</button>
 			</div>
 			@if($event->tickets()->exists())
 				<div>
@@ -164,14 +164,22 @@
 								</p>
 							@endif
 							<div class="row">
-								<a href="{{ route('ticket.update', ['event_id' => $event['id'], 'ticket_id' => $ticket['id']]) }}" class="btn is-icon" >
+								<button class="btn is-icon" onclick="openForm('ticket-edit-form-{{$loop->iteration}}')">
 									@svg('edit', 'is-small')
-								</a>
+								</button>
+							</div>
+							<div class="popup" id="ticket-edit-form-{{$loop->iteration}}">
+								@include('content.ticket.edit', ['current_ticket' => $ticket])
 							</div>
 						</div>
 					@endforeach
 				</div>
 			@endif
+			
+			
+			<div class="popup" id="ticket-form">
+				@include('content.ticket.create')
+			</div>
 		</section>
 		
 		<section  class="spacing-top-m" id="shift">

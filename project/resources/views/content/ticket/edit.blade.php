@@ -1,22 +1,21 @@
 <form
 		method="POST"
-		action="{{ route('ticket.postcreate', ['event_id' => $event['id'], 'ticket_id' => $ticket['id'] ]) }}"
+		action="{{ route('ticket.postupdate', ['event_id' => $event['id'], 'ticket_id' => $current_ticket['id'] ]) }}"
 		class="popup__content"
 >
 	@csrf
 	
-	<h1>Voeg een ticket toe</h1>
-	
+	<h1>Ticket bewerken</h1>
 	
 	<div class="form__group">
 		<input
 				type="text"
 				placeholder="bv. daypazz"
-				name="name"
-				id="name"
-				value="{{ $ticket['name'] }}"
+				name="ticket-edit-name"
+				id="ticket-edit-name"
+				value="{{ $current_ticket['name'] }}"
 		>
-		<label for="name" class="form__label">
+		<label for="ticket-edit-name" class="form__label">
 			Naam van het ticket
 		</label>
 	</div>
@@ -27,12 +26,12 @@
 				step="0.01"
 				min="0"
 				placeholder="bv. 19.99"
-				name="price"
-				id="price"
+				name="ticket-edit-price"
+				id="ticket-edit-price"
 				required
-				value="{{ $ticket['price'] }}"
+				value="{{ $current_ticket['price'] }}"
 		>
-		<label for="price" class="form__label">
+		<label for="ticket-edit-price" class="form__label">
 			Prijs van het ticket
 		</label>
 	</div>
@@ -41,11 +40,11 @@
 		<input
 				type="text"
 				placeholder="bv. combiticket, dagticket"
-				name="type"
-				id="type"
-				value="{{ $ticket['type'] }}"
+				name="ticket-edit-type"
+				id="ticket-edit-type"
+				value="{{ $current_ticket['type'] }}"
 		>
-		<label for="type" class="form__label">
+		<label for="ticket-edit-type" class="form__label">
 			Type van het ticket
 		</label>
 	</div>
@@ -55,11 +54,11 @@
 				type="number"
 				min="0"
 				placeholder="Bv. 200, 150, 25, ..."
-				name="totaltickets"
-				id="totaltickets"
-				value="{{ $ticket['totaltickets'] }}"
+				name="ticket-edit-totaltickets"
+				id="ticket-edit-totaltickets"
+				value="{{ $current_ticket['totaltickets'] }}"
 		>
-		<label for="totaltickets" class="form__label">
+		<label for="ticket-edit-totaltickets" class="form__label">
 			Totaal aantal tickets
 		</label>
 	</div>
@@ -68,12 +67,12 @@
 		<input
 				type="date"
 				placeholder="{{ $event['date'] }}"
-				name="date"
-				id="date"
+				name="ticket-edit-date"
+				id="ticket-edit-date"
 				required
-				value="{{ $ticket['date'] }}"
+				value="{{ $current_ticket['date'] }}"
 		>
-		<label for="date" class="form__label">
+		<label for="ticket-edit-date" class="form__label">
 			Datum van het ticket
 		</label>
 	</div>
@@ -82,26 +81,26 @@
 		<input
 				type="text"
 				placeholder="Zaken die inbegrepen zijn in het ticket"
-				name="description"
-				id="description"
+				name="ticket-edit-description"
+				id="ticket-edit-description"
 				required
-				value="{{ $ticket['description'] }}"
+				value="{{ $current_ticket['description'] }}"
 		>
-		<label for="description" class="form__label">
+		<label for="ticket-edit-description" class="form__label">
 			Beschrijving of extra informatie van het ticket
 		</label>
-		<div id="word-counter" class="form__label is-counter"></div>
+		<div id="ticket-edit-word-counter" class="form__label is-counter"></div>
 	
 	</div>
 	
 	<script>
-        document.getElementById('description').onkeyup = function () {
-            document.getElementById('word-counter').innerHTML = this.value.length + "/255";
+        document.getElementById('ticket-edit-description').onkeyup = function () {
+            document.getElementById('ticket-edit-word-counter').innerHTML = this.value.length + "/255";
         };
 	</script>
 	
 	<div class="row spacing-top-m">
-		<button type="button" class="btn">Sluiten</button>
-		<button type="submit" class="btn btn--full">Ticket aanmaken</button>
+		<button type="button" class="btn" onclick="closeForm('ticket-edit-form-{{$loop->iteration}}')">Sluiten</button>
+		<button type="submit" class="btn btn--full">Wijzigingen opslaan</button>
 	</div>
 </form>

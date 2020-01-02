@@ -39,13 +39,6 @@ class TicketController extends Controller
         return redirect()->route('event.edit.settings', ['id' => $event['id']]);
     }
 
-    public function updateTicket(Request $request, $event_id, $ticket_id)
-    {
-        $ticket = Ticket::where('id', $ticket_id)->first();
-
-        return redirect()->route('ticket.update', ['event_id' => $event_id, 'ticket_id' => $ticket['id']]);
-    }
-
     public function postUpdateTicket(Request $request, $event_id, $ticket_id) {
         $ticket = Ticket::where('id', $ticket_id)->first();
 

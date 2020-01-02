@@ -1,6 +1,6 @@
 <form
 		method="POST"
-		action="{{ route('floorplan.postupdate', ['event_id' => $event['id'],'floorplan_id' => $floorplan['id'] ]) }}"
+		action="{{ route('floorplan.postupdate', ['event_id' => $event['id'],'floorplan_id' => $current_floorplan['id'] ]) }}"
 		class="popup__content"
 		enctype="multipart/form-data"
 >
@@ -15,7 +15,7 @@
 				placeholder="bv. eerste verdieping"
 				name="name"
 				id="name"
-				value="{{ $floorplan['name'] }}"
+				value="{{ $current_floorplan['name'] }}"
 		>
 		<label for="name" class="form__label">
 			Naam van het grondplan
@@ -44,7 +44,7 @@
 	</div>
 	
 	<div class="row spacing-top-s">
-		<button type="button" class="btn" onclick="closeForm('floorplan-edit-form')">Sluiten</button>
+		<button type="button" class="btn" onclick="closeForm('floorplan-edit-form-{{$loop->iteration}}')">Sluiten</button>
 		<button type="submit" class="btn btn--full">Grondplan toevoegen</button>
 	</div>
 </form>
