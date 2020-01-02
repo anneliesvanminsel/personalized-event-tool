@@ -11,7 +11,6 @@
 			<a href="#planning" class="btn">Planning</a>
 			<a href="#grondplan" class="btn">Grondplan</a>
 			<a href="#ticket" class="btn">Ticket</a>
-			<a href="#medewerkers" class="btn">Mederwerkers</a>
 			<a href="#shift" class="btn">Taken & Shiften</a>
 		</div>
 		
@@ -89,38 +88,102 @@
 			<a href="">Voeg een datum toe</a>
 		@endif
 		<section  class="spacing-top-m" id="grondplan">
-			<h2>
-				Grondplan
-			</h2>
-			<button class="btn" onclick="openForm('floorplan-form')">
-				Voeg ticket toe
-			</button>
+			<div class="row">
+				<h2>
+					Grondplan
+				</h2>
+				<button class="btn btn--small" onclick="openForm('floorplan-form')">
+					Voeg grondplan toe
+				</button>
+			</div>
+			@if($event->floorplans()->exists())
+				<div>
+					@foreach($event->floorplans()->get() as $floorplan)
+						<div class="row row--stretch">
+							@if($floorplan['name'])
+								<div>
+									{{ $floorplan['name'] }}
+								</div>
+							@endif
+							
+							@if(File::exists(public_path() . "/images/" . $floorplan['image']))
+								<div class="ctn--image">
+									<img src="{{ asset('images/' . $floorplan['image'] ) }}" alt="{{ $floorplan['name'] }}" loading="lazy">
+								</div>
+							@else
+								<div class="ctn--image">
+									<img src="https://placekitten.com/600/600" alt="{{ $floorplan['name'] }}" loading="lazy">
+								</div>
+							@endif
+							
+							<div class="row">
+								<button class="btn is-icon" onclick="openForm('floorplan-edit-form')">
+									@svg('edit', 'is-small')
+								</button>
+								
+							</div>
+						</div>
+					@endforeach
+				</div>
+			@endif
 			<div class="popup" id="floorplan-form">
 				@include('content.floorplan.create')
+			</div>
+			<div class="popup" id="floorplan-edit-form">
+				@include('content.floorplan.edit')
 			</div>
 		</section>
 		
 		<section  class="spacing-top-m" id="ticket">
-			<h2>
-				Tickets
-			</h2>
-			<button class="btn" onclick="openForm('ticket-form')">
-				Voeg ticket toe
-			</button>
-			<div class="popup" id="ticket-form">
-				@include('content.ticket.create')
+			<div class="row">
+				<h2>
+					Tickets
+				</h2>
+				<a href="{{ route('ticket.create', ['event_id' => $event['id']]) }}" class="btn btn--small" >
+					Voeg ticket toe
+				</a>
 			</div>
+			@if($event->tickets()->exists())
+				<div>
+					@foreach($event->tickets()->get() as $ticket)
+						<div class="row row--stretch">
+							<div>
+								{{ $ticket['name'] }}
+							</div>
+							@if($ticket['type'])
+								<div>
+									{{ $ticket['type'] }}
+								</div>
+							@endif
+							<div>
+								€ {{ $ticket['price'] }}
+							</div>
+							@if($ticket['description'])
+								<p>
+									{{ $ticket['description'] }}
+								</p>
+							@endif
+							<div class="row">
+								<a href="{{ route('ticket.update', ['event_id' => $event['id'], 'ticket_id' => $ticket['id']]) }}" class="btn is-icon" >
+									@svg('edit', 'is-small')
+								</a>
+							</div>
+						</div>
+					@endforeach
+				</div>
+			@endif
 		</section>
 		
-		
-	
-			
-		<h2 class="spacing-top-m" id="medewerkers">
-			Medewerkers
-		</h2>
-		
-		<h2 class="spacing-top-m" id="shift">
-			Taken & Shiften
-		</h2>
+		<section  class="spacing-top-m" id="shift">
+			<div class="row">
+				<h2>
+					Taken & Shiften
+				</h2>
+				<button class="btn btn--small" onclick="openForm('task-form')">
+					Voeg taak toe
+				</button>
+			</div>
+		</section>
 	</section>
+	<script src="{{ asset('js/popup.js') }}"></script>
 @endsection

@@ -146,9 +146,37 @@ Route::group(['prefix' => 'admin'], function() {
     ]);
 
     //add ticket
+    Route::get('ticket/create/{event_id}', [
+        'uses' => 'TicketController@createTicket',
+        'as' => 'ticket.create'
+    ]);
+
     Route::post('ticket/create/{event_id}/post', [
         'uses' => 'TicketController@postCreateTicket',
         'as' => 'ticket.postcreate'
+    ]);
+
+    //edit ticket
+    Route::get('ticket/update/{event_id}/{ticket_id}/', [
+        'uses' => 'TicketController@updateTicket',
+        'as' => 'ticket.update'
+    ]);
+
+    Route::post('ticket/update/{event_id}/{ticket_id}/post', [
+        'uses' => 'TicketController@postUpdateTicket',
+        'as' => 'ticket.postupdate'
+    ]);
+
+    //add floorplan
+    Route::post('grondplan/create/{event_id}/post', [
+        'uses' => 'FloorplanController@postCreateFloorplan',
+        'as' => 'floorplan.postcreate'
+    ]);
+
+    //edit floorplan
+    Route::post('grondplan/update/{event_id}/{floorplan_id}/post', [
+        'uses' => 'FloorplanController@postUpdateFloorplan',
+        'as' => 'floorplan.postupdate'
     ]);
 });
 
