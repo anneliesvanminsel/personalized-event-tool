@@ -28,6 +28,10 @@ class Event extends Model
 		return $this->hasMany('App\Ticket');
 	}
 
+    public function floorplans(){
+        return $this->hasMany('App\Floorplan');
+    }
+
 	public function messages(){
 		return $this->hasMany('App\Message');
 	}

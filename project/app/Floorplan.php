@@ -10,13 +10,10 @@ class Floorplan extends Model
 	use SoftDeletes;
 	//
 	protected $fillable = [
-		'title', 'afbeelding',
+		'title', 'image', 'event_id',
 	];
 
-	public function sessions(){
-		return $this->belongsToMany('App\Session',
-			'session_floorplan',
-			'session_id',
-			'floorplan_id')->withTimestamps();
+	public function event(){
+		return $this->belongsTo('App\Event', 'event_id')->withTimestamps();
 	}
 }
