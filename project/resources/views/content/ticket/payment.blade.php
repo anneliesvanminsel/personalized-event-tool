@@ -25,7 +25,7 @@
 			
 			.btn:hover {
 				border-color: {{ $event['bkgcolor'] }};
-				background-color: transparent;
+				background-color: {{ $event['textcolor'] }};
 				color: {{ $event['bkgcolor'] }};
 			}
 		</style>
@@ -38,19 +38,19 @@
 				<div class="card" style="border-color: {{ $event['bkgcolor'] }};">
 					<div class="card__header">
 						<div role="tablist" class="row row--stretch form__row has-three">
-							<div class="card" style="border-color: {{ $event['bkgcolor'] }}; background-color: {{ $event['bkgcolor'] }}; color: white;  ">
+							<div class="card" style="border-color: {{ $event['bkgcolor'] }}; background-color: {{ $event['bkgcolor'] }}; color: {{ $event['textcolor'] }};  ">
 								<a data-toggle="pill" href="#credit-card" class="nav-link active">
 									<i class="fas fa-credit-card mr-2"></i>
 									Credit Card
 								</a>
 							</div>
-							<div class="card" style="border-color: {{ $event['bkgcolor'] }};">
+							<div class="card" style="border-color: {{ $event['bkgcolor'] }}; color: {{ $event['bkgcolor'] }};">
 								<a data-toggle="pill" href="#paypal" class="nav-link">
 									<i class="fab fa-paypal mr-2"></i>
 									Paypal
 								</a>
 							</div>
-							<div class="card" style="border-color: {{ $event['bkgcolor'] }};">
+							<div class="card" style="border-color: {{ $event['bkgcolor'] }}; color: {{ $event['bkgcolor'] }};">
 								<a data-toggle="pill" href="#net-banking" class="nav-link">
 									<i class="fas fa-mobile-alt mr-2"></i>
 									Net Banking

@@ -1546,6 +1546,68 @@ textarea:focus + label {
   font-size: 12px;
 }
 
+.row-grid {
+  margin-top: 40px;
+  max-width: 100%;
+}
+
+.row-grid .item {
+  width: 100%;
+  max-width: 100%;
+  height: 10vh;
+  margin: 20px 0;
+}
+
+.row-grid .item > * {
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.row-grid .item__content {
+  -webkit-box-flex: 1;
+          flex-grow: 1;
+}
+
+.row-grid .item__title {
+  font-family: "Poiret One", cursive;
+  background-color: #FE676E;
+  color: #ffffff;
+  font-size: 20px;
+  width: 150px;
+  padding: 10px;
+}
+
+.row-grid .item__image {
+  position: relative;
+  overflow: hidden;
+  width: 250px;
+  -webkit-box-flex: 1;
+          flex-grow: 1;
+}
+
+.row-grid .item__image img {
+  max-width: 100%;
+}
+
+.row-grid .item__text {
+  width: 150px;
+}
+
+.row-grid .item__text.has-grow {
+  -webkit-box-flex: 1;
+          flex-grow: 1;
+}
+
+.row-grid .item__text.is-title {
+  font-family: "Poiret One", cursive;
+  font-size: 20px;
+}
+
+.row-grid .item .form {
+  display: -webkit-box;
+  display: flex;
+}
+
 .icon {
   width: 40px;
   height: 40px;

@@ -12,11 +12,11 @@
 		<input
 				type="text"
 				placeholder="bv. daypazz"
-				name="name"
-				id="name"
-				value="{{ old('name') }}"
+				name="ticket-create-name"
+				id="ticket-create-name"
+				value="{{ old('ticket-create-name') }}"
 		>
-		<label for="name" class="form__label">
+		<label for="ticket-create-name" class="form__label">
 			Naam van het ticket
 		</label>
 	</div>
@@ -26,13 +26,13 @@
 				type="number"
 				step="0.01"
 				min="0"
-				placeholder="bv. 19.99"
-				name="price"
-				id="price"
+				placeholder="bv. 19,99"
+				name="ticket-create-price"
+				id="ticket-create-price"
 				required
-				value="{{ old('price') }}"
+				value="{{ old('ticket-create-price') }}"
 		>
-		<label for="price" class="form__label">
+		<label for="ticket-create-price" class="form__label">
 			Prijs van het ticket
 		</label>
 	</div>
@@ -41,11 +41,11 @@
 		<input
 				type="text"
 				placeholder="bv. combiticket, dagticket"
-				name="type"
-				id="type"
-				value="{{ old('type') }}"
+				name="ticket-create-type"
+				id="ticket-create-type"
+				value="{{ old('ticket-create-type') }}"
 		>
-		<label for="type" class="form__label">
+		<label for="ticket-create-type" class="form__label">
 			Type van het ticket
 		</label>
 	</div>
@@ -55,11 +55,11 @@
 				type="number"
 				min="0"
 				placeholder="Bv. 200, 150, 25, ..."
-				name="totaltickets"
-				id="totaltickets"
-				value="{{ old('totaltickets') }}"
+				name="ticket-create-totaltickets"
+				id="ticket-create-totaltickets"
+				value="{{ old('ticket-create-totaltickets') }}"
 		>
-		<label for="totaltickets" class="form__label">
+		<label for="ticket-create-totaltickets" class="form__label">
 			Totaal aantal tickets
 		</label>
 	</div>
@@ -68,12 +68,12 @@
 		<input
 				type="date"
 				placeholder="{{ $event['starttime'] }}"
-				name="date"
-				id="date"
+				name="ticket-create-date"
+				id="ticket-create-date"
 				required
 				value="{{ $event['starttime'] }}"
 		>
-		<label for="date" class="form__label">
+		<label for="ticket-create-date" class="form__label">
 			Datum van het ticket
 		</label>
 	</div>
@@ -82,21 +82,21 @@
 		<input
 				type="text"
 				placeholder="Zaken die inbegrepen zijn in het ticket"
-				name="description"
-				id="description"
+				name="ticket-create-description"
+				id="ticket-create-description"
 				required
-				value="{{ old('description') }}"
+				value="{{ old('ticket-create-description') }}"
 		>
-		<label for="description" class="form__label">
+		<label for="ticket-create-description" class="form__label">
 			Beschrijving of extra informatie van het ticket
 		</label>
-		<div id="word-counter" class="form__label is-counter"></div>
+		<div id="ticket-create-word-counter" class="form__label is-counter"></div>
 	
 	</div>
 	
 	<script>
-        document.getElementById('description').onkeyup = function () {
-            document.getElementById('word-counter').innerHTML = this.value.length + "/255";
+        document.getElementById('ticket-create-description').onkeyup = function () {
+            document.getElementById('ticket-create-word-counter').innerHTML = this.value.length + "/255";
         };
 	</script>
 	

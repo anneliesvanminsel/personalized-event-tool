@@ -5,7 +5,7 @@
 @section('content')
 	<section class="page-alignment spacing-top-m">
 		<h1>
-			Evenement instellingen
+			{{ $event['title'] }} - Instellingen bewerken
 		</h1>
 		<div class="spacing-top-m row row--stretch">
 			<a href="#planning" class="btn">Planning</a>
@@ -97,21 +97,21 @@
 				</button>
 			</div>
 			@if($event->floorplans()->exists())
-				<div>
+				<div class="row-grid">
 					@foreach($event->floorplans()->get() as $floorplan)
-						<div class="row row--stretch">
+						<div class="row-grid__item item row row--stretch">
 							@if($floorplan['name'])
-								<div>
+								<div class="item__title">
 									{{ $floorplan['name'] }}
 								</div>
 							@endif
 							
 							@if(File::exists(public_path() . "/images/" . $floorplan['image']))
-								<div class="ctn--image">
+								<div class="item__image ctn--image">
 									<img src="{{ asset('images/' . $floorplan['image'] ) }}" alt="{{ $floorplan['name'] }}" loading="lazy">
 								</div>
 							@else
-								<div class="ctn--image">
+								<div class="item__image ctn--image">
 									<img src="https://placekitten.com/600/600" alt="{{ $floorplan['name'] }}" loading="lazy">
 								</div>
 							@endif
@@ -154,22 +154,24 @@
 				</button>
 			</div>
 			@if($event->tickets()->exists())
-				<div>
+				<div class="row-grid">
 					@foreach($event->tickets()->get() as $ticket)
-						<div class="row row--stretch">
-							<div>
-								{{ $ticket['name'] }}
-							</div>
+						<div class="row-grid__item item row row--stretch">
+							@if($ticket['name'])
+								<div class="item__text has-grow is-title">
+									{{ $ticket['name'] }}
+								</div>
+							@endif
 							@if($ticket['type'])
-								<div>
+								<div class="item__text">
 									{{ $ticket['type'] }}
 								</div>
 							@endif
-							<div>
+							<div class="item__text is-title">
 								€ {{ $ticket['price'] }}
 							</div>
 							@if($ticket['description'])
-								<p>
+								<p class="item__text has-grow">
 									{{ $ticket['description'] }}
 								</p>
 							@endif

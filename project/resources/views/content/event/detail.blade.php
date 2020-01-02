@@ -22,10 +22,10 @@
 					</h1>
 					@if(Auth::user() && Auth::user()->role === 'organisator')
 						<div class="item__actions row row--stretch">
-							<a class="is-icon" href={{route('event.update', ['event_id' => $event->id])}}>
+							<a title="bewerken" class="is-icon" href={{route('event.update', ['event_id' => $event->id])}}>
 								@svg('edit', 'is-small is-white')
 							</a>
-							<a class="is-icon" href={{route('event.update', ['event_id' => $event->id])}}>
+							<a title="edit event settings" class="btn is-icon" href={{route('event.edit.settings', ['event_id' => $event->id])}}>
 								@svg('calendar (2)', 'is-small is-white')
 							</a>
 						</div>

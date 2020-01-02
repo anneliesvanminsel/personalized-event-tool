@@ -1,0 +1,57 @@
+.row-grid {
+  margin-top: $spacing-m;
+  max-width: 100%;
+
+  .item {
+    width: 100%;
+    max-width: 100%;
+    height: 10vh;
+    margin: $spacing-s 0;
+
+    > * {
+      margin-right: $spacing-s;
+      flex-shrink: 0;
+    }
+
+    &__content {
+      flex-grow: 1;
+    }
+
+    &__title {
+      @include font-heading;
+      background-color: $red;
+      color: $white;
+      font-size: 20px;
+      width: 150px;
+      padding: $spacing-xs
+    }
+
+    &__image {
+      position: relative;
+      overflow: hidden;
+      width: 250px;
+      flex-grow: 1;
+
+      img {
+        max-width: 100%;
+      }
+    }
+
+    &__text {
+      width: 150px;
+
+      &.has-grow {
+        flex-grow: 1;
+      }
+
+      &.is-title {
+        @include font-heading;
+        font-size: 20px;
+      }
+    }
+
+    .form {
+      display: flex;
+    }
+  }
+}
