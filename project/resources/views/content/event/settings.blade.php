@@ -3,7 +3,7 @@
 	evento - maak event
 @endsection
 @section('content')
-	<section class="page-alignment spacing-top-m">
+	<div class="page-alignment spacing-top-m">
 		<h1>
 			{{ $event['title'] }} - Instellingen bewerken
 		</h1>
@@ -19,73 +19,36 @@
 		</h2>
 		
 		@if($event->sessions()->exists())
-			<div class="schedule__content">
-				<div class="schedule__headcontainer row row--stretch">
-					@foreach($event->sessions()->get() as $session)
-						<div class="schedule__heading">
-							<div>
-								{{ $session['name'] }}
-							</div>
-							
-							<div>
-								{{  date('d/m', strtotime( $session['date'])) }}
-							</div>
+			<div class="row-grid">
+				@foreach($event->sessions()->get() as $session)
+					<div class="row-grid__item item row row--stretch">
+						<div>
+							{{  date('d/m', strtotime( $session['date'])) }}
+						</div>
+						<div class="row">
+							<button class="btn is-icon" onclick="openForm('floorplan-edit-form-{{$loop->iteration}}')">
+								@svg('plus', 'is-small')
+							</button>
+							<form
+								class="form"
+								onsubmit="return confirm('Ben je zeker dat je {{ $session['name'] }} wilt verwijderen? Dit kan niet ongedaan worden gemaakt.');"
+								method="POST"
+								action="{{ route('floorplan.delete', ['event_id' => $event['id'], 'floorplan_id' => $session['id'] ]) }}"
+							>
+								{{ csrf_field() }}
+								<button class="btn is-icon" type="submit">
+									@svg('delete', 'is-small')
+								</button>
+							</form>
+						</div>
+					</div>
+					@foreach($session->schedules()->get() as $schedule)
+						<div>
+							{{ $schedule['title'] }}
 						</div>
 					@endforeach
-				</div>
-				@foreach($event->sessions()->get() as $session)
-					@if($session->schedules()->exists())
-						<div class="table">
-							<div class="table__heading row row--stretch" style="border-color: {{ $event['bkgcolor'] }}">
-								<div>
-									Uur
-								</div>
-								<div>
-									Wat
-								</div>
-								<div>
-									Waar
-								</div>
-							</div>
-							<div class="table__content">
-								<style>
-									.table__item:nth-child(odd) {
-										background-color: {{ $event['bkgcolor'] }}55;
-									}
-								</style>
-								
-								<!-- laatste twee cijfers zijn opacity -->
-								@foreach($session->schedules()->get() as $sched)
-									<div class="table__item row row--stretch">
-										<div class="">
-											{{ $sched['starttime'] }} - {{ $sched['endtime'] }}
-										</div>
-										<div class="">
-											<div class="">
-												{{ $sched['title'] }}
-											</div>
-											<p class="">
-												{{ $sched['description'] }}
-											</p>
-										</div>
-										<div class="">
-											{{ $sched['location'] }}
-										</div>
-									</div>
-								@endforeach
-							</div>
-						</div>
-					@else
-						@if(Auth::user() && Auth::user()->role === 'organisator')
-							<a href="#">
-								Voeg een nieuw item aan jouw planning toe.
-							</a>
-						@endif
-					@endif
 				@endforeach
 			</div>
-		@else
-			<a href="">Voeg een datum toe</a>
 		@endif
 		<section  class="spacing-top-m" id="grondplan">
 			<div class="row">
@@ -199,7 +162,6 @@
 				</div>
 			@endif
 			
-			
 			<div class="popup" id="ticket-form">
 				@include('content.ticket.create')
 			</div>
@@ -214,7 +176,34 @@
 					Voeg taak toe
 				</button>
 			</div>
+			@if($event->sessions()->exists())
+				<div class="row-grid">
+					@foreach($event->sessions()->get() as $session)
+						<div class="row-grid__item item is-small row row--stretch">
+							<div class="item__title">
+								{{  date('d/m', strtotime( $session['date'])) }}
+							</div>
+							<div class="row">
+								<button class="btn is-icon" onclick="openForm('floorplan-edit-form-{{$loop->iteration}}')">
+									@svg('plus', 'is-small')
+								</button>
+								<form
+										class="form"
+										onsubmit="return confirm('Ben je zeker dat je {{ $session['name'] }} wilt verwijderen? Dit kan niet ongedaan worden gemaakt.');"
+										method="POST"
+										action="{{ route('floorplan.delete', ['event_id' => $event['id'], 'floorplan_id' => $session['id'] ]) }}"
+								>
+									{{ csrf_field() }}
+									<button class="btn is-icon" type="submit">
+										@svg('delete', 'is-small')
+									</button>
+								</form>
+							</div>
+						</div>
+					@endforeach
+				</div>
+			@endif
 		</section>
-	</section>
+	</div>
 	<script src="{{ asset('js/popup.js') }}"></script>
 @endsection
