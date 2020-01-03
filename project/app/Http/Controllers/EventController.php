@@ -7,6 +7,10 @@ use App\Event;
 use App\Organisation;
 use App\Ticket;
 use App\User;
+use App\Session;
+use \DateTime;
+use Carbon\Carbon;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -68,6 +72,23 @@ class EventController extends Controller
         $event->save();
 		$organisation->events()->attach($event);
 
+        if($request->input('endtime')) {
+            $starttime = new DateTime($request->input('starttime'));
+            $endtime = new DateTime($request->input('endtime'));
+
+            $difference = $starttime->diff($endtime);
+
+            for($i = 0; $i < $difference->d + 1; $i++) {
+                $session = new Session([
+                    'date' => Carbon::parse(strtotime($request->input('starttime'). ' + ' . $i . ' days')),
+                    'event_id' => $event['id']
+                ]);
+
+                $session->save();
+                $event->sessions()->save($session);
+            }
+        }
+
 		return redirect()->route('event.detail', ['id' => $event['id']]);
 	}
 
@@ -121,6 +142,25 @@ class EventController extends Controller
 
 			$event->logo = $imageName;
 		}
+
+        if($request->input('endtime')) {
+            $event->sessions()->delete();
+
+            $starttime = new DateTime($request->input('starttime'));
+            $endtime = new DateTime($request->input('endtime'));
+
+            $difference = $starttime->diff($endtime);
+
+            for($i = 0; $i < $difference->d + 1; $i++) {
+                $session = new Session([
+                    'date' => Carbon::parse(strtotime($request->input('starttime'). ' + ' . $i . ' days')),
+                    'event_id' => $event['id']
+                ]);
+
+                $session->save();
+                $event->sessions()->save($session);
+            }
+        }
 
 		$event->save();
 
@@ -179,5 +219,6 @@ class EventController extends Controller
 		$user->tickets()->attach($ticket['id']);
 		return view('content.user.account', ['user' => $user]);
 	}
+
 
 }

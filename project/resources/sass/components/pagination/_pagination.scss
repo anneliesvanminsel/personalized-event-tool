@@ -1,0 +1,24 @@
+.pagination {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 5%;
+
+  li {
+    display: inline-block;
+    @include font-base;
+    color: $red;
+    font-size: 15px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+
+  a {
+    color: $red;
+  }
+
+  .active {
+    font-size: 20px;
+    text-decoration: underline;
+  }
+}

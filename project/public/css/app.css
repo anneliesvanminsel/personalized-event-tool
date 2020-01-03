@@ -1643,6 +1643,31 @@ textarea:focus + label {
   height: 20px;
 }
 
+.pagination {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 5%;
+}
+
+.pagination li {
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  color: #FE676E;
+  font-size: 15px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.pagination a {
+  color: #FE676E;
+}
+
+.pagination .active {
+  font-size: 20px;
+  text-decoration: underline;
+}
+
 .popup {
   display: none;
   position: fixed;

@@ -29,23 +29,24 @@
 			</a>
 		</div>
 		<div class="h-grid">
-			@foreach($organisation->events()->orderBy('starttime', 'ASC')->get() as $event)
+			@php
+				$events = $organisation->events()->orderBy('starttime', 'ASC')->paginate(10);
+			@endphp
+			@foreach($events as $event)
 				<div class="h-grid__item item row row--stretch">
-
+					
 					<div class="item__date" style="background-color: {{ $organisation['bkgcolor'] }}; color: {{ $organisation['textcolor'] }}">
 						{{  date('d M', strtotime( $event['starttime'])) }}
 					</div>
-
-					@if(File::exists(public_path() . "/images/" . $event['logo']))
-						<div class="item__image ctn--image">
+					
+					<a class="item__image ctn--image" href={{route('event.detail', ['event_id' => $event->id])}}>
+						@if(File::exists(public_path() . "/images/" . $event['logo']))
 							<img src="{{ asset('images/' . $event['logo'] ) }}" alt="{{ $event['title'] }}" loading="lazy">
-						</div>
-					@else
-						<div class="item__image ctn--image">
+						@else
 							<img src="https://placekitten.com/600/600" alt="{{ $event['title'] }}" loading="lazy">
-						</div>
-					@endif
-
+						@endif
+					</a>
+					
 					<div class="item__content">
 						<div class="item__title">
 							{{ $event->title }}
@@ -92,6 +93,9 @@
 					</div>
 				</div>
 			@endforeach
+			<div>
+				{{ $events->links() }}
+			</div>
 		</div>
 	</section>
 @endsection
