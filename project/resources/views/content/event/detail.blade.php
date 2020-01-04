@@ -80,10 +80,6 @@
 					@foreach($event->sessions()->get() as $session)
 						<div class="schedule__heading">
 							<div>
-								{{ $session['name'] }}
-							</div>
-
-							<div>
 								{{  date('d/m', strtotime( $session['date'])) }}
 							</div>
 						</div>
@@ -106,15 +102,17 @@
 							<div class="table__content">
 								<style>
 									.table__item:nth-child(odd) {
-										background-color: {{ $event['bkgcolor'] }}55;
+										background-color: {{ $event['bkgcolor'] }}55; /* laatste twee cijfers zijn opacity*/
 									}
 								</style>
-
-							<!-- laatste twee cijfers zijn opacity -->
+								
 								@foreach($session->schedules()->get() as $sched)
 									<div class="table__item row row--stretch">
 										<div class="">
-											{{ $sched['starttime'] }} - {{ $sched['endtime'] }}
+											{{ \Carbon\Carbon::parse($sched['starttime'])->format('H:i') }}
+											@if($sched['endtime'])
+												- {{ \Carbon\Carbon::parse($sched['endtime'])->format('H:i')}}
+											@endif
 										</div>
 										<div class="">
 											<div class="">
@@ -132,11 +130,9 @@
 							</div>
 						</div>
 					@else
-						@if(Auth::user() && Auth::user()->role === 'organisator')
-							<a href="#">
-								Voeg een nieuw item aan jouw planning toe.
-							</a>
-						@endif
+						<p>
+							Er is nog geen planning toegevoegd. Houdt het event in de gaten!
+						</p>
 					@endif
 				@endforeach
 			</div>

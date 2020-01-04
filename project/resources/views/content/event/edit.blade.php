@@ -147,16 +147,18 @@
 			</h2>
 
 			<div class="form__group">
-				<input
-					id="eventtype"
-					type="text"
-					class="form__input @error('eventtype') is-invalid @enderror"
-					name="eventtype"
-					placeholder="bv. het event van de eeuw"
-					value="{{ $event['type'] }}"
-					required
-					autocomplete="off"
-				>
+				<select class="select" id="eventtype" name="eventtype">
+					<option value="{{ $event['type'] }}">{{ $event['type'] }}</option>
+					<option value="conference">conferentie</option>
+					<option value="workshop">workshop</option>
+					<option value="reunion">reunie</option>
+					<option value="party">feest</option>
+					<option value="gala">gala</option>
+					<option value="festival">festival</option>
+					<option value="semenar">semenarie</option>
+					<option value="auction">veiling</option>
+					<option value="market">beurs</option>
+				</select>
 
 				<label for="eventtype" class="form__label">
 					evenementstype

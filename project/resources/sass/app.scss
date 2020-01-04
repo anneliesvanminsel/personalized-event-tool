@@ -7,6 +7,7 @@
 @import 'config/mixins';
 @import 'config/image';
 @import 'config/heading';
+@import 'event';
 
 .page-alignment {
 	@include grid();
@@ -30,6 +31,20 @@
 
 	&.is-title {
 		align-items: center;
+	}
+
+	&.is-form {
+		align-items: center;
+		max-height: 10vh;
+		overflow: hidden;
+
+		.form__group {
+			flex-grow: 1;
+		}
+
+		.btn {
+			width: 210px;
+		}
 	}
 }
 

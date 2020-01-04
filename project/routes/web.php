@@ -21,6 +21,11 @@ Route::get('index.php', [
 	'as' => 'index'
 ]);
 
+Route::post('searchevents', [
+    'uses' => 'GeneralController@postSearch',
+    'as' => 'home.searchevents'
+]);
+
 Route::get('organisation', [
 	'uses' => 'GeneralController@getOrganisationPage',
 	'as' => 'start.organisation'
@@ -179,6 +184,18 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('grondplan/delete/{event_id}/{floorplan_id}/post', [
         'uses' => 'FloorplanController@deleteFloorplan',
         'as' => 'floorplan.delete'
+    ]);
+
+    //add planning
+    Route::post('schedule/create/{event_id}/post', [
+        'uses' => 'ScheduleController@postCreateSchedule',
+        'as' => 'schedule.postcreate'
+    ]);
+
+    //edit planning
+    Route::post('schedule/update/{event_id}/{schedule_id}/post', [
+        'uses' => 'ScheduleController@postUpdateSchedule',
+        'as' => 'schedule.postupdate'
     ]);
 });
 

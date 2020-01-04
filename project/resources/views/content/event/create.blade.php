@@ -8,7 +8,13 @@
 			Maak jouw evenement
 		</h1>
 
-		<form method="POST" id="form-create" action="{{ route('event.postcreate', ['organisation_id' => $organisation_id]) }}" class="form" enctype="multipart/form-data">
+		<form
+			method="POST"
+			id="form-create"
+			action="{{ route('event.postcreate', ['organisation_id' => $organisation_id]) }}"
+			class="form"
+			enctype="multipart/form-data"
+		>
 			@csrf
 
 			<h2 class="spacing-top-m">
@@ -144,27 +150,28 @@
 			<h2 class="spacing-top-m">
 				2. Technische informatie
 			</h2>
-
+			
 			<div class="form__group">
-				<input
-					id="type"
-					type="text"
-					class="form__input @error('type') is-invalid @enderror"
-					name="type"
-					placeholder="bv. het event van de eeuw"
-					value="{{ old('type') }}"
-					required
-					autocomplete="off"
-				>
-
+				<select class="select" id="type" name="type">
+					<option value="not given">-- selecteer evenementstype --</option>
+					<option value="conference">conferentie</option>
+					<option value="workshop">workshop</option>
+					<option value="reunion">reunie</option>
+					<option value="party">feest</option>
+					<option value="gala">gala</option>
+					<option value="festival">festival</option>
+					<option value="semenar">semenarie</option>
+					<option value="auction">veiling</option>
+					<option value="market">beurs</option>
+				</select>
 				<label for="type" class="form__label">
 					evenementstype
 				</label>
-
+				
 				@error('type')
 				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
+					<strong>{{ $message }}</strong>
+				</span>
 				@enderror
 			</div>
 

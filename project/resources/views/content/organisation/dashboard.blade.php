@@ -33,7 +33,7 @@
 				$events = $organisation->events()->orderBy('starttime', 'ASC')->paginate(10);
 			@endphp
 			@foreach($events as $event)
-				<div class="h-grid__item item row row--stretch">
+				<div class="h-grid__item item row row--stretch event {{ $event['starttime'] > \Carbon\Carbon::now() ? 'valid' : 'invalid'}}">
 					
 					<div class="item__date" style="background-color: {{ $organisation['bkgcolor'] }}; color: {{ $organisation['textcolor'] }}">
 						{{  date('d M', strtotime( $event['starttime'])) }}

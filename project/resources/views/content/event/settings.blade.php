@@ -14,42 +14,37 @@
 			<a href="#shift" class="btn">Taken & Shiften</a>
 		</div>
 		
-		<h2 class="spacing-top-m" id="planning">
-			Planning
-		</h2>
-		
-		@if($event->sessions()->exists())
-			<div class="row-grid">
-				@foreach($event->sessions()->get() as $session)
-					<div class="row-grid__item item row row--stretch">
-						<div>
-							{{  date('d/m', strtotime( $session['date'])) }}
-						</div>
-						<div class="row">
-							<button class="btn is-icon" onclick="openForm('floorplan-edit-form-{{$loop->iteration}}')">
-								@svg('plus', 'is-small')
-							</button>
-							<form
-								class="form"
-								onsubmit="return confirm('Ben je zeker dat je {{ $session['name'] }} wilt verwijderen? Dit kan niet ongedaan worden gemaakt.');"
-								method="POST"
-								action="{{ route('floorplan.delete', ['event_id' => $event['id'], 'floorplan_id' => $session['id'] ]) }}"
-							>
-								{{ csrf_field() }}
-								<button class="btn is-icon" type="submit">
-									@svg('delete', 'is-small')
-								</button>
-							</form>
-						</div>
-					</div>
-					@foreach($session->schedules()->get() as $schedule)
-						<div>
-							{{ $schedule['title'] }}
-						</div>
-					@endforeach
-				@endforeach
+		<section class="spacing-top-m" id="planning">
+			<div class="row row--stretch">
+				<h2>
+					Planning
+				</h2>
+				<button class="btn btn--small" onclick="openForm('schedule-create-form')">
+					Voeg een item toe
+				</button>
 			</div>
-		@endif
+			
+			@if($event->sessions()->exists())
+				<div class="row-grid">
+					@foreach($event->sessions()->get() as $session)
+						<div class="row-grid__item item row row--stretch">
+							<div>
+								{{  date('d/m', strtotime( $session['date'])) }}
+							</div>
+						</div>
+						@foreach($session->schedules()->get() as $schedule)
+							<div>
+								{{ $schedule['title'] }}
+							</div>
+						@endforeach
+					@endforeach
+				</div>
+				<div class="popup" id="schedule-create-form">
+					@include('content.schedule.create')
+				</div>
+			@endif
+		</section>
+		
 		<section  class="spacing-top-m" id="grondplan">
 			<div class="row">
 				<h2>

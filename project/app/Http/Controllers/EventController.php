@@ -36,7 +36,7 @@ class EventController extends Controller
 		$this->validate($request, [
 			'title' => 'required|string|max:255',
 			'description' => 'required|string|max:1000',
-			'type'=> 'required|string', //with examples
+			'type'=> 'required',
             'starttime'=> 'required|date|max:20',
             'endtime'=> 'nullable|date|max:20',
 			'bkgcolor' => [
@@ -61,7 +61,7 @@ class EventController extends Controller
 
 		$event->title = $request->input('title');
 		$event->description = $request->input('description');
-		$event->type = $request->input('type');;
+		$event->type = $request->input('type');
 		$event->status = (int)$boolStatus;
 		$event->bkgcolor = $request->input('bkgcolor');
 		$event->textcolor = $request->input('textcolor');
@@ -104,7 +104,7 @@ class EventController extends Controller
 		$this->validate($request, [
 			'title' => 'required|string|max:255',
 			'description'=> 'required|string|max:1000',
-			'eventtype'=> 'required|string|max:255', //with examples
+			'eventtype'=> 'required', //with examples
 			'bkgcolor' => [
 				'nullable',
 				'string',

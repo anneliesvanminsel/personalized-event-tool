@@ -10,13 +10,11 @@ class Schedule extends Model
 	use SoftDeletes;
 	//
 	protected $fillable = [
-		'title', 'description', 'starttime', 'endtime', 'location',
+		'title', 'description', 'starttime', 'endtime', 'location', 'image', 'session_id',
 	];
 
 	public function sessions(){
-		return $this->belongsToMany('App\Session',
-			'session_schedules',
-			'session_id',
-			'schedule_id')->withTimestamps();
+		return $this->belongsTo('App\Session',
+			'session_id')->withTimestamps();
 	}
 }
