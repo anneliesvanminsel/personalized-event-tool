@@ -141,7 +141,7 @@
 										class="form"
 										onsubmit="return confirm('Ben je zeker dat je {{ $ticket['name'] }} wilt verwijderen? Dit kan niet ongedaan worden gemaakt.');"
 										method="POST"
-										action="{{ route('ticket.delete', ['event_id' => $event['id'], 'floorplan_id' => $ticket['id'] ]) }}"
+										action="{{ route('ticket.delete', ['event_id' => $event['id'], 'ticket_id' => $ticket['id'] ]) }}"
 								>
 									{{ csrf_field() }}
 									<button class="btn is-icon" type="submit">
@@ -178,26 +178,14 @@
 							<div class="item__title">
 								{{  date('d/m', strtotime( $session['date'])) }}
 							</div>
-							<div class="row">
-								<button class="btn is-icon" onclick="openForm('floorplan-edit-form-{{$loop->iteration}}')">
-									@svg('plus', 'is-small')
-								</button>
-								<form
-										class="form"
-										onsubmit="return confirm('Ben je zeker dat je {{ $session['name'] }} wilt verwijderen? Dit kan niet ongedaan worden gemaakt.');"
-										method="POST"
-										action="{{ route('floorplan.delete', ['event_id' => $event['id'], 'floorplan_id' => $session['id'] ]) }}"
-								>
-									{{ csrf_field() }}
-									<button class="btn is-icon" type="submit">
-										@svg('delete', 'is-small')
-									</button>
-								</form>
-							</div>
 						</div>
 					@endforeach
 				</div>
 			@endif
+			
+			<div class="popup" id="task-form">
+				@include('content.task.create')
+			</div>
 		</section>
 	</div>
 	<script src="{{ asset('js/popup.js') }}"></script>
