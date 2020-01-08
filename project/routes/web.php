@@ -31,6 +31,16 @@ Route::get('organisation', [
 	'as' => 'start.organisation'
 ]);
 
+Route::get('maintenance', [
+    'uses' => 'GeneralController@getMaintenancePage',
+    'as' => 'maintenance'
+]);
+
+Route::get('usage', [
+    'uses' => 'GeneralController@getUsagePage',
+    'as' => 'usage'
+]);
+
 Route::get('event/{event_id}', [
 	'uses' => 'EventController@getEventDetail',
 	'as' => 'event.detail'

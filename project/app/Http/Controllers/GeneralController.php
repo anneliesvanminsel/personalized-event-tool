@@ -39,4 +39,12 @@ class GeneralController extends Controller
 
         return view('home', ['slideevents' => $slideevents, 'searchedevents' => $searchedevents]);
     }
+
+    public function getMaintenancePage() {
+        return view('maintenance');
+    }
+
+    public function getUsagePage() {
+        return view('usage');
+    }
 }

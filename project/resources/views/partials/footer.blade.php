@@ -49,5 +49,9 @@
 				</li>
 			</ul>
 		</div>
+		<div class="subscript row row--stretch">
+			<a class="list__link" href="{{route('maintenance')}}">Onderhoudsdocumentatie</a> |
+			<a class="list__link" href="{{route('usage')}}">Gebruikersdocumentatie</a>
+		</div>
 	</footer>
 @enddesktop
