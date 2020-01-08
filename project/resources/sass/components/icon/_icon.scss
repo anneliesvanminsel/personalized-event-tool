@@ -24,10 +24,21 @@
 		fill: $white;
 	}
 
+	&.is-check {
+		width: $spacing-l;
+		height: $spacing-l;
+
+		position: absolute;
+		bottom: 15px;
+		left: 60%;
+	}
+
 	&.is-small {
 		width: $spacing-s;
 		height: $spacing-s;
 	}
 
-
+	&.is-green {
+		fill: $green;
+	}
 }

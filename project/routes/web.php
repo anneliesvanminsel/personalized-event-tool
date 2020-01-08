@@ -66,7 +66,7 @@ Route::get('ticket/{event_id}/{ticket_id}/detail', [
     'as' => 'ticket.detail'
 ]);
 
-Route::post('ticket/{ticket_id}/{user_id}/post', [
+Route::get('ticket/{ticket_id}/{user_id}/post', [
     'uses' => 'TicketController@scanTicket',
     'as' => 'ticket.scan'
 ]);

@@ -3,6 +3,7 @@
 	max-width: 100%;
 
 	.item {
+		position: relative;
 		width: 100%;
 		max-width: 100%;
 		height: 10vh;
@@ -14,6 +15,8 @@
 		}
 		
 		&__date {
+			position: relative;
+
 			@include font-heading;
 			font-size: 25px;
 			text-align: center;
@@ -25,6 +28,16 @@
 			width: 10vh;
 			padding: $spacing-xs;
 
+			.is-check {
+				bottom: -10px;
+				right: -10px;
+				left: auto;
+			}
+
+			.is-small {
+				width: 30px;
+				height: 30px;
+			}
 		}
 
 		&__content {
