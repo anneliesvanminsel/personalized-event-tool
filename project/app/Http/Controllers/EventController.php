@@ -202,27 +202,4 @@ class EventController extends Controller
 
 		return view('content.organisation.dashboard', ['user' => $user, 'organisation' => $organisation]);
 	}
-
-	public function buyEventTicket($event_id, $ticket_id){
-	    if(Auth::user()) {
-            $event = Event::find($event_id);
-            $ticket = Ticket::find($ticket_id);
-            $user = Auth::user();
-
-            return view('content.ticket.payment', ['user' => $user, 'event' => $event, 'ticket' => $ticket]);
-        } else {
-            return view('auth.register');
-        }
-	}
-
-	public function postBuyEventTicket($event_id, $ticket_id){
-		$event = Event::find($event_id);
-		$ticket = Ticket::find($ticket_id);
-		$user = Auth::user();
-
-		$user->tickets()->attach($ticket['id']);
-		return view('content.user.account', ['user' => $user]);
-	}
-
-
 }

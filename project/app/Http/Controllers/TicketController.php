@@ -9,6 +9,22 @@ use App\Ticket;
 class TicketController extends Controller
 {
     //
+    public function getTicket($event_id, $ticket_id) {
+        $event = Event::where('id', $event_id)->first();
+        $ticket =Ticket::where('id', $ticket_id)->first();
+
+        return view('content.ticket.detail', ['ticket' => $ticket, 'event' => $event]);
+    }
+
+    public function scanTicket($ticket_id, $user_id) {
+        $user = User::where('id', $user_id)->first();
+        $ticket = Ticket::where('id', $ticket_id)->first();
+
+        $user->tickets()->sync([$ticket['id'] => [ 'attendance' => true] ], false);
+
+        return redirect()->route('index');
+    }
+
     public function postCreateTicket(Request $request, $event_id) {
         $event = Event::where('id', $event_id)->first();
 
@@ -70,5 +86,27 @@ class TicketController extends Controller
         $ticket->delete();
 
         return redirect()->route('event.edit.settings', ['id' => $event['id']]);
+    }
+
+    public function buyEventTicket($event_id, $ticket_id){
+        if(Auth::user()) {
+            $event = Event::find($event_id);
+            $ticket = Ticket::find($ticket_id);
+            $user = Auth::user();
+
+            return view('content.ticket.payment', ['user' => $user, 'event' => $event, 'ticket' => $ticket]);
+        } else {
+            return view('auth.register');
+        }
+    }
+
+    public function postBuyEventTicket($event_id, $ticket_id){
+        $event = Event::find($event_id);
+        $ticket = Ticket::find($ticket_id);
+        $user = Auth::user();
+
+        $user->tickets()->attach($ticket['id']);
+
+        return redirect()->route('user.account', ['user' => $user]);
     }
 }

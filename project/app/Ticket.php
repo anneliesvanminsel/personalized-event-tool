@@ -21,6 +21,6 @@ class Ticket extends Model
 		return $this->belongsToMany('App\User',
 			'user_ticket',
 			'ticket_id',
-			'user_id')->withTimestamps();
+			'user_id')->withPivot('attendance')->withTimestamps();
 	}
 }

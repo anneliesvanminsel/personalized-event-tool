@@ -1,6 +1,6 @@
 @extends('layouts.masterlayout')
 @section('title')
-	evento - maak event
+	evento - betalen
 @endsection
 @section('content')
 	<section class="page-alignment spacing-top-m">

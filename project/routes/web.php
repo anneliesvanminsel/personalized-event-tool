@@ -47,12 +47,12 @@ Route::get('event/{event_id}', [
 ]);
 
 Route::get('event/{event_id}/{ticket_id}/buyticket', [
-	'uses' => 'EventController@buyEventTicket',
+	'uses' => 'TicketController@buyEventTicket',
 	'as' => 'ticket.payment'
 ]);
 
 Route::post('event/{event_id}/{ticket_id}/buyticket/post', [
-	'uses' => 'EventController@postBuyEventTicket',
+	'uses' => 'TicketController@postBuyEventTicket',
 	'as' => 'ticket.postpayment'
 ]);
 
@@ -61,6 +61,15 @@ Route::get('account/{user_id}', [
 	'as' => 'user.account'
 ]);
 
+Route::get('ticket/{event_id}/{ticket_id}/detail', [
+    'uses' => 'TicketController@getTicket',
+    'as' => 'ticket.detail'
+]);
+
+Route::post('ticket/{ticket_id}/{user_id}/post', [
+    'uses' => 'TicketController@scanTicket',
+    'as' => 'ticket.scan'
+]);
 
 // get organisation detail
 

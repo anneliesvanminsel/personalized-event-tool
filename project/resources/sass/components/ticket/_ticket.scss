@@ -1,0 +1,37 @@
+.ticket {
+  position: relative;
+
+  &__image {
+    max-height: 100vh;
+    min-width: 100%;
+    overflow: hidden;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+
+    opacity: .8;
+  }
+
+  &__content {
+    position: absolute;
+    top: 200px;
+    right: $spacing-m;
+    left: $spacing-m;
+
+    padding: $spacing-xl $spacing-l;
+
+    background-color: $white;
+  }
+
+  &__qrcode {
+    position: absolute;
+    top: $spacing-m;
+    right: $spacing-m;
+    left: $spacing-m;
+    z-index: 3;
+
+    text-align: center;
+  }
+}

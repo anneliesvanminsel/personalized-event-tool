@@ -1606,6 +1606,13 @@ textarea:focus + label {
   font-size: 12px;
 }
 
+.h-grid .item__text {
+  max-width: 450px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .row-grid {
   margin-top: 40px;
   max-width: 100%;
@@ -1748,5 +1755,38 @@ textarea:focus + label {
   margin: 0 auto;
   padding: 40px 120px;
   background-color: #fff;
+}
+
+.ticket {
+  position: relative;
+}
+
+.ticket__image {
+  max-height: 100vh;
+  min-width: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  opacity: 0.8;
+}
+
+.ticket__content {
+  position: absolute;
+  top: 200px;
+  right: 40px;
+  left: 40px;
+  padding: 120px 80px;
+  background-color: #ffffff;
+}
+
+.ticket__qrcode {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  left: 40px;
+  z-index: 3;
+  text-align: center;
 }
 

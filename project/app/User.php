@@ -61,7 +61,7 @@ class User extends Authenticatable
 		return $this->belongsToMany('App\Ticket',
 			'user_ticket',
 			'user_id',
-			'ticket_id')->withTimestamps();
+			'ticket_id')->withPivot('attendance')->withTimestamps();
 	}
 
     public function address(){
