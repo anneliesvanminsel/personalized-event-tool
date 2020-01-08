@@ -197,5 +197,16 @@ Route::group(['prefix' => 'admin'], function() {
         'uses' => 'ScheduleController@postUpdateSchedule',
         'as' => 'schedule.postupdate'
     ]);
+
+    //add organisation admin
+    Route::get('organisation/{organisation_id}/newvolunteer', [
+        'uses' => 'OrganisationController@createVolunteer',
+        'as' => 'volunteer.create'
+    ]);
+
+    Route::post('organisation/{organisation_id}/newvolunteer/post', [
+        'uses' => 'OrganisationController@postCreateVolunteer',
+        'as' => 'volunteer.postcreate'
+    ]);
 });
 

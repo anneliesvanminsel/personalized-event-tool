@@ -63,4 +63,8 @@ class User extends Authenticatable
 			'user_id',
 			'ticket_id')->withTimestamps();
 	}
+
+    public function address(){
+        return $this->morphMany('App\Address', 'address');
+    }
 }

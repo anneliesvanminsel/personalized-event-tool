@@ -27,4 +27,8 @@ class Organisation extends Model
 	public function users(){
 		return $this->hasMany('App\User');
 	}
+
+    public function address(){
+        return $this->morphMany('App\Address', 'address');
+    }
 }

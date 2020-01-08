@@ -69196,8 +69196,8 @@ if (document.getElementById('event-slider')) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/annelies/.bitnami/stackman/machines/xampp/volumes/root/htdocs/evento-v2/project/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/annelies/.bitnami/stackman/machines/xampp/volumes/root/htdocs/evento-v2/project/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/annelies/.bitnami/stackman/machines/xampp/volumes/root/htdocs/evento-v3/project/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/annelies/.bitnami/stackman/machines/xampp/volumes/root/htdocs/evento-v3/project/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

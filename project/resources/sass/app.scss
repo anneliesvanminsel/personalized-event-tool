@@ -12,6 +12,13 @@
 .page-alignment {
 	@include grid();
 }
+.hidden {
+	display: none;
+}
+
+.column {
+	flex-direction: column;
+}
 
 .row {
 	display: flex;

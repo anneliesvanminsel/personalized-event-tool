@@ -83,7 +83,7 @@
 		>
 		
 		<label for="schedule-create-starttime" class="form__label">
-			De begindatum van het evenement
+			Startuur
 		</label>
 		@error('schedule-create-starttime')
 			<span class="invalid-feedback" role="alert">
@@ -91,10 +91,6 @@
 			</span>
 		@enderror
 	</div>
-	
-	<p class="spacing-top-s">
-		Wanneer het evenement op meerdere dagen valt, kan je hieronder de laatste dag van het evenement noteren.
-	</p>
 	
 	<div class="form__group spacing-top-s">
 		<input
@@ -108,7 +104,7 @@
 		>
 		
 		<label for="schedule-create-endtime" class="form__label">
-			De einddatum van het evenement
+			Einduur
 		</label>
 		@error('schedule-create-endtime')
 			<span class="invalid-feedback" role="alert">

@@ -132,6 +132,16 @@ h2::after {
   }
 }
 
+.hidden {
+  display: none;
+}
+
+.column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+
 .row {
   display: -webkit-box;
   display: flex;
@@ -557,6 +567,7 @@ span.invalid-feedback {
 }
 
 .btn.is-icon {
+  width: 50px;
   border: none;
   background-color: transparent;
   margin: 0;
@@ -1405,6 +1416,10 @@ textarea:focus + label {
 .select:focus,
 .select:valid {
   outline: none;
+}
+
+.select.is-large {
+  width: 100%;
 }
 
 .form__group {

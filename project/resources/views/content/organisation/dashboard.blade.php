@@ -3,23 +3,43 @@
 	evento - dashboard
 @endsection
 @section('content')
-	<section class="page-alignment spacing-top-m">
-		<h1>
-			{{ $organisation['name'] }} - Admin
-		</h1>
-	</section>
 	<style>
 		.btn {
 			border-color: {{ $organisation['bkgcolor'] }};
 			color: {{ $organisation['bkgcolor'] }}
 							}
-
+		
 		.btn:hover {
 			background-color: {{ $organisation['bkgcolor'] }};
 			color: {{ $organisation['textcolor'] }};
 		}
+		
+		.btn.is-icon:hover {
+			background-color: transparent;
+			color: transparent;
+		}
+		
+		.btn.is-icon:hover svg {
+			fill: {{ $organisation['bkgcolor'] }};
+		}
 	</style>
 	<section class="page-alignment spacing-top-m">
+		<div class="row row--stretch">
+			<h1 class="is-grow">
+				{{ $organisation['name'] }} - Admin
+			</h1>
+			<a href="{{ route('organisation.update', ['organisation_id'=> $organisation['id']]) }}" class="btn is-icon">
+				@svg('edit', 'is-small')
+			</a>
+		</div>
+		
+		<div class="spacing-top-m row row--stretch">
+			<a href="#events" class="btn">Mijn evenementen</a>
+			<a href="#volunteers" class="btn">Mijn medewerkers</a>
+			<a href="{{ route('organisation.detail', ['organisation_id'=> $organisation['id']]) }}" class="btn">Mijn detail-pagina</a>
+		</div>
+	</section>
+	<section class="page-alignment spacing-top-m" id="events">
 		<div class="row row--stretch">
 			<h2>
 				Mijn evenementen
@@ -95,6 +115,28 @@
 			@endforeach
 			<div>
 				{{ $events->links() }}
+			</div>
+		</div>
+	</section>
+	<section class="page-alignment spacing-top-m" id="volunteers">
+		<div class="row row--stretch">
+			<h2>
+				Mijn medewerkers
+			</h2>
+			<a href="{{ route('volunteer.create', ['organisation_id' => $organisation['id']]) }}" class="btn btn--small">
+				Medewerker toevoegen
+			</a>
+		</div>
+		<div class="h-grid">
+			@php
+				$volunteers = $organisation->users()->where('role', 'volunteer')->orderBy('name', 'ASC')->paginate(10);
+			@endphp
+			
+			@foreach($volunteers as $vw)
+				{{ $vw['email'] }}
+			@endforeach
+			<div>
+				{{ $volunteers->links() }}
 			</div>
 		</div>
 	</section>

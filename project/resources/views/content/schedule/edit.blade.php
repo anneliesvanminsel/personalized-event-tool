@@ -1,6 +1,6 @@
 <form
 		method="POST"
-		action="{{ route('schedule.postcreate', ['event_id' => $event['id']] ) }}"
+		action="{{ route('schedule.postupdate', ['event_id' => $event['id']] ) }}"
 		class="popup__content"
 		enctype="multipart/form-data"
 		id="schedule-create-form"

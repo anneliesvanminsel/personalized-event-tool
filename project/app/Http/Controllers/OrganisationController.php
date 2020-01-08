@@ -96,7 +96,7 @@ class OrganisationController extends Controller
                 'string',
                 'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/',
             ],
-            'logo'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
+            'logo'=> 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
         ]);
 
         $organisation->name = $request->input('name');
@@ -119,7 +119,7 @@ class OrganisationController extends Controller
 
         $organisation->save();
 
-        return redirect()->route('organisation.dashboard', ['organisation_id' => $organisation['id']]);
+        return redirect()->route('org.dashboard', ['organisation_id' => $organisation['id']]);
     }
 
 	public function createAdmin($organisation_id) {
@@ -149,4 +149,32 @@ class OrganisationController extends Controller
 
 		return redirect()->route('org.dashboard', ['organisation_id' => $organisation_id]);
 	}
+
+    public function createVolunteer($organisation_id) {
+        $org = Organisation::where('id', $organisation_id)->first();
+
+        return view('content.volunteer.create', ['organisation' => $org]);
+    }
+
+    public function postCreateVolunteer(Request $request, $organisation_id) {
+        $org = Organisation::where('id', $organisation_id)->first();
+
+        //validatie
+        $this->validate($request, [
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|string|min:8]',
+        ]);
+
+        $user = new User();
+
+        $user->email = $request->input('email');
+        $user->password = Hash::make($request->input('password'));
+        $user->role = 'volunteer';
+        $user['organisation_id'] = $org->id;
+
+        $user->save();
+        $org->users()->save($user);
+
+        return redirect()->route('org.dashboard', ['organisation_id' => $organisation_id]);
+    }
 }

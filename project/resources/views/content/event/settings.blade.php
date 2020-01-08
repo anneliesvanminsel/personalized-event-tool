@@ -19,9 +19,11 @@
 				<h2>
 					Planning
 				</h2>
-				<button class="btn btn--small" onclick="openForm('schedule-create-form')">
-					Voeg een item toe
-				</button>
+				@if($event->sessions()->exists())
+					<button class="btn btn--small" onclick="openForm('schedule-create-form')">
+						Voeg een item toe
+					</button>
+				@endif
 			</div>
 			
 			@if($event->sessions()->exists())
@@ -167,9 +169,11 @@
 				<h2>
 					Taken & Shiften
 				</h2>
-				<button class="btn btn--small" onclick="openForm('task-form')">
-					Voeg taak toe
-				</button>
+				@if($event->sessions()->exists())
+					<button class="btn btn--small" onclick="openForm('task-form')">
+						Voeg taak toe
+					</button>
+				@endif
 			</div>
 			@if($event->sessions()->exists())
 				<div class="row-grid">

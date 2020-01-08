@@ -204,11 +204,15 @@ class EventController extends Controller
 	}
 
 	public function buyEventTicket($event_id, $ticket_id){
-		$event = Event::find($event_id);
-		$ticket = Ticket::find($ticket_id);
-		$user = Auth::user();
+	    if(Auth::user()) {
+            $event = Event::find($event_id);
+            $ticket = Ticket::find($ticket_id);
+            $user = Auth::user();
 
-		return view('content.ticket.payment', ['user' => $user, 'event' => $event, 'ticket' => $ticket]);
+            return view('content.ticket.payment', ['user' => $user, 'event' => $event, 'ticket' => $ticket]);
+        } else {
+            return view('auth.register');
+        }
 	}
 
 	public function postBuyEventTicket($event_id, $ticket_id){

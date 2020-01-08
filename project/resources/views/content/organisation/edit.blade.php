@@ -22,7 +22,6 @@
 						name="name"
 						placeholder="bv. Rock Werchter of Kerstdrink 2019"
 						value="{{ $organisation['name'] }}"
-						required
 						autofocus
 						autocomplete="off"
 				>
@@ -45,7 +44,6 @@
 						class="form__input @error('description') is-invalid @enderror"
 						name="description"
 						placeholder="Een korte beschrijving van jouw evenement."
-						required
 						autocomplete="off"
 						maxlength="1000"
 				>{{ $organisation['description'] }}</textarea>
@@ -76,7 +74,6 @@
 						name="logo"
 						placeholder="bv. het event van de eeuw"
 						value="{{ old('logo') }}"
-						required
 						autocomplete="off"
 				>
 				

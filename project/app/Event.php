@@ -39,4 +39,8 @@ class Event extends Model
 	public function tasks(){
 		return $this->hasMany('App\Task');
 	}
+
+    public function address(){
+        return $this->morphMany('App\Address', 'address');
+    }
 }
