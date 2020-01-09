@@ -17,6 +17,17 @@ h1 {
 		margin: 0 0 0 20px;
 		flex: 1 0 20px;
 	}
+
+	&.center {
+		text-align: center;
+
+		&::before {
+			content: '';
+			border-top: 1px solid;
+			margin: 0 20px 0 0;
+			flex: 1 0 20px;
+		}
+	}
 }
 
 h2 {

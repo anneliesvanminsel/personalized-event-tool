@@ -50,15 +50,24 @@
 					svg {
 						fill: {{ $event['textcolor'] }};
 					}
+					
+					.btn.is-icon:hover {
+						background-color: transparent;
+						color: transparent;
+					}
+					
+					.btn.is-icon:hover svg {
+						fill: {{ $event['textcolor'] }};
+					}
 				</style>
 				
-				<div class="row row--stretch">
-					@if($event->tickets)
-						<a class="btn" href="#tickets">
-							Bestel tickets
-						</a>
-					@endif
-					<div>
+				<div>
+					<div class="row row--center">
+						@if($event->tickets()->exists())
+							<a class="btn" href="#tickets">
+								Bestel tickets
+							</a>
+						@endif
 						<form
 								class="form"
 								method="POST"
@@ -68,7 +77,7 @@
 							
 							@if(Auth::user() && $event->users->contains(Auth::user()->id))
 								<button title="unlike" class="btn is-icon" type="submit">
-									@svg('star', 'is-small')
+									@svg('heart', 'is-small')
 								</button>
 							@else
 								<button title="like" class="btn is-icon" type="submit">

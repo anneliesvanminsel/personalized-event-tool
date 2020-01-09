@@ -36,7 +36,15 @@
 		}
 	}
 
+	&--wrap {
+		flex-wrap: wrap;
+	}
+
 	&.is-title {
+		align-items: center;
+	}
+
+	&--center {
 		align-items: center;
 	}
 

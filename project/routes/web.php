@@ -106,6 +106,11 @@ Route::group(['prefix' => 'user'], function() {
         'uses' => 'EventController@getEventSpecial',
         'as' => 'event.special'
     ]);
+
+    Route::get('floorplan/special/{event_id}', [
+        'uses' => 'SpecialController@getFloorplanSpecial',
+        'as' => 'floorplan.special'
+    ]);
 });
 
 /*
