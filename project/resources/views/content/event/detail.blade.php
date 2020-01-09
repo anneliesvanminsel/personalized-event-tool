@@ -111,16 +111,12 @@
 			</h1>
 
 			<div class="schedule__content">
-				<div class="schedule__headcontainer row row--stretch">
-					@foreach($event->sessions()->get() as $session)
-						<div class="schedule__heading">
-							<div>
-								{{  date('d/m', strtotime( $session['date'])) }}
-							</div>
-						</div>
-					@endforeach
-				</div>
 				@foreach($event->sessions()->get() as $session)
+					<div class="schedule__heading">
+						<div>
+							{{  date('d/m', strtotime( $session['date'])) }}
+						</div>
+					</div>
 					@if($session->schedules()->exists())
 						<div class="table">
 							<div class="table__heading row row--stretch" style="border-color: {{ $event['bkgcolor'] }}">
@@ -137,7 +133,7 @@
 							<div class="table__content">
 								<style>
 									.table__item:nth-child(odd) {
-										background-color: {{ $event['bkgcolor'] }}55; /* laatste twee cijfers zijn opacity*/
+										background-color: {{ $event['textcolor'] }}55; /* laatste twee cijfers zijn opacity*/
 									}
 								</style>
 								
@@ -166,7 +162,7 @@
 						</div>
 					@else
 						<p>
-							Er is nog geen planning toegevoegd. Houdt het event in de gaten!
+							Er is nog geen planning toegevoegd.
 						</p>
 					@endif
 				@endforeach

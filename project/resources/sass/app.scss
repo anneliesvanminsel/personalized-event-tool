@@ -61,6 +61,11 @@
 			width: 210px;
 		}
 	}
+
+	&.is-mobile {
+		flex-direction: row;
+		align-items: center;
+	}
 }
 
 .is-grow {
@@ -96,6 +101,7 @@ a.link {
 
 // Partials
 @import 'header';
+@import 'mobile-nav';
 @import 'footer';
 @import 'section';
 @import 'page';

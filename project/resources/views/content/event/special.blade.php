@@ -1,4 +1,4 @@
-@extends('layouts.authlayout')
+@extends('layouts.speciallayout')
 @section('title')
 	evento - {{ $event['title'] }}
 @endsection
@@ -35,10 +35,6 @@
 			}
 		</style>
 		
-		@desktop
-			@include('partials.header')
-		@enddesktop
-		
 		<section class="page-alignment spacing-top-m">
 			<h1 class="center">
 				{{ $event['title'] }}
@@ -56,24 +52,35 @@
 				</div>
 			@endif
 			<div class="row row--wrap">
-				<a class="btn special__svg">
-					@svg('calendar (3)')
-				</a>
-				<a class="btn special__svg">
-					@svg('map (1)')
-				</a>
-				<a class="btn special__svg">
+				@if($event->sessions()->exists())
+					<a title="bekijk planning" class="btn special__svg" href="{{ route('schedule.special', ['event_id' => $event['id']]) }}">
+						@svg('calendar (3)')
+					</a>
+				@endif
+				
+				@if($event->floorplans()->exists())
+					<a title="bekijk grondplan" class="btn special__svg" href="{{ route('floorplan.special', ['event_id' => $event['id']]) }}">
+						@svg('map (1)')
+					</a>
+				@endif
+				
+				
+				<a title="bekijk afbeeldingen" class="btn special__svg">
 					@svg('camera')
 				</a>
-				<a class="btn special__svg">
+				
+				<a title="bekijk informatie" class="btn special__svg">
 					@svg('info')
 				</a>
-				<a class="btn special__svg">
+				<a title="bekijk groepen" class="btn special__svg">
 					@svg('team')
 				</a>
-				<a class="btn special__svg">
-					@svg('comment')
-				</a>
+				
+				@if($event->messages()->exists())
+					<a title="bekijk berichten" class="btn special__svg">
+						@svg('comment')
+					</a>
+				@endif
 			</div>
 		</section>
 	</div>

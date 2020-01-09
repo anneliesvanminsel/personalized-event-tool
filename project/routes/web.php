@@ -108,8 +108,53 @@ Route::group(['prefix' => 'user'], function() {
     ]);
 
     Route::get('floorplan/special/{event_id}', [
-        'uses' => 'SpecialController@getFloorplanSpecial',
+        'uses' => 'FloorplanController@getFloorplanSpecial',
         'as' => 'floorplan.special'
+    ]);
+
+    Route::get('schedule/special/{event_id}', [
+        'uses' => 'ScheduleController@getScheduleSpecial',
+        'as' => 'schedule.special'
+    ]);
+
+    Route::get('messages/special/{event_id}', [
+        'uses' => 'MessageController@getMessageSpecial',
+        'as' => 'message.special'
+    ]);
+
+    //
+    //
+    // === MOBILE ===
+    //
+    //
+    Route::get('mobile/index', [
+        'uses' => 'MobileController@getIndex',
+        'as' => 'mobile.index'
+    ]);
+
+    Route::get('mobile/account/{user_id}', [
+        'uses' => 'MobileController@getAccount',
+        'as' => 'mobile.account'
+    ]);
+
+    Route::get('mobile/event/{event_id}', [
+        'uses' => 'MobileController@getEventDetail',
+        'as' => 'mobile.event.detail'
+    ]);
+
+    Route::get('mobile/events/saved', [
+        'uses' => 'MobileController@getLikedEvents',
+        'as' => 'mobile.events'
+    ]);
+
+    Route::get('mobile/tickets', [
+        'uses' => 'MobileController@getTickets',
+        'as' => 'mobile.ticket'
+    ]);
+
+    Route::get('mobile/search', [
+        'uses' => 'MobileController@getSearch',
+        'as' => 'mobile.search'
     ]);
 });
 

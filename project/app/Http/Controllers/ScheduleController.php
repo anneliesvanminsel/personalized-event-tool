@@ -57,4 +57,11 @@ class ScheduleController extends Controller
 
         return redirect()->route('event.edit.settings', ['id' => $event['id']]);
     }
+
+    public function getScheduleSpecial($event_id) {
+        $event = Event::findOrFail($event_id);
+        $sessions = $event->sessions()->get();
+
+        return view('content.schedule.special', ['event' => $event, 'sessions' => $sessions]);
+    }
 }
