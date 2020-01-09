@@ -1,0 +1,51 @@
+.special {
+  min-height: 100vh;
+  background-color: $red;
+  margin: 0;
+
+  &__image {
+    width: 80%;
+    max-width: 960px;
+    height: 150px;
+    overflow: hidden;
+    margin: auto;
+
+    @media screen and (min-width: $breakpoint-tablet-small) {
+      height: 200px;
+    }
+
+    @media screen and (min-width: $breakpoint-desktop-small) {
+      height: 400px;
+    }
+  }
+
+  &__content {
+    @include grid();
+    margin-top: $spacing-m;
+
+    &.row {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__svg {
+    background-color: $white;
+    padding: $spacing-s;
+    margin: 10px 0;
+    margin-right: 20px;
+    text-align: center;
+
+    @media screen and (min-width: $breakpoint-tablet-small) {
+      padding: $spacing-m;
+    }
+
+    svg {
+      fill: $red;
+
+      @media screen and (min-width: $breakpoint-tablet-small) {
+        width: $spacing-l;
+        height: $spacing-l;
+      }
+    }
+  }
+}

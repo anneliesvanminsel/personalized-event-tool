@@ -101,6 +101,11 @@ Route::group(['prefix' => 'user'], function() {
         'uses' => 'EventController@likeEvent',
         'as' => 'event.like'
     ]);
+
+    Route::get('event/special/{event_id}', [
+        'uses' => 'EventController@getEventSpecial',
+        'as' => 'event.special'
+    ]);
 });
 
 /*

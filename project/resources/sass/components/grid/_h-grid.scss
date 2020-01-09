@@ -8,6 +8,7 @@
 		max-width: 100%;
 		height: 10vh;
 		margin: $spacing-s 0;
+		overflow: hidden;
 
 		> * {
 			margin-right: $spacing-s;
@@ -44,6 +45,11 @@
 			flex-grow: 1;
 		}
 
+		&__column {
+			display: flex;
+			flex-direction: column;
+		}
+
 		&__title {
 			@include font-heading;
 			font-size: 20px;
@@ -77,6 +83,15 @@
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
+
+			&.is-row {
+				font-size: 12px;
+				align-items: center;
+
+				& > * {
+					margin: 0 20px;
+				}
+			}
 		}
 	}
 }

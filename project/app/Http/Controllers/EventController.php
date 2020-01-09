@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use Auth;
-use App\Event;
-use App\Organisation;
-use App\Ticket;
-use App\User;
-use App\Session;
 use \DateTime;
 use Carbon\Carbon;
+
+use App\Event;
+use App\Organisation;
+use App\User;
+use App\Session;
+
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -22,6 +23,12 @@ class EventController extends Controller
 
 		return view('content.event.detail', ['event' => $event]);
 	}
+
+    public function getEventSpecial($event_id) {
+        $event = Event::findOrFail($event_id);
+
+        return view('content.event.special', ['event' => $event]);
+    }
 
 	public function createEvent($organisation_id) {
 		$organisation = Organisation::where('id', $organisation_id)->first();
