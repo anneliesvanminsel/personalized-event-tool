@@ -29,7 +29,7 @@
 								type="text"
 								class="form__input @error('name') is-invalid @enderror"
 								name="name"
-								placeholder="bv. jan.peeters@mail.be"
+								placeholder="bv. Jan Peeters"
 								value="{{ old('name') }}"
 								required
 						>

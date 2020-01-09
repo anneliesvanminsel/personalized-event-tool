@@ -1,57 +1,59 @@
 @desktop
-    <header class="header">
-        <a class="logo logo--link" href="{{ route('index') }}">
-            evento
-        </a>
-        <nav class="nav">
-            <ul class="nav__bar">
-                <li class="nav__item">
-                    <a class="nav__link {{ (strpos(Route::currentRouteName(), 'index') === 0) ? 'active' : '' }}" href="{{ route('index') }}">
-                        evenementen
-                    </a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__link {{ (strpos(Route::currentRouteName(), 'start.organisation') === 0) ? 'active' : '' }}" href="{{ route('start.organisation') }}">
-                        voor organisatoren
-                    </a>
-                </li>
-                @guest
+    <div class="header__container">
+        <header class="header">
+            <a class="logo logo--link is-header" href="{{ route('index') }}">
+                evento
+            </a>
+            <nav class="nav">
+                <ul class="nav__bar">
                     <li class="nav__item">
-                        <a class="nav__link" href="{{ route('login') }}">
-                            aanmelden
+                        <a class="nav__link {{ (strpos(Route::currentRouteName(), 'index') === 0) ? 'active' : '' }}" href="{{ route('index') }}">
+                            evenementen
                         </a>
                     </li>
-                @else
-                    @if(Auth::user()->role == "organisator")
+                    <li class="nav__item">
+                        <a class="nav__link {{ (strpos(Route::currentRouteName(), 'start.organisation') === 0) ? 'active' : '' }}" href="{{ route('start.organisation') }}">
+                            voor organisatoren
+                        </a>
+                    </li>
+                    @guest
                         <li class="nav__item">
-                            <a class="nav__link {{ (strpos(Route::currentRouteName(), 'org.dashboard') === 0) ? 'active' : '' }}" href="{{ route('org.dashboard', ['user_id' => Auth::user()->id]) }}">
-                                dashboard
+                            <a class="nav__link" href="{{ route('login') }}">
+                                aanmelden
                             </a>
                         </li>
                     @else
+                        @if(Auth::user()->role == "organisator")
+                            <li class="nav__item">
+                                <a class="nav__link {{ (strpos(Route::currentRouteName(), 'org.dashboard') === 0) ? 'active' : '' }}" href="{{ route('org.dashboard', ['user_id' => Auth::user()->id]) }}">
+                                    dashboard
+                                </a>
+                            </li>
+                        @else
+                            <li class="nav__item">
+                                <a class="nav__link {{ (strpos(Route::currentRouteName(), 'user.account') === 0) ? 'active' : '' }}" href="{{ route('user.account', ['user_id' => Auth::user()->id]) }}">
+                                    account
+                                </a>
+                            </li>
+                        @endif
                         <li class="nav__item">
-                            <a class="nav__link {{ (strpos(Route::currentRouteName(), 'user.account') === 0) ? 'active' : '' }}" href="{{ route('user.account', ['user_id' => Auth::user()->id]) }}">
-                                account
+                            <a class="nav__link"
+                               href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();"
+                            >
+                                afmelden
                             </a>
+                            
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
                         </li>
-                    @endif
-                    <li class="nav__item">
-                        <a class="nav__link"
-                           href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                           document.getElementById('logout-form').submit();"
-                        >
-                            afmelden
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
-                    </li>
-                @endguest
-            </ul>
-        </nav>
-    </header>
+                    @endguest
+                </ul>
+            </nav>
+        </header>
+    </div>
 @elsedesktop
     <nav class="mobile-nav">
         <ul class="mobile-nav__bar">

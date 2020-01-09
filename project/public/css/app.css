@@ -230,24 +230,37 @@ a.link:hover::before {
   -webkit-box-align: center;
           align-items: center;
   padding: 10px;
+  min-width: 100%;
+}
+
+.header__container {
   max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .header .logo {
   -webkit-box-flex: 1;
           flex-grow: 1;
+  text-align: left;
   position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0;
 }
 
 .header .logo::before {
   content: "";
   display: block;
   position: absolute;
+  top: 65%;
+  left: -410px;
+  width: 400px;
   height: 1px;
   background-color: #262323;
-  top: 65%;
-  left: calc(-35% - 30px);
-  width: 35%;
+  -webkit-transition: width 0.2s ease-in-out;
+  transition: width 0.2s ease-in-out;
 }
 
 .header .nav__bar {
@@ -337,6 +350,7 @@ a.link:hover::before {
 
 .footer .logo {
   position: relative;
+  text-align: left;
   padding: 0 20px;
   max-width: 960px;
   width: 100%;
@@ -362,8 +376,8 @@ a.link:hover::before {
   height: 1px;
   background-color: #262323;
   top: 65%;
-  left: -10px;
-  width: 5%;
+  left: -410px;
+  width: 400px;
 }
 
 .footer .logo::after {
@@ -374,7 +388,7 @@ a.link:hover::before {
   background-color: #262323;
   top: 65%;
   right: 0;
-  width: 60%;
+  width: 600px;
 }
 
 .footer .list {
@@ -628,6 +642,7 @@ span.invalid-feedback {
 }
 
 .logo {
+  position: relative;
   width: calc(100% - 80px);
   margin: 5px 40px;
   text-align: center;
@@ -1394,6 +1409,8 @@ textarea:focus + label {
   font-size: 16px;
   font-family: "Montserrat", sans-serif;
   text-align: center;
+  -moz-text-align-last: center;
+       text-align-last: center;
   border: 1px solid #262323;
   border-radius: 0;
   -webkit-transition: all 0.2s ease;

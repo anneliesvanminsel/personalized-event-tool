@@ -200,6 +200,20 @@ class EventController extends Controller
 
 		$event->save();
 
-		return view('content.organisation.dashboard', ['user' => $user, 'organisation' => $organisation]);
+		return redirect()->route('org.dashboard', ['user' => $user, 'organisation' => $organisation]);
 	}
+
+    public function likeEvent($event_id){
+	    if(Auth::user()) {
+            $event = Event::find($event_id);
+            $user = Auth::user();
+
+            $event->users()->sync($user);
+
+            return redirect()->route('user.account', ['user' => $user]);
+
+        } else {
+            return view('auth.login');
+        }
+    }
 }

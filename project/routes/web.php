@@ -4,11 +4,6 @@
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */
 
 Route::get('/', [
@@ -46,38 +41,11 @@ Route::get('event/{event_id}', [
 	'as' => 'event.detail'
 ]);
 
-Route::get('event/{event_id}/{ticket_id}/buyticket', [
-	'uses' => 'TicketController@buyEventTicket',
-	'as' => 'ticket.payment'
-]);
-
-Route::post('event/{event_id}/{ticket_id}/buyticket/post', [
-	'uses' => 'TicketController@postBuyEventTicket',
-	'as' => 'ticket.postpayment'
-]);
-
-Route::get('account/{user_id}', [
-	'uses' => 'GeneralController@getAccount',
-	'as' => 'user.account'
-]);
-
-Route::get('ticket/{event_id}/{ticket_id}/detail', [
-    'uses' => 'TicketController@getTicket',
-    'as' => 'ticket.detail'
-]);
-
-Route::get('ticket/{ticket_id}/{user_id}/post', [
-    'uses' => 'TicketController@scanTicket',
-    'as' => 'ticket.scan'
-]);
-
 // get organisation detail
-
 Route::get('organisatie/{organisation_id}', [
 	'uses' => 'OrganisationController@getOrganisationDetail',
 	'as' => 'organisation.detail'
 ]);
-
 
 //create an organisation account
 Route::get('registreer/{subscription_id}', [
@@ -91,8 +59,49 @@ Route::post('registreer/{subscription_id}/post', [
 ]);
 
 
-//Auth routes
+/*
+|--------------------------------------------------------------------------
+| Web Routes - Auth
+|--------------------------------------------------------------------------
+*/
 Auth::routes();
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes - User
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'user'], function() {
+    Route::get('event/{event_id}/{ticket_id}/buyticket', [
+        'uses' => 'TicketController@buyEventTicket',
+        'as' => 'ticket.payment'
+    ]);
+
+    Route::post('event/{event_id}/{ticket_id}/buyticket/post', [
+        'uses' => 'TicketController@postBuyEventTicket',
+        'as' => 'ticket.postpayment'
+    ]);
+
+    Route::get('account/{user_id}', [
+        'uses' => 'GeneralController@getAccount',
+        'as' => 'user.account'
+    ]);
+
+    Route::get('ticket/{event_id}/{ticket_id}/detail', [
+        'uses' => 'TicketController@getTicket',
+        'as' => 'ticket.detail'
+    ]);
+
+    Route::get('ticket/{ticket_id}/{user_id}/post', [
+        'uses' => 'TicketController@scanTicket',
+        'as' => 'ticket.scan'
+    ]);
+
+    Route::post('event/{event_id}/like', [
+        'uses' => 'EventController@likeEvent',
+        'as' => 'event.like'
+    ]);
+});
 
 /*
 |--------------------------------------------------------------------------

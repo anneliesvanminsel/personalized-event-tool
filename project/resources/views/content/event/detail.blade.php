@@ -46,13 +46,33 @@
 						background-color: {{ $event['textcolor'] }};
 						color: {{ $event['bkgcolor'] }};
 					}
+					
+					svg {
+						fill: {{ $event['textcolor'] }};
+					}
 				</style>
-
-				@if($event->tickets)
-					<a class="btn" href="#tickets">
-						Bestel tickets
-					</a>
-				@endif
+				
+				<div class="row row--stretch">
+					@if($event->tickets)
+						<a class="btn" href="#tickets">
+							Bestel tickets
+						</a>
+					@endif
+					<div>
+						<form
+								class="form"
+								method="POST"
+								action="{{ route('event.like', ['event-id' => $event['id'] ]) }}"
+						>
+							{{ csrf_field() }}
+							
+							<button title="like" class="btn is-icon" type="submit">
+								@svg('like', 'is-small')
+							</button>
+						</form>
+					</div>
+				</div>
+				
 			</div>
 
 		</div>

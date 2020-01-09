@@ -19,21 +19,28 @@
 
 	.logo {
 		position: relative;
+		text-align: left;
 		@include grid();
 
 		&::before {
 			@include accentline;
 			top: 65%;
-			left: -10px;
-			width: 5%;
+			left: -410px;
+			width: 400px;
 		}
 
 		&::after {
 			@include accentline;
 			top: 65%;
 			right: 0;
-			width: 60%;
+			width: 600px;
 		}
+	}
+
+	.logo {
+
+
+
 	}
 
 	.list {

@@ -28,7 +28,28 @@
 			<h2 class="spacing-top-m">
 				Accountgegevens
 			</h2>
-
+			
+			<div class="form__group">
+				<input
+						id="name"
+						type="text"
+						class="form__input @error('name') is-invalid @enderror"
+						name="name"
+						placeholder="bv. Jan Peeters"
+						value="{{ old('name') }}"
+						required
+				>
+				<label for="name" class="form__label">
+					Volledige naam
+				</label>
+				
+				@error('name')
+					<span class="invalid-feedback" role="alert">
+						<strong>{{ $message }}</strong>
+					</span>
+				@enderror
+			</div>
+			
 			<div class="form__group">
 				<input
 					id="email"

@@ -133,12 +133,14 @@ class OrganisationController extends Controller
 
 		//validatie
 		$this->validate($request, [
+			'name' => 'required|string|max:255',
 			'email' => 'required|email|max:255|unique:users',
 			'password' => 'required|string|min:8]',
 		]);
 
 		$user = new User();
 
+		$user->name = $request->input('name');
 		$user->email = $request->input('email');
 		$user->password = Hash::make($request->input('password'));
 		$user->role = 'organisator';

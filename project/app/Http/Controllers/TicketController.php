@@ -97,7 +97,7 @@ class TicketController extends Controller
 
             return view('content.ticket.payment', ['user' => $user, 'event' => $event, 'ticket' => $ticket]);
         } else {
-            return view('auth.register');
+            return view('auth.login');
         }
     }
 
