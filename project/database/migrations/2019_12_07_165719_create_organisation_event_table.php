@@ -17,6 +17,7 @@ class CreateOrganisationEventTable extends Migration
             $table->bigIncrements('id');
 			$table->integer('organisation_id');
 			$table->integer('event_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

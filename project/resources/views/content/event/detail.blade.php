@@ -66,9 +66,15 @@
 						>
 							{{ csrf_field() }}
 							
-							<button title="like" class="btn is-icon" type="submit">
-								@svg('like', 'is-small')
-							</button>
+							@if(Auth::user() && $event->users->contains(Auth::user()->id))
+								<button title="unlike" class="btn is-icon" type="submit">
+									@svg('star', 'is-small')
+								</button>
+							@else
+								<button title="like" class="btn is-icon" type="submit">
+									@svg('like', 'is-small')
+								</button>
+							@endif
 						</form>
 					</div>
 				</div>

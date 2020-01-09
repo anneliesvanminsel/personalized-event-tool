@@ -19,6 +19,7 @@ class CreateTasksTable extends Migration
             $table->string('description')->nullable();
             $table->string('location')->nullable();
             $table->integer('session_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

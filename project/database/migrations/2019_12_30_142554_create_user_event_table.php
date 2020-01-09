@@ -17,6 +17,7 @@ class CreateUserEventTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->integer('event_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

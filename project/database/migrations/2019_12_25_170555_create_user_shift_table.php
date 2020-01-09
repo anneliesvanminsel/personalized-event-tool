@@ -17,6 +17,7 @@ class CreateUserShiftTable extends Migration
 			$table->bigIncrements('id');
 			$table->integer('user_id');
 			$table->integer('shift_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

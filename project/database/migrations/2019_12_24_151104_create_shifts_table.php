@@ -19,6 +19,7 @@ class CreateShiftsTable extends Migration
 			$table->string('endtime');
 			$table->integer('task_id');
 			$table->integer('total_workers')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -31,14 +31,17 @@ class LoginController extends Controller
 	{
 		if ( $user ) {
 			if ($user['role'] === 'organisator') {
+                //return back();
 				return redirect()->route('org.dashboard', ['id' => $user['id']]);
 			}
 
 			if ($user['role'] === 'volunteer') {
+                //return back();
 				return redirect()->route('user.account', ['id' => $user['id']] );
 			}
 
 			if ($user['role'] === 'guest') {
+                //return back();
 				return redirect()->route('user.account', ['id' => $user['id']] );
 			}
 

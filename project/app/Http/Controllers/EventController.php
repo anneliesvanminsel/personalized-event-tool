@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\File;
 class EventController extends Controller
 {
     //
-	public function getEventDetail($id) {
-		$event = Event::where('id', $id)->first();
+	public function getEventDetail($event_id) {
+		$event = Event::findOrFail($event_id);
 
 		return view('content.event.detail', ['event' => $event]);
 	}
@@ -208,10 +208,13 @@ class EventController extends Controller
             $event = Event::find($event_id);
             $user = Auth::user();
 
-            $event->users()->sync($user);
+            if($event->users->contains($user['id'])) {
+                $event->users()->where('user_id', $user['id'])->detach();
+            } else {
+                $event->users()->sync($user);
+            }
 
-            return redirect()->route('user.account', ['user' => $user]);
-
+            return redirect()->back();
         } else {
             return view('auth.login');
         }

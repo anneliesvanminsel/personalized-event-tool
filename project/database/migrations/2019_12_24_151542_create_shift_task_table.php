@@ -15,6 +15,9 @@ class CreateShiftTaskTable extends Migration
     {
         Schema::create('shift_task', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('task_id');
+            $table->integer('shift_id');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

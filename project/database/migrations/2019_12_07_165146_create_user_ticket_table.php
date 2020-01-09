@@ -18,6 +18,7 @@ class CreateUserTicketTable extends Migration
 			$table->integer('user_id');
 			$table->integer('ticket_id');
 			$table->boolean('attendance')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
