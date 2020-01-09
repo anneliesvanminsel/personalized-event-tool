@@ -10,7 +10,7 @@
 		</div>
 
 		<a class="logo logo--link" href="{{ route('index') }}">
-			eventify
+			<h1>evento</h1>
 		</a>
 
 		<div class="panel">
@@ -22,7 +22,28 @@
 			<div class="panel__body">
 				<form method="POST" action="{{ route('register') }}">
 					@csrf
-
+					
+					<div class="form__group">
+						<input
+								id="name"
+								type="text"
+								class="form__input @error('name') is-invalid @enderror"
+								name="name"
+								placeholder="bv. jan.peeters@mail.be"
+								value="{{ old('name') }}"
+								required
+						>
+						<label for="name" class="form__label">
+							Volledige naam
+						</label>
+						
+						@error('name')
+						<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+						@enderror
+					</div>
+					
 					<div class="form__group">
 						<input
 							id="email"

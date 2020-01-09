@@ -35,11 +35,11 @@ class LoginController extends Controller
 			}
 
 			if ($user['role'] === 'volunteer') {
-				return redirect()->route('start.organisation');
+				return redirect()->route('user.account', ['id' => $user['id']] );
 			}
 
 			if ($user['role'] === 'guest') {
-				return redirect()->route('start.organisation');
+				return redirect()->route('user.account', ['id' => $user['id']] );
 			}
 
 			return redirect()->route('login');

@@ -4,7 +4,7 @@
 	color: $black;
 	background-color: white;
 	padding: $spacing-s;
-	margin-top: $spacing-xl;
+	margin-top: $spacing-m;
 	z-index: 1;
 
 	@media screen and (min-width: $breakpoint-tablet-small) {
@@ -15,7 +15,7 @@
 	@media screen and (min-width: $breakpoint-desktop-small) {
 		max-width: 900px;
 		width: 60%;
-		padding: $spacing-l $spacing-xl;
+		padding: $spacing-m $spacing-l;
 	}
 
 	&__title {

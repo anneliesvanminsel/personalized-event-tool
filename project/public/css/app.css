@@ -491,17 +491,6 @@ a.link:hover::before {
   position: relative;
 }
 
-.page--auth .logo::after {
-  content: "";
-  display: block;
-  position: absolute;
-  height: 1px;
-  background-color: #ffffff;
-  top: 65%;
-  right: 0;
-  width: 60%;
-}
-
 span.accent {
   color: #FE676E;
 }
@@ -580,7 +569,7 @@ span.invalid-feedback {
   color: #262323;
   background-color: white;
   padding: 20px;
-  margin-top: 120px;
+  margin-top: 40px;
   z-index: 1;
 }
 
@@ -595,7 +584,7 @@ span.invalid-feedback {
   .panel {
     max-width: 900px;
     width: 60%;
-    padding: 80px 120px;
+    padding: 40px 80px;
   }
 }
 
@@ -639,6 +628,9 @@ span.invalid-feedback {
 }
 
 .logo {
+  width: calc(100% - 80px);
+  margin: 5px 40px;
+  text-align: center;
   font-family: "Poiret One", cursive;
   font-size: 35px;
   display: inline-block;

@@ -22,13 +22,6 @@
 
 		.logo {
 			position: relative;
-
-			&::after {
-				@include accentline(1px, $white);
-				top: 65%;
-				right: 0;
-				width: 60%;
-			}
 		}
 	}
 }

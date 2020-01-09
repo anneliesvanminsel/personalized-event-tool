@@ -10,7 +10,7 @@
 		</div>
 
 		<a class="logo logo--link" href="{{ route('index') }}">
-			eventify
+			<h1>evento</h1>
 		</a>
 
 		<div class="panel">
