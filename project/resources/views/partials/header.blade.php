@@ -79,13 +79,13 @@
             </li>
             @guest
                 <li class="mobile-nav__item">
-                    <a class="nav__link" href="{{ route('login') }}">
+                    <a class="mobile-nav__link" href="{{ route('login') }}">
                         @svg('account')
                     </a>
                 </li>
             @else
                 <li class="mobile-nav__item">
-                    <a class="nav__link {{ (strpos(Route::currentRouteName(), 'mobile.account') === 0) ? 'active' : '' }}" href="{{ route('mobile.account', ['id' => Auth::user()->id]) }}">
+                    <a class="mobile-nav__link {{ (strpos(Route::currentRouteName(), 'mobile.account') === 0) ? 'active' : '' }}" href="{{ route('mobile.account', ['id' => Auth::user()->id]) }}">
                         @svg('account')
                     </a>
                 </li>

@@ -156,6 +156,11 @@ Route::group(['prefix' => 'user'], function() {
         'uses' => 'MobileController@getSearch',
         'as' => 'mobile.search'
     ]);
+
+    Route::post('mobile/search/post', [
+        'uses' => 'MobileController@postSearch',
+        'as' => 'mobile.postsearch'
+    ]);
 });
 
 /*
@@ -245,7 +250,7 @@ Route::group(['prefix' => 'admin'], function() {
         'as' => 'ticket.postupdate'
     ]);
 
-    //delete floorplan
+    //delete ticket
     Route::post('ticket/delete/{event_id}/{ticket_id}/post', [
         'uses' => 'TicketController@deleteTicket',
         'as' => 'ticket.delete'
@@ -290,6 +295,18 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('organisation/{organisation_id}/newvolunteer/post', [
         'uses' => 'OrganisationController@postCreateVolunteer',
         'as' => 'volunteer.postcreate'
+    ]);
+
+    //add message
+    Route::post('message/create/{event_id}/post', [
+        'uses' => 'MessageController@postCreateMessage',
+        'as' => 'message.postcreate'
+    ]);
+
+    //delete message
+    Route::post('message/delete/{event_id}/{message_id}/post', [
+        'uses' => 'MessageController@deleteMessage',
+        'as' => 'message.delete'
     ]);
 });
 

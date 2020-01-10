@@ -17,7 +17,7 @@ class CreateMessagesTable extends Migration
             $table->increments('id');
 			$table->string('title')->nullable();
 			$table->text('message');
-			$table->date('type');
+			$table->string('type');
 			$table->string('image')->nullable();
 			$table->integer('event_id');
 			$table->softDeletes();

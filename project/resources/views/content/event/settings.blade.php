@@ -12,6 +12,7 @@
 			<a href="#grondplan" class="btn">Grondplan</a>
 			<a href="#ticket" class="btn">Ticket</a>
 			<a href="#shift" class="btn">Taken & Shiften</a>
+			<a href="#messages" class="btn">Berichten</a>
 		</div>
 		
 		<section class="spacing-top-m" id="planning">
@@ -189,6 +190,27 @@
 			
 			<div class="popup" id="task-form">
 				@include('content.task.create')
+			</div>
+		</section>
+		
+		<section  class="spacing-top-m" id="messages">
+			<div class="row">
+				<h2>
+					Berichten
+				</h2>
+				<button class="btn btn--small" onclick="openForm('message-form')">
+					Voeg bericht toe
+				</button>
+			</div>
+			@if($event->messages()->exists())
+				<div class="row-grid">
+					@foreach($event->messages()->get() as $message)
+						{{ $message->title }}
+					@endforeach
+				</div>
+			@endif
+			<div class="popup" id="message-form">
+				@include('content.message.create')
 			</div>
 		</section>
 	</div>
