@@ -30,18 +30,24 @@
     margin-top: $spacing-m;
 
     .row--wrap {
-      margin: auto 0 auto 40px;
+      width: 100%;
+      margin: 15px auto;
       flex-wrap: wrap;
+      justify-content: center;
+
+      @media screen and (min-width: $breakpoint-tablet-small) {
+        margin: auto 0 auto 40px;
+      }
     }
   }
 
   &__svg {
     background-color: $white;
-    padding: $spacing-s;
-    margin: $spacing-xs;
+    padding: $spacing-xs;
+    margin: $spacing-xxs;
     text-align: center;
-    min-height: 12vh;
-    min-width: 12vh;
+    height: 12vh;
+    width: 12vh;
 
     svg {
       display: block;

@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 class MessageController extends Controller
 {
     //
+    public function getMessageSpecial($event_id) {
+        $event = Event::where('id', $event_id)->first();
+
+        return view('content.message.special', ['event' => $event]);
+    }
+
     public function postCreateMessage(Request $request, $event_id) {
         $event = Event::where('id', $event_id)->first();
 

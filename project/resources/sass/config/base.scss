@@ -1,0 +1,49 @@
+@import 'font';
+@import 'variables';
+@import 'mixins';
+@import 'image';
+@import 'heading';
+
+a {
+  cursor: pointer;
+
+  &.link {
+	position: relative;
+
+	&::before {
+	  @include pseudo;
+	  bottom: -2px;
+	  left: 0;
+	  width: 0;
+	  height: 1px;
+	  background-color: $black;
+	  transition: width .2s ease-in-out;
+	}
+
+	&:hover {
+	  &::before {
+		left: 0;
+		right: 0;
+		width: 100%;
+	  }
+	}
+  }
+}
+
+
+.page-alignment {
+  @include grid();
+}
+
+.hidden {
+  display: none;
+}
+
+.text-muted {
+  color: gray;
+  font-size: 11px;
+}
+
+main {
+  margin-bottom: 80px;
+}

@@ -13,20 +13,15 @@
 				background-color: {{ $event['textcolor'] }};
 			}
 			
-			.btn {
-				border: none;
-				width: auto;
+			.special__svg {
 				background-color: {{ $event['textcolor'] }};
-				color: {{ $event['bkgcolor'] }}
-			}
-			
-			.btn:hover {
-				border: none;
-				background-color: {{ $event['textcolor'] }};
-				color: {{ $event['bkgcolor'] }};
 			}
 			
 			.special__svg svg {
+				fill: {{ $event['bkgcolor'] }};
+			}
+			
+			.special__svg:hover svg {
 				fill: {{ $event['bkgcolor'] }};
 			}
 			
@@ -51,33 +46,33 @@
 					<img src="https://placekitten.com/600/600" alt="{{ $event['title'] }}" loading="lazy">
 				</div>
 			@endif
-			<div class="row row--wrap">
+			<div class="row row--wrap is-mobile">
 				@if($event->sessions()->exists())
-					<a title="bekijk planning" class="btn special__svg" href="{{ route('schedule.special', ['event_id' => $event['id']]) }}">
+					<a title="bekijk planning" class="special__svg" href="{{ route('schedule.special', ['event_id' => $event['id']]) }}">
 						@svg('calendar (3)')
 					</a>
 				@endif
 				
 				@if($event->floorplans()->exists())
-					<a title="bekijk grondplan" class="btn special__svg" href="{{ route('floorplan.special', ['event_id' => $event['id']]) }}">
+					<a title="bekijk grondplan" class="special__svg" href="{{ route('floorplan.special', ['event_id' => $event['id']]) }}">
 						@svg('map (1)')
 					</a>
 				@endif
 				
 				
-				<a title="bekijk afbeeldingen" class="btn special__svg">
+				<a title="bekijk afbeeldingen" class="special__svg">
 					@svg('camera')
 				</a>
 				
-				<a title="bekijk informatie" class="btn special__svg">
+				<a title="bekijk informatie" class="special__svg">
 					@svg('info')
 				</a>
-				<a title="bekijk groepen" class="btn special__svg">
+				<a title="bekijk groepen" class="special__svg">
 					@svg('team')
 				</a>
 				
 				@if($event->messages()->exists())
-					<a title="bekijk berichten" class="btn special__svg">
+					<a title="bekijk berichten" class="special__svg" href="{{ route('message.special', ['event_id' => $event['id']]) }}">
 						@svg('comment')
 					</a>
 				@endif

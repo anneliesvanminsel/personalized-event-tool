@@ -3,9 +3,9 @@
 	evento
 @endsection
 @section('content')
-	<section>
+	<section class="page-alignment spacing-top-s">
 		<h2>
-			Account van {{ Auth::user()->name }}
+			{{ Auth::user()->name }}
 		</h2>
 		
 		<div>
@@ -15,9 +15,11 @@
 			<p>
 				{{ Auth::user()->email }}
 			</p>
-			<p>
-				{{  date('d/m/y', strtotime( Auth::user()->birthday ) ) }}
-			</p>
+			@if(Auth::user()->birthday)
+				<p>
+					{{  date('d/m/y', strtotime( Auth::user()->birthday ) ) }}
+				</p>
+			@endif
 		</div>
 		<div class="spacing-top-l">
 			<a class="row is-mobile"
@@ -36,5 +38,4 @@
 			</form>
 		</div>
 	</section>
-	
 @endsection

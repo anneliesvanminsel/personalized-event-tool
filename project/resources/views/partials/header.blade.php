@@ -63,7 +63,7 @@
                 </a>
             </li>
             <li class="mobile-nav__item">
-                <a class="mobile-nav__link {{ (strpos(Route::currentRouteName(), 'mobile.search') === 0) ? 'active' : '' }}" href="{{ route('mobile.search') }}">
+                <a class="mobile-nav__link {{ (strpos(Route::currentRouteName(), 'mobile.search') === 0) ? 'active' : '' }} {{ (strpos(Route::currentRouteName(), 'mobile.postsearch') === 0) ? 'active' : '' }}" href="{{ route('mobile.search') }}">
                     @svg('search')
                 </a>
             </li>

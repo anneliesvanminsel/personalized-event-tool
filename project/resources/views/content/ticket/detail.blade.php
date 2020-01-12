@@ -8,8 +8,6 @@
 			<img src="{{ asset('images/' . $event['logo'] ) }}" alt="{{ $event['title'] }}" loading="lazy">
 		</div>
 		
-		
-		
 		<div class="ticket__qrcode">
 			@desktop
 			{!! QrCode::size(250)->generate(route('ticket.scan', ['ticket_id' => $ticket['id'], 'user_id' => Auth::user()->id])); !!}
@@ -30,8 +28,6 @@
 			</div>
 		</div>
 		
-		
-		
 		<section class="ticket__content">
 			<h1>
 				{{ $event['title'] }} - {{ $ticket['name'] }}
@@ -46,5 +42,6 @@
 			</p>
 		</section>
 	</div>
+	@include('partials.header')
 
 @endsection

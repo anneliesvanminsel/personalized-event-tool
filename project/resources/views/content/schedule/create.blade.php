@@ -10,7 +10,7 @@
 	<h1>Voeg een item aan jouw planning toe</h1>
 	
 	<div class="form__group">
-		<select class="select" id="schedule-create-sessionid" name="schedule-create-sessionid">
+		<select class="select is-large" id="schedule-create-sessionid" name="schedule-create-sessionid">
 			@foreach($event->sessions()->get() as $session)
 				<option value="{{$session['id']}}">{{  date('d/m', strtotime( $session['date'])) }}</option>
 			@endforeach

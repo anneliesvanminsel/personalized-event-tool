@@ -152,7 +152,7 @@
 			</h2>
 			
 			<div class="form__group">
-				<select class="select" id="type" name="type">
+				<select class="select is-large" id="type" name="type">
 					<option value="not given">-- selecteer evenementstype --</option>
 					<option value="conference">conferentie</option>
 					<option value="workshop">workshop</option>

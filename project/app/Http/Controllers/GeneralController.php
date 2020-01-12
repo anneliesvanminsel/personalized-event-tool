@@ -14,8 +14,9 @@ class GeneralController extends Controller
 	public function getIndex() {
 		$slideevents = Event::where('status', '=', 1)->where('starttime', '>', Carbon::now())->orderBy('id', 'desc')->take(3)->get();
 		$searchedevents = Event::where('status', '=', 1)->where('starttime', '>', Carbon::now())->orderBy('starttime', 'asc')->paginate(5);
+        $mobileevents = Event::where('status', '=', 1)->where('starttime', '>', Carbon::now())->orderBy('id', 'desc')->paginate(10);
 
-		return view('home', ['slideevents' => $slideevents, 'searchedevents' => $searchedevents]);
+		return view('home', ['slideevents' => $slideevents, 'searchedevents' => $searchedevents, 'mobileevents' => $mobileevents]);
 	}
 
 

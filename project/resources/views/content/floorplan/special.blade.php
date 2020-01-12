@@ -43,7 +43,14 @@
 		
 		<section class="special__content row row--stretch">
 			@foreach($floorplans as $floorplan)
-				blabla
+				<div class="floorplan">
+					<h3>
+						{{ $floorplan->name }}
+					</h3>
+					<div class="floorplan__image ctn--image">
+						<img src="{{ asset('images/' . $floorplan['image'] ) }}" alt="{{ $floorplan['name'] }}" loading="lazy">
+					</div>
+				</div>
 			@endforeach
 		</section>
 	</div>

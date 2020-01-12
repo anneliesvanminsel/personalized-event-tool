@@ -4,8 +4,7 @@
 @endsection
 @section('content')
     @desktop
-        <div
-            id="event-slider"
+        <div id="event-slider"
             @foreach($slideevents as $event)
                 data-event{{$loop->iteration}}="{{ $event }}"
                 data-url{{$loop->iteration}}="{{ route('event.detail', ['event_id' => $event->id]) }}"
@@ -98,6 +97,36 @@
             </div>
         </section>
     @elsedesktop
-        
+	    <section class="page-alignment">
+		    <h1 class="spacing-top-s">
+			    Verken evenementen
+		    </h1>
+	    </section>
+        <section class="v-grid page-alignment">
+	        @foreach($mobileevents as $event)
+		        <a class="v-grid__item item" href="{{route('event.detail', ['event_id' => $event->id])}}">
+			        <div class="item__date bkg-red">
+				        {{  date('d M', strtotime( $event['starttime'])) }}
+			        </div>
+			
+			        @if(File::exists(public_path() . "/images/" . $event['logo']))
+				        <div class="item__image ctn--image">
+					        <img src="{{ asset('images/' . $event['logo'] ) }}" alt="{{ $event['title'] }}" loading="lazy">
+				        </div>
+			        @else
+				        <div class="item__image ctn--image">
+					        <img src="https://placekitten.com/600/600" alt="{{ $event['title'] }}" loading="lazy">
+				        </div>
+			        @endif
+			
+			        <div class="item__title">
+				        {{ $event->title }}
+			        </div>
+		        </a>
+	        @endforeach
+        </section>
+	    <section>
+		   
+	    </section>
     @enddesktop
 @endsection
