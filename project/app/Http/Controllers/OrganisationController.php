@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use Auth;
 use App\Organisation;
 use App\Subscription;
 use Illuminate\Http\Request;
@@ -15,16 +15,18 @@ class OrganisationController extends Controller
 {
     //
 	public function getDashboard($user_id) {
-		$user = User::where('id', $user_id)->first();
-		$organisation = Organisation::where('id', $user['organisation_id'])->first();
+	    if(Auth::user() && Auth::user()->id == $user_id) {
+            $user = User::where('id', $user_id)->first();
+            $organisation = Organisation::where('id', $user['organisation_id'])->first();
 
-		//$events = Event::where('organisation_id', $org_id)->paginate(5);
+            return view('content.organisation.dashboard', ['user' => $user, 'organisation' => $organisation]);
+        }
 
-		return view('content.organisation.dashboard', ['user' => $user, 'organisation' => $organisation]);
+	    return redirect()->route('index');
 	}
 
 	public function getOrganisationDetail($id) {
-		$organisation = Organisation::where('id', $id)->first();
+		$organisation = Organisation::findOrFail($id);
 
 		return view('content.organisation.detail', ['organisation' => $organisation]);
 	}
@@ -70,7 +72,7 @@ class OrganisationController extends Controller
 
 		$organisation->save();
 
-		return redirect()->route('organisation.admin.create', ['organisation_id' => $organisation['id']]);
+		return redirect()->route('organisation.address.create', ['organisation_id' => $organisation['id']]);
 	}
 
     public function editOrganisation($organisation_id) {

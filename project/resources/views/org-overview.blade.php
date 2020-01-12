@@ -3,7 +3,7 @@
 	e - organiseren
 @endsection
 @section('content')
-	<section class="page-alignment">
+	<section class="page-alignment spacing-top-m">
 		<h1>
 			Breng je evenementen tot een hoger niveau
 		</h1>
@@ -27,13 +27,13 @@
 					snaps pie sesame snaps candy canes jelly-o biscuit topping. Soufflé sesame snaps tootsie roll gummies
 					croissant pastry. Biscuit candy biscuit jujubes gingerbread muffin cotton candy cake.
 				</div>
-				<button class="btn btn--ghost">
+				<button class="btn btn--ghost btn--blue">
 					meer info
 				</button>
 			</div>
 		</div>
 	</section>
-	<section class="spacing-top-m section--red section" id="feature-2">
+	<section class="spacing-top-m section--blue section" id="feature-2">
 		<div class="page-alignment row row--stretch">
 			<div class="section__content section__content--right">
 				<h2>
@@ -67,7 +67,7 @@
 					snaps pie sesame snaps candy canes jelly-o biscuit topping. Soufflé sesame snaps tootsie roll gummies
 					croissant pastry. Biscuit candy biscuit jujubes gingerbread muffin cotton candy cake.
 				</div>
-				<button class="btn">
+				<button class="btn btn--blue">
 					meer info
 				</button>
 			</div>
@@ -89,7 +89,7 @@
 
 		<div class="slider__holder">
 			@foreach($subs as $sub)
-				<label for="slide-{{ $loop->iteration }}" class="slider__item slider__item--{{ $loop->iteration }} card">
+				<label for="slide-{{ $loop->iteration }}" class="slider__item slider__item--{{ $loop->iteration }} card is-blue">
 					<!-- Card Content goes here -->
 					<h3 class="card__title">
 						{{ $sub['title'] }}
@@ -101,7 +101,7 @@
 						{{ $sub['description'] }}
 					</p>
 
-					<a class="btn btn--full" href="{{ route('organisation.create', ['subscription_id' => $sub->id]) }}">
+					<a class="btn btn--full is-blue" href="{{ route('organisation.create', ['subscription_id' => $sub->id]) }}">
 						Ik wil deze
 					</a>
 				</label>
@@ -111,7 +111,7 @@
 
 		<div class="bullets">
 			@foreach($subs as $sub)
-				<label for="slide-{{ $loop->iteration }}" class="bullets__item bullets__item--{{ $loop->iteration }}"></label>
+				<label for="slide-{{ $loop->iteration }}" class="bullets__item bullets__item--{{ $loop->iteration }} is-blue"></label>
 			@endforeach
 		</div>
 	</section>

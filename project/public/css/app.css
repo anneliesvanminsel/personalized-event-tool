@@ -546,6 +546,16 @@ a.link:hover::before {
   color: #ffffff;
 }
 
+.section--blue {
+  padding: 40px 0;
+  background-color: #85CBCC;
+  color: #ffffff;
+}
+
+.section--blue .btn--white:hover {
+  color: #85CBCC;
+}
+
 .page {
   position: relative;
   min-height: 100vh;
@@ -578,8 +588,12 @@ span.accent {
   color: #FE676E;
 }
 
-span.info {
-  color: #B5D571;
+span.accent.is-blue {
+  color: #85CBCC;
+}
+
+span.accent.is-orange {
+  color: #FBB148;
 }
 
 span.invalid-feedback {
@@ -629,9 +643,39 @@ span.invalid-feedback {
   color: #FE676E;
 }
 
+.btn--blue {
+  border-color: #85CBCC;
+  color: #85CBCC;
+}
+
+.btn--blue:hover {
+  background-color: #85CBCC;
+  color: #ffffff;
+}
+
+.btn--orange {
+  border-color: #FBB148;
+  color: #FBB148;
+}
+
+.btn--orange:hover {
+  background-color: #FBB148;
+  color: #ffffff;
+}
+
 .btn--full {
   background-color: #FE676E;
   color: #ffffff;
+}
+
+.btn--full.is-blue {
+  background-color: #85CBCC;
+  border-color: #85CBCC;
+}
+
+.btn--full.is-orange {
+  background-color: #FBB148;
+  border-color: #FBB148;
 }
 
 .btn--small {
@@ -685,6 +729,14 @@ span.invalid-feedback {
   border: 1px solid #FE676E;
   background: #ffffff;
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.05), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.card.is-blue {
+  border-color: #85CBCC;
+}
+
+.card.is-orange {
+  border-color: #85CBCC;
 }
 
 .card--container {
@@ -1236,20 +1288,60 @@ https://github.com/Significa/css-only-slider
   background: #FE676E;
 }
 
+#slide-1:checked ~ .bullets .bullets__item--1.is-blue {
+  background: #85CBCC;
+}
+
+#slide-1:checked ~ .bullets .bullets__item--1.is-orange {
+  background: #FBB148;
+}
+
 #slide-2:checked ~ .bullets .bullets__item--2 {
   background: #FE676E;
+}
+
+#slide-2:checked ~ .bullets .bullets__item--2.is-blue {
+  background: #85CBCC;
+}
+
+#slide-2:checked ~ .bullets .bullets__item--2.is-orange {
+  background: #FBB148;
 }
 
 #slide-3:checked ~ .bullets .bullets__item--3 {
   background: #FE676E;
 }
 
+#slide-3:checked ~ .bullets .bullets__item--3.is-blue {
+  background: #85CBCC;
+}
+
+#slide-3:checked ~ .bullets .bullets__item--3.is-orange {
+  background: #FBB148;
+}
+
 #slide-4:checked ~ .bullets .bullets__item--4 {
   background: #FE676E;
 }
 
+#slide-4:checked ~ .bullets .bullets__item--4.is-blue {
+  background: #85CBCC;
+}
+
+#slide-4:checked ~ .bullets .bullets__item--4.is-orange {
+  background: #FBB148;
+}
+
 #slide-5:checked ~ .bullets .bullets__item--5 {
   background: #FE676E;
+}
+
+#slide-5:checked ~ .bullets .bullets__item--5.is-blue {
+  background: #85CBCC;
+}
+
+#slide-5:checked ~ .bullets .bullets__item--5.is-orange {
+  background: #FBB148;
 }
 
 /*--------------------------------------------------------------
@@ -1357,13 +1449,17 @@ https://github.com/Significa/css-only-slider
   background: #FE676E;
 }
 
+.bullets__item.is-blue:hover {
+  background: #85CBCC;
+}
+
+.bullets__item.is-orange:hover {
+  background: #FBB148;
+}
+
 textarea {
   min-width: 100%;
   max-width: 100%;
-  resize: none;
-  min-height: -webkit-fit-content;
-  min-height: -moz-fit-content;
-  min-height: fit-content;
 }
 
 ::-webkit-datetime-edit {
@@ -1498,6 +1594,58 @@ textarea:focus + label {
 
 .select.is-large {
   width: 100%;
+  margin-bottom: 20px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAeFBMVEX///8AAAD8/Pz39/fR0dHu7u6AgICIiIjz8/Pr6+t3d3enp6dSUlJJSUlDQ0P19fWtra3k5OSQkJC8vLy2trYXFxchISHd3d0cHBw+Pj41NTUpKSlZWVmXl5dkZGRxcXGfn5/IyMg5OTkPDw9iYmIsLCze3t7U1NTVazS4AAADCklEQVR4nO3biVrqMBCG4ZR9p6wedgGX+79DT5KDz1ELLU0mjTzfewH5OwppMqNKAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI9hXHF+rS4c0E8Gwgk5hslccvnGnyRJhpIJeUZ/H2DVlFu/rgOSkVxAjtpK57dEM4Y6YiUacV3tpNPbwilbHbKuCadkqm909k48x5YovaNlGAcqUKm9DtoEf2s0zzr3OUiWLbETJOtT1xTYD5R20GELwT37p66OTNJgeT0dd+4Gy1MTU6Dou/6blkkMVmL4ApVqm8xJmLAnE3YME/ZpGq7EagpU6tnkPskHNUxQQz7oh0AlHisrUKnUZL/LhhxDfVQypfI/3lmlBSo1l94DZiG37BtPMJNaPq28QOES07DniiuOcscNs1mfgx5/M4mV+Bz+fH/Fu8yx3xyalhXctDPYEj1f3czB9zWOApV6S7xfv1vVtYMy2RI9tlDMBfQUT4GXC9zU13KmiVBdWzaT7TJ4amWaRlClrfUstkQv7WhTYMXjkSwdPdNIeu4LmYbs1n0d/zpLLyUO9CovPh7Iv/qrfri92yJDD2vIqa+dH88Mlw6+HkjAye0jVlt7+i4LGrlsE7WNt/1Y0LD8Vm+nZ9LjQXeDsq9r+7rxdi4StC135GouPJ9tBe3L3Au6/u8ngkqU2JW4Ywrq3Xs/f5PpEwiyJRaehL/JtbPEmDv6ouAk/F226yqkXbwV+DsLvAwYC7Rz7fQs/HjQ3c48eW5L/vhrC7wMGHNKtAVWMx501zdPf3M0ZucewjNIQWleifP8n0Hk5rd/Rf1iX9WozW59zR6hwJtb5a7o+yRyV0vcFT8TRK6RfWSZ3nOui1xmieZUt3yMAi8Hzy9Xh9a996vIPX2//sU3PXM1+XqFP5Tpc0Ru8n8b5qVsOy5qthFjWmnbhyzw8rf2038N1QjHg+46tsR4x4PuxmbAqEU6HnRnBxMRjwfd2RlqzONBZ/rf62KfnrlaP3qBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABE4AOwpRkatN8FywAAAABJRU5ErkJggg==) 96%/5% no-repeat transparent;
+}
+
+.form__group.is-blue input[type=email]:focus,
+.form__group.is-blue input[type=email]:valid,
+.form__group.is-blue input[type=password]:focus,
+.form__group.is-blue input[type=password]:valid,
+.form__group.is-blue input[type=text]:focus,
+.form__group.is-blue input[type=text]:valid,
+.form__group.is-blue input[type=number]:focus,
+.form__group.is-blue input[type=number]:valid,
+.form__group.is-blue input[type=textarea]:focus,
+.form__group.is-blue input[type=textarea]:valid,
+.form__group.is-blue input[type=file]:focus,
+.form__group.is-blue input[type=file]:valid,
+.form__group.is-blue input[type=date]:focus,
+.form__group.is-blue input[type=date]:valid,
+.form__group.is-blue input[type=time]:focus,
+.form__group.is-blue input[type=time]:valid,
+.form__group.is-blue textarea:focus,
+.form__group.is-blue textarea:valid {
+  border: 1px solid #85CBCC;
+}
+
+.form__group.is-blue .is-counter {
+  color: #85CBCC;
+}
+
+.form__group.is-orange input[type=email]:focus,
+.form__group.is-orange input[type=email]:valid,
+.form__group.is-orange input[type=password]:focus,
+.form__group.is-orange input[type=password]:valid,
+.form__group.is-orange input[type=text]:focus,
+.form__group.is-orange input[type=text]:valid,
+.form__group.is-orange input[type=number]:focus,
+.form__group.is-orange input[type=number]:valid,
+.form__group.is-orange input[type=textarea]:focus,
+.form__group.is-orange input[type=textarea]:valid,
+.form__group.is-orange input[type=file]:focus,
+.form__group.is-orange input[type=file]:valid,
+.form__group.is-orange input[type=date]:focus,
+.form__group.is-orange input[type=date]:valid,
+.form__group.is-orange input[type=time]:focus,
+.form__group.is-orange input[type=time]:valid,
+.form__group.is-orange textarea:focus,
+.form__group.is-orange textarea:valid {
+  border: 1px solid #FBB148;
+}
+
+.form__group.is-orange .is-counter {
+  color: #FBB148;
 }
 
 .form__group {
@@ -1860,7 +2008,7 @@ textarea:focus + label {
 .faq__item {
   margin: 10px 0;
   padding: 20px 0;
-  border-bottom: 1px solid #FE676E;
+  border-bottom: 1px solid #262323;
 }
 
 .faq__item .fas {
@@ -1874,6 +2022,14 @@ textarea:focus + label {
 
 .faq__item.is-open .faq__question {
   color: #FE676E;
+}
+
+.faq__item.is-open .faq__question.is-volunteer {
+  color: #FBB148;
+}
+
+.faq__item.is-open .faq__question.is-admin {
+  color: #85CBCC;
 }
 
 .faq__item.is-open .fas {
@@ -1892,9 +2048,10 @@ textarea:focus + label {
           align-items: center;
   width: 100%;
   margin-bottom: 10px;
+  font-family: "Poiret One", cursive;
   font-size: 2rem;
   text-align: left;
-  color: #FE676E;
+  color: #262323;
   background-color: transparent;
   border: none;
   -webkit-transition: color 0.2s ease;
@@ -1990,6 +2147,194 @@ textarea:focus + label {
   left: 40px;
   z-index: 3;
   text-align: center;
+}
+
+.wizard {
+  padding: 0 20px;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+@media screen and (min-width: 640px) {
+  .wizard {
+    padding: 0 40px;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .wizard {
+    padding: 0 80px;
+  }
+}
+
+.wizard__inner {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.wizard__item {
+  padding: 0 10px;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #e0e0e0;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.wizard__item.active {
+  color: #FE676E;
+  border-bottom: 2px solid #FE676E;
+}
+
+.wizard__item.active.is-blue {
+  color: #85CBCC;
+  border-bottom: 2px solid #85CBCC;
+}
+
+.wizard .nav-tabs {
+  position: relative;
+  margin: 40px auto;
+  margin-bottom: 0;
+  border-bottom-color: #e0e0e0;
+}
+
+span.round-tab {
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  display: inline-block;
+  border-radius: 100px;
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  text-align: center;
+  font-size: 25px;
+}
+
+span.round-tab i {
+  color: #555555;
+}
+
+.wizard li.active span.round-tab {
+  background: #fff;
+  border: 2px solid #5bc0de;
+}
+
+.wizard li.active span.round-tab i {
+  color: #5bc0de;
+}
+
+span.round-tab:hover {
+  color: #333;
+  border: 2px solid #333;
+}
+
+.wizard .nav-tabs > li {
+  width: 25%;
+}
+
+.wizard li:after {
+  content: " ";
+  position: absolute;
+  left: 46%;
+  opacity: 0;
+  margin: 0 auto;
+  bottom: 0px;
+  border: 5px solid transparent;
+  border-bottom-color: #5bc0de;
+  -webkit-transition: 0.1s ease-in-out;
+  transition: 0.1s ease-in-out;
+}
+
+.wizard li.active:after {
+  content: " ";
+  position: absolute;
+  left: 46%;
+  opacity: 1;
+  margin: 0 auto;
+  bottom: 0px;
+  border: 10px solid transparent;
+  border-bottom-color: #5bc0de;
+}
+
+.wizard .nav-tabs > li a {
+  width: 70px;
+  height: 70px;
+  margin: 20px auto;
+  border-radius: 100%;
+  padding: 0;
+}
+
+.wizard .nav-tabs > li a:hover {
+  background: transparent;
+}
+
+.wizard .tab-pane {
+  position: relative;
+  padding-top: 50px;
+}
+
+.wizard h3 {
+  margin-top: 0;
+}
+
+@media (max-width: 585px) {
+  .wizard {
+    width: 90%;
+    height: auto !important;
+  }
+
+  span.round-tab {
+    font-size: 16px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+  }
+
+  .wizard .nav-tabs > li a {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+  }
+
+  .wizard li.active:after {
+    content: " ";
+    position: absolute;
+    left: 35%;
+  }
+}
+
+.review__item {
+  background-color: rgba(254, 103, 110, 0.5);
+  padding: 40px;
+  margin-bottom: 20px;
+}
+
+.review__item.is-blue {
+  background-color: rgba(133, 203, 204, 0.5);
+}
+
+.review__title {
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.review__text {
+  font-size: 14px;
+}
+
+.org-heading .ctn--image {
+  max-width: 300px;
+  max-height: 300px;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .special {

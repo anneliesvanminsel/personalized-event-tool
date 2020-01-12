@@ -3,22 +3,26 @@
 	evento - registreer organisatie
 @endsection
 @section('content')
-	<section class="page-alignment steps spacing-top-m">
-		<div class="row row--stretch">
-			<div class="steps__item active">
+	<section class="page-alignment wizard">
+		<div class="wizard__inner">
+			<div class="wizard__item active is-blue">
 				Organisatiegegevens
 			</div>
-			<div class="steps__item">
+			<div class="wizard__item">
+				Adresgegevens
+			</div>
+			<div class="wizard__item">
 				Gebruikergegevens
 			</div>
 		</div>
 	</section>
+	
 	<section class="page-alignment spacing-top-l">
 		<h1>
 			Start nu jouw organisatie
 		</h1>
 		<p class="subheading">
-			Je hebt gekozen voor het <span class="accent">{{$subscription->title}}</span> pakket.
+			Je hebt gekozen voor het <span class="accent is-blue">{{$subscription->title}}</span> pakket.
 		</p>
 
 		<form id="form-create" method="POST" action="{{ route('organisation.postcreate', ['subscription_id' => $subscription['id']]) }}" class="form" enctype="multipart/form-data">
@@ -28,7 +32,7 @@
 				1. Algemene gegevens
 			</h2>
 
-			<div class="form__group">
+			<div class="form__group is-blue">
 				<input
 					id="name"
 					type="text"
@@ -52,7 +56,7 @@
 				@enderror
 			</div>
 			
-			<div class="form__group">
+			<div class="form__group is-blue">
 				<textarea
 						form="form-create"
 						id="description"
@@ -82,7 +86,7 @@
 				</script>
 			</div>
 
-			<div class="form__group">
+			<div class="form__group is-blue">
 				<input
 					id="logo"
 					type="file"
@@ -110,17 +114,17 @@
 			</h2>
 
 			<p>
-				De volgende kleuren worden gebruikt om de <span class="accent">informatiepagina van het bedrijf</span> op te maken.
+				De volgende kleuren worden gebruikt om de <span class="accent is-blue">informatiepagina van het bedrijf</span> op te maken.
 			</p> <br>
 			<p>
-				<span class="accent">Let op!: </span> <br>
+				<span class="accent  is-blue">Let op!: </span> <br>
 				De kleuren zullen soms samen gebruikt worden, let dan ook op de leesbaarheid. Dit kan je testen via
 				<a href="https://webaim.org/resources/contrastchecker/" target="_blank" class="link">
 					deze website
 				</a>.
 			</p>
 
-			<div class="form__group">
+			<div class="form__group is-blue">
 				<input
 					id="bkgcolor"
 					type="text"
@@ -143,7 +147,7 @@
 			</div>
 
 
-			<div class="form__group">
+			<div class="form__group is-blue">
 				<input
 					id="textcolor"
 					type="text"
@@ -167,7 +171,7 @@
 
 
 			<div class="">
-				<button type="submit" class="btn btn--full">
+				<button type="submit" class="btn btn--full is-blue">
 					Start nu jouw bedrijf
 				</button>
 			</div>

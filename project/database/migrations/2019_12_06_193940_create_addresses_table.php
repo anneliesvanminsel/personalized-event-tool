@@ -23,8 +23,10 @@ class CreateAddressesTable extends Migration
 			$table->string('city');
 			$table->string('region')->nullable();
 			$table->string('country');
-			$table->string('googleframe')->nullable();
-			$table->softDeletes();
+			$table->text('googleframe')->nullable();
+            $table->integer('address_id');
+            $table->string('address_type');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

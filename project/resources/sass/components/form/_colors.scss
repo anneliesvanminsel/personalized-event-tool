@@ -1,0 +1,43 @@
+.form__group {
+  &.is-blue {
+    input[type=email],
+    input[type=password],
+    input[type=text],
+    input[type=number],
+    input[type=textarea],
+    input[type=file],
+    input[type=date],
+    input[type=time],
+    textarea {
+      &:focus,
+      &:valid {
+        @include border(1px, $blue);
+      }
+    }
+
+    .is-counter {
+      color: $blue;
+    }
+  }
+
+  &.is-orange {
+    input[type=email],
+    input[type=password],
+    input[type=text],
+    input[type=number],
+    input[type=textarea],
+    input[type=file],
+    input[type=date],
+    input[type=time],
+    textarea {
+      &:focus,
+      &:valid {
+        @include border(1px, $orange);
+      }
+    }
+
+    .is-counter {
+      color: $orange;
+    }
+  }
+}

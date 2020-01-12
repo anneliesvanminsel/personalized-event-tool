@@ -3,12 +3,15 @@
 	evento - organisatie
 @endsection
 @section('content')
-	<section class="page-alignment steps spacing-top-m">
-		<div class="row row--stretch">
-			<div class="steps__item">
+	<section class="page-alignment wizard">
+		<div class="wizard__inner">
+			<div class="wizard__item">
 				Organisatiegegevens
 			</div>
-			<div class="steps__item active">
+			<div class="wizard__item">
+				Adresgegevens
+			</div>
+			<div class="wizard__item active is-blue">
 				Gebruikergegevens
 			</div>
 		</div>
@@ -18,7 +21,7 @@
 			Voeg jouw hoofdgebruiker toe
 		</h1>
 		<p class="subheading">
-			Voeg het adminaccount van het bedrijf <span class="accent">{{ $organisation['name'] }}</span> toe. <br>
+			Voeg het adminaccount van het bedrijf <span class="accent is-blue">{{ $organisation['name'] }}</span> toe. <br>
 			Dit wordt het account waarmee u vanaf nu kunt inloggen en evenementen kunt aanpassen.
 		</p>
 
@@ -29,7 +32,7 @@
 				Accountgegevens
 			</h2>
 			
-			<div class="form__group">
+			<div class="form__group is-blue">
 				<input
 						id="name"
 						type="text"
@@ -50,7 +53,7 @@
 				@enderror
 			</div>
 			
-			<div class="form__group">
+			<div class="form__group is-blue">
 				<input
 					id="email"
 					type="email"
@@ -73,7 +76,7 @@
 				@enderror
 			</div>
 
-			<div class="form__group">
+			<div class="form__group is-blue">
 				<input
 					id="password"
 					type="password"
@@ -96,7 +99,7 @@
 			</div>
 
 			<div class="spacing-top-m">
-				<button type="submit" class="btn btn--full">
+				<button type="submit" class="btn btn--full is-blue">
 					Link dit account
 				</button>
 			</div>

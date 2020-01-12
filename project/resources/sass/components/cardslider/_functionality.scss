@@ -178,6 +178,18 @@ $end: 5; // Number of slides: 5 slides in this case
 				#slide-#{$bullet}:checked ~ .bullets & {
 					background: $red;
 				}
+
+				&.is-blue {
+					#slide-#{$bullet}:checked ~ .bullets & {
+						background: $blue;
+					}
+				}
+
+				&.is-orange {
+					#slide-#{$bullet}:checked ~ .bullets & {
+						background: $orange;
+					}
+				}
 			}
 		}
 	}

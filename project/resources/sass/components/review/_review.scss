@@ -1,0 +1,21 @@
+.review {
+  &__item {
+    background-color: rgba($red, .5);
+    padding: $spacing-m;
+    margin-bottom: $spacing-s;
+
+    &.is-blue {
+      background-color: rgba($blue, .5);
+    }
+  }
+
+  &__title {
+    margin-bottom: $spacing-xxs;
+    font-size: 18px;
+
+  }
+
+  &__text {
+    font-size: 14px;
+  }
+}

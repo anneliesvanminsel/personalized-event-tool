@@ -9,6 +9,14 @@
 	background: $white;
 	box-shadow: 0 5px 20px 0 rgba(0,0,0,0.05), 0 2px 4px 0 rgba(0,0,0,0.10);
 
+	&.is-blue {
+		border-color: $blue;
+	}
+
+	&.is-orange {
+		border-color: $blue;
+	}
+
 	&--container {
 		display: flex;
 		flex-direction: row;

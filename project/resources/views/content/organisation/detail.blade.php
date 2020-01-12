@@ -8,10 +8,10 @@
 			{{ $organisation['name'] }}
 		</h1>
 		<div class="row row--stretch spacing-top-s">
-			<div>
+			<div class="is-grow">
 				{{ $organisation['description'] }}
 			</div>
-			<div>
+			<div class="org-heading">
 				@if($organisation['logo'] && File::exists(public_path() . "/images/" . $organisation['logo']))
 					<div class="ctn--image">
 						<img src="{{ asset('images/' . $organisation['logo'] ) }}" alt="{{ $organisation['name'] }}" loading="lazy">
@@ -21,12 +21,32 @@
 						<img src="https://placekitten.com/600/600" alt="{{ $organisation['name'] }}" loading="lazy">
 					</div>
 				@endif
+				@if($organisation->address()->first())
+					@php
+						$address = $organisation->address()->first();
+					@endphp
 					<div class="spacing-top-s">
-						bedrijfstraat 45
-						3000 Leuven
-						+32 456 78 92 34
-						bedrijf@mail.be
+						@if( $address->locationname)
+							<p>
+								{{ $address->locationname }}
+							</p>
+						@endif
+						<p>
+							{{ $address->street }} {{ $address->streetnumber }} {{ $address->box }}
+						</p>
+						<p>
+							{{ $address->postalcode }} {{ $address->city }}
+						</p>
+						@if( $address->region)
+							<p>
+								{{ $address->region }}
+							</p>
+						@endif
+						<p>
+							{{ $address->country }}
+						</p>
 					</div>
+				@endif
 			</div>
 		</div>
 	</section>
@@ -115,5 +135,68 @@
 				<img src="https://images.pexels.com/photos/518389/pexels-photo-518389.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" loading="lazy">
 			</li>
 		</ul>
+	</section>
+	<style>
+		.review__item {
+			background-color: {{ $organisation['bkgcolor'] }}55;
+		}
+		
+		.review__item.is-blue {
+			background-color: {{ $organisation['bkgcolor'] }}55;
+		}
+	</style>
+	<section class="page-alignment reviews">
+		<h2>
+			Reviews
+		</h2>
+		<div class="review">
+			<div class="review__item is-blue">
+				<div class="review__title row row--stretch">
+					<div class="is-grow">
+						Titel
+					</div>
+					<div class="row row--stretch">
+						@svg('star (2)', 'is-small') @svg('star (2)', 'is-small') @svg('star (2)', 'is-small') @svg('star (1)', 'is-small') @svg('star (1)', 'is-small')
+					</div>
+				</div>
+				<div class="review__text">
+					Cupcake lollipop chocolate. Dessert chupa chups cotton candy brownie dessert. Tootsie roll sesame
+					snaps pie sesame snaps candy canes jelly-o biscuit topping. Soufflé sesame snaps tootsie roll gummies
+					croissant pastry. Biscuit candy biscuit jujubes gingerbread muffin cotton candy cake.
+				</div>
+			</div>
+			
+			<div class="review__item is-blue">
+				<div class="review__title row row--stretch">
+					<div class="is-grow">
+						Titel
+					</div>
+					<div class="row row--stretch">
+						@svg('star (2)', 'is-small') @svg('star (2)', 'is-small') @svg('star (1)', 'is-small') @svg('star (1)', 'is-small') @svg('star (1)', 'is-small')
+					</div>
+				</div>
+				<div class="review__text">
+					Cupcake lollipop chocolate. Dessert chupa chups cotton candy brownie dessert. Tootsie roll sesame
+					snaps pie sesame snaps candy canes jelly-o biscuit topping. Soufflé sesame snaps tootsie roll gummies
+					croissant pastry. Biscuit candy biscuit jujubes gingerbread muffin cotton candy cake.
+				</div>
+			</div>
+			
+			<div class="review__item is-blue">
+				<div class="review__title row row--stretch">
+					<div class="is-grow">
+						Titel
+					</div>
+					<div class="row row--stretch">
+						@svg('star (2)', 'is-small') @svg('star (2)', 'is-small') @svg('star (2)', 'is-small') @svg('star (2)', 'is-small') @svg('star (1)', 'is-small')
+					</div>
+				</div>
+				<div class="review__text">
+					Cupcake lollipop chocolate. Dessert chupa chups cotton candy brownie dessert. Tootsie roll sesame
+					snaps pie sesame snaps candy canes jelly-o biscuit topping. Soufflé sesame snaps tootsie roll gummies
+					croissant pastry. Biscuit candy biscuit jujubes gingerbread muffin cotton candy cake.
+				</div>
+			</div>
+		</div>
 	</section>
 @endsection

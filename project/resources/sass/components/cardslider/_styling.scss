@@ -111,5 +111,17 @@
 		&:hover {
 			background: $red;
 		}
+
+		&.is-blue {
+			&:hover {
+				background: $blue;
+			}
+		}
+
+		&.is-orange {
+			&:hover {
+				background: $orange;
+			}
+		}
 	}
 }

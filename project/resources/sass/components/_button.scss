@@ -27,9 +27,39 @@
 		}
 	}
 
+	&--blue {
+		border-color: $blue;
+		color: $blue;
+
+		&:hover {
+			background-color: $blue;
+			color: $white;
+		}
+	}
+
+	&--orange {
+		border-color: $orange;
+		color: $orange;
+
+		&:hover {
+			background-color: $orange;
+			color: $white;
+		}
+	}
+
 	&--full {
 		background-color: $red;
 		color: $white;
+
+		&.is-blue {
+			background-color: $blue;
+			border-color: $blue;
+		}
+
+		&.is-orange {
+			background-color: $orange;
+			border-color: $orange;
+		}
 	}
 
 	&--small {

@@ -37,4 +37,14 @@
 		background-color: $red;
 		color: $white;
 	}
+
+	&--blue {
+		padding: $spacing-m 0;
+		background-color: $blue;
+		color: $white;
+
+		.btn--white:hover {
+			color: $blue;
+		}
+	}
 }

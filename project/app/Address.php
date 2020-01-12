@@ -10,7 +10,7 @@ class Address extends Model
 	use SoftDeletes;
 	//
 	protected $fillable = [
-		'street', 'streetnumber', 'box', 'postalcode', 'city',
+		'locationname', 'street', 'streetnumber', 'box', 'postalcode', 'city', 'region', 'country', 'googleframe',
 	];
 
     public function address() {

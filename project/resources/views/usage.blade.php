@@ -10,9 +10,8 @@
 		
 		<div class="row row--stretch">
 			<a href="#guest" class="btn">Voor gebruikers</a>
-			<a href="#organisator" class="btn">Voor organisatoren</a>
-			<a href="#volunteer" class="btn">Voor medewerkers</a>
-			
+			<a href="#organisator" class="btn btn--blue">Voor organisatoren</a>
+			<a href="#volunteer" class="btn btn--orange">Voor medewerkers</a>
 		</div>
 		
 		<div class="faq spacing-top-m" id="guest">
@@ -72,7 +71,7 @@
 			</h2>
 			
 			<div class="faq__item" id="faq-o1">
-				<button class="faq__question" data-target="faq-o1">
+				<button class="faq__question is-admin" data-target="faq-o1">
 					<div class="faq__title">
 						Hoe maak ik een account?
 					</div>
@@ -88,7 +87,7 @@
 			</div>
 			
 			<div class="faq__item" id="faq-o2">
-				<button class="faq__question" data-target="faq-o2">
+				<button class="faq__question is-admin" data-target="faq-o2">
 					<div class="faq__title">
 						Hoe maak ik een evenement aan?
 					</div>
@@ -102,7 +101,7 @@
 			</div>
 			
 			<div class="faq__item" id="faq-o3">
-				<button class="faq__question" data-target="faq-o3">
+				<button class="faq__question is-admin" data-target="faq-o3">
 					<div class="faq__title">
 						Hoe voeg ik extra gegevens toe aan mijn evenement?
 					</div>
@@ -116,7 +115,7 @@
 			</div>
 			
 			<div class="faq__item" id="faq-o4">
-				<button class="faq__question" data-target="faq-o4">
+				<button class="faq__question is-admin" data-target="faq-o4">
 					<div class="faq__title">
 						Hoe scan ik een ticket?
 					</div>
@@ -137,7 +136,7 @@
 			</h2>
 			
 			<div class="faq__item" id="faq-v1">
-				<button class="faq__question" data-target="faq-v1">
+				<button class="faq__question is-volunteer" data-target="faq-v1">
 					<div class="faq__title">
 						Hoe maak ik een account?
 					</div>
@@ -153,7 +152,7 @@
 			</div>
 			
 			<div class="faq__item" id="faq-v2">
-				<button class="faq__question" data-target="faq-v2">
+				<button class="faq__question is-volunteer" data-target="faq-v2">
 					<div class="faq__title">
 						Hoe kan ik mij voor een shift of een taak inschrijven?
 					</div>

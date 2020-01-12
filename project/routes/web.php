@@ -198,6 +198,17 @@ Route::group(['prefix' => 'admin'], function() {
         'as' => 'organisation.admin.postcreate'
     ]);
 
+    //add organisation admin
+    Route::get('organisation/{organisation_id}/newaddress', [
+        'uses' => 'AddressController@createAddressOrganisation',
+        'as' => 'organisation.address.create'
+    ]);
+
+    Route::post('organisation/{organisation_id}/newaddress/post', [
+        'uses' => 'AddressController@postCreateAddressOrganisation',
+        'as' => 'organisation.address.postcreate'
+    ]);
+
     //add event settings
     Route::get('event/settings/{event_id}', [
         'uses' => 'EventController@EditSettings',

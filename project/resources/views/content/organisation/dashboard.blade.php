@@ -12,6 +12,7 @@
 		.btn:hover {
 			background-color: {{ $organisation['bkgcolor'] }};
 			color: {{ $organisation['textcolor'] }};
+			border-color: {{ $organisation['bkgcolor'] }};
 		}
 		
 		.btn.is-icon:hover {
@@ -34,9 +35,9 @@
 		</div>
 		
 		<div class="spacing-top-m row row--stretch">
-			<a href="#events" class="btn">Mijn evenementen</a>
-			<a href="#volunteers" class="btn">Mijn medewerkers</a>
-			<a href="{{ route('organisation.detail', ['organisation_id'=> $organisation['id']]) }}" class="btn">Mijn detail-pagina</a>
+			<a href="#events" class="btn btn--blue">Mijn evenementen</a>
+			<a href="#volunteers" class="btn btn--blue">Mijn medewerkers</a>
+			<a href="{{ route('organisation.detail', ['organisation_id'=> $organisation['id']]) }}" class="btn btn--blue">Mijn detail-pagina</a>
 		</div>
 	</section>
 	<section class="page-alignment spacing-top-m" id="events">
@@ -44,7 +45,7 @@
 			<h2>
 				Mijn evenementen
 			</h2>
-			<a href="{{ route('event.create', ['organisation_id' => $organisation['id']]) }}" class="btn btn--small">
+			<a href="{{ route('event.create', ['organisation_id' => $organisation['id']]) }}" class="btn btn--small  btn--blue">
 				Event aanmaken
 			</a>
 		</div>
@@ -123,7 +124,7 @@
 			<h2>
 				Mijn medewerkers
 			</h2>
-			<a href="{{ route('volunteer.create', ['organisation_id' => $organisation['id']]) }}" class="btn btn--small">
+			<a href="{{ route('volunteer.create', ['organisation_id' => $organisation['id']]) }}" class="btn btn--small  btn--blue">
 				Medewerker toevoegen
 			</a>
 		</div>
