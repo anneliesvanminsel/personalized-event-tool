@@ -1,13 +1,18 @@
 .slide {
 	&-item {
-		min-width: 100%;
+	  width: 100%;
+	  min-width: 100%;
+	  min-height: 100%;
 	}
 
 	&__content {
-		.ctn-image {
-			width: 100%;
-			flex-shrink: 1;
-		}
+	  min-height: 100%;
+
+	  .ctn-image {
+		min-height: calc(100% + 80px);
+		width: 100%;
+		flex-shrink: 1;
+	  }
 	}
 
 	&__text {

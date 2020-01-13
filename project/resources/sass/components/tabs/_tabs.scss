@@ -1,0 +1,42 @@
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid $grey;
+  background-color: $white;
+
+  &__heading {
+    display: flex;
+  }
+
+  &__button {
+    @include font-heading;
+    flex-grow: 1;
+    font-size: 18px;
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: $grey;
+    }
+
+    &.active {
+      background-color: $red;
+    }
+  }
+
+  &__content {
+    display: none;
+    padding: $spacing-s $spacing-s;
+    border-top: none;
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+  }
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Jenssegers\Agent\Agent as Agent;
 
 class LoginController extends Controller
 {
@@ -37,12 +38,27 @@ class LoginController extends Controller
 
 			if ($user['role'] === 'volunteer') {
                 //return back();
-				return redirect()->route('user.account', ['id' => $user['id']] );
+                $Agent = new Agent();
+                // agent detection influences the view storage path
+                if ($Agent->isMobile()) {
+                    // you're a mobile device
+                    return redirect()->route('mobile.account', ['id' => $user['id']] );
+                } else {
+                    // you're a desktop device, or something similar
+                    return redirect()->route('user.account', ['id' => $user['id']] );
+                }
 			}
 
 			if ($user['role'] === 'guest') {
-                //return back();
-				return redirect()->route('user.account', ['id' => $user['id']] );
+                $Agent = new Agent();
+                // agent detection influences the view storage path
+                if ($Agent->isMobile()) {
+                    // you're a mobile device
+                    return redirect()->route('mobile.account', ['id' => $user['id']] );
+                } else {
+                    // you're a desktop device, or something similar
+                    return redirect()->route('user.account', ['id' => $user['id']] );
+                }
 			}
 
 			return redirect()->route('login');

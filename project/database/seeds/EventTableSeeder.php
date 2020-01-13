@@ -18,9 +18,9 @@ class EventTableSeeder extends Seeder
 		$organisation = new Organisation(
 			[
 				"name" => "The Ginger Studio",
-				"description" => "The Ginger Studio is een design studio dat regelmatig een designmeeting organiseert.",
+				"description" => "The Ginger Studio is een design studio dat regelmatig een design evenementen organiseert.",
 				"subscription_id" => 1,
-				"logo" => 'plants.jpeg',
+				"logo" => 'company.jpg',
 				"address_id" => 1,
 			]
 		);
@@ -28,13 +28,13 @@ class EventTableSeeder extends Seeder
 
 		$event = new Event(
 			[
-				"title" => "Middelton Christmas Fair",
-				"description" => "Iedereen welkom op ons eerste festival. Verspreid over onze campussen bevinden zich podia met artiesten uit onze regio.",
-				"type" => "festival",
+				"title" => "Workshop - Design Thinking",
+				"description" => "Workshop Design Thinking met beperkte plaatsen! Schrijf je snel in!",
+				"type" => "workshop",
 				"status" => 1,
 				"bkgcolor" => "#581845",
 				"textcolor" => "white",
-				"logo" => "city.jpeg",
+				"logo" => "workshop-design.jpg",
 				"starttime" =>  Carbon::parse('2020-10-21'),
 			]
 		);
@@ -44,13 +44,13 @@ class EventTableSeeder extends Seeder
 
 		$event = new Event(
 			[
-				"title" => "Aldovias Halloween",
-				"description" => "Iedereen welkom op ons eerste festival. Verspreid over onze campussen bevinden zich podia met artiesten uit onze regio.",
-				"type" => "festival",
+				"title" => "Kennismakingsbrunch",
+				"description" => "Wil je graag wat meer weten over het nieuwe bedrijf 'The Ginger Studio'? Kom dan zeker naar onze brunch!",
+				"type" => "not given",
 				"status" => 0,
 				"bkgcolor" => "#FF5733",
 				"textcolor" => "white",
-				"logo" => "plants.jpeg",
+				"logo" => "brunch.jpeg",
 				"starttime" =>  Carbon::parse('2020-01-21'),
 			]
 		);
@@ -60,13 +60,13 @@ class EventTableSeeder extends Seeder
 
 		$event = new Event(
 			[
-				"title" => "Ehb rock",
-				"description" => "Iedereen welkom op ons eerste festival. Verspreid over onze campussen bevinden zich podia met artiesten uit onze regio.",
-				"type" => "festival",
+				"title" => "How to User Design ?!",
+				"description" => "Leer nu wat een User Design juist is en hoe je dit kunt toepassen in jouw eigen bedrijf. Beperkte tickets!",
+				"type" => "seminarie",
 				"status" => 1,
 				"bkgcolor" => "#001C79",
 				"textcolor" => "white",
-				"logo" => "children.jpeg",
+				"logo" => "design.jpeg",
 				"starttime" =>  Carbon::parse('2019-12-17'),
 			]
 		);
@@ -76,13 +76,13 @@ class EventTableSeeder extends Seeder
 
 		$event4 = new Event(
 			[
-				"title" => "Rock Werchter",
-				"description" => "Iedereen welkom op ons eerste festival. Verspreid over onze campussen bevinden zich podia met artiesten uit onze regio.",
-				"type" => "festival",
+				"title" => "Wireframes - Wat? Hoe? Hunk?",
+				"description" => "Problemen met het maken van wireframes? Schrijf je dan snel in voor deze cursus.",
+				"type" => "workshop",
 				"status" => 1,
 				"bkgcolor" => "#91FC9E",
 				"textcolor" => "black",
-				"logo" => "rockwerchter.jpg",
+				"logo" => "wireframes.jpeg",
 				"starttime" =>  Carbon::parse('2020-2-04'),
 			]
 		);

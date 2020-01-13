@@ -32,11 +32,13 @@
 		
 		<section class="page-alignment spacing-top-m">
 			<h1 class="center">
-				{{ $event['title'] }} - berichten
+				<a href="{{ route('event.special', ['event' => $event['id']] ) }}">
+					{{ $event['title'] }}
+				</a>
 			</h1>
 		</section>
 		
-		<section class="page-alignment">
+		<section class="page-alignment spacing-top-m">
 			@foreach($event->messages as $message)
 				<div class="message {{ $message->type }}">
 					@if($message->image)
@@ -44,11 +46,13 @@
 							<img src="{{ asset('images/' . $message['image'] ) }}" alt="{{ $messsage['title'] }}" loading="lazy">
 						</div>
 					@endif
-					<div>
-						<h3>
-							{{ $message->title }}
-						</h3>
-						<div>
+					<div class="message__content">
+						@if($message->title)
+							<h3 class="message__title">
+								{{ $message->title }}
+							</h3>
+						@endif
+						<div class="message__text">
 							{{ $message->message }}
 						</div>
 					</div>

@@ -34,7 +34,7 @@
 								<div class="ctn--image item__image">
 									<img src="{{ asset('images/' . $event['logo'] ) }}" alt="{{ $event['title'] }}" loading="lazy">
 								</div>
-								<div class="item__title item__text">
+								<div class="item__title item__text item__content">
 									{{ $event->title }}
 								</div>
 							</a>

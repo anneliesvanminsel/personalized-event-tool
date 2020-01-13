@@ -55,11 +55,15 @@
 			<h2>
 				Onze evenementen
 			</h2>
-			<div class="h-grid">
+				@desktop
+					<div class="h-grid">
+				@elsedesktop
+					<div class="v-grid">
+				@enddesktop
 				@foreach($organisation->events()->where('status', '=', 1)->orderBy('starttime', 'ASC')->get() as $event)
 					<div class="h-grid__item item row row--stretch">
 						<div class="item__date" style="background-color: {{ $organisation['bkgcolor'] }}; color: {{ $organisation['textcolor'] }}">
-							17 dec
+							{{  date('d M', strtotime( $event['starttime'])) }}
 						</div>
 
 						@if(File::exists(public_path() . "/images/" . $event['logo']))
@@ -95,9 +99,12 @@
 							<a class="btn" href={{route('event.detail', ['event_id' => $event->id])}}>
 								Bekijk details
 							</a>
-							<a class="item__remind" href="#" style="color: {{ $organisation['bkgcolor'] }}">
-								Herinner mij
-							</a>
+							@desktop
+								<a class="item__remind" href="#" style="color: {{ $organisation['bkgcolor'] }}">
+									Herinner mij
+								</a>
+							@enddesktop
+							
 						</div>
 					</div>
 				@endforeach
@@ -151,11 +158,11 @@
 		</h2>
 		<div class="review">
 			<div class="review__item is-blue">
-				<div class="review__title row row--stretch">
+				<div class="review__title row row--stretch is-mobile">
 					<div class="is-grow">
 						Titel
 					</div>
-					<div class="row row--stretch">
+					<div class="row row--stretch is-mobile">
 						@svg('star (2)', 'is-small') @svg('star (2)', 'is-small') @svg('star (2)', 'is-small') @svg('star (1)', 'is-small') @svg('star (1)', 'is-small')
 					</div>
 				</div>
@@ -167,11 +174,11 @@
 			</div>
 			
 			<div class="review__item is-blue">
-				<div class="review__title row row--stretch">
+				<div class="review__title row row--stretch is-mobile">
 					<div class="is-grow">
 						Titel
 					</div>
-					<div class="row row--stretch">
+					<div class="row row--stretch is-mobile">
 						@svg('star (2)', 'is-small') @svg('star (2)', 'is-small') @svg('star (1)', 'is-small') @svg('star (1)', 'is-small') @svg('star (1)', 'is-small')
 					</div>
 				</div>
@@ -183,11 +190,11 @@
 			</div>
 			
 			<div class="review__item is-blue">
-				<div class="review__title row row--stretch">
+				<div class="review__title row row--stretch is-mobile">
 					<div class="is-grow">
 						Titel
 					</div>
-					<div class="row row--stretch">
+					<div class="row row--stretch is-mobile">
 						@svg('star (2)', 'is-small') @svg('star (2)', 'is-small') @svg('star (2)', 'is-small') @svg('star (2)', 'is-small') @svg('star (1)', 'is-small')
 					</div>
 				</div>
@@ -199,4 +206,14 @@
 			</div>
 		</div>
 	</section>
+	@if($organisation->address()->first())
+		@php
+			$address = $organisation->address()->first();
+		@endphp
+		<section class="spacing-top-l">
+			<div>
+				{!! $address['googleframe'] !!}
+			</div>
+		</section>
+	@endif
 @endsection

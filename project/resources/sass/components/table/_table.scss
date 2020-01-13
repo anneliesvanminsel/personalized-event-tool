@@ -2,14 +2,16 @@
 	margin-top: $spacing-s;
 
 	&__heading {
-		justify-content: space-between;
-
-		padding: $spacing-s 0;
+		padding: $spacing-s;
 
 		@include font-heading;
 		font-size: 20px;
 
 		border-bottom: 1px solid $red;
+
+	  & > * {
+		width: calc(100% / 3);
+	  }
 	}
 
 	&__content {
@@ -17,12 +19,14 @@
 	}
 
 	&__item {
-		justify-content: space-between;
-
-		padding: $spacing-s 0;
+		padding: $spacing-s;
 
 		&:nth-child(odd){
 			background-color: rgba($red, .5);
 		}
+
+	  & > * {
+		width: calc(100% / 3);
+	  }
 	}
 }

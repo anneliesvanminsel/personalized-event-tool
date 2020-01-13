@@ -11,7 +11,7 @@
 			@csrf
 			<div class="">
 				<div class="form__group">
-					<select class="select" id="type" name="type" onchange="this.form.submit()">
+					<select class="select is-large" id="type" name="type" onchange="this.form.submit()">
 						<option value="not given">-- selecteer type --</option>
 						<option value="conference">conferentie</option>
 						<option value="workshop">workshop</option>
@@ -50,7 +50,7 @@
 							</div>
 						@endif
 						
-						<div class="item__title">
+						<div class="item__content item__title">
 							{{ $event->title }}
 						</div>
 					</a>

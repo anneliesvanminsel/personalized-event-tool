@@ -67,6 +67,7 @@
                     @svg('search')
                 </a>
             </li>
+            
             <li class="mobile-nav__item">
                 <a class="mobile-nav__link {{ (strpos(Route::currentRouteName(), 'mobile.events') === 0) ? 'active' : '' }} {{ (strpos(Route::currentRouteName(), 'event.special') === 0) ? 'active' : '' }}" href="{{ route('mobile.events') }}">
                     @svg('like')
@@ -77,6 +78,7 @@
                     @svg('ticket')
                 </a>
             </li>
+            
             @guest
                 <li class="mobile-nav__item">
                     <a class="mobile-nav__link" href="{{ route('login') }}">
@@ -84,11 +86,19 @@
                     </a>
                 </li>
             @else
-                <li class="mobile-nav__item">
-                    <a class="mobile-nav__link {{ (strpos(Route::currentRouteName(), 'mobile.account') === 0) ? 'active' : '' }}" href="{{ route('mobile.account', ['id' => Auth::user()->id]) }}">
-                        @svg('account')
-                    </a>
-                </li>
+                @if(Auth::user()->role == "organisator")
+                    <li class="mobile-nav__item">
+                        <a class="mobile-nav__link {{ (strpos(Route::currentRouteName(), 'org.dashboard') === 0) ? 'active' : '' }}" href="{{ route('org.dashboard', ['user_id' => Auth::user()->id]) }}">
+                            @svg('account')
+                        </a>
+                    </li>
+                @else
+                    <li class="mobile-nav__item">
+                        <a class="mobile-nav__link {{ (strpos(Route::currentRouteName(), 'mobile.account') === 0) ? 'active' : '' }}" href="{{ route('mobile.account', ['id' => Auth::user()->id]) }}">
+                            @svg('account')
+                        </a>
+                    </li>
+                @endif
             @endguest
         </ul>
     </nav>

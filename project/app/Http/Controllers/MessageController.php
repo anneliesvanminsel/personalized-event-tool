@@ -46,4 +46,12 @@ class MessageController extends Controller
 
         return redirect()->route('event.edit.settings', ['id' => $event['id']]);
     }
+
+    public function deleteMessage($event_id, $message_id){
+        $event = Event::find($event_id);
+        $message = Message::find($message_id);
+        $message->delete();
+
+        return redirect()->route('event.edit.settings', ['id' => $event['id']]);
+    }
 }

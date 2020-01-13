@@ -2,8 +2,6 @@ import React, { Component } from "react";
 
 const Slide = (props) => {
     let styles = {
-        width: "100%",
-        height: "100%",
         opacity: 0,
         transition: 'all ease-out 0.45s',
     };
@@ -13,8 +11,6 @@ const Slide = (props) => {
 
     if (props.index === props.currentIndex + 1) {
         styles = {
-            width: "100%",
-            height: "100%",
             opacity: 1,
         }
     }

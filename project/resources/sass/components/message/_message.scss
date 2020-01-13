@@ -1,0 +1,33 @@
+.message {
+  background-color: $white;
+  color: $black;
+  padding: $spacing-m;
+  margin-bottom: $spacing-m;
+
+  &__title {
+	font-size: 20px;
+	margin-bottom: 15px;
+  }
+
+  &__text {
+
+  }
+
+  &.default {
+	border: 5px solid $grey;
+  }
+
+  &.important {
+	border: 5px solid $orange;
+
+  }
+
+  &.information {
+	border: 5px solid $blue;
+
+  }
+
+  &.warning {
+	border: 5px solid $red;
+  }
+}

@@ -20,8 +20,8 @@
 					<h1>
 						{{ $event['title'] }}
 					</h1>
-					@if(Auth::user() && Auth::user()->role === 'organisator')
-						<div class="item__actions row row--stretch">
+					@if(Auth::user() && Auth::user()->role === 'organisator' && $event->organisations->contains( Auth::user()->organisation_id ))
+						<div class="item__actions row row--stretch is-mobile">
 							<a title="bewerken" class="is-icon" href={{route('event.update', ['event_id' => $event->id])}}>
 								@svg('edit', 'is-small is-white')
 							</a>
@@ -47,7 +47,7 @@
 						color: {{ $event['bkgcolor'] }};
 					}
 					
-					svg {
+					.btn svg {
 						fill: {{ $event['textcolor'] }};
 					}
 					
@@ -59,32 +59,39 @@
 					.btn.is-icon:hover svg {
 						fill: {{ $event['textcolor'] }};
 					}
+					
+					.tab__button.active {
+						background-color: {{ $event['bkgcolor'] }};
+						color: {{ $event['textcolor'] }};
+					}
 				</style>
 				
 				<div>
-					<div class="row row--center">
+					<div class="row row--center is-mobile">
 						@if($event->tickets()->exists())
 							<a class="btn" href="#tickets">
 								Bestel tickets
 							</a>
 						@endif
-						<form
-								class="form"
-								method="POST"
-								action="{{ route('event.like', ['event-id' => $event['id'] ]) }}"
-						>
-							{{ csrf_field() }}
-							
-							@if(Auth::user() && $event->users->contains(Auth::user()->id))
-								<button title="unlike" class="btn is-icon" type="submit">
-									@svg('heart', 'is-small')
-								</button>
-							@else
-								<button title="like" class="btn is-icon" type="submit">
-									@svg('like', 'is-small')
-								</button>
-							@endif
-						</form>
+						@if(Auth::user()->role == "volunteer" || Auth::user()->role == "guest" )
+							<form
+									class="form"
+									method="POST"
+									action="{{ route('event.like', ['event-id' => $event['id'] ]) }}"
+							>
+								{{ csrf_field() }}
+								
+								@if(Auth::user() && $event->users->contains(Auth::user()->id))
+									<button title="unlike" class="btn is-icon" type="submit">
+										@svg('heart', 'is-small')
+									</button>
+								@else
+									<button title="like" class="btn is-icon" type="submit">
+										@svg('like', 'is-small')
+									</button>
+								@endif
+							</form>
+						@endif
 					</div>
 				</div>
 				
@@ -95,7 +102,6 @@
 			<div class="hero__post">
 				Georganiseerd door:
 				@foreach( $event->organisations()->get() as $org)
-
 					<a href="{{ route('organisation.detail', ['id' => $org['id']]) }}" class="link">
 						{{ $org['name'] }}
 					</a>
@@ -110,65 +116,71 @@
 				Planning
 			</h1>
 
-			<div class="schedule__content">
-				@foreach($event->sessions()->get() as $session)
-					<div class="schedule__heading">
-						<div>
-							{{  date('d/m', strtotime( $session['date'])) }}
-						</div>
-					</div>
-					@if($session->schedules()->exists())
-						<div class="table">
-							<div class="table__heading row row--stretch" style="border-color: {{ $event['bkgcolor'] }}">
-								<div>
-									Uur
-								</div>
-								<div>
-									Wat
-								</div>
-								<div>
-									Waar
-								</div>
-							</div>
-							<div class="table__content">
-								<style>
-									.table__item:nth-child(odd) {
-										background-color: {{ $event['textcolor'] }}55; /* laatste twee cijfers zijn opacity*/
-									}
-								</style>
-								
-								@foreach($session->schedules()->get() as $sched)
-									<div class="table__item row row--stretch">
-										<div class="">
-											{{ \Carbon\Carbon::parse($sched['starttime'])->format('H:i') }}
-											@if($sched['endtime'])
-												- {{ \Carbon\Carbon::parse($sched['endtime'])->format('H:i')}}
-											@endif
-										</div>
-										<div class="">
-											<div class="">
-												{{ $sched['title'] }}
-											</div>
-											<p class="">
-												{{ $sched['description'] }}
-											</p>
-										</div>
-										<div class="">
-											{{ $sched['location'] }}
-										</div>
+			<div class="tab spacing-top-s">
+				<div class="tab__heading">
+					@foreach($event->sessions()->get() as $session)
+						<button class="tab__button tab__links {{$loop->iteration === 1 ? 'active' : ''}}" onclick="openTabs(event, {{ $session['id'] }})">
+							{{ date('d/m', strtotime( $session['date'])) }}
+						</button>
+					@endforeach
+				</div>
+				
+				<div id="tab__container">
+					@foreach($event->sessions()->get() as $session)
+						<div class="tab__content" id="{{ $session['id'] }}" {{$loop->iteration === 1 ? 'style=display:'.'block' : ''}}>
+							@if($session->schedules()->exists())
+								<div class="table__heading row row--stretch is-mobile" style="border-color: {{ $event['bkgcolor'] }}">
+									<div>
+										Uur
 									</div>
-								@endforeach
-							</div>
+									<div>
+										Wat
+									</div>
+									<div>
+										Waar
+									</div>
+								</div>
+								<div class="table__content">
+									<style>
+										.table__item:nth-child(odd) {
+											background-color: {{ $event['bkgcolor'] }}55; /* laatste twee cijfers zijn opacity*/
+										}
+									</style>
+									
+									@foreach($session->schedules()->get() as $sched)
+										<div class="table__item row row--stretch is-mobile">
+											<div class="">
+												{{ \Carbon\Carbon::parse($sched['starttime'])->format('H:i') }}
+												@if($sched['endtime'])
+													- {{ \Carbon\Carbon::parse($sched['endtime'])->format('H:i')}}
+												@endif
+											</div>
+											<div class="">
+												<div class="">
+													{{ $sched['title'] }}
+												</div>
+												<p class="">
+													{{ $sched['description'] }}
+												</p>
+											</div>
+											<div class="">
+												{{ $sched['location'] }}
+											</div>
+										</div>
+									@endforeach
+								</div>
+							@else
+								<p>
+									Er is nog geen planning toegevoegd.
+								</p>
+							@endif
 						</div>
-					@else
-						<p>
-							Er is nog geen planning toegevoegd.
-						</p>
-					@endif
-				@endforeach
+					@endforeach
+				</div>
 			</div>
 		</section>
 	@endif
+	
 	<section class="photowall">
 		<ul class="photolist">
 			<li class="photolist__item">
@@ -265,4 +277,15 @@
 			</div>
 		</section>
 	@endif
+	@if($event->address()->first())
+		@php
+			$address = $event->address()->first();
+		@endphp
+		<section class="spacing-top-l">
+			<div>
+				{!! $address['googleframe'] !!}
+			</div>
+		</section>
+	@endif
+	<script src="{{ asset('js/openTabs.js') }}"></script>
 @endsection

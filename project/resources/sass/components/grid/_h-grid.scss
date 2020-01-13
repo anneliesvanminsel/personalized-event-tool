@@ -11,15 +11,19 @@
 		overflow: hidden;
 
 		> * {
-			margin-right: $spacing-s;
+			margin-right: $spacing-xs;
 			flex-shrink: 0;
+
+		  @media screen and (min-width: $breakpoint-desktop-small) {
+			margin-right: $spacing-s;
+		  }
 		}
 		
 		&__date {
 			position: relative;
 
 			@include font-heading;
-			font-size: 25px;
+			font-size: 15px;
 			text-align: center;
 
 			background-color: $red;
@@ -28,6 +32,14 @@
 			height: 100%;
 			width: 10vh;
 			padding: $spacing-xs;
+
+		  @media screen and (min-width: $breakpoint-tablet-small) {
+
+		  }
+
+		  @media screen and (min-width: $breakpoint-desktop-small) {
+			font-size: 25px;
+		  }
 
 			.is-check {
 				bottom: -10px;
@@ -43,6 +55,8 @@
 
 		&__content {
 			flex-grow: 1;
+		  width: 225px;
+		  max-width: 210px;
 		}
 
 		&__column {
@@ -53,24 +67,35 @@
 		&__title {
 			@include font-heading;
 			font-size: 20px;
+		  white-space: nowrap;
+		  overflow: hidden;
+		  text-overflow: ellipsis;
 		}
 
 		&__image {
 			position: relative;
 			overflow: hidden;
+			width: 150px;
+
+		  @media screen and (min-width: $breakpoint-desktop-small) {
 			width: 250px;
+		  }
 
 			img {
 				min-height: 100%;
 				min-width: 100%;
-				position: absolute;
-				//top: -75%;
 			}
 		}
 
 		&__actions {
-			text-align: center;
-			margin-right: 0;
+		  text-align: center;
+		  margin-right: 0;
+
+		  flex-grow: 1;
+
+		  .btn {
+			margin: 0;
+		  }
 		}
 
 		&__remind {
@@ -89,7 +114,11 @@
 				align-items: center;
 
 				& > * {
+					margin: 0 10px;
+
+				  @media screen and (min-width: $breakpoint-desktop-small) {
 					margin: 0 20px;
+				  }
 				}
 			}
 		}

@@ -27,7 +27,7 @@
 									</div>
 								@endif
 								
-								<div class="item__title">
+								<div class="item__title item__content">
 									{{ $event->title }}
 								</div>
 							</a>

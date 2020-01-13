@@ -49,7 +49,11 @@
 				Event aanmaken
 			</a>
 		</div>
-		<div class="h-grid">
+		@desktop
+			<div class="h-grid">
+		@elsedesktop
+			<div class="v-grid">
+		@enddesktop
 			@php
 				$events = $organisation->events()->orderBy('starttime', 'ASC')->paginate(10);
 			@endphp
@@ -77,7 +81,7 @@
 						</div>
 					</div>
 
-					<div class="item__actions row row--stretch">
+					<div class="item__actions row row--stretch is-mobile">
 						<form
 							class="form"
 							onsubmit="return confirm('Ben je zeker dat je {{ $event['title'] }} voor alle organisatoren wilt {{ $event['status'] === 0 ? 'zichtbaar maken' : 'onzichtbaar maken' }}?');"

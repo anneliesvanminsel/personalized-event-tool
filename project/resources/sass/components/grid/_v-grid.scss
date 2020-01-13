@@ -6,6 +6,9 @@
 	position: relative;
 	width: calc(50% - 10px);
 	margin: 15px 5px;
+	@include shadow();
+	border-radius: 5px;
+	overflow: hidden;
 
 	&__date {
 	  position: absolute;
@@ -36,10 +39,25 @@
 	  }
 	}
 
+	&__content {
+	  width: 100%;
+	  text-align: left;
+	  padding: 5px 15px;
+	}
+
 	&__title {
 	  @include font-heading;
 	  font-size: 18px;
 	  margin-top: 10px;
+	  white-space: nowrap;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
+	}
+
+	&__text {
+	  white-space: nowrap;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
 	}
 
 	&__image {
@@ -51,6 +69,13 @@
 		min-height: 100%;
 		min-width: 100%;
 	  }
+	}
+
+	&__actions {
+	  text-align: center;
+	  margin-right: 0;
+	  width: 100%;
+	  padding: 5px 15px;
 	}
   }
 }

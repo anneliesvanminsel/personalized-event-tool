@@ -165,8 +165,6 @@
 				</p>
 			</div>
 		</div>
-		
-		
 	</section>
 	<script src="{{ asset('js/faq.js') }}" > </script>
 @endsection

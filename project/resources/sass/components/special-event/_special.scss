@@ -4,6 +4,7 @@
   margin: 0;
 
   &__image {
+    @include shadow();
     overflow: hidden;
     width: 200px;
     height: 150px;

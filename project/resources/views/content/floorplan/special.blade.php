@@ -33,25 +33,48 @@
 			.btn:hover svg {
 				fill: {{ $event['bkgcolor'] }};
 			}
+			
+			.tab {
+				color: #000;
+			}
+			
+			.tab__button.active {
+				background-color:{{ $event['bkgcolor'] }};
+				color: {{ $event['textcolor'] }};
+			}
+			
+			.table__item:nth-child(odd) {
+				background-color: {{ $event['bkgcolor'] }}55; /* laatste twee cijfers zijn opacity*/
+			}
 		</style>
 		
 		<section class="page-alignment spacing-top-m">
 			<h1 class="center">
-				{{ $event['title'] }}
+				<a href="{{ route('event.special', ['event' => $event['id']] ) }}">
+					{{ $event['title'] }}
+				</a>
 			</h1>
 		</section>
 		
 		<section class="special__content row row--stretch">
-			@foreach($floorplans as $floorplan)
-				<div class="floorplan">
-					<h3>
-						{{ $floorplan->name }}
-					</h3>
-					<div class="floorplan__image ctn--image">
-						<img src="{{ asset('images/' . $floorplan['image'] ) }}" alt="{{ $floorplan['name'] }}" loading="lazy">
-					</div>
+			<div class="tab spacing-top-s">
+				<div class="tab__heading">
+					@foreach($event->floorplans()->get() as $floorplan)
+						<button class="tab__button tab__links {{$loop->iteration === 1 ? 'active' : ''}}" onclick="openTabs(event, {{ $floorplan['id'] }})">
+							{{ $floorplan['name'] }}
+						</button>
+					@endforeach
 				</div>
-			@endforeach
+				
+				<div id="tab__container">
+					@foreach($event->floorplans()->get() as $floorplan)
+						<div class="tab__content ctn--image" id="{{ $floorplan['id'] }}" {{$loop->iteration === 1 ? 'style=display:'.'block' : ''}}>
+							<img src="{{ asset('images/' . $floorplan['image'] ) }}" alt="">
+						</div>
+					@endforeach
+				</div>
+			</div>
 		</section>
 	</div>
+	<script src="{{ asset('js/openTabs.js') }}"></script>
 @endsection

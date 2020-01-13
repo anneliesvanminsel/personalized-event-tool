@@ -80,9 +80,6 @@
                                 <a class="btn" href={{route('event.detail', ['event_id' => $event->id])}}>
                                     Bekijk details
                                 </a>
-                                <a class="item__remind" href="#">
-                                    Herinner mij
-                                </a>
                             </div>
                         </div>
                     @endforeach
@@ -119,7 +116,7 @@
 				        </div>
 			        @endif
 			
-			        <div class="item__title">
+			        <div class="item__content item__title">
 				        {{ $event->title }}
 			        </div>
 		        </a>

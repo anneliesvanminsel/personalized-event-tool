@@ -7,10 +7,6 @@
 	@csrf
 	
 	<h1>Voeg een bericht toe</h1>
-	$table->string('title')->nullable();
-	$table->text('message');
-	$table->date('type');
-	$table->string('image')->nullable();
 	
 	<div class="form__group">
 		<input
@@ -70,7 +66,7 @@
 	</div>
 	
 	<div class="form__group">
-		<select class="select" id="type" name="type">
+		<select class="select is-large" id="type" name="type">
 			<option value="default">-- selecteer berichtstype --</option>
 			<option value="default">standaard / gewoon</option>
 			<option value="important">belangrijk</option>

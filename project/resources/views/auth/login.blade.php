@@ -81,7 +81,7 @@
 								>
 
 								<label class="" for="remember">
-									{{ __('Remember Me') }}
+									Herinner mij
 								</label>
 							</div>
 						</div>

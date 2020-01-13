@@ -68971,8 +68971,6 @@ __webpack_require__.r(__webpack_exports__);
 
 var Slide = function Slide(props) {
   var styles = {
-    width: "100%",
-    height: "100%",
     opacity: 0,
     transition: 'all ease-out 0.45s'
   };
@@ -68981,8 +68979,6 @@ var Slide = function Slide(props) {
 
   if (props.index === props.currentIndex + 1) {
     styles = {
-      width: "100%",
-      height: "100%",
       opacity: 1
     };
   }
