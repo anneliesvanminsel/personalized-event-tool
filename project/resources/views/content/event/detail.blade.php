@@ -3,6 +3,35 @@
 	evento - {{ $event['title'] }}
 @endsection
 @section('content')
+	<style>
+		.btn {
+			border-color: {{ $event['textcolor'] }};
+			color: {{ $event['textcolor'] }}
+					}
+		
+		.btn:hover {
+			background-color: {{ $event['textcolor'] }};
+			color: {{ $event['bkgcolor'] }};
+		}
+		
+		.btn svg, .is-icon svg {
+			fill: {{ $event['textcolor'] }};
+		}
+		
+		.btn.is-icon:hover  {
+			background-color: transparent;
+			color: transparent;
+		}
+		
+		.btn.is-icon:hover svg, .is-icon:hover svg {
+			fill: {{ $event['textcolor'] }};
+		}
+		
+		.tab__button.active {
+			background-color: {{ $event['bkgcolor'] }};
+			color: {{ $event['textcolor'] }};
+		}
+	</style>
 	<section class="hero" style="background-color: {{ $event['bkgcolor'] }}; color: {{ $event['textcolor'] }}">
 		<div class="hero__content row row--stretch">
 			@if(File::exists(public_path() . "/images/" . $event['logo']))
@@ -16,17 +45,17 @@
 			@endif
 
 			<div class="hero__text">
-				<div class="row is-title">
+				<div class="row row--center is-title is-mobile">
 					<h1>
 						{{ $event['title'] }}
 					</h1>
 					@if(Auth::user() && Auth::user()->role === 'organisator' && $event->organisations->contains( Auth::user()->organisation_id ))
 						<div class="item__actions row row--stretch is-mobile">
 							<a title="bewerken" class="is-icon" href={{route('event.update', ['event_id' => $event->id])}}>
-								@svg('edit', 'is-small is-white')
+								@svg('edit', 'is-small')
 							</a>
-							<a title="edit event settings" class="btn is-icon" href={{route('event.edit.settings', ['event_id' => $event->id])}}>
-								@svg('calendar (2)', 'is-small is-white')
+							<a title="edit event settings" class="is-icon" href={{route('event.edit.settings', ['event_id' => $event->id])}}>
+								@svg('calendar (2)', 'is-small')
 							</a>
 						</div>
 					@endif
@@ -36,62 +65,32 @@
 					{{ $event['description'] }}
 				</p>
 
-				<style>
-					.btn {
-						border-color: {{ $event['textcolor'] }};
-						color: {{ $event['textcolor'] }}
-					}
-
-					.btn:hover {
-						background-color: {{ $event['textcolor'] }};
-						color: {{ $event['bkgcolor'] }};
-					}
-					
-					.btn svg {
-						fill: {{ $event['textcolor'] }};
-					}
-					
-					.btn.is-icon:hover {
-						background-color: transparent;
-						color: transparent;
-					}
-					
-					.btn.is-icon:hover svg {
-						fill: {{ $event['textcolor'] }};
-					}
-					
-					.tab__button.active {
-						background-color: {{ $event['bkgcolor'] }};
-						color: {{ $event['textcolor'] }};
-					}
-				</style>
+				
 				
 				<div>
-					<div class="row row--center is-mobile">
+					<div class="row row--center is-mobile spacing-top-s" style="justify-content: center;">
 						@if($event->tickets()->exists())
 							<a class="btn" href="#tickets">
 								Bestel tickets
 							</a>
 						@endif
-						@if(Auth::user()->role == "volunteer" || Auth::user()->role == "guest" )
-							<form
-									class="form"
-									method="POST"
-									action="{{ route('event.like', ['event-id' => $event['id'] ]) }}"
-							>
-								{{ csrf_field() }}
-								
-								@if(Auth::user() && $event->users->contains(Auth::user()->id))
-									<button title="unlike" class="btn is-icon" type="submit">
-										@svg('heart', 'is-small')
-									</button>
-								@else
-									<button title="like" class="btn is-icon" type="submit">
-										@svg('like', 'is-small')
-									</button>
-								@endif
-							</form>
-						@endif
+						<form
+								class="form"
+								method="POST"
+								action="{{ route('event.like', ['event-id' => $event['id'] ]) }}"
+						>
+							{{ csrf_field() }}
+							
+							@if(Auth::user() && $event->users->contains(Auth::user()->id))
+								<button title="unlike" class="btn is-icon" type="submit">
+									@svg('heart', 'is-small')
+								</button>
+							@else
+								<button title="like" class="btn is-icon" type="submit">
+									@svg('like', 'is-small')
+								</button>
+							@endif
+						</form>
 					</div>
 				</div>
 				

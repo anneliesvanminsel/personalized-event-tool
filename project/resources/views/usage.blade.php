@@ -29,8 +29,11 @@
 					</div>
 				</button>
 				<p class="faq__answer">
-					Evento wordt onderhouden door de developer, Annelies Van Minsel. <br>
-					Gebruikers moeten niets extra ondernemen om gebruik te maken van het platform.
+					Een account kan gemaakt worden via
+					<a class="link" href="{{ route('register') }}">
+						deze link.
+					</a> <br>
+					Het is zeer simpel. Vanaf je een account hebt, kan je tickets aankopen, evenementen opslaan en meer.
 				</p>
 			</div>
 			
@@ -96,7 +99,10 @@
 					</div>
 				</button>
 				<p class="faq__answer">
-					Via het dashboard.
+					Via het speciale dashboard voor organisatoren. <br>
+					Je kan een evenement aanmaken, bewerken en verwijderen. <br>
+					Let op!: als je een evenement aanmaakt, is deze niet direct zichtbaar voor al jouw bezoekers. <br>
+					Vergeet zeker niet je evenement zichtbaar te maken als je alles hebt toegevoegd!
 				</p>
 			</div>
 			
@@ -110,7 +116,8 @@
 					</div>
 				</button>
 				<p class="faq__answer">
-					Via de event-settings.
+					Via de evenementinstellingen (<span>@svg('calendar (2)', 'is-small')</span>). Hier kan je een grondplan,
+					elementen aan de planning toevoegen en berichten delen.
 				</p>
 			</div>
 			
@@ -124,7 +131,8 @@
 					</div>
 				</button>
 				<p class="faq__answer">
-					Via eender welke QR-code scanner. (volg de link)
+					Via eender welke QR-code scanner. Deze zal je een link teruggeven,
+					die moet je volgen en de gebruiker zal gecontroleerd worden.
 				</p>
 			</div>
 		</div>
@@ -161,7 +169,7 @@
 					</div>
 				</button>
 				<p class="faq__answer">
-					Via de speciale pagina.
+					Volg de link in jouw account.
 				</p>
 			</div>
 		</div>

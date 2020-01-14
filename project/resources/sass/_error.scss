@@ -1,0 +1,19 @@
+.error {
+  &__content {
+	margin-left: 40px;
+  }
+
+  .ctn--image {
+	width: 400px;
+	height: 400px;
+	overflow: hidden;
+	flex-shrink: 0;
+
+	img {
+	  height: 100%;
+	  width: auto;
+	  position: relative;
+	  right: 50%;
+	}
+  }
+}

@@ -4,9 +4,9 @@
 			evento
 		</div>
 		<div class="row row--stretch">
-			<ul class="list">
+			<ul class="list spacing-top-s">
 				<li class="list__item">
-					bedrijfsnaam
+					<span>evento</span>
 				</li>
 				<li class="list__item">
 					bedrijfstraat 45
@@ -18,11 +18,13 @@
 					+32 456 78 92 34
 				</li>
 				<li class="list__item">
-					bedrijf@mail.be
+					<a href="mailto:evento@anneliesvanminsel.be?Subject=Hello%20again" target="_top">
+						hallo@evento.be
+					</a>
 				</li>
 			</ul>
 
-			<ul class="list">
+			<ul class="list spacing-top-s">
 				<li class="list__item">
 					Organisatoren
 				</li>
@@ -37,23 +39,36 @@
 				</li>
 			</ul>
 
-			<ul class="list">
+			<ul class="list spacing-top-s">
 				<li class="list__item">
 					Bezoekers
 				</li>
 				<li class="list__item">
-					<a class="list__link" href="">Zoek evenementen</a>
+					<a class="list__link {{ (strpos(Route::currentRouteName(), 'index') === 0) ? 'active' : '' }}" href="{{ route('index') }}">
+						Zoek evenementen
+					</a>
 				</li>
 				<li class="list__item">
-					<a class="list__link" href="">Bekijk mijn tickets</a>
+					@guest
+						<a class="list__link" href="{{ route('register') }}">
+							Maak nu een account
+						</a>
+					@else
+						@if(Auth::user()->role === "volunteer" || Auth::user()->role === "guest" )
+							<a class="list__link {{ (strpos(Route::currentRouteName(), 'user.account') === 0) ? 'active' : '' }}" href="{{ route('user.account', ['user_id' => Auth::user()->id]) }}#tickets">
+								Bekijk mijn tickets
+							</a>
+						@endif
+					@endguest
+					
 				</li>
 			</ul>
 		</div>
 		<div class="subscript spacing-top-m">
 			<div class="row row--stretch">
-				<a class="list__link " href="{{route('maintenance')}}">Onderhoudsdocumentatie</a>
+				<a class="list__link {{ (strpos(Route::currentRouteName(), 'maintenance') === 0) ? 'active' : '' }}" href="{{route('maintenance')}}">Onderhoudsdocumentatie</a>
 				|
-				<a class="list__link" href="{{route('usage')}}">Gebruikersdocumentatie</a>
+				<a class="list__link {{ (strpos(Route::currentRouteName(), 'usage') === 0) ? 'active' : '' }}" href="{{route('usage')}}">Gebruikersdocumentatie</a>
 			</div>
 		</div>
 	</footer>

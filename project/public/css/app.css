@@ -559,6 +559,24 @@ span.invalid-feedback {
   margin-top: 20px;
 }
 
+.error__content {
+  margin-left: 40px;
+}
+
+.error .ctn--image {
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.error .ctn--image img {
+  height: 100%;
+  width: auto;
+  position: relative;
+  right: 50%;
+}
+
 .btn {
   width: 100%;
   font-size: 16px;

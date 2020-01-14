@@ -175,13 +175,21 @@ class EventController extends Controller
 	}
 
     public function EditSettings($id) {
-        $event = Event::where('id', $id)->first();
+	    if(Auth::user() && Auth::user()->role === "organisator") {
+            $event = Event::findOrFail($id);
 
-        return view('content.event.settings',['event' => $event]);
+            if($event->organisations->contains( Auth::user()->organisation_id )) {
+                return view('content.event.settings',['event' => $event]);
+            }
+
+            return view('errors.401');
+        }
+
+        return view('errors.401');
     }
 
 	public function deleteEvent($organisation_id, $event_id){
-		$event = Event::find($event_id);
+		$event = Event::findOrFail($event_id);
 		$organisation = Organisation::where('id', $organisation_id)->first();
 		$user = Auth::user();
 
@@ -195,7 +203,7 @@ class EventController extends Controller
 	}
 
 	public function publishEvent($organisation_id, $event_id){
-		$event = Event::find($event_id);
+		$event = Event::findOrFail($event_id);
 		$organisation = Organisation::where('id', $organisation_id)->first();
 		$user = Auth::user();
 
@@ -212,16 +220,20 @@ class EventController extends Controller
 
     public function likeEvent($event_id){
 	    if(Auth::user()) {
-            $event = Event::find($event_id);
-            $user = Auth::user();
+	        if(Auth::user()->role === 'volunteer' || Auth::user()->role === 'guest') {
+                $event = Event::findOrFail($event_id);
+                $user = Auth::user();
 
-            if($event->users->contains($user['id'])) {
-                $event->users()->where('user_id', $user['id'])->detach();
+                if($event->users->contains($user['id'])) {
+                    $event->users()->where('user_id', $user['id'])->detach();
+                } else {
+                    $event->users()->sync($user);
+                }
+
+                return redirect()->back();
             } else {
-                $event->users()->sync($user);
+                return redirect()->back();
             }
-
-            return redirect()->back();
         } else {
             return view('auth.login');
         }
