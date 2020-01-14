@@ -38,15 +38,16 @@ textarea:placeholder-shown + label {
 * By default, the placeholder should be transparent. Also, it should
 * inherit the transition.
 */
-::-webkit-input-placeholder {
+::placeholder {
 	opacity: 0;
 	transition: inherit;
 }
 /**
 * Show the placeholder when the input is focused.
 */
-input:focus::-webkit-input-placeholder,
-textarea:focus::-webkit-input-placeholder {
+input:focus::placeholder,
+textarea:focus::placeholder {
+  color: $grey;
 	opacity: 1;
 }
 /**
