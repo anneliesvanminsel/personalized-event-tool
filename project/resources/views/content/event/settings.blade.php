@@ -217,11 +217,6 @@
 				<h2>
 					Taken & Shiften
 				</h2>
-				@if($event->sessions()->exists())
-					<button class="btn btn--small" onclick="openForm('task-form')">
-						Voeg taak toe
-					</button>
-				@endif
 			</div>
 			@if($event->sessions()->exists())
 				<div class="row-grid">
@@ -234,10 +229,6 @@
 					@endforeach
 				</div>
 			@endif
-			
-			<div class="popup" id="task-form">
-				@include('content.task.create')
-			</div>
 		</section>
 		
 		<section  class="spacing-top-m" id="messages">

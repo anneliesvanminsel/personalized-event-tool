@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c30b3f44-2dce-4846-ba56-3969d097cb3e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AddressController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AddressController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/components/grid/_v-grid.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/components/grid/_v-grid.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/components/hero/_hero.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/components/hero/_hero.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/content/address/create-org.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/content/address/create-org.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/content/event/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/content/event/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/content/event/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/content/event/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/content/organisation/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/content/organisation/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/content/event/settings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/content/event/settings.blade.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/vendor/beyondcode/laravel-dump-server/" />
@@ -117,19 +107,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/content/organisation/detail.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/content/event/settings.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="63" column="72" selection-start-line="63" selection-start-column="72" selection-end-line="63" selection-end-column="72" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/content/event/detail.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="105" column="22" lean-forward="true" selection-start-line="105" selection-start-column="22" selection-end-line="105" selection-end-column="22" />
+            <state relative-caret-position="191">
+              <caret line="229" column="22" lean-forward="true" selection-start-line="229" selection-start-column="22" selection-end-line="229" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -184,7 +165,6 @@
         <option value="$PROJECT_DIR$/resources/views/content/message/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/MessageController.php" />
         <option value="$PROJECT_DIR$/resources/sass/components/table/_table.scss" />
-        <option value="$PROJECT_DIR$/resources/views/content/event/settings.blade.php" />
         <option value="$PROJECT_DIR$/public/js/openSessions.js" />
         <option value="$PROJECT_DIR$/resources/views/content/floorplan/special.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/content/schedule/special.blade.php" />
@@ -211,6 +191,7 @@
         <option value="$PROJECT_DIR$/resources/sass/components/hero/_hero.scss" />
         <option value="$PROJECT_DIR$/resources/sass/components/grid/_h-grid.scss" />
         <option value="$PROJECT_DIR$/resources/views/content/organisation/detail.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/content/event/settings.blade.php" />
       </list>
     </option>
   </component>
@@ -442,6 +423,14 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="content" type="462c0819:PsiDirectoryNode" />
+              <item name="event" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
               <item name="organisation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -504,12 +493,12 @@
       <workItem from="1578175981350" duration="44058000" />
       <workItem from="1578833806243" duration="19523000" />
       <workItem from="1578918956198" duration="14924000" />
-      <workItem from="1579000713920" duration="9574000" />
+      <workItem from="1579000713920" duration="9704000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="247211000" />
+    <option name="totallyTimeSpent" value="247341000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -649,13 +638,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-150">
           <caret line="43" column="17" lean-forward="true" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/content/event/settings.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3643">
-          <caret line="23" column="64" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
         </state>
       </provider>
     </entry>
@@ -893,6 +875,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/content/organisation/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="59" column="28" lean-forward="true" selection-start-line="59" selection-start-column="28" selection-end-line="59" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/sass/components/hero/_hero.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="309">
@@ -900,10 +889,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/content/organisation/detail.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/content/event/settings.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="63" column="72" selection-start-line="63" selection-start-column="72" selection-end-line="63" selection-end-column="72" />
+        <state relative-caret-position="191">
+          <caret line="229" column="22" lean-forward="true" selection-start-line="229" selection-start-column="22" selection-end-line="229" selection-end-column="22" />
         </state>
       </provider>
     </entry>
