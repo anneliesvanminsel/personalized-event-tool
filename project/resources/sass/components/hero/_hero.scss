@@ -11,6 +11,7 @@
 
 	&__content {
 		@include grid();
+	  	position: relative;
 	}
 
 	&__text {
@@ -63,10 +64,9 @@
 	}
 
 	&__post {
-		@include grid;
 		position: absolute;
-		bottom: 0;
-		text-align: right;
+		bottom: -40px;
+		right: 120px;
 
 		font-size: 11px;
 	}

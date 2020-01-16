@@ -61,7 +61,7 @@
 					<div class="v-grid">
 				@enddesktop
 				@foreach($organisation->events()->where('status', '=', 1)->orderBy('starttime', 'ASC')->get() as $event)
-					<div class="h-grid__item item row row--stretch">
+					<div class="h-grid__item item row row--stretch event">
 						<div class="item__date" style="background-color: {{ $organisation['bkgcolor'] }}; color: {{ $organisation['textcolor'] }}">
 							{{  date('d M', strtotime( $event['starttime'])) }}
 						</div>

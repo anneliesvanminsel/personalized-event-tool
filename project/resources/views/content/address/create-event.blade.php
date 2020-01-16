@@ -6,25 +6,22 @@
 	<section class="page-alignment wizard">
 		<div class="wizard__inner">
 			<div class="wizard__item">
-				Organisatiegegevens
+				Eventgegevens
 			</div>
 			<div class="wizard__item active is-blue">
 				Adresgegevens
-			</div>
-			<div class="wizard__item">
-				Gebruikergegevens
 			</div>
 		</div>
 	</section>
 	<section class="page-alignment spacing-top-m">
 		<h1>
-			Voeg jouw adresgegevens toe
+			Voeg de adresgegevens van het event toe
 		</h1>
 		<p class="subheading">
-			Voeg het adress van het bedrijf <span class="accent is-blue">{{ $organisation['name'] }}</span> toe. <br>
+			Voeg het adress van het bedrijf <span class="accent is-blue">{{ $event['name'] }}</span> toe. <br>
 		</p>
 		
-		<form method="POST" action="{{ route('organisation.address.postcreate', ['organisation_id' => $organisation['id']]) }}" class="form" enctype="multipart/form-data">
+		<form method="POST" action="{{ route('event.address.postcreate', ['event_id' => $event['id']]) }}" class="form" enctype="multipart/form-data">
 			@csrf
 			
 			<h2 class="spacing-top-m">
@@ -45,7 +42,7 @@
 				</label>
 				
 				@error('locationname')
-				<span class="invalid-feedback" role="alert">
+					<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
 					</span>
 				@enderror

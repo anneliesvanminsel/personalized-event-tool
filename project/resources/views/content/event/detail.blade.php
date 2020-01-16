@@ -95,18 +95,17 @@
 				</div>
 				
 			</div>
-
+			@if($event->organisations())
+				<div class="hero__post">
+					Georganiseerd door:
+					@foreach( $event->organisations()->get() as $org)
+						<a href="{{ route('organisation.detail', ['id' => $org['id']]) }}" class="link">
+							{{ $org['name'] }}
+						</a>
+					@endforeach
+				</div>
+			@endif
 		</div>
-		@if($event->organisations())
-			<div class="hero__post">
-				Georganiseerd door:
-				@foreach( $event->organisations()->get() as $org)
-					<a href="{{ route('organisation.detail', ['id' => $org['id']]) }}" class="link">
-						{{ $org['name'] }}
-					</a>
-				@endforeach
-			</div>
-		@endif
 	</section>
 
 	@if($event->sessions()->exists())

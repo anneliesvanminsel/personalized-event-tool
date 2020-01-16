@@ -3,6 +3,16 @@
 	evento - maak event
 @endsection
 @section('content')
+	<section class="page-alignment wizard">
+		<div class="wizard__inner">
+			<div class="wizard__item active is-blue">
+				Eventgegevens
+			</div>
+			<div class="wizard__item">
+				Adresgegevens
+			</div>
+		</div>
+	</section>
 	<section class="page-alignment spacing-top-m">
 		<h1>
 			Maak jouw evenement

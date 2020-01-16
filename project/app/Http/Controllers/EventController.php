@@ -94,9 +94,16 @@ class EventController extends Controller
                 $session->save();
                 $event->sessions()->save($session);
             }
+        } else {
+            $session = new Session([
+                'date' => Carbon::parse($request->input('starttime')),
+                'event_id' => $event['id']
+            ]);
+            $session->save();
+            $event->sessions()->save($session);
         }
 
-		return redirect()->route('event.detail', ['id' => $event['id']]);
+		return redirect()->route('event.address.create', ['id' => $event['id']]);
 	}
 
 	public function UpdateEvent($id) {

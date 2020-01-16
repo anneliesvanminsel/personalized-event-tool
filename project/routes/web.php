@@ -187,6 +187,17 @@ Route::group(['prefix' => 'admin'], function() {
 		'as' => 'event.postcreate'
 	]);
 
+    //add event address
+    Route::get('event/create/{event_id}/newaddress', [
+        'uses' => 'AddressController@createAddressEvent',
+        'as' => 'event.address.create'
+    ]);
+
+    Route::post('event/create/{event_id}/newaddress/post', [
+        'uses' => 'AddressController@postCreateAddressEvent',
+        'as' => 'event.address.postcreate'
+    ]);
+
     //add organisation admin
     Route::get('organisation/{organisation_id}/newadmin', [
         'uses' => 'OrganisationController@createAdmin',
@@ -198,7 +209,7 @@ Route::group(['prefix' => 'admin'], function() {
         'as' => 'organisation.admin.postcreate'
     ]);
 
-    //add organisation admin
+    //add organisation event
     Route::get('organisation/{organisation_id}/newaddress', [
         'uses' => 'AddressController@createAddressOrganisation',
         'as' => 'organisation.address.create'
