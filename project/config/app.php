@@ -179,6 +179,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+		/*
+		 *
+		 */
+		Jenssegers\Date\DateServiceProvider::class,
+
     ],
 
     /*
@@ -231,6 +236,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class,
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
+
+		'Date' => Jenssegers\Date\Date::class,
     ],
 
 ];
