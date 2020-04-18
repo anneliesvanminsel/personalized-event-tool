@@ -4,8 +4,30 @@
 @endsection
 @section('content')
     @desktop
-        <div id="event-slider"
-            @foreach($slideevents as $event)
+        <div class="hero">
+	        <div class="hero__image">
+		        @if(File::exists(public_path() . "/images/brunch.jpeg"))
+			        <img src="{{ asset('images/brunch.jpeg') }}" alt="">
+		        @else
+			        <img src="https://placekitten.com/600/600" alt="">
+		        @endif
+	        </div>
+	        <div class="hero__content">
+		        <h1 class="logo hero__logo">
+			        evento
+		        </h1>
+		        <div>
+			        Het platform voor jouw eventsnoden
+		        </div>
+	        </div>
+        </div>
+	    <div class="card--container">
+		    @foreach($highlights as $event)
+			    @include('partials.card', $event)
+		    @endforeach
+	    </div>
+        <!--div id="event-slider"
+            @foreach($highlights as $event)
                 data-event{{$loop->iteration}}="{{ $event }}"
                 data-url{{$loop->iteration}}="{{ route('event.detail', ['event_id' => $event->id]) }}"
     
@@ -15,7 +37,7 @@
                     data-image1="https://placekitten.com/600/600"
                 @endif
             @endforeach
-        ></div>
+        ></div-->
     
         <section class="page-alignment">
             <h1>

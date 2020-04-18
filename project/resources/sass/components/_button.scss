@@ -1,76 +1,34 @@
 .btn {
-	width: 100%;
-	font-size: 16px;
-	margin: 10px 0;
-	padding: 10px;
 	display: inline-block;
-	border: 1px solid $red;
-	background-color: transparent;
-	color: $red;
+
+	width: 100%;
+	margin: 10px 0;
+	padding: 15px 30px;
+
+	@include font-heading;
+	font-size: 16px;
+	text-transform: uppercase;
+
+	background-color: $blue;
+	color: $black;
+
 	transition: background-color .2ms ease-in-out;
+
 	text-align: center;
 	vertical-align: middle;
+	cursor: pointer;
 
 	&:hover {
-		background-color: $red;
-		color: $white;
-		cursor: pointer;
-	}
-
-	&--white {
-		border-color: $white;
-		color: $white;
-
-		&:hover {
-			background-color: $white;
-			color: $red;
-		}
-	}
-
-	&--blue {
-		border-color: $blue;
-		color: $blue;
-
-		&:hover {
-			background-color: $blue;
-			color: $white;
-		}
-	}
-
-	&--orange {
-		border-color: $orange;
-		color: $orange;
-
-		&:hover {
-			background-color: $orange;
-			color: $white;
-		}
-	}
-
-	&--full {
-		background-color: $red;
-		color: $white;
-
-		&.is-blue {
-			background-color: $blue;
-			border-color: $blue;
-		}
-
-		&.is-orange {
-			background-color: $orange;
-			border-color: $orange;
-		}
-	}
-
-	&--small {
-		width: 300px;
+		background-color: $pink;
+		color: $black;
 	}
 
 	&.is-icon {
+		margin: 0;
+		padding: 0;
 		width: 50px;
 		border: none;
 		background-color: transparent;
-		margin: 0;
-		padding: 0;
+
 	}
 }

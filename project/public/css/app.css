@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat|Poiret+One&display=swap);* {
+@import url(https://fonts.googleapis.com/css?family=Montserrat|Poiret+One|Merriweather&display=swap);* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -16,7 +16,7 @@ body {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Merriweather", serif;
   width: 100%;
 }
 
@@ -33,6 +33,10 @@ a {
 
 /*--------------------------------------------------------------
 shadow
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+gradient
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -68,7 +72,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: "Poiret One", cursive;
+  font-family: "Montserrat", sans-serif;
 }
 
 h1 {
@@ -495,12 +499,12 @@ iframe {
 
 .section--blue {
   padding: 40px 0;
-  background-color: #85CBCC;
+  background-color: #46D5EF;
   color: #ffffff;
 }
 
 .section--blue .btn--white:hover {
-  color: #85CBCC;
+  color: #46D5EF;
 }
 
 .page {
@@ -536,7 +540,7 @@ span.accent {
 }
 
 span.accent.is-blue {
-  color: #85CBCC;
+  color: #46D5EF;
 }
 
 span.accent.is-orange {
@@ -578,81 +582,33 @@ span.invalid-feedback {
 }
 
 .btn {
-  width: 100%;
-  font-size: 16px;
-  margin: 10px 0;
-  padding: 10px;
   display: inline-block;
-  border: 1px solid #FE676E;
-  background-color: transparent;
-  color: #FE676E;
+  width: 100%;
+  margin: 10px 0;
+  padding: 15px 30px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  background-color: #46D5EF;
+  color: #262323;
   -webkit-transition: background-color 0.2ms ease-in-out;
   transition: background-color 0.2ms ease-in-out;
   text-align: center;
   vertical-align: middle;
-}
-
-.btn:hover {
-  background-color: #FE676E;
-  color: #ffffff;
   cursor: pointer;
 }
 
-.btn--white {
-  border-color: #ffffff;
-  color: #ffffff;
-}
-
-.btn--white:hover {
-  background-color: #ffffff;
-  color: #FE676E;
-}
-
-.btn--blue {
-  border-color: #85CBCC;
-  color: #85CBCC;
-}
-
-.btn--blue:hover {
-  background-color: #85CBCC;
-  color: #ffffff;
-}
-
-.btn--orange {
-  border-color: #FBB148;
-  color: #FBB148;
-}
-
-.btn--orange:hover {
-  background-color: #FBB148;
-  color: #ffffff;
-}
-
-.btn--full {
-  background-color: #FE676E;
-  color: #ffffff;
-}
-
-.btn--full.is-blue {
-  background-color: #85CBCC;
-  border-color: #85CBCC;
-}
-
-.btn--full.is-orange {
-  background-color: #FBB148;
-  border-color: #FBB148;
-}
-
-.btn--small {
-  width: 300px;
+.btn:hover {
+  background-color: #FF5E91;
+  color: #262323;
 }
 
 .btn.is-icon {
+  margin: 0;
+  padding: 0;
   width: 50px;
   border: none;
   background-color: transparent;
-  margin: 0;
-  padding: 0;
 }
 
 .panel {
@@ -681,7 +637,7 @@ span.invalid-feedback {
 }
 
 .panel__title {
-  font-family: "Poiret One", cursive;
+  font-family: "Montserrat", sans-serif;
   font-size: 30px;
   margin-bottom: 20px;
   text-align: center;
@@ -690,18 +646,13 @@ span.invalid-feedback {
 .card {
   position: relative;
   display: block;
+  width: calc((100% / 4) - 20px);
   padding: 40px;
-  border: 1px solid #FE676E;
+  margin: 10px;
+  border: 1px solid #46D5EF;
   background: #ffffff;
-  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.05), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-}
-
-.card.is-blue {
-  border-color: #85CBCC;
-}
-
-.card.is-orange {
-  border-color: #85CBCC;
+  color: #262323;
+  text-transform: uppercase;
 }
 
 .card--container {
@@ -712,19 +663,34 @@ span.invalid-feedback {
           flex-direction: row;
 }
 
-.card__title {
-  font-size: 25px;
-  text-align: center;
+.card:first-child {
+  margin-left: 0;
 }
 
-.card__price {
-  margin: 40px 0;
-  text-align: center;
-  font-size: 40px;
+.card:last-child {
+  margin-right: 0;
+}
+
+.card__image {
+  width: 100%;
+}
+
+.card__image img {
+  width: 100%;
+  height: auto;
+}
+
+.card__title {
+  font-size: 18px;
+  margin-bottom: 20px;
 }
 
 .card__text {
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+}
+
+.card__content {
+  margin-bottom: 20px;
 }
 
 .logo {
@@ -745,15 +711,9 @@ span.invalid-feedback {
 .hero {
   position: relative;
   width: 100%;
-  margin: 20px 0;
-  background-color: #FE676E;
-}
-
-@media screen and (min-width: 640px) {
-  .hero {
-    margin-bottom: 80px;
-    margin-top: 80px;
-  }
+  height: calc(100vh - 100px);
+  padding: 80px auto;
+  color: #ffffff;
 }
 
 .hero__content {
@@ -761,7 +721,7 @@ span.invalid-feedback {
   max-width: 960px;
   width: 100%;
   margin: 0 auto;
-  position: relative;
+  padding-top: 80px !important;
 }
 
 @media screen and (min-width: 640px) {
@@ -776,71 +736,34 @@ span.invalid-feedback {
   }
 }
 
-.hero__text {
-  -webkit-box-flex: 1;
-          flex-grow: 1;
-  padding: 40px;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
-}
-
-.hero .ctn--image {
+.hero__image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -999;
   width: 100%;
-  max-height: 200px;
-  min-height: 200px;
-  max-width: 100%;
+  height: 100%;
   overflow: hidden;
-  flex-shrink: 0;
-  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.3);
 }
 
-@media screen and (min-width: 640px) {
-  .hero .ctn--image {
-    max-height: 100%;
-    max-width: 200px;
-    margin-top: -20px;
-    margin-bottom: -20px;
-    overflow: hidden;
-  }
-}
-
-@media screen and (min-width: 960px) {
-  .hero .ctn--image {
-    max-height: 100%;
-    max-width: 400px;
-    margin-top: -40px;
-    margin-bottom: -40px;
-    overflow: hidden;
-    flex-shrink: 0;
-  }
-}
-
-.hero .ctn--image img {
+.hero__image img {
   min-width: 100%;
   min-height: 100%;
-  height: 100%;
 }
 
-@media screen and (min-width: 640px) {
-  .hero .ctn--image img {
-    width: 100%;
-  }
-}
-
-@media screen and (min-width: 960px) {
-  .hero .ctn--image img {
-    height: 100%;
-  }
-}
-
-.hero__post {
+.hero:before {
+  content: "";
   position: absolute;
-  bottom: -40px;
-  right: 120px;
-  font-size: 11px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -99;
+  opacity: 0.4;
+  background-image: -webkit-gradient(linear, left top, right top, from(#6F3BD9), to(#46D5EF));
+  background-image: linear-gradient(to right, #6F3BD9, #46D5EF);
 }
 
 .slideshow {
@@ -1251,7 +1174,7 @@ https://github.com/Significa/css-only-slider
 }
 
 #slide-1:checked ~ .bullets .bullets__item--1.is-blue {
-  background: #85CBCC;
+  background: #46D5EF;
 }
 
 #slide-1:checked ~ .bullets .bullets__item--1.is-orange {
@@ -1263,7 +1186,7 @@ https://github.com/Significa/css-only-slider
 }
 
 #slide-2:checked ~ .bullets .bullets__item--2.is-blue {
-  background: #85CBCC;
+  background: #46D5EF;
 }
 
 #slide-2:checked ~ .bullets .bullets__item--2.is-orange {
@@ -1275,7 +1198,7 @@ https://github.com/Significa/css-only-slider
 }
 
 #slide-3:checked ~ .bullets .bullets__item--3.is-blue {
-  background: #85CBCC;
+  background: #46D5EF;
 }
 
 #slide-3:checked ~ .bullets .bullets__item--3.is-orange {
@@ -1287,7 +1210,7 @@ https://github.com/Significa/css-only-slider
 }
 
 #slide-4:checked ~ .bullets .bullets__item--4.is-blue {
-  background: #85CBCC;
+  background: #46D5EF;
 }
 
 #slide-4:checked ~ .bullets .bullets__item--4.is-orange {
@@ -1299,7 +1222,7 @@ https://github.com/Significa/css-only-slider
 }
 
 #slide-5:checked ~ .bullets .bullets__item--5.is-blue {
-  background: #85CBCC;
+  background: #46D5EF;
 }
 
 #slide-5:checked ~ .bullets .bullets__item--5.is-orange {
@@ -1412,7 +1335,7 @@ https://github.com/Significa/css-only-slider
 }
 
 .bullets__item.is-blue:hover {
-  background: #85CBCC;
+  background: #46D5EF;
 }
 
 .bullets__item.is-orange:hover {
@@ -1449,7 +1372,7 @@ textarea {
   padding: 20px;
   margin-bottom: 20px;
   font-size: 16px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Merriweather", serif;
   border: 1px solid #262323;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
@@ -1579,7 +1502,7 @@ textarea:focus + label {
   width: 300px;
   padding: 20px;
   font-size: 16px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Merriweather", serif;
   text-align: center;
   -moz-text-align-last: center;
        text-align-last: center;
@@ -1623,11 +1546,11 @@ textarea:focus + label {
 .form__group.is-blue input[type=time]:valid,
 .form__group.is-blue textarea:focus,
 .form__group.is-blue textarea:valid {
-  border: 1px solid #85CBCC;
+  border: 1px solid #46D5EF;
 }
 
 .form__group.is-blue .is-counter {
-  color: #85CBCC;
+  color: #46D5EF;
 }
 
 .form__group.is-orange input[type=email]:focus,
@@ -1755,7 +1678,7 @@ textarea:focus + label {
 
 .table__heading {
   padding: 20px;
-  font-family: "Poiret One", cursive;
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   border-bottom: 1px solid #FE676E;
 }
@@ -1779,7 +1702,7 @@ textarea:focus + label {
 .schedule__headcontainer {
   -webkit-box-pack: justify;
           justify-content: space-between;
-  font-family: "Poiret One", cursive;
+  font-family: "Montserrat", sans-serif;
   font-size: 25px;
 }
 
@@ -1810,7 +1733,7 @@ textarea:focus + label {
 
 .h-grid .item__date {
   position: relative;
-  font-family: "Poiret One", cursive;
+  font-family: "Montserrat", sans-serif;
   font-size: 15px;
   text-align: center;
   background-color: #FE676E;
@@ -1853,7 +1776,7 @@ textarea:focus + label {
 }
 
 .h-grid .item__title {
-  font-family: "Poiret One", cursive;
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   white-space: nowrap;
   overflow: hidden;
@@ -1936,7 +1859,7 @@ textarea:focus + label {
   top: 5px;
   right: 5px;
   z-index: 999;
-  font-family: "Poiret One", cursive;
+  font-family: "Montserrat", sans-serif;
   font-size: 15px;
   text-align: center;
   background-color: #FE676E;
@@ -1964,7 +1887,7 @@ textarea:focus + label {
 }
 
 .v-grid .item__title {
-  font-family: "Poiret One", cursive;
+  font-family: "Montserrat", sans-serif;
   font-size: 18px;
   margin-top: 10px;
   white-space: nowrap;
@@ -2027,7 +1950,7 @@ textarea:focus + label {
 }
 
 .row-grid .item__title {
-  font-family: "Poiret One", cursive;
+  font-family: "Montserrat", sans-serif;
   background-color: #FE676E;
   color: #ffffff;
   font-size: 20px;
@@ -2057,7 +1980,7 @@ textarea:focus + label {
 }
 
 .row-grid .item__text.is-title {
-  font-family: "Poiret One", cursive;
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
 }
 
@@ -2121,7 +2044,7 @@ textarea:focus + label {
 
 .pagination li {
   display: inline-block;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Merriweather", serif;
   color: #FE676E;
   font-size: 15px;
   padding: 12px 20px;
@@ -2162,7 +2085,7 @@ textarea:focus + label {
 }
 
 .faq__item.is-open .faq__question.is-admin {
-  color: #85CBCC;
+  color: #46D5EF;
 }
 
 .faq__item.is-open .fas {
@@ -2181,7 +2104,7 @@ textarea:focus + label {
           align-items: center;
   width: 100%;
   margin-bottom: 10px;
-  font-family: "Poiret One", cursive;
+  font-family: "Montserrat", sans-serif;
   font-size: 2rem;
   text-align: left;
   color: #262323;
@@ -2222,7 +2145,7 @@ textarea:focus + label {
 }
 
 .tab__button {
-  font-family: "Poiret One", cursive;
+  font-family: "Montserrat", sans-serif;
   -webkit-box-flex: 1;
           flex-grow: 1;
   font-size: 18px;
@@ -2368,7 +2291,7 @@ textarea:focus + label {
 }
 
 .message.information {
-  border: 5px solid #85CBCC;
+  border: 5px solid #46D5EF;
 }
 
 .message.warning {
@@ -2418,8 +2341,8 @@ textarea:focus + label {
 }
 
 .wizard__item.active.is-blue {
-  color: #85CBCC;
-  border-bottom: 2px solid #85CBCC;
+  color: #46D5EF;
+  border-bottom: 2px solid #46D5EF;
 }
 
 .wizard .nav-tabs {
@@ -2544,7 +2467,7 @@ span.round-tab:hover {
 }
 
 .review__item.is-blue {
-  background-color: rgba(133, 203, 204, 0.5);
+  background-color: rgba(70, 213, 239, 0.5);
 }
 
 .review__title {

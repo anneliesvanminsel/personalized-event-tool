@@ -8,6 +8,22 @@ shadow
 }
 
 /*--------------------------------------------------------------
+gradient
+--------------------------------------------------------------*/
+
+@mixin gradient($direction: right, $color1: $purple, $color2: $blue) {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: -99;
+	opacity: .4;
+	background-image: linear-gradient(to $direction,$color1,$color2);
+}
+
+/*--------------------------------------------------------------
 pseudo
 --------------------------------------------------------------*/
 

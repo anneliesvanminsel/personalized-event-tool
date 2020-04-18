@@ -1,73 +1,38 @@
 .hero {
 	position: relative;
 	width: 100%;
-	margin: $spacing-s 0;
-	background-color: $red;
+	height: calc(100vh - 100px);
+	padding: 80px auto;
 
-	@media screen and (min-width: $breakpoint-tablet-small) {
-		margin-bottom: $spacing-l;
-		margin-top: $spacing-l;
-	}
+	//overflow: hidden;
+
+	color: $white;
 
 	&__content {
 		@include grid();
-	  	position: relative;
+		padding-top: 80px !important;
 	}
 
-	&__text {
-		flex-grow: 1;
-		padding: 40px;
-
-		display: flex;
-		flex-direction: column;
-	}
-
-	.ctn--image {
-	  width: 100%;
-	  max-height: 200px;
-	  min-height: 200px;
-	  max-width: 100%;
-	  overflow: hidden;
-	  flex-shrink: 0;
-	  @include shadow;
-
-	  @media screen and (min-width: $breakpoint-tablet-small) {
-		max-height: 100%;
-		max-width: 200px;
-		margin-top: -20px;
-		margin-bottom: -20px;
-		overflow: hidden;
-	  }
-
-	  @media screen and (min-width: $breakpoint-desktop-small) {
-		max-height: 100%;
-		max-width: 400px;
-		margin-top: -40px;
-		margin-bottom: -40px;
-		overflow: hidden;
-		flex-shrink: 0;
-	  }
-
-	  img {
-		min-width: 100%;
-		min-height: 100%;
-		height: 100%;
-
-		@media screen and (min-width: $breakpoint-tablet-small) {
-		  width: 100%;
-		}
-
-		@media screen and (min-width: $breakpoint-desktop-small) {
-		  height: 100%;
-		}
-	  }
-	}
-
-	&__post {
+	&__image {
 		position: absolute;
-		bottom: -40px;
-		right: 120px;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
 
-		font-size: 11px;
+		z-index: -999;
+
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+
+		img {
+			min-width: 100%;
+			min-height: 100%;
+		}
+	}
+
+	&:before {
+		@include gradient();
 	}
 }
