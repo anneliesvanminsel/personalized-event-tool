@@ -5,6 +5,9 @@
 @import 'config/base';
 @import 'event';
 
+.is-pull-up {
+	transform: translateY(-50%);
+}
 // Partials
 @import 'header';
 @import 'mobile-nav';

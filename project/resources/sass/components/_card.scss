@@ -1,20 +1,21 @@
 .card {
 	position: relative;
-	display: block;
+	display: flex;
+	flex-direction: column;
 
-	width: calc((100% / 4) - 20px);
-	padding: 40px;
-	margin: 10px;
+	width: calc((100% / 4) - 10px );
+	margin: 0 10px;
 
 	border: 1px solid $blue;
 	background: $white;
 	color: $black;
 
-	text-transform: uppercase;
 
 	&--container {
 		display: flex;
 		flex-direction: row;
+
+		@include grid();
 	}
 
 	&:first-child {
@@ -27,9 +28,12 @@
 
 	&__image {
 		width: 100%;
+		height: 120px;
+		overflow: hidden;
 
 		img {
 			width: 100%;
+			min-height: 100%;
 			height: auto;
 		}
 	}
@@ -37,6 +41,12 @@
 	&__title {
 		font-size: 18px;
 		margin-bottom: 20px;
+		font-weight: 700;
+		text-transform: uppercase;
+
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 
 	&__text {
@@ -44,10 +54,25 @@
 	}
 
 	&__content {
-		margin-bottom: 20px;
+		padding: 20px;
+		flex-grow: 1;
 	}
 
 	&__actions {
+		padding: 10px 20px;
+	}
 
+	&__like {
+		position: absolute;
+		right: 10px;
+		top: 10px;
+	}
+
+	&:hover {
+		border: 1px solid $pink;
+
+		.btn {
+			background-color: $pink;
+		}
 	}
 }

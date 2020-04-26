@@ -1,4 +1,15 @@
 <div class="card">
+	<div class="card__like">
+		@if(Auth::user() && $event->users->contains(Auth::user()->id))
+			<button title="unlike" class="button is-icon" type="submit">
+				@svg('heart-full', 'is-small is-btn')
+			</button>
+		@else
+			<button title="like" class="button is-icon" type="submit">
+				@svg('heart-line', 'is-small is-btn')
+			</button>
+		@endif
+	</div>
 	<div class="card__image">
 		@if(File::exists(public_path() . "/images/" . $event['logo']))
 			<img src="{{ asset('images/' . $event['logo']) }}" alt="logo voor {{ $event->title }}">

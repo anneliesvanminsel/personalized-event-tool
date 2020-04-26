@@ -7,17 +7,15 @@
 	transform: scale(1);
 	@include default-transition(all);
 
-	&:hover {
-		fill: $red;
-		transform: scale(1.2);
+	&.is-btn {
+		&:hover {
+			fill: $white;
+			transform: scale(1.2);
+		}
 	}
 
-	&.is-red {
-		fill: $red;
-
-		&:hover{
-			fill: $black;
-		}
+	&.is-pink {
+		fill: $pink;
 	}
 
 	&.is-white {

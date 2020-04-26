@@ -21,10 +21,14 @@
 		        </div>
 	        </div>
         </div>
-	    <div class="card--container">
+	    <div class="card--container is-pull-up">
 		    @foreach($highlights as $event)
 			    @include('partials.card', $event)
 		    @endforeach
+		    @foreach($highlights as $event)
+			    @include('partials.card', $event)
+		    @endforeach
+		    
 	    </div>
         <!--div id="event-slider"
             @foreach($highlights as $event)

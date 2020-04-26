@@ -32,6 +32,30 @@
 		}
 	}
 
+	&__logo {
+		position: relative;
+		font-size: 80px;
+		z-index: 1;
+		overflow: hidden;
+		text-align: center;
+
+		&::after,
+		&::before {
+			position: absolute;
+			top: 50%;
+			overflow: hidden;
+			width: 50%;
+			height: 1px;
+			content: '\a0';
+			background-color: white;
+		}
+
+		&::before {
+			margin-left: -103%;
+			text-align: right;
+		}
+	}
+
 	&:before {
 		@include gradient();
 	}

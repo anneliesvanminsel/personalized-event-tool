@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Poiret+One|Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:wght@400;700|Poiret+One|Open+Sans&display=swap');
 
 
 @mixin font-logo {
@@ -8,8 +8,9 @@
 
 @mixin font-heading {
 	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
 }
 
 @mixin font-base {
-	font-family: 'Merriweather', serif;
+	font-family: 'Open Sans', sans-serif;
 }
