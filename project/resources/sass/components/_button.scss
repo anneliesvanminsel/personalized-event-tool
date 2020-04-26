@@ -1,4 +1,6 @@
-.btn {
+.btn,
+.button
+{
 	display: inline-block;
 
 	width: 100%;
@@ -18,11 +20,6 @@
 	vertical-align: middle;
 	cursor: pointer;
 
-	&:hover {
-		background-color: $pink;
-		color: $black;
-	}
-
 	&.is-icon {
 		margin: 0;
 		padding: 0;
@@ -30,5 +27,12 @@
 		border: none;
 		background-color: transparent;
 
+	}
+}
+
+.btn {
+	&:hover {
+		background-color: $pink;
+		color: $black;
 	}
 }
