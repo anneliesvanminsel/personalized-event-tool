@@ -1,48 +1,40 @@
 h1, h2, h3, h4 {
 	@include font-heading;
+	font-weight: 700;
+	text-transform: lowercase;
 }
 
 h1 {
-	font-size: 35px;
+	font-size: 40px;
 	padding-bottom: 20px;
-	display: flex;
 	width: 100%;
-	justify-content: center;
-	align-items: center;
 	text-align: center;
-
-	&::after {
-		content: '';
-		border-top: 1px solid;
-		margin: 0 0 0 20px;
-		flex: 1 0 20px;
-	}
-
-	&.center {
-		text-align: center;
-
-		&::before {
-			content: '';
-			border-top: 1px solid;
-			margin: 0 20px 0 0;
-			flex: 1 0 20px;
-		}
-	}
 }
 
 h2 {
 	font-size: 25px;
 	padding: 20px 0;
-	display: flex;
 	width: 100%;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
+}
 
-	&::after {
-		content: '';
-		border-top: 1px solid;
-		margin: 0 0 0 40px;
-		flex: 1 0 20px;
-	}
+h3 {
+	font-size: 20px;
+	padding: 20px 0;
+	width: 100%;
+}
+
+h4 {
+	font-size: 18px;
+	padding: 15px 0;
+	width: 100%;
+	text-transform: uppercase;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+h5 {
+	font-size: 16px;
+	padding: 0 0 10px 0;
+	width: 100%;
 }

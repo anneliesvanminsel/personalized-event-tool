@@ -5,9 +5,6 @@
 @import 'config/base';
 @import 'event';
 
-.is-pull-up {
-	transform: translateY(-50%);
-}
 // Partials
 @import 'header';
 @import 'mobile-nav';
@@ -26,6 +23,7 @@
 @import 'components/logo';
 
 @import 'components/hero/hero';
+@import 'components/pull-up/pull-up';
 
 @import 'components/slideshow/slideshow';
 @import 'components/slideshow/slide';

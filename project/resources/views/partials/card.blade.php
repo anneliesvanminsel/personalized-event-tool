@@ -18,9 +18,9 @@
 		@endif
 	</div>
 	<div class="card__content">
-		<h3 class="card__title">
+		<h4 class="card__title">
 			{{ $event->title }}
-		</h3>
+		</h4>
 		<div class="card__text row">
 			@svg('calendar', 'is-small')
 			{{ \Jenssegers\Date\Date::parse(strtotime($event['starttime']))->format('j') }} -

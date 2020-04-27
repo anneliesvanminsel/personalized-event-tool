@@ -1,46 +1,23 @@
 .footer {
 	position: relative;
-	margin-top: 80px;
+	margin-top: 100px;
+	padding-top: 40px;
 	padding-bottom: 80px;
 
-	&::after {
-		@include pseudo;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		height: 40px;
-		background-color: $red;
-	}
+	background-color: $purple;
+	color: $white;
+
+
 
 	.row {
 		justify-content: space-between;
 		@include grid();
 	}
 
-	.logo {
-		position: relative;
-		text-align: left;
+	&__logo {
+		width: 100%;
 		@include grid();
-
-		&::before {
-			@include accentline;
-			top: 65%;
-			left: -410px;
-			width: 400px;
-		}
-
-		&::after {
-			@include accentline;
-			top: 65%;
-			right: 0;
-			width: 600px;
-		}
-	}
-
-	.logo {
-
-
-
+		@include font-logo();
 	}
 
 	.list {
@@ -48,38 +25,14 @@
 		padding: 0;
 
 		&__item {
-			padding: 10px 0;
-
-			&:first-child {
-				font-weight: 700;
-			}
+			padding: 5px 0;
+			font-size: 14px;
 		}
 
 		&__link {
 			text-decoration: none;
-			color: black;
+			color: $white;
 			position: relative;
-
-			&::before {
-				@include accentline;
-				bottom: -2px;
-				left: 0;
-				width: 0;
-				transition: width .2s ease-in-out;
-			}
-
-			&:hover {
-				&::before {
-					width: 100%;
-				}
-			}
-
-			&.active {
-				&::before {
-					width: 100%;
-					background-color: $red;
-				}
-			}
 		}
 	}
 }

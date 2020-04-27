@@ -44,9 +44,9 @@
         ></div-->
     
         <section class="page-alignment">
-            <h1>
-                Ga op avontuur
-            </h1>
+            <h3>
+                Wat is er te doen?
+            </h3>
             <form action="{{ route('home.searchevents') }}" method="post">
                 @csrf
                 <div class="row row--stretch is-form">
