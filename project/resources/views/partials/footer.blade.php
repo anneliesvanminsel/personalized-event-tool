@@ -59,15 +59,11 @@
 				</h5>
 			</li>
 			<li class="list__item">
-				<a class="list__link {{ (strpos(Route::currentRouteName(), 'start.organisation') === 0) ? 'active' : '' }}" href="{{ route('start.organisation') }}">overzicht</a>
+				<a class="list__link {{ (strpos(Route::currentRouteName(), 'start.organisation') === 0) ? 'active' : '' }}" href="{{ route('start.organisation') }}">abonnementen</a>
 			</li>
 			<li class="list__item">
-				<a class="list__link" href="{{ route('start.organisation') }}#feature-1">onze features</a>
+				<a class="list__link" href="{{ route('start.organisation') }}">maak een event aan</a>
 			</li>
-			<li class="list__item">
-				<a class="list__link" href="{{ route('start.organisation') }}#price">prijzen</a>
-			</li>
-			
 		</ul>
 	</div>
 </footer>

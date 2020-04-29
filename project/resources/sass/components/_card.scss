@@ -3,8 +3,8 @@
 	display: flex;
 	flex-direction: column;
 
-	width: calc((100% / 4) - 10px );
-	margin: 0 10px;
+	width: calc((100% / 4) - 12px );
+	margin: 0 12px;
 
 	border: 1px solid $blue;
 	background: $white;
@@ -14,8 +14,6 @@
 	&--container {
 		display: flex;
 		flex-direction: row;
-
-		@include grid();
 	}
 
 	&:first-child {

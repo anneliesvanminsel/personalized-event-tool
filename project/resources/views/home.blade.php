@@ -6,8 +6,8 @@
     @desktop
         <div class="hero">
 	        <div class="hero__image">
-		        @if(File::exists(public_path() . "/images/brunch.jpeg"))
-			        <img src="{{ asset('images/brunch.jpeg') }}" alt="">
+		        @if(File::exists(public_path() . "/images/conference.jpg"))
+			        <img src="{{ asset('images/conference.jpg') }}" alt="">
 		        @else
 			        <img src="https://placekitten.com/600/600" alt="">
 		        @endif
@@ -21,27 +21,16 @@
 		        </div>
 	        </div>
         </div>
-	    <div class="card--container is-pull-up">
-		    @foreach($highlights as $event)
-			    @include('partials.card', $event)
-		    @endforeach
-		    @foreach($highlights as $event)
-			    @include('partials.card', $event)
-		    @endforeach
-		    
-	    </div>
-        <!--div id="event-slider"
-            @foreach($highlights as $event)
-                data-event{{$loop->iteration}}="{{ $event }}"
-                data-url{{$loop->iteration}}="{{ route('event.detail', ['event_id' => $event->id]) }}"
-    
-                @if(File::exists(public_path() . "/images/" . $event['logo']))
-                    data-image{{$loop->iteration}}="{{ asset('images/' . $event['logo']) }}"
-                @else
-                    data-image1="https://placekitten.com/600/600"
-                @endif
-            @endforeach
-        ></div-->
+	    <section class="page-alignment is-pull-up">
+		    <h3 class="is-white">
+			    populair vandaag
+		    </h3>
+		    <div class="card--container">
+			    @foreach($highlights as $event)
+				    @include('partials.card', $event)
+			    @endforeach
+		    </div>
+	    </section>
     
         <section class="page-alignment">
             <h3>
