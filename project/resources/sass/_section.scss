@@ -1,6 +1,6 @@
 .section {
-	margin: $spacing-m 0;
-	padding: 0;
+	@include grid;
+	margin-bottom: $spacing-l;
 
 	&__content {
 		margin-left: $spacing-m;
@@ -30,22 +30,6 @@
 		img {
 			height: 100%;
 			width: auto;
-		}
-	}
-
-	&--red {
-		padding: $spacing-m 0;
-		background-color: $red;
-		color: $white;
-	}
-
-	&--blue {
-		padding: $spacing-m 0;
-		background-color: $blue;
-		color: $white;
-
-		.btn--white:hover {
-			color: $blue;
 		}
 	}
 }

@@ -20,11 +20,11 @@
     transition: 0.3s;
 
     &:hover {
-      background-color: $grey;
+      background-color: $pink;
     }
 
     &.active {
-      background-color: $red;
+      background-color: $blue;
     }
   }
 

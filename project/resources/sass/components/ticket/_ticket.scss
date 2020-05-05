@@ -1,53 +1,128 @@
 .ticket {
-  position: relative;
-  color: $black;
+	overflow: hidden;
+	position: relative;
 
-  &__image {
-    max-height: 100vh;
-    min-width: 100%;
-    overflow: hidden;
+	&:first-child {
+		margin-left: 0;
+	}
 
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -2;
+	&:last-child {
+		margin-right: 0;
+	}
 
-    opacity: .8;
-  }
+	&__actions {
+		padding: 10px 20px;
+	}
 
-  &__content {
-    position: absolute;
-    top: 100px;
-    right: 0;
-    left: 0;
+	&__like {
+		position: absolute;
+		right: 10px;
+		top: 10px;
+	}
 
-    padding: $spacing-xl $spacing-l;
+	&:hover {
+		border: 1px solid $pink;
 
-    background-color: $white;
+		.btn {
+			background-color: $pink;
+		}
 
-    @media screen and (min-width: $breakpoint-tablet-small) {
-      top: 200px;
-      right: $spacing-s;
-      left: $spacing-s;
-    }
+		.ticket__price {
+			color: $pink;
 
-    @media screen and (min-width: $breakpoint-desktop) {
-      right: $spacing-m;
-      left: $spacing-m;
-    }
-  }
+			&:before,
+			&:after {
+				background: $pink;
+			}
+		}
 
-  &__qr {
-    position: relative;
-  }
+		.ticket__content {
+			&:before,
+			&:after {
+				@include border(1px, $pink);
+			}
+		}
 
-  &__qrcode {
-    position: absolute;
-    top: $spacing-m;
-    right: $spacing-m;
-    left: $spacing-m;
-    z-index: 3;
+		.sub__content {
+			&:before,
+			&:after {
+				@include border(1px, $pink);
+			}
+		}
+	}
 
-    text-align: center;
-  }
+	&__content {
+		padding: 20px;
+		flex-grow: 1;
+
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			display: block;
+			width: 24px;
+			height: 24px;
+			background: transparent;
+			border-radius: 50%;
+			@include border(1px, $blue);
+			top: 27%;
+			left: 0;
+			//transform: translateY(-50%);
+		}
+
+		&:before {
+			left: -12px;
+		}
+
+		&:after {
+			right: -12px;
+			left: auto;
+		}
+	}
+
+	&__type {
+		@include font-heading();
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 18px;
+
+		margin-bottom: $spacing-ms;
+	}
+
+	&__price {
+		position: relative;
+		@include font-heading();
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 35px;
+		color: $blue;
+
+		margin-bottom: $spacing-ms;
+
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			display: block;
+			width: 40px;
+			height: 1px;
+			background: $blue;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+		}
+
+		&:before {
+			left: -20px;
+		}
+
+		&:after {
+			right: -20px;
+			left: auto;
+		}
+	}
+
+	&__text {
+		margin-bottom: 10px;
+	}
 }

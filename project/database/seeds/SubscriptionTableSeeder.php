@@ -17,8 +17,8 @@ class SubscriptionTableSeeder extends Seeder
 		$subscription = new Subscription(
 			[
 				'title' => 'essential',
-				'description' => 'Alles wat je nodig hebt om in enkele minuten te beginnen met verkopen',
-				'price' => 50,
+				'description' => 'Toeslag per verkocht ticket </br> Gratis voor gratis tickets',
+				'price' => 0.60,
 			]
 		);
 		$subscription->save();
@@ -26,8 +26,8 @@ class SubscriptionTableSeeder extends Seeder
 		$subscription = new Subscription(
 			[
 				'title' => 'professional',
-				'description' => 'Een krachtige oplossing om verkopen te stimuleren en je bedrijf te laten groeien',
-				'price' => 100,
+				'description' => 'Toeslag per verkocht ticket </br> Gratis voor gratis tickets',
+				'price' => 1,
 			]
 		);
 		$subscription->save();
@@ -35,8 +35,8 @@ class SubscriptionTableSeeder extends Seeder
 		$subscription = new Subscription(
 			[
 				'title' => 'premium',
-				'description' => 'Op maat gemaakte partnerships voor grote en complexe evenementen',
-				'price' => 150,
+				'description' => 'Toeslag per verkocht ticket </br> Gratis voor gratis tickets',
+				'price' => 1.50,
 			]
 		);
 		$subscription->save();

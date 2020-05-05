@@ -6,11 +6,7 @@
     @desktop
         <div class="hero">
 	        <div class="hero__image">
-		        @if(File::exists(public_path() . "/images/conference.jpg"))
-			        <img src="{{ asset('images/conference.jpg') }}" alt="">
-		        @else
-			        <img src="https://placekitten.com/600/600" alt="">
-		        @endif
+		        <img src="{{ asset('images/conference.jpg') }}" alt="">
 	        </div>
 	        <div class="hero__content">
 		        <h1 class="logo hero__logo">
@@ -21,7 +17,8 @@
 		        </div>
 	        </div>
         </div>
-	    <section class="page-alignment is-pull-up">
+    
+	    <section class="section is-pull-up">
 		    <h3 class="is-white">
 			    populair vandaag
 		    </h3>
@@ -32,13 +29,56 @@
 		    </div>
 	    </section>
     
-        <section class="page-alignment">
+        <section class="section">
             <h3>
                 Wat is er te doen?
             </h3>
             <form action="{{ route('home.searchevents') }}" method="post">
                 @csrf
                 <div class="row row--stretch is-form">
+	                <div class="form__group">
+		                <input
+			                id="location"
+			                type="text"
+			                class="form__input @error('location') is-invalid @enderror"
+			                name="location"
+			                placeholder="bv. jan.peeters@mail.be"
+			                value="{{ old('location') }}"
+			                required
+			                autocomplete="location"
+		                >
+		                <label for="email" class="form__label">
+			                locatie
+		                </label>
+		                
+		                @error('location')
+		                <span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+		                @enderror
+	                </div>
+	                
+	                <div class="form__group">
+		                <input
+			                id="date"
+			                type="date"
+			                class="form__input @error('date') is-invalid @enderror"
+			                name="date"
+			                placeholder="bv. jan.peeters@mail.be"
+			                value="{{ old('date') }}"
+			                required
+			                autocomplete="date"
+		                >
+		                <label for="date" class="form__label">
+			                e-mailadres
+		                </label>
+		                @error('date')
+		                <span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+		                @enderror
+	                </div>
+	                
                     <div class="form__group">
                         <select class="select" id="type" name="type">
                             <option value="not given">-- selecteer type --</option>
@@ -65,38 +105,10 @@
                     </button>
                 </div>
             </form>
-            <div class="h-grid">
+            <div class="list">
                 @if($searchedevents->count() > 0)
                     @foreach($searchedevents as $event)
-                        <div class="h-grid__item item row row--stretch">
-                            <div class="item__date bkg-red">
-                                {{  date('d M', strtotime( $event['starttime'])) }}
-                            </div>
-        
-                            @if(File::exists(public_path() . "/images/" . $event['logo']))
-                                <div class="item__image ctn--image">
-                                    <img src="{{ asset('images/' . $event['logo'] ) }}" alt="{{ $event['title'] }}" loading="lazy">
-                                </div>
-                            @else
-                                <div class="item__image ctn--image">
-                                    <img src="https://placekitten.com/600/600" alt="{{ $event['title'] }}" loading="lazy">
-                                </div>
-                            @endif
-        
-                            <div class="item__content">
-                                <div class="item__title">
-                                    {{ $event->title }}
-                                </div>
-                                <div class="item__text">
-                                    {{ $event->type }}
-                                </div>
-                            </div>
-                            <div class="item__actions">
-                                <a class="btn" href={{route('event.detail', ['event_id' => $event->id])}}>
-                                    Bekijk details
-                                </a>
-                            </div>
-                        </div>
+			            @include('partials.listitem', $event)
                     @endforeach
                 @else
                     <p class="accent">
@@ -108,37 +120,28 @@
                 {{ $searchedevents->links() }}
             </div>
         </section>
-    @elsedesktop
-	    <section class="page-alignment">
-		    <h1 class="spacing-top-s">
-			    Verken evenementen
-		    </h1>
-	    </section>
-        <section class="v-grid page-alignment">
-	        @foreach($mobileevents as $event)
-		        <a class="v-grid__item item" href="{{route('event.detail', ['event_id' => $event->id])}}">
-			        <div class="item__date bkg-red">
-				        {{  date('d M', strtotime( $event['starttime'])) }}
-			        </div>
-			
-			        @if(File::exists(public_path() . "/images/" . $event['logo']))
-				        <div class="item__image ctn--image">
-					        <img src="{{ asset('images/' . $event['logo'] ) }}" alt="{{ $event['title'] }}" loading="lazy">
-				        </div>
-			        @else
-				        <div class="item__image ctn--image">
-					        <img src="https://placekitten.com/600/600" alt="{{ $event['title'] }}" loading="lazy">
-				        </div>
-			        @endif
-			
-			        <div class="item__content item__title">
-				        {{ $event->title }}
-			        </div>
-		        </a>
-	        @endforeach
-        </section>
-	    <section>
-		   
+
+	    <section class="section">
+		    <div class="row row--center">
+			    <h3>
+				    populair bij jou in de buurt
+			    </h3>
+			    {{ $popularevents->links('vendor.pagination.simple') }}
+		    </div>
+		    
+		    <div class="card--container">
+			    <div class="card">
+				    <div class="cover">
+					    <img src="{{ asset('images/brunch.jpeg') }}">
+				    </div>
+				    <div class="cover__text row">
+					    @svg('location', 'is-white is-large') Leuven
+				    </div>
+			    </div>
+			    @foreach($popularevents as $event)
+				    @include('partials.card', $event)
+			    @endforeach
+		    </div>
 	    </section>
     @enddesktop
 @endsection

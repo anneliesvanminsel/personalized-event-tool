@@ -1,14 +1,21 @@
 <div class="card">
 	<div class="card__like">
-		@if(Auth::user() && $event->users->contains(Auth::user()->id))
-			<button title="unlike" class="button is-icon" type="submit">
-				@svg('heart-full', 'is-small is-btn')
-			</button>
-		@else
-			<button title="like" class="button is-icon" type="submit">
-				@svg('heart-line', 'is-small is-btn')
-			</button>
-		@endif
+		<form
+			class="form"
+			method="POST"
+			action="{{ route('event.like', ['event-id' => $event['id'] ]) }}"
+		>
+			{{ csrf_field() }}
+			@if(Auth::user() && $event->users->contains(Auth::user()->id))
+				<button title="unlike" class="button is-icon" type="submit">
+					@svg('heart-full', 'is-btn is-heart')
+				</button>
+			@else
+				<button title="like" class="button is-icon" type="submit">
+					@svg('heart-line', 'is-btn is-heart')
+				</button>
+			@endif
+		</form>
 	</div>
 	<div class="card__image">
 		@if(File::exists(public_path() . "/images/" . $event['logo']))
@@ -22,20 +29,24 @@
 			{{ $event->title }}
 		</h4>
 		<div class="card__text row">
-			@svg('calendar', 'is-small')
-			{{ \Jenssegers\Date\Date::parse(strtotime($event['starttime']))->format('j') }} -
-			{{ \Jenssegers\Date\Date::parse(strtotime($event['endtime']))->format('j F Y') }}
+			@svg('calendar')
+			@if($event['endtime'])
+				{{ \Jenssegers\Date\Date::parse(strtotime($event['starttime']))->format('j') }} -
+				{{ \Jenssegers\Date\Date::parse(strtotime($event['endtime']))->format('j F Y') }}
+			@else
+				{{ \Jenssegers\Date\Date::parse(strtotime($event['starttime']))->format('j F Y') }}
+			@endif
 		</div>
 		@if($event->address()->exists())
 			<div class="card__text row">
-				@svg('location', 'is-small')
+				@svg('location')
 				{{ $event->address()->first()->locationname }}, {{ $event->address()->first()->city }}
 			</div>
 		@endif
 	</div>
 	<div class="card__actions">
 		<a class="btn btn--primary" href={{ route('event.detail', ['event_id' => $event->id]) }}>
-			Bekijk details
+			event details
 		</a>
 	</div>
 </div>

@@ -20,7 +20,7 @@ class TicketTableSeeder extends Seeder
 				'price' => 19.99,
 				'type' => 'daypass',
 				'description' => 'dagticket voor 21 oktober 2020',
-				'date' => Carbon::parse('2020-10-21'),
+				'date' => Carbon::parse('2025-10-21'),
 				'totaltickets' => 200,
 				'event_id' => 1,
 			]

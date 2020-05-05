@@ -1,25 +1,6 @@
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5 {
 	@include font-heading;
-	font-weight: 700;
 	text-transform: lowercase;
-}
-
-h1 {
-	font-size: 40px;
-	padding-bottom: 20px;
-	width: 100%;
-	text-align: center;
-}
-
-h2 {
-	font-size: 25px;
-	padding: 20px 0;
-	width: 100%;
-}
-
-h3 {
-	font-size: 20px;
-	padding: 20px 0;
 	width: 100%;
 
 	&.is-white {
@@ -27,10 +8,25 @@ h3 {
 	}
 }
 
+h1 {
+	font-size: 40px;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+h2 {
+	font-size: 25px;
+	padding: 20px 0;
+}
+
+h3 {
+	font-size: 20px;
+	padding: 20px 0;
+}
+
 h4 {
 	font-size: 18px;
 	padding: 15px 0;
-	width: 100%;
 	text-transform: uppercase;
 	white-space: nowrap;
 	overflow: hidden;

@@ -35,7 +35,7 @@ class EventTableSeeder extends Seeder
 				"bkgcolor" => "#581845",
 				"textcolor" => "white",
 				"logo" => "workshop-design.jpg",
-				"starttime" =>  Carbon::parse('2020-10-21'),
+				"starttime" =>  Carbon::parse('2025-10-21'),
 			]
 		);
 		$event->save();
@@ -51,7 +51,7 @@ class EventTableSeeder extends Seeder
 				"bkgcolor" => "#FF5733",
 				"textcolor" => "white",
 				"logo" => "brunch.jpeg",
-				"starttime" =>  Carbon::parse('2020-01-21'),
+				"starttime" =>  Carbon::parse('2025-01-21'),
 			]
 		);
 		$event->save();
@@ -67,7 +67,7 @@ class EventTableSeeder extends Seeder
 				"bkgcolor" => "#001C79",
 				"textcolor" => "white",
 				"logo" => "design.jpeg",
-				"starttime" =>  Carbon::parse('2019-12-17'),
+				"starttime" =>  Carbon::parse('2024-12-17'),
 			]
 		);
 		$event->save();
@@ -83,7 +83,7 @@ class EventTableSeeder extends Seeder
 				"bkgcolor" => "#91FC9E",
 				"textcolor" => "black",
 				"logo" => "wireframes.jpeg",
-				"starttime" =>  Carbon::parse('2020-2-04'),
+				"starttime" =>  Carbon::parse('2026-2-04'),
 			]
 		);
 		$event4->save();

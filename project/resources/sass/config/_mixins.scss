@@ -68,18 +68,3 @@ transition
 	transition: $param $normal-transition-time $default-ease;
 }
 
-/*--------------------------------------------------------------
-Translate
---------------------------------------------------------------*/
-
-@mixin translateX($value: -50%) {
-	transform: translateX($value);
-}
-
-@mixin translateY($value: -50%) {
-	transform: translateY($value);
-}
-
-@mixin translateXY($value: -50%) {
-	transform: translate($value , $value);
-}

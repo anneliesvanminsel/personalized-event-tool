@@ -4,177 +4,84 @@
 @endsection
 @section('content')
 	<style>
-		.btn {
-			border-color: {{ $event['textcolor'] }};
-			color: {{ $event['textcolor'] }}
-					}
-		
-		.btn:hover {
-			background-color: {{ $event['textcolor'] }};
-			color: {{ $event['bkgcolor'] }};
-		}
-		
-		.btn svg, .is-icon svg {
-			fill: {{ $event['textcolor'] }};
-		}
-		
-		.btn.is-icon:hover  {
-			background-color: transparent;
-			color: transparent;
-		}
-		
-		.btn.is-icon:hover svg, .is-icon:hover svg {
-			fill: {{ $event['textcolor'] }};
-		}
-		
-		.tab__button.active {
-			background-color: {{ $event['bkgcolor'] }};
-			color: {{ $event['textcolor'] }};
+		.hero:before {
+			background-image: linear-gradient(to right, {{ $event['bkgcolor'] }}, {{ $event['textcolor'] }});
 		}
 	</style>
-	<section class="hero" style="background-color: {{ $event['bkgcolor'] }}; color: {{ $event['textcolor'] }}">
-		<div class="hero__content row row--stretch">
+	
+	<div class="hero">
+		<div class="hero__image">
 			@if(File::exists(public_path() . "/images/" . $event['logo']))
-				<div class="ctn--image">
-					<img src="{{ asset('images/' . $event['logo'] ) }}" alt="{{ $event['title'] }}" loading="lazy">
-				</div>
+				<img src="{{ asset('images/' . $event['logo'] ) }}" alt="{{ $event['title'] }}" loading="lazy">
 			@else
-				<div class="ctn--image">
-					<img src="https://placekitten.com/600/600" alt="{{ $event['title'] }}" loading="lazy">
-				</div>
-			@endif
-
-			<div class="hero__text">
-				<div class="row row--center is-title is-mobile">
-					<h1>
-						{{ $event['title'] }}
-					</h1>
-					@if(Auth::user() && Auth::user()->role === 'organisator' && $event->organisations->contains( Auth::user()->organisation_id ))
-						<div class="item__actions row row--stretch is-mobile">
-							<a title="bewerken" class="is-icon" href={{route('event.update', ['event_id' => $event->id])}}>
-								@svg('edit', 'is-small')
-							</a>
-							<a title="edit event settings" class="is-icon" href={{route('event.edit.settings', ['event_id' => $event->id])}}>
-								@svg('calendar (2)', 'is-small')
-							</a>
-						</div>
-					@endif
-				</div>
-
-				<p class="is-grow">
-					{{ $event['description'] }}
-				</p>
-
-				
-				
-				<div>
-					<div class="row row--center is-mobile spacing-top-s" style="justify-content: center;">
-						@if($event->tickets()->exists())
-							<a class="btn" href="#tickets">
-								Bestel tickets
-							</a>
-						@endif
-						<form
-								class="form"
-								method="POST"
-								action="{{ route('event.like', ['event-id' => $event['id'] ]) }}"
-						>
-							{{ csrf_field() }}
-							
-							@if(Auth::user() && $event->users->contains(Auth::user()->id))
-								<button title="unlike" class="btn is-icon" type="submit">
-									@svg('heart', 'is-small')
-								</button>
-							@else
-								<button title="like" class="btn is-icon" type="submit">
-									@svg('like', 'is-small')
-								</button>
-							@endif
-						</form>
-					</div>
-				</div>
-				
-			</div>
-			@if($event->organisations())
-				<div class="hero__post">
-					Georganiseerd door:
-					@foreach( $event->organisations()->get() as $org)
-						<a href="{{ route('organisation.detail', ['id' => $org['id']]) }}" class="link">
-							{{ $org['name'] }}
-						</a>
-					@endforeach
-				</div>
+				<img src="https://placekitten.com/1000/1000" alt="{{ $event['title'] }}" loading="lazy">
 			@endif
 		</div>
-	</section>
-
-	@if($event->sessions()->exists())
-		<section class="page-alignment schedule">
-			<h1 class="schedule__title">
-				Planning
+		
+		<div class="hero__actions row">
+			<div class="hero__organisation">
+				@if($event->organisations()->exists())
+					Georganiseerd door:
+					@foreach($event->organisations()->get() as $organisation)
+						<a href="">
+							{{ $organisation->name }}
+						</a>
+					@endforeach
+				@endif
+			</div>
+			
+			<button title="download" class="button is-icon" type="submit">
+				@svg('download', 'is-btn is-white')
+			</button>
+			<form
+				class="form"
+				method="POST"
+				action="{{ route('event.like', ['event-id' => $event['id'] ]) }}"
+			>
+				{{ csrf_field() }}
+				@if(Auth::user() && $event->users->contains(Auth::user()->id))
+					<button title="unlike" class="button is-icon" type="submit">
+						@svg('heart-full', 'is-btn is-heart')
+					</button>
+				@else
+					<button title="like" class="button is-icon" type="submit">
+						@svg('heart-line', 'is-btn is-heart')
+					</button>
+				@endif
+			</form>
+		</div>
+		
+		<div class="hero__content">
+			<h1 class="hero__title">
+				{{ $event['title'] }}
 			</h1>
-
-			<div class="tab spacing-top-s">
-				<div class="tab__heading">
-					@foreach($event->sessions()->get() as $session)
-						<button class="tab__button tab__links {{$loop->iteration === 1 ? 'active' : ''}}" onclick="openTabs(event, {{ $session['id'] }})">
-							{{ date('d/m', strtotime( $session['date'])) }}
-						</button>
-					@endforeach
-				</div>
-				
-				<div id="tab__container">
-					@foreach($event->sessions()->get() as $session)
-						<div class="tab__content" id="{{ $session['id'] }}" {{$loop->iteration === 1 ? 'style=display:'.'block' : ''}}>
-							@if($session->schedules()->exists())
-								<div class="table__heading row row--stretch is-mobile" style="border-color: {{ $event['bkgcolor'] }}">
-									<div>
-										Uur
-									</div>
-									<div>
-										Wat
-									</div>
-									<div>
-										Waar
-									</div>
-								</div>
-								<div class="table__content">
-									<style>
-										.table__item:nth-child(odd) {
-											background-color: {{ $event['bkgcolor'] }}55; /* laatste twee cijfers zijn opacity*/
-										}
-									</style>
-									
-									@foreach($session->schedules()->get() as $sched)
-										<div class="table__item row row--stretch is-mobile">
-											<div class="">
-												{{ \Carbon\Carbon::parse($sched['starttime'])->format('H:i') }}
-												@if($sched['endtime'])
-													- {{ \Carbon\Carbon::parse($sched['endtime'])->format('H:i')}}
-												@endif
-											</div>
-											<div class="">
-												<div class="">
-													{{ $sched['title'] }}
-												</div>
-												<p class="">
-													{{ $sched['description'] }}
-												</p>
-											</div>
-											<div class="">
-												{{ $sched['location'] }}
-											</div>
-										</div>
-									@endforeach
-								</div>
-							@else
-								<p>
-									Er is nog geen planning toegevoegd.
-								</p>
-							@endif
+			<div class="hero__description">
+				{{ $event['description'] }}
+			</div>
+		</div>
+	</div>
+	
+	@if($event->tickets()->exists())
+		<section class="section is-pull-up">
+			<div class="row">
+				<h3 class="is-white">
+					tickets
+				</h3>
+				@if($event->address()->exists())
+					<div class="row">
+					
+						<div class="card__text row">
+							@svg('location', 'is-white')
+							{{ $event->address()->first()->locationname }}, {{ $event->address()->first()->city }}
 						</div>
-					@endforeach
-				</div>
+					</div>
+				@endif
+			</div>
+			
+			<div class="card--container">
+				@foreach($event->tickets()->get() as $ticket)
+					@include('partials.ticket', $ticket)
+				@endforeach
 			</div>
 		</section>
 	@endif
@@ -210,71 +117,79 @@
 			</li>
 		</ul>
 	</section>
-	@if($event->tickets()->exists())
-		<section class="page-alignment slider" id="tickets">
-			<h2>
-				tickets
-			</h2>
 
-			@foreach($event->tickets()->get() as $ticket)
-				<input
-					type="radio"
-					name="slider"
-					id="slide-{{ $loop->iteration }}"
-					class="slider__radio"
-					{{ $loop->iteration == 1 ? 'checked' : ''}}
-				/>
+@if($event->sessions()->exists())
+<section class="section schedule">
+	<h3 class="schedule__title">
+		Planning
+	</h3>
+
+	<div class="tab spacing-top-s">
+		<div class="tab__heading">
+			@foreach($event->sessions()->get() as $session)
+				<button class="tab__button tab__links {{$loop->iteration === 1 ? 'active' : ''}}" onclick="openTabs(event, {{ $session['id'] }})">
+					{{ date('d/m', strtotime( $session['date'])) }}
+				</button>
 			@endforeach
-
-			<div class="slider__holder">
-				@foreach($event->tickets()->get() as $ticket)
-					<label for="slide-{{ $loop->iteration }}" class="slider__item slider__item--{{ $loop->iteration }} card" style="border-color: {{ $event['bkgcolor'] }}">
-						<!-- Card Content goes here -->
-						@if($ticket['type'])
+		</div>
+		
+		<div id="tab__container">
+			@foreach($event->sessions()->get() as $session)
+				<div class="tab__content" id="{{ $session['id'] }}" {{$loop->iteration === 1 ? 'style=display:'.'block' : ''}}>
+					@if($session->schedules()->exists())
+						<div class="table__heading row row--stretch is-mobile" style="border-color: {{ $event['bkgcolor'] }}">
 							<div>
-								{{ $ticket['type'] }}
+								Uur
 							</div>
-						@endif
-						<h3 class="card__title">
-							{{ $ticket['name'] }}
-						</h3>
-						<div class="card__price">
-							€ {{ $ticket['price'] }}
+							<div>
+								Wat
+							</div>
+							<div>
+								Waar
+							</div>
 						</div>
-						@if($ticket['description'])
-							<p class="card__text">
-								{{ $ticket['description'] }}
-							</p>
-						@endif
-
-						<a
-							href="{{ route('ticket.payment', ['event_id' => $event['id'], 'ticket_id' => $ticket['id']]) }}"
-							class="btn btn--full"
-							style="border-color: {{ $event['bkgcolor'] }}; background-color: {{ $event['bkgcolor'] }}; color: {{ $event['textcolor'] }};"
-						>
-							Ik wil deze
-						</a>
-					</label>
-				@endforeach
-			</div>
-
-			<div class="bullets">
-				@foreach($event->tickets()->get() as $ticket)
-					<style>
-						.bullets__item:hover {
-							background-color: {{ $event['bkgcolor'] }};
-						}
-
-						#slide-{{$loop->iteration}}:checked ~ .bullets .bullets__item--{{$loop->iteration}}  {
-							background-color: {{ $event['bkgcolor'] }};
-						}
-					</style>
-
-					<label for="slide-{{ $loop->iteration }}" class="bullets__item bullets__item--{{ $loop->iteration }}"></label>
-				@endforeach
-			</div>
-		</section>
-	@endif
+						<div class="table__content">
+							<style>
+								.table__item:nth-child(odd) {
+									background-color: {{ $event['bkgcolor'] }}55; /* laatste twee cijfers zijn opacity*/
+								}
+							</style>
+							
+							@foreach($session->schedules()->get() as $sched)
+								<div class="table__item row row--stretch is-mobile">
+									<div class="">
+										{{ \Carbon\Carbon::parse($sched['starttime'])->format('H:i') }}
+										@if($sched['endtime'])
+											- {{ \Carbon\Carbon::parse($sched['endtime'])->format('H:i')}}
+										@endif
+									</div>
+									<div class="">
+										<div class="">
+											{{ $sched['title'] }}
+										</div>
+										<p class="">
+											{{ $sched['description'] }}
+										</p>
+									</div>
+									<div class="">
+										{{ $sched['location'] }}
+									</div>
+								</div>
+							@endforeach
+						</div>
+					@else
+						<p>
+							Er is nog geen planning toegevoegd.
+						</p>
+					@endif
+				</div>
+			@endforeach
+		</div>
+	</div>
+</section>
+@endif
+	
+	
 	@if($event->address()->first())
 		@php
 			$address = $event->address()->first();
