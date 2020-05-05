@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Jenssegers\Date\Date;
+use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,5 +27,9 @@ class AppServiceProvider extends ServiceProvider
     {
         //
 		Date::setLocale('nl');
+
+		Paginator::defaultView('vendor.pagination.default');
+
+		Paginator::defaultSimpleView('vendor.pagination.simple');
     }
 }

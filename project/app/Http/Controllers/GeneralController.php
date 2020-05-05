@@ -12,11 +12,11 @@ class GeneralController extends Controller
 {
     //TODO: find places to put these (organsisatorpage? and account?)
 	public function getIndex() {
-		$highlights = Event::where('status', '=', 1)->where('starttime', '>', Carbon::now())->orderBy('id', 'desc')->take(3)->get();
-		$searchedevents = Event::where('status', '=', 1)->where('starttime', '>', Carbon::now())->orderBy('starttime', 'asc')->paginate(5);
-        $mobileevents = Event::where('status', '=', 1)->where('starttime', '>', Carbon::now())->orderBy('id', 'desc')->paginate(10);
+		$highlights = Event::where('status', '=', 1)->where('starttime', '>', Carbon::now())->orderBy('id', 'desc')->take(4)->get();
+		$searchedevents = Event::where('status', '=', 1)->where('starttime', '>', Carbon::now())->orderBy('starttime', 'asc')->paginate(3, ['*'], 'search');
+		$popularevents = Event::where('status', '=', 1)->where('starttime', '>', Carbon::now())->orderBy('starttime', 'asc')->paginate(3, ['*'], 'popular');
 
-		return view('home', ['highlights' => $highlights, 'searchedevents' => $searchedevents, 'mobileevents' => $mobileevents]);
+		return view('home', ['highlights' => $highlights, 'searchedevents' => $searchedevents, 'popularevents' => $popularevents]);
 	}
 
 
@@ -35,11 +35,12 @@ class GeneralController extends Controller
             'type'=> 'required',
         ]);
 
-        $slideevents = Event::where('status', '=', 1)->orderBy('id', 'desc')->where('starttime', '>', Carbon::now())->take(3)->get();
-        $searchedevents = Event::where('status', '=', 1)->where('type', $request->input('type'))->where('starttime', '>', Carbon::now())->orderBy('starttime', 'asc')->paginate(5);
+		$highlights = Event::where('status', '=', 1)->where('starttime', '>', Carbon::now())->orderBy('id', 'desc')->take(4)->get();
+		$popularevents = Event::where('status', '=', 1)->where('starttime', '>', Carbon::now())->orderBy('starttime', 'asc')->paginate(3, ['*'], 'popular');
+        $searchedevents = Event::where('status', '=', 1)->where('type', $request->input('type'))->where('starttime', '>', Carbon::now())->orderBy('starttime', 'asc')->paginate(3, ['*'], 'search');
 
-        return view('home', ['slideevents' => $slideevents, 'searchedevents' => $searchedevents]);
-    }
+		return view('home', ['highlights' => $highlights, 'searchedevents' => $searchedevents, 'popularevents' => $popularevents]);
+	}
 
     public function getMaintenancePage() {
         return view('maintenance');
