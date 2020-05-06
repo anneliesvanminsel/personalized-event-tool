@@ -62,11 +62,12 @@
 			display: block;
 			width: 24px;
 			height: 24px;
-			background: transparent;
+			background: $white;
 			border-radius: 50%;
 			@include border(1px, $blue);
 			top: 27%;
 			left: 0;
+			z-index: 100;
 			//transform: translateY(-50%);
 		}
 
@@ -110,6 +111,7 @@
 			top: 50%;
 			left: 0;
 			transform: translateY(-50%);
+			z-index: 50;
 		}
 
 		&:before {
