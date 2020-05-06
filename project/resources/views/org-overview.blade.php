@@ -57,26 +57,25 @@
 	</section>
 	
 	@foreach($subs as $sub)
-		<section class="page-alignment spacing-top-m" id="feature-{{$loop->iteration}}">
-			<div class="section row row--stretch">
-				
+		<section class="section" id="feature-{{$loop->iteration}}">
+			<div class="row row--stretch">
 				@if($loop->odd)
-					<div class="ctn--image section__image">
+					<div class="ctn--image">
 						<img src="https://images.pexels.com/photos/2422278/pexels-photo-2422278.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
 					</div>
 				@endif
-				<div class="section__content">
-					<h2>
+				<div class="">
+					<h3>
 						{{ $sub['title'] }}
-					</h2>
-					<div class="section__text">
+					</h3>
+					<div class="">
 						Cupcake lollipop chocolate. Dessert chupa chups cotton candy brownie dessert. Tootsie roll sesame
 						snaps pie sesame snaps candy canes jelly-o biscuit topping. Soufflé sesame snaps tootsie roll gummies
 						croissant pastry. Biscuit candy biscuit jujubes gingerbread muffin cotton candy cake.
 					</div>
 				</div>
 				@if($loop->even)
-					<div class="ctn--image section__image">
+					<div class="ctn--image">
 						<img src="https://images.pexels.com/photos/2422278/pexels-photo-2422278.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
 					</div>
 				@endif

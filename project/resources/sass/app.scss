@@ -1,35 +1,28 @@
-//base files
+// Base files
 @import 'base/sanitize';
 
 // Configuration files
 @import 'config/base';
-@import 'event';
 
 // Partials
-@import 'header';
-@import 'mobile-nav';
-@import 'footer';
-@import 'section';
-@import 'page';
-@import 'grid';
-@import 'span';
-@import 'spacing';
-@import 'error';
+@import 'components/header/header';
+@import 'components/footer/footer';
 
-//Components
-@import 'components/button';
-@import 'components/panel';
-@import 'components/card';
-@import 'components/logo';
+// Components
+@import 'components/event';
+@import 'components/error';
+@import 'components/mobile-nav';
+
+@import 'components/auth/auth';
+@import 'components/section/section';
+
+@import 'components/button/button';
+
+@import 'components/panel/panel';
+@import 'components/logo/logo';
 
 @import 'components/hero/hero';
 @import 'components/pull-up/pull-up';
-
-@import 'components/slideshow/slideshow';
-@import 'components/slideshow/slide';
-
-@import 'components/cardslider/functionality';
-@import 'components/cardslider/styling';
 
 @import 'components/form/form';
 
@@ -56,7 +49,8 @@
 
 @import 'components/popup/popup';
 
-@import 'components/ticket/ticket';
+@import 'components/card/ticket';
+@import 'components/card/card';
 
 @import 'components/message/message';
 

@@ -15,14 +15,18 @@ textarea
 	font-size: 16px;
 	@include font-base;
 
-	@include border(1px, $black);
+	@include border(1px, $blue);
 	@include default-transition();
 	touch-action: manipulation;
 
 	&:focus,
 	&:valid {
 		outline: none;
-		@include border(1px, $red);
+		@include border(1px, $blue);
+	}
+
+	&.optional {
+		@include border(1px, $grey);
 	}
 }
 

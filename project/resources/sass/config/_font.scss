@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Montserrat:wght@400;800|Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:wght@400;900|Poiret+One&display=swap');
 
 
 @mixin font-logo {
@@ -9,7 +9,7 @@
 
 @mixin font-heading {
 	font-family: 'Montserrat', sans-serif;
-	font-weight: 800;
+	font-weight: 900;
 }
 
 @mixin font-base {
