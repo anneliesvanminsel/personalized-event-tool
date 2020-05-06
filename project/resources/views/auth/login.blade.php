@@ -4,20 +4,23 @@
 @endsection
 
 @section('content')
-	<div class="page page--auth">
-		<div class="page__image">
-			<img src="https://images.pexels.com/photos/2283996/pexels-photo-2283996.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+	<div class="header__container">
+		<header class="header">
+			<a class="logo has-lines" href="{{ route('index') }}">
+				evento
+			</a>
+		</header>
+	</div>
+	<div class="auth">
+		<div class="auth__image">
+			<img src="{{ asset('images/toast.jpg') }}" alt="" loading="lazy">
 		</div>
-
-		<a class="logo logo--link" href="{{ route('index') }}">
-			<h1>evento</h1>
-		</a>
 
 		<div class="panel">
 
-			<div class="panel__title">
+			<h3 class="panel__title">
 				Aanmelden
-			</div>
+			</h3>
 
 			<div class="panel__body">
 				<form method="POST" action="{{ route('login') }}" class="form">
@@ -68,37 +71,23 @@
 						@enderror
 
 					</div>
-
-					<div class="">
-						<div class="">
-							<div class="">
-								<input
-									class="form-check-input"
-									type="checkbox"
-									name="remember"
-									id="remember"
-									{{ old('remember') ? 'checked' : '' }}
-								>
-
-								<label class="" for="remember">
-									Herinner mij
-								</label>
-							</div>
-						</div>
-					</div>
+					
+					@if (Route::has('password.request'))
+						<a class="link auth__link" href="{{ route('password.request') }}">
+							Wachtwoord vergeten?
+						</a> <br> <br>
+					@endif
 
 					<div class="">
 						<button type="submit" class="btn btn--full">
 							aanmelden
 						</button>
-
-						@if (Route::has('password.request'))
-							<a class="link" href="{{ route('password.request') }}">
-								Wachtwoord vergeten?
-							</a> <br> <br>
-						@endif
-						<a class="link" href="{{ route('register') }}">
-							Nog geen account? Maak er snel één aan.
+						
+						<a class="auth__link" href="{{ route('register') }}">
+							Nog geen account?
+							<span class="link">
+								Maak er snel één aan.
+							</span>
 						</a>
 					</div>
 				</form>

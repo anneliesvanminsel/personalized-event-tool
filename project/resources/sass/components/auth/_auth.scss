@@ -1,6 +1,6 @@
 .auth {
 	position: relative;
-	min-height: 100vh;
+	min-height: calc(100vh - 90px);
 	width: 100%;
 	padding: 80px auto;
 

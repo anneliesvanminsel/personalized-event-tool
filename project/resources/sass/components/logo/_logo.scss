@@ -1,9 +1,7 @@
 .logo {
 	position: relative;
-	width: calc(100% - 80px);
-	//max-width: 100%;
-	margin: 5px 40px;
-	text-align: center;
+	width: 200px;
+	margin: 0;
 
 	@include font-logo;
 	display: inline-block;
@@ -11,5 +9,49 @@
 	&--link {
 		text-decoration: none;
 		color: inherit;
+	}
+
+	&.has-line {
+		&::before {
+			@include pseudo;
+			top: 65%;
+			left: -1040px;
+			width: 1000px;
+			height: 1px;
+			background-color: $black;
+		}
+
+		&.is-white {
+			&::before {
+				background-color: $white;
+			}
+		}
+	}
+
+	&.has-lines {
+		&::before,
+		&::after {
+			@include pseudo;
+			top: 65%;
+			height: 1px;
+			background-color: $black;
+		}
+
+		&::before {
+			left: -1040px;
+			width: 1000px;
+		}
+
+		&::after {
+			left: 140px;
+			width: 5000px;
+		}
+
+		&.is-white {
+			&::before,
+			&::after {
+				background-color: $white;
+			}
+		}
 	}
 }

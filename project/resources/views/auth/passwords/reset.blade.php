@@ -4,20 +4,23 @@
 @endsection
 
 @section('content')
-    <div class="page page--auth">
-        <div class="page__image">
-            <img src="https://images.pexels.com/photos/2283996/pexels-photo-2283996.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+    <div class="header__container">
+        <header class="header">
+            <a class="logo has-lines" href="{{ route('index') }}">
+                evento
+            </a>
+        </header>
+    </div>
+    
+    <div class="auth">
+        <div class="auth__image">
+            <img src="{{ asset('images/toast.jpg') }}" alt="" loading="lazy">
         </div>
-
-        <a class="logo logo--link" href="{{ route('index') }}">
-            eventify
-        </a>
-
+    
         <div class="panel">
-
-            <div class="panel__title">
+            <h3 class="panel__title">
                 Wachtwoord herstellen
-            </div>
+            </h3>
 
             <div class="panel__body">
                 <form method="POST" action="{{ route('password.update') }}">

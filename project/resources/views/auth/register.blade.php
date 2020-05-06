@@ -4,20 +4,23 @@
 @endsection
 
 @section('content')
-	<div class="page page--auth">
-		<div class="page__image">
-			<img src="https://images.pexels.com/photos/2283996/pexels-photo-2283996.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+	<div class="header__container">
+		<header class="header">
+			<a class="logo has-lines" href="{{ route('index') }}">
+				evento
+			</a>
+		</header>
+	</div>
+	
+	<div class="auth">
+		<div class="auth__image">
+			<img src="{{ asset('images/toast.jpg') }}" alt="" loading="lazy">
 		</div>
 
-		<a class="logo logo--link" href="{{ route('index') }}">
-			<h1>evento</h1>
-		</a>
-
 		<div class="panel">
-
-			<div class="panel__title">
+			<h3 class="panel__title">
 				Account aanmaken
-			</div>
+			</h3>
 
 			<div class="panel__body">
 				<form method="POST" action="{{ route('register') }}">
@@ -56,7 +59,7 @@
 							autocomplete="email"
 						>
 						<label for="email" class="form__label">
-							{{ __('E-Mail Address') }}
+							e-mailadres
 						</label>
 
 						@error('email')
@@ -109,9 +112,11 @@
 							Maak een account
 						</button>
 					</div>
-					<br>
-					<a class="link" href="{{ route('login') }}">
-						Al een account? Meld je nu aan.
+					<a class="auth__link" href="{{ route('login') }}">
+						Al een account?
+						<span class="link">
+							Meld je nu aan.
+						</span>
 					</a>
 				</form>
 			</div>
