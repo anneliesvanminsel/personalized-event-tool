@@ -34,3 +34,10 @@ iframe {
   width: 100%;
   height: 300px;
 }
+
+span {
+  &.invalid-feedback {
+    color: red;
+    font-weight: 800;
+  }
+}

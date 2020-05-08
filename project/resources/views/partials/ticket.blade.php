@@ -2,7 +2,7 @@
 	<div class="card__content ticket__content">
 		@if($ticket['type'])
 			<div class="ticket__type">
-				{{ $ticket['name'] }}
+				{{ $ticket['type'] }}
 			</div>
 		@endif
 		<div class="card__price ticket__price">

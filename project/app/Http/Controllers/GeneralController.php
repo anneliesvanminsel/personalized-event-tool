@@ -12,9 +12,9 @@ class GeneralController extends Controller
 {
     //TODO: find places to put these (organsisatorpage? and account?)
 	public function getIndex() {
-		$highlights = Event::where('status', '=', 1)->where('starttime', '>', Carbon::now())->orderBy('id', 'desc')->take(4)->get();
-		$searchedevents = Event::where('status', '=', 1)->where('starttime', '>', Carbon::now())->orderBy('starttime', 'asc')->paginate(3, ['*'], 'search');
-		$popularevents = Event::where('status', '=', 1)->where('starttime', '>', Carbon::now())->orderBy('starttime', 'asc')->paginate(3, ['*'], 'popular');
+		$highlights = Event::where('published', '=', 1)->where('starttime', '>', Carbon::now())->orderBy('id', 'desc')->take(4)->get();
+		$searchedevents = Event::where('published', '=', 1)->where('starttime', '>', Carbon::now())->orderBy('starttime', 'asc')->paginate(3, ['*'], 'search');
+		$popularevents = Event::where('published', '=', 1)->where('starttime', '>', Carbon::now())->orderBy('starttime', 'asc')->paginate(3, ['*'], 'popular');
 
 		return view('home', ['highlights' => $highlights, 'searchedevents' => $searchedevents, 'popularevents' => $popularevents]);
 	}
@@ -35,9 +35,9 @@ class GeneralController extends Controller
             'type'=> 'required',
         ]);
 
-		$highlights = Event::where('status', '=', 1)->where('starttime', '>', Carbon::now())->orderBy('id', 'desc')->take(4)->get();
-		$popularevents = Event::where('status', '=', 1)->where('starttime', '>', Carbon::now())->orderBy('starttime', 'asc')->paginate(3, ['*'], 'popular');
-        $searchedevents = Event::where('status', '=', 1)->where('type', $request->input('type'))->where('starttime', '>', Carbon::now())->orderBy('starttime', 'asc')->paginate(3, ['*'], 'search');
+		$highlights = Event::where('published', '=', 1)->where('starttime', '>', Carbon::now())->orderBy('id', 'desc')->take(4)->get();
+		$popularevents = Event::where('published', '=', 1)->where('starttime', '>', Carbon::now())->orderBy('starttime', 'asc')->paginate(3, ['*'], 'popular');
+        $searchedevents = Event::where('published', '=', 1)->where('type', $request->input('type'))->where('starttime', '>', Carbon::now())->orderBy('starttime', 'asc')->paginate(3, ['*'], 'search');
 
 		return view('home', ['highlights' => $highlights, 'searchedevents' => $searchedevents, 'popularevents' => $popularevents]);
 	}

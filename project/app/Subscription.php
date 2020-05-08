@@ -10,7 +10,7 @@ class Subscription extends Model
 	use SoftDeletes;
 	//
 	protected $fillable = [
-		'title', 'description', 'price',
+		'title', 'description', 'price', 'items',
 	];
 
 	public function organisations(){

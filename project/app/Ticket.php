@@ -10,7 +10,7 @@ class Ticket extends Model
 	use SoftDeletes;
 	//
 	protected $fillable = [
-		'name', 'price', 'type', 'totaltickets', 'date', 'event_id', 'description',
+		'price', 'type', 'totaltickets', 'date', 'event_id', 'description',
 	];
 
 	public function event(){

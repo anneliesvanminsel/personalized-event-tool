@@ -1,0 +1,128 @@
+.timeline {
+	position: relative;
+	max-width: 1200px;
+	margin: 0 auto;
+
+	&::after {
+		content: '';
+		position: absolute;
+		width: 1px;
+		background-color: $blue;
+		top: 0;
+		bottom: 0;
+		left: 31px;
+		margin-left: -3px;
+
+		@media screen and (min-width: 600px) {
+			left: 50%;
+		}
+	}
+
+	.item {
+		width: 100%;
+		padding: 10px 50px;
+		position: relative;
+		background-color: inherit;
+
+		@media screen and (min-width: 600px) {
+			padding: 10px 40px;
+			position: relative;
+			background-color: inherit;
+			width: 50%
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			width: 20px;
+			height: 20px;
+			left: 17px;
+			right: 0;
+			top: 27px;
+			background-color: $white;
+			border: 1px solid $blue;
+			border-radius: 50%;
+			z-index: 1;
+
+			@media screen and (min-width: 600px) {
+				right: -9px;
+			}
+		}
+
+		&:nth-child(odd),
+		&:nth-child(even) {
+			left: 0;
+			text-align: left;
+		}
+
+		&:nth-child(odd) {
+			@media screen and (min-width: 600px) {
+				left: 0;
+				text-align: right;
+
+				&::after {
+					left: auto;
+					right: -9px;
+				}
+
+				.item__location {
+					justify-content: flex-end;
+				}
+			}
+		}
+
+		&:nth-child(even) {
+			@media screen and (min-width: 600px) {
+				left: 50%;
+
+				&::after {
+					left: -13px;
+				}
+			}
+		}
+
+		&__content {
+			position: relative;
+			padding: 20px 10px;
+		}
+
+		&__time {
+			font-size: 14px;
+		}
+
+		&__information {
+
+		}
+
+		&__title {
+			color: $blue;
+			padding: 10px 0;
+		}
+
+		&__description {
+			font-size: 14px;
+			margin-bottom: $spacing-xs;
+		}
+
+		&__location {
+			flex-direction: row;
+
+			font-size: 14px;
+		}
+
+		.icon {
+			margin-left: 0;
+			margin-right: 10px;
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.timeline {
+		.item {
+
+
+
+		}
+	}
+}

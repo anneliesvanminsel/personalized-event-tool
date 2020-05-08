@@ -18,8 +18,8 @@
 		</form>
 	</div>
 	<div class="card__image">
-		@if(File::exists(public_path() . "/images/" . $event['logo']))
-			<img src="{{ asset('images/' . $event['logo']) }}" alt="logo voor {{ $event->title }}">
+		@if(File::exists(public_path() . "/images/" . $event['image']))
+			<img src="{{ asset('images/' . $event['image']) }}" alt="logo voor {{ $event->title }}">
 		@else
 			<img src="https://placekitten.com/600/600" alt="logo voor {{ $event->title }}">
 		@endif
@@ -38,9 +38,11 @@
 			@endif
 		</div>
 		@if($event->address()->exists())
-			<div class="card__text row">
+			<div class="card__text row is-short">
 				@svg('location')
-				{{ $event->address()->first()->locationname }}, {{ $event->address()->first()->city }}
+				<span>
+					{{ $event->address()->first()->city }}
+				</span>
 			</div>
 		@endif
 	</div>

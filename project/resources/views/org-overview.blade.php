@@ -57,30 +57,28 @@
 	</section>
 	
 	@foreach($subs as $sub)
-		<section class="section" id="feature-{{$loop->iteration}}">
-			<div class="row row--stretch">
+		<article class="article--container {{$loop->even ? 'is-purple' : ''}}" id="feature-{{$loop->iteration}}">
+			<div class="article row row--stretch">
 				@if($loop->odd)
-					<div class="ctn--image">
-						<img src="https://images.pexels.com/photos/2422278/pexels-photo-2422278.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+					<div class="ctn--image article__image">
+						<img src="{{ asset('images/abo-' . $loop->iteration . '.jpg') }}" alt="{{ $sub['title'] }}-abonnement">
 					</div>
 				@endif
-				<div class="">
-					<h3>
+				<div class="article__content">
+					<h3 class="article__title">
 						{{ $sub['title'] }}
 					</h3>
-					<div class="">
-						Cupcake lollipop chocolate. Dessert chupa chups cotton candy brownie dessert. Tootsie roll sesame
-						snaps pie sesame snaps candy canes jelly-o biscuit topping. Soufflé sesame snaps tootsie roll gummies
-						croissant pastry. Biscuit candy biscuit jujubes gingerbread muffin cotton candy cake.
+					<div class="article__text">
+						{!! $sub->items !!}
 					</div>
 				</div>
 				@if($loop->even)
-					<div class="ctn--image">
-						<img src="https://images.pexels.com/photos/2422278/pexels-photo-2422278.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+					<div class="ctn--image article__image">
+						<img src="{{ asset('images/abo-' . $loop->iteration . '.jpg') }}" alt="{{ $sub['title'] }}-abonnement">
 					</div>
 				@endif
 			</div>
-		</section>
+		</article>
 	@endforeach
 	
 @endsection

@@ -10,7 +10,8 @@ class Event extends Model
 	use SoftDeletes;
     //
 	protected $fillable = [
-		'title', 'description', 'type', 'status', 'bkgcolor', 'textcolor', 'logo', 'starttime', 'endtime', 'address_id',
+		'image', 'title', 'description', 'category', 'published', 'prim-color', 'sec-color', 'tert-color', 'theme', 'shape',
+		'schedule', 'starttime', 'endtime', 'address_id', 'username',
 	];
 
 	public function sessions(){

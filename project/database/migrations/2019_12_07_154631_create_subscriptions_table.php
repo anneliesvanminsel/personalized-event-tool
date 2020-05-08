@@ -17,6 +17,7 @@ class CreateSubscriptionsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('description');
+            $table->string('items');
             $table->double('price');
             $table->softDeletes();
             $table->timestamps();

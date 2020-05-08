@@ -84,6 +84,12 @@
 
 	&__text {
 		margin-bottom: 10px;
+
+		&.is-short {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
 	}
 
 	&__content {
@@ -103,6 +109,7 @@
 
 	&:hover {
 		border: 1px solid $pink;
+		@include shadow();
 
 		.btn {
 			background-color: $pink;

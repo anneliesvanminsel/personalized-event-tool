@@ -75,6 +75,19 @@
 	&__organisation {
 		flex-grow: 1;
 		font-size: 14px;
+
+		a {
+			margin-left: 5px;
+		}
+	}
+
+	&__location {
+		flex-shrink: 0;
+		color: white;
+	}
+
+	&__subtitle {
+		padding-top: 0;
 	}
 
 	&__title {

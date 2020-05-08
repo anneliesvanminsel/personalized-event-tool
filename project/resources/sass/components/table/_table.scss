@@ -2,31 +2,68 @@
 	margin-top: $spacing-s;
 
 	&__heading {
-		padding: $spacing-s;
+		padding: $spacing-xs $spacing-s;
 
 		@include font-heading;
 		font-size: 20px;
 
-		border-bottom: 1px solid $red;
+		border-bottom: 1px solid $grey;
 
 	  & > * {
 		width: calc(100% / 3);
 	  }
 	}
 
-	&__content {
-
-	}
-
-	&__item {
-		padding: $spacing-s;
+	.item {
+		padding: $spacing-ms $spacing-s;
 
 		&:nth-child(odd){
-			background-color: rgba($red, .5);
+			background-color: rgba($blue, .2);
+
+			.item__image {
+				border-color: $white;
+			}
 		}
 
-	  & > * {
-		width: calc(100% / 3);
-	  }
+		&__time {
+		  width: 80px;
+		  text-align: center;
+		  margin-right: $spacing-s;
+		}
+
+		&__image {
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			border: 1px solid $blue;
+			overflow: hidden;
+			margin-right: $spacing-s;
+
+			&.is-hidden {
+				height: 10px;
+				border: none;
+			}
+
+			img {
+				min-width: 100%;
+				max-width: 100px;
+				width: auto;
+				min-height: 100%;
+				max-height: 100px;
+				height: auto;
+			}
+		}
+
+		&__content {
+			flex-grow: 1;
+		}
+
+		&__title {
+			padding-top: 0;
+		}
+
+		&__location {
+			width: 180px;
+		}
 	}
 }

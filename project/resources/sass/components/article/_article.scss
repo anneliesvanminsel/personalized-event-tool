@@ -1,0 +1,46 @@
+.article {
+	@include grid;
+
+	&__title {
+		padding-top: 0;
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		width: 420px;
+		min-width: 420px;
+		margin-left: 40px;
+	}
+
+	&__image {
+		@include shadow();
+		width: 420px;
+		min-width: 420px;
+		overflow: hidden;
+		height: 270px;
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	&--container {
+		padding: $spacing-l;
+
+		&.is-purple {
+			background-color: $purple;
+			color: white;
+
+			.article__content {
+				margin-right: 40px;
+				margin-left: 0;
+			}
+		}
+
+		&:last-child {
+			margin-bottom: $spacing-l;
+		}
+	}
+}

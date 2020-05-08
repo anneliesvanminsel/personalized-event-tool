@@ -40,19 +40,6 @@ class UsersTableSeeder extends Seeder
 
 		$user = new User(
 			[
-				'name' => 'medewerker',
-				'email' => 'medewerker@bedrijf.be',
-				'password' => \Illuminate\Support\Facades\Hash::make("bedrijf"),
-				'role' => 'volunteer',
-				'organisation_id' => 1,
-				'birthday' => Carbon::parse('1995-12-01'),
-				'phonenumber' => "0456 78 90 43",
-			]
-		);
-		$user->save();
-
-		$user = new User(
-			[
 				'name' => 'bezoeker',
 				'email' => 'bezoeker@mail.be',
 				'password' => \Illuminate\Support\Facades\Hash::make("bedrijf"),
