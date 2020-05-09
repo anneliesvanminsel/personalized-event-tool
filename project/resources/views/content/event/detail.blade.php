@@ -86,7 +86,6 @@
 	
 	
 	<section class="photowall">
-		
 		<ul class="photolist">
 			@php
 				if($event->username) {

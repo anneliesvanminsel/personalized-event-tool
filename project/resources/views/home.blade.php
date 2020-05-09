@@ -33,9 +33,9 @@
             <h3>
                 Wat is er te doen?
             </h3>
-            <form action="{{ route('home.searchevents') }}" method="post">
+            <form action="{{ route('home.searchevents') }}" method="post" class="filter--container">
                 @csrf
-                <div class="row row--stretch is-form">
+                <div class="row filter">
 	                <div class="form__group">
 		                <input
 			                id="location"

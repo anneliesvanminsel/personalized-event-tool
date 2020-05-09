@@ -27,7 +27,7 @@ class GeneralController extends Controller
 
 	public function getAccount($id) {
 		$user = User::where('id', $id)->first();
-		return view('content.user.account', ['user' => $user]);
+		return view('content.user.account-tickets', ['user' => $user]);
 	}
 
 	public function postSearch(Request $request) {

@@ -1,0 +1,38 @@
+.filter {
+	&--container {
+
+	}
+
+	&.row {
+		align-items: center;
+
+		> .btn {
+			margin-left: 0;
+		}
+	}
+
+	.form__group {
+		width: 250px;
+		max-height: 50px;
+	}
+
+	.form__input {
+		margin-bottom: 0;
+		padding: 14px 20px;
+	}
+
+	.form__label {
+		display: none;
+	}
+
+	::placeholder {
+		opacity: 1;
+		transition: inherit;
+	}
+
+	.select {
+		width: 250px;
+		padding: 14px 20px;
+		border: 1px $blue solid;
+	}
+}
