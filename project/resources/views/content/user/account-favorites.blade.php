@@ -70,20 +70,20 @@
 		</section>
 		
 		@php
-			$tickets = $user->tickets()->paginate(3);
+			$events = $user->events()->paginate(3);
 		@endphp
 		
 		<section class="content">
 			<div class="row row--center">
 				<h3>
-					mijn tickets
+					mijn favoriete evenementen
 				</h3>
-				{{ $tickets->links('vendor.pagination.simple') }}
+				{{ $events->links('vendor.pagination.simple') }}
 			</div>
 			
 			<div class="card--container">
-				@foreach($tickets as $ticket)
-					@include('content.ticket.card')
+				@foreach($events as $event)
+					@include('partials.card')
 				@endforeach
 			</div>
 		</section>

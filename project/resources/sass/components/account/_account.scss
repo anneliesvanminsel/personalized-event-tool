@@ -2,6 +2,42 @@
 	display: flex;
 
 	.sidebar {
+		min-width: 215px;
+		padding-right: 30px;
+
+		display:flex;
+		flex-direction: column;
+
 		border-right: 1px solid $blue;
+
+		&__section {
+			border-bottom: 1px solid $blue;
+			flex-grow: 1;
+			margin-bottom: 30px;
+		}
+
+		&__item {
+			padding: 10px 0;
+		}
+
+		&__link {
+			&.active {
+				font-weight: 900;
+			}
+		}
+	}
+
+	.content {
+		max-width: 745px;
+		padding-left: 30px;
+
+		h3 {
+			width: auto;
+			flex-grow: 1;
+		}
+
+		.card {
+			width: calc((100% / 3) - 18px );
+		}
 	}
 }

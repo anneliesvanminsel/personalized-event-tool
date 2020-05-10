@@ -82,10 +82,25 @@ Route::group(['prefix' => 'user'], function() {
         'as' => 'ticket.postpayment'
     ]);
 
-    Route::get('account/{user_id}', [
+	Route::get('account/{user_id}/bewerken', [
+		'uses' => 'GeneralController@getAccountEdit',
+		'as' => 'user.edit'
+	]);
+
+    Route::get('account/{user_id}/tickets', [
         'uses' => 'GeneralController@getAccount',
         'as' => 'user.account'
     ]);
+
+	Route::get('account/{user_id}/evenementen', [
+		'uses' => 'GeneralController@getAccountEvent',
+		'as' => 'user.events'
+	]);
+
+	Route::get('account/{user_id}/favorieten', [
+		'uses' => 'GeneralController@getAccountFav',
+		'as' => 'user.favorites'
+	]);
 
     Route::get('ticket/{event_id}/{ticket_id}/detail', [
         'uses' => 'TicketController@getTicket',

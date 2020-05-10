@@ -6,7 +6,7 @@
 
 a {
   cursor: pointer;
-	display: block;
+  display: block;
 }
 
 .hidden {
@@ -20,6 +20,8 @@ a {
 
 .link {
   text-decoration: $blue underline;
+  display: inline-block;
+
 }
 
 main {

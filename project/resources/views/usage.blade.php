@@ -3,15 +3,14 @@
 	evento - organisatie
 @endsection
 @section('content')
-	<section class="page-alignment spacing-top-m">
+	<section class="section with-space-top">
 		<h1>
 			Gebruiksdocumentatie
 		</h1>
 		
 		<div class="row row--stretch">
-			<a href="#guest" class="btn">Voor gebruikers</a>
-			<a href="#organisator" class="btn btn--blue">Voor organisatoren</a>
-			<a href="#volunteer" class="btn btn--orange">Voor medewerkers</a>
+			<a href="#guest" class="btn" style="margin-left: 0">Voor gebruikers</a>
+			<a href="#organisator" class="btn">Voor organisatoren</a>
 		</div>
 		
 		<div class="faq spacing-top-m" id="guest">
@@ -21,11 +20,11 @@
 			
 			<div class="faq__item" id="faq-g1">
 				<button class="faq__question" data-target="faq-g1">
-					<div class="faq__title">
+					<h4 class="faq__title">
 						Hoe maak ik een account?
-					</div>
+					</h4>
 					<div class="fas">
-						@svg('bottom', 'is-small')
+						@svg('bottom')
 					</div>
 				</button>
 				<p class="faq__answer">
@@ -39,11 +38,11 @@
 			
 			<div class="faq__item" id="faq-g2">
 				<button class="faq__question" data-target="faq-g2">
-					<div class="faq__title">
+					<h4 class="faq__title">
 						Hoe koop ik een ticket?
-					</div>
+					</h4>
 					<div class="fas">
-						@svg('bottom', 'is-small')
+						@svg('bottom')
 					</div>
 				</button>
 				<p class="faq__answer">
@@ -54,11 +53,11 @@
 			
 			<div class="faq__item" id="faq-g3">
 				<button class="faq__question" data-target="faq-g3">
-					<div class="faq__title">
+					<h4 class="faq__title">
 						Waar vind ik mijn tickets terug?
-					</div>
+					</h4>
 					<div class="fas">
-						@svg('bottom', 'is-small')
+						@svg('bottom')
 					</div>
 				</button>
 				<p class="faq__answer">
@@ -74,12 +73,12 @@
 			</h2>
 			
 			<div class="faq__item" id="faq-o1">
-				<button class="faq__question is-admin" data-target="faq-o1">
-					<div class="faq__title">
+				<button class="faq__question" data-target="faq-o1">
+					<h4 class="faq__title">
 						Hoe maak ik een account?
-					</div>
+					</h4>
 					<div class="fas">
-						@svg('bottom', 'is-small')
+						@svg('bottom')
 					</div>
 				</button>
 				<p class="faq__answer">
@@ -90,12 +89,12 @@
 			</div>
 			
 			<div class="faq__item" id="faq-o2">
-				<button class="faq__question is-admin" data-target="faq-o2">
-					<div class="faq__title">
+				<button class="faq__question" data-target="faq-o2">
+					<h4 class="faq__title">
 						Hoe maak ik een evenement aan?
-					</div>
+					</h4>
 					<div class="fas">
-						@svg('bottom', 'is-small')
+						@svg('bottom')
 					</div>
 				</button>
 				<p class="faq__answer">
@@ -107,69 +106,32 @@
 			</div>
 			
 			<div class="faq__item" id="faq-o3">
-				<button class="faq__question is-admin" data-target="faq-o3">
-					<div class="faq__title">
+				<button class="faq__question" data-target="faq-o3">
+					<h4 class="faq__title">
 						Hoe voeg ik extra gegevens toe aan mijn evenement?
-					</div>
+					</h4>
 					<div class="fas">
-						@svg('bottom', 'is-small')
+						@svg('bottom')
 					</div>
 				</button>
 				<p class="faq__answer">
-					Via de evenementinstellingen (<span>@svg('calendar (2)', 'is-small')</span>). Hier kan je een grondplan,
+					Via de evenementinstellingen (<span>@svg('calendar', 'is-small')</span>). Hier kan je een grondplan,
 					elementen aan de planning toevoegen en berichten delen.
 				</p>
 			</div>
 			
 			<div class="faq__item" id="faq-o4">
-				<button class="faq__question is-admin" data-target="faq-o4">
-					<div class="faq__title">
+				<button class="faq__question" data-target="faq-o4">
+					<h4 class="faq__title">
 						Hoe scan ik een ticket?
-					</div>
+					</h4>
 					<div class="fas">
-						@svg('bottom', 'is-small')
+						@svg('bottom')
 					</div>
 				</button>
 				<p class="faq__answer">
 					Via eender welke QR-code scanner. Deze zal je een link teruggeven,
 					die moet je volgen en de gebruiker zal gecontroleerd worden.
-				</p>
-			</div>
-		</div>
-		
-		<div class="faq spacing-top-m" id="volunteer">
-			
-			<h2>
-				Voor medewerkers
-			</h2>
-			
-			<div class="faq__item" id="faq-v1">
-				<button class="faq__question is-volunteer" data-target="faq-v1">
-					<div class="faq__title">
-						Hoe maak ik een account?
-					</div>
-					<div class="fas">
-						@svg('bottom', 'is-small')
-					</div>
-				</button>
-				<p class="faq__answer">
-					Medewerkers kunnen zelf geen account aanmaken. <br>
-					Medewerkers krijgen enkel een account wanneer een bedrijf/organisator een medewerker toevoegt. <br>
-					Medewerkers kunnen hun eerste wachtwoord niet zelf kiezen. Zij kunnen wel hun wachtwoord wijzigen via de optie 'wachtwoord vergeten'.
-				</p>
-			</div>
-			
-			<div class="faq__item" id="faq-v2">
-				<button class="faq__question is-volunteer" data-target="faq-v2">
-					<div class="faq__title">
-						Hoe kan ik mij voor een shift of een taak inschrijven?
-					</div>
-					<div class="fas">
-						@svg('bottom', 'is-small')
-					</div>
-				</button>
-				<p class="faq__answer">
-					Volg de link in jouw account.
 				</p>
 			</div>
 		</div>

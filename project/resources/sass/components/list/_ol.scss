@@ -1,0 +1,31 @@
+ol {
+	list-style: none;
+	counter-reset: my-awesome-counter;
+	padding-left: 40px;
+
+	li {
+		position: relative;
+		counter-increment: my-awesome-counter;
+		margin: 0 0 0.5rem 0;
+
+		line-height: 30px;
+		margin-bottom: 20px;
+
+		&::before {
+			content: counter(my-awesome-counter) ". ";
+
+			position: absolute;
+			left: -30px;
+			top: 0;
+
+			color: $blue;
+			font-weight: bold;
+			font-size: 16px;
+			line-height: 25px;
+			text-align: right;
+
+			width: 20px;
+			height: 20px;
+		}
+	}
+}

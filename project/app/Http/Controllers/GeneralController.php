@@ -30,6 +30,21 @@ class GeneralController extends Controller
 		return view('content.user.account-tickets', ['user' => $user]);
 	}
 
+	public function getAccountFav($id) {
+		$user = User::where('id', $id)->first();
+		return view('content.user.account-favorites', ['user' => $user]);
+	}
+
+	public function getAccountEvent($id) {
+		$user = User::where('id', $id)->first();
+		return view('content.user.account-events', ['user' => $user]);
+	}
+
+	public function getAccountEdit($id) {
+		$user = User::where('id', $id)->first();
+		return view('content.user.edit', ['user' => $user]);
+	}
+
 	public function postSearch(Request $request) {
         $this->validate($request, [
             'type'=> 'required',

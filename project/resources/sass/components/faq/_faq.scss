@@ -1,8 +1,9 @@
 .faq {
   &__item {
     margin: 10px 0;
-    padding: 20px 0;
-    border-bottom: 1px solid $black;
+    padding: 15px 30px;
+    border: none;
+
 
     .fas {
       transform: rotate(0deg);
@@ -10,16 +11,10 @@
     }
 
     &.is-open {
+      border: 1px solid $blue;
+
       .faq__question {
-        color: $red;
-
-        &.is-volunteer {
-          color: $orange;
-        }
-
-        &.is-admin {
-          color: $blue;
-        }
+        color: $blue;
       }
 
       .fas {
