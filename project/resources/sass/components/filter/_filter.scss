@@ -1,4 +1,6 @@
 .filter {
+	border: 1px solid $blue;
+
 	&--container {
 
 	}
@@ -12,13 +14,16 @@
 	}
 
 	.form__group {
-		width: 250px;
+		width: 253px;
 		max-height: 50px;
 	}
 
 	.form__input {
+		height: 100%;
 		margin-bottom: 0;
 		padding: 14px 20px;
+		border: none;
+		border-right: 1px solid $blue;
 	}
 
 	.form__label {
@@ -33,6 +38,6 @@
 	.select {
 		width: 250px;
 		padding: 14px 20px;
-		border: 1px $blue solid;
+		border: none;
 	}
 }

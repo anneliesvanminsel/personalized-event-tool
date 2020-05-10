@@ -2385,6 +2385,10 @@ span.round-tab:hover {
   border-right: 1px solid #46D5EF;
 }
 
+.filter {
+  border: 1px solid #46D5EF;
+}
+
 .filter.row {
   -webkit-box-align: center;
           align-items: center;
@@ -2395,13 +2399,16 @@ span.round-tab:hover {
 }
 
 .filter .form__group {
-  width: 250px;
+  width: 253px;
   max-height: 50px;
 }
 
 .filter .form__input {
+  height: 100%;
   margin-bottom: 0;
   padding: 14px 20px;
+  border: none;
+  border-right: 1px solid #46D5EF;
 }
 
 .filter .form__label {
@@ -2441,6 +2448,6 @@ span.round-tab:hover {
 .filter .select {
   width: 250px;
   padding: 14px 20px;
-  border: 1px #46D5EF solid;
+  border: none;
 }
 
