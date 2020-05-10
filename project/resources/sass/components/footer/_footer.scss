@@ -35,3 +35,28 @@
 		}
 	}
 }
+
+.sub-footer {
+	background-color: $dark-purple;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+
+	font-size: 12px;
+	padding: 10px;
+
+	&__content {
+		@include grid();
+	}
+
+	.row {
+		justify-content: space-between;
+	}
+
+	.link {
+		margin-right: 20px;
+		text-decoration: none;
+	}
+}

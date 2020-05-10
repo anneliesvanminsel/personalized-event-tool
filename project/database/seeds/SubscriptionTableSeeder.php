@@ -18,7 +18,7 @@ class SubscriptionTableSeeder extends Seeder
 			[
 				'title' => 'basis',
 				'description' => 'Toeslag per verkocht ticket </br> Gratis voor gratis tickets',
-				'items' => '<li>één tickettype,</li>  <li>basis evenementpagina,</li>  <li>vermelding op <span class="logo">evento</span>,</li> <li>online hulpcentrum</li>',
+				'items' => '<li>één tickettype,</li>  <li>basis evenementpagina,</li>  <li>vermelding op <span class="logo logo--s">evento</span>,</li> <li>online hulpcentrum</li>',
 				'price' => 0.60,
 			]
 		);

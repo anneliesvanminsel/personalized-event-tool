@@ -32,18 +32,18 @@
 				</li>
 				<li class="list__item">
 					<a class="list__link {{ (strpos(Route::currentRouteName(), 'index') === 0) ? 'active' : '' }}" href="{{ route('index') }}">
-						Zoek evenementen
+						zoek evenementen
 					</a>
 				</li>
 				<li class="list__item">
 					@guest
 						<a class="list__link" href="{{ route('register') }}">
-							Maak nu een account
+							maak nu een account
 						</a>
 					@else
 						@if(Auth::user()->role === "volunteer" || Auth::user()->role === "guest" )
 							<a class="list__link {{ (strpos(Route::currentRouteName(), 'user.account') === 0) ? 'active' : '' }}" href="{{ route('user.account', ['user_id' => Auth::user()->id]) }}#tickets">
-								Bekijk mijn tickets
+								bekijk mijn tickets
 							</a>
 						@endif
 					@endguest
@@ -65,4 +65,15 @@
 			</ul>
 		</div>
 	</footer>
+	<div class="sub-footer">
+		<div class="sub-footer__content row row--center">
+			<div class="row">
+				<a class="link" href="{{ route('usage') }}">Gebruikersdocumentatie</a>
+				<a class="link" href="{{ route('maintenance') }}">Onderhoudsdocumentatie</a>
+			</div>
+			<div>
+				&copy; <span class="logo logo--xs">evento</span>
+			</div>
+		</div>
+	</div>
 </div>
