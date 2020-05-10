@@ -5,20 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f878aba-b48c-4183-85f6-a405c212ebe5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/app/Http/Controllers/GeneralController.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Controllers/GeneralController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/project/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/sass/components/account/_account.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/components/account/_account.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/sass/components/faq/_faq.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/components/faq/_faq.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/sass/components/section/_section.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/components/section/_section.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/sass/config/_font.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/config/_font.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/sass/config/base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/config/base.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/content/user/account-events.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/user/account-events.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/content/user/account-tickets.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/user/account-tickets.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/sass/components/article/_article.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/components/article/_article.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/sass/components/list/_ol.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/components/list/_ol.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/sass/components/list/_ul.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/components/list/_ul.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/views/content/ticket/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/ticket/detail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/resources/views/maintenance.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/maintenance.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/usage.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/usage.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/views/org-overview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/org-overview.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,89 +25,35 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/resources/sass/components/account/_account.scss">
+        <entry file="file://$PROJECT_DIR$/project/resources/views/maintenance.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="33" lean-forward="true" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+            <state relative-caret-position="110">
+              <caret line="56" column="27" lean-forward="true" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/resources/views/content/user/account-tickets.blade.php">
+        <entry file="file://$PROJECT_DIR$/project/resources/sass/components/article/_article.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-428">
-              <caret line="69" column="18" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="69" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/resources/sass/app.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="42" column="29" lean-forward="true" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+            <state relative-caret-position="15">
+              <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/project/resources/sass/components/list/_ol.scss">
+        <entry file="file://$PROJECT_DIR$/project/resources/views/content/ticket/detail.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+            <state relative-caret-position="446">
+              <caret line="43" column="10" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/resources/sass/components/list/_ul.scss">
+        <entry file="file://$PROJECT_DIR$/project/resources/views/layouts/masterlayout.blade.php">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/resources/views/content/user/account-events.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="536">
-              <caret line="69" column="18" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/resources/sass/config/_font.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/resources/views/content/user/account-favorites.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="69" column="18" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/resources/views/partials/header.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-401">
-              <caret line="14" column="138" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="138" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/project/resources/views/content/mobile/account.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="37" column="19" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="37" selection-end-column="19" />
-            </state>
-          </provider>
         </entry>
       </file>
     </leaf>
@@ -134,10 +73,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/project/resources/views/org-overview.blade.php" />
-        <option value="$PROJECT_DIR$/project/database/seeds/UsersTableSeeder.php" />
-        <option value="$PROJECT_DIR$/project/database/migrations/2019_12_07_154631_create_subscriptions_table.php" />
-        <option value="$PROJECT_DIR$/project/app/Subscription.php" />
         <option value="$PROJECT_DIR$/project/database/seeds/TicketTableSeeder.php" />
         <option value="$PROJECT_DIR$/project/database/migrations/2019_12_06_180907_create_tickets_table.php" />
         <option value="$PROJECT_DIR$/project/app/Ticket.php" />
@@ -175,7 +110,6 @@
         <option value="$PROJECT_DIR$/project/resources/sass/components/faq/_faq.scss" />
         <option value="$PROJECT_DIR$/project/resources/sass/config/base.scss" />
         <option value="$PROJECT_DIR$/project/resources/sass/config/_font.scss" />
-        <option value="$PROJECT_DIR$/project/resources/views/maintenance.blade.php" />
         <option value="$PROJECT_DIR$/project/resources/views/partials/header.blade.php" />
         <option value="$PROJECT_DIR$/project/routes/web.php" />
         <option value="$PROJECT_DIR$/project/app/Http/Controllers/GeneralController.php" />
@@ -184,7 +118,12 @@
         <option value="$PROJECT_DIR$/project/resources/views/content/user/account-favorites.blade.php" />
         <option value="$PROJECT_DIR$/project/resources/sass/components/account/_account.scss" />
         <option value="$PROJECT_DIR$/project/resources/sass/app.scss" />
+        <option value="$PROJECT_DIR$/project/resources/sass/components/list/_ul.scss" />
         <option value="$PROJECT_DIR$/project/resources/sass/components/list/_ol.scss" />
+        <option value="$PROJECT_DIR$/project/resources/views/org-overview.blade.php" />
+        <option value="$PROJECT_DIR$/project/resources/views/maintenance.blade.php" />
+        <option value="$PROJECT_DIR$/project/resources/sass/components/article/_article.scss" />
+        <option value="$PROJECT_DIR$/project/resources/views/content/ticket/detail.blade.php" />
       </list>
     </option>
   </component>
@@ -543,7 +482,24 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="content" type="462c0819:PsiDirectoryNode" />
+              <item name="ticket" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="evento-v3" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="evento-v3" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
@@ -635,12 +591,12 @@
       <workItem from="1582553702039" duration="1584000" />
       <workItem from="1586947680865" duration="22238000" />
       <workItem from="1588589658503" duration="66245000" />
-      <workItem from="1589108392445" duration="7468000" />
+      <workItem from="1589108392445" duration="9098000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152397000" />
+    <option name="totallyTimeSpent" value="154027000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -693,39 +649,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/project/database/migrations/2019_12_03_083927_create_events_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/app/Event.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/database/seeds/EventTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
-          <folding>
-            <element signature="e#8#22#0#PHP" expanded="true" />
-            <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#iframe#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/schedule/table.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="25" column="52" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/resources/sass/components/tabs/_tabs.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="341">
@@ -926,16 +849,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/maintenance.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-          <folding>
-            <element signature="e#254#276#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/resources/sass/config/base.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -981,7 +894,7 @@
     <entry file="file://$PROJECT_DIR$/project/resources/views/content/mobile/account.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="431">
-          <caret line="37" column="19" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="37" selection-end-column="19" />
+          <caret line="37" column="19" selection-start-line="24" selection-start-column="12" selection-end-line="37" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -1016,31 +929,66 @@
     <entry file="file://$PROJECT_DIR$/project/resources/sass/components/account/_account.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
-          <caret line="24" column="33" lean-forward="true" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+          <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/resources/views/content/user/account-tickets.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-428">
-          <caret line="69" column="18" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="69" selection-end-column="18" />
+          <caret line="69" column="18" selection-start-line="6" selection-start-column="8" selection-end-line="69" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/org-overview.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="70" column="34" selection-start-line="70" selection-start-column="34" selection-end-line="70" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/resources/sass/components/list/_ul.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/sass/app.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="42" column="29" lean-forward="true" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+        <state relative-caret-position="300">
+          <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/resources/sass/components/list/_ol.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
+        <state>
+          <caret column="1" selection-start-column="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/sass/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/maintenance.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="56" column="27" lean-forward="true" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/sass/components/article/_article.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/layouts/masterlayout.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/content/ticket/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="43" column="10" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="10" />
         </state>
       </provider>
     </entry>

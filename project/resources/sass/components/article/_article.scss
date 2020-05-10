@@ -8,15 +8,15 @@
 	&__content {
 		display: flex;
 		flex-direction: column;
-		width: 420px;
-		min-width: 420px;
-		margin-left: 40px;
+		width: 440px;
+		min-width: 440px;
+		margin-right: 80px;
 	}
 
 	&__image {
 		@include shadow();
-		width: 420px;
-		min-width: 420px;
+		width: 440px;
+		min-width: 440px;
 		overflow: hidden;
 		height: 270px;
 
@@ -34,8 +34,8 @@
 			color: white;
 
 			.article__content {
-				margin-right: 40px;
-				margin-left: 0;
+				margin-left: 80px;
+				margin-right: 0;
 			}
 		}
 

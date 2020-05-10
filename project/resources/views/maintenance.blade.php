@@ -54,7 +54,7 @@
 				Zelf het project opzetten
 			</h2>
 			
-			<ol>
+			<ol class="ol">
 				<li>
 					Zorg dat je een computer hebt met <a class="link" href="https://getcomposer.org/" target="_blank">composer</a> en een lokale server.
 					Je hebt ook de <a class="link" href="https://www.npmjs.com/" target="_blank">Node package manager of NPM</a> nodig.

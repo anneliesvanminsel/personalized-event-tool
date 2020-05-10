@@ -1,0 +1,33 @@
+.ul {
+	list-style-type: none;
+	padding-left: 20px;
+
+	li {
+		position: relative;
+		line-height: 30px;
+		margin: 0 0 0.5rem 0;
+		margin-bottom: 20px;
+
+		&::before {
+			position: absolute;
+			left: -20px;
+			top: 50%;
+
+			transform: translateY(-50%);
+
+			width: 5px;
+			height: 5px;
+
+			content: "";
+			background-color: $blue;
+		}
+	}
+
+	&.is-white {
+		li {
+			&::before {
+				background-color: $white;
+			}
+		}
+	}
+}

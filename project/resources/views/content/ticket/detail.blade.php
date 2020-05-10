@@ -1,4 +1,4 @@
-@extends('layouts.authlayout')
+@extends('layouts.masterlayout')
 @section('title')
 	evento - mijn ticket
 @endsection
@@ -42,6 +42,5 @@
 			</p>
 		</section>
 	</div>
-	@include('partials.header')
 
 @endsection

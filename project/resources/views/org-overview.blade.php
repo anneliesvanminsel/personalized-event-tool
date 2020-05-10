@@ -57,9 +57,9 @@
 	</section>
 	
 	@foreach($subs as $sub)
-		<article class="article--container {{$loop->even ? 'is-purple' : ''}}" id="feature-{{$loop->iteration}}">
+		<article class="article--container {{ $loop->even ? 'is-purple' : '' }}" id="feature-{{$loop->iteration}}">
 			<div class="article row row--stretch">
-				@if($loop->odd)
+				@if($loop->even)
 					<div class="ctn--image article__image">
 						<img src="{{ asset('images/abo-' . $loop->iteration . '.jpg') }}" alt="{{ $sub['title'] }}-abonnement">
 					</div>
@@ -68,11 +68,11 @@
 					<h3 class="article__title">
 						{{ $sub['title'] }}
 					</h3>
-					<div class="article__text">
+					<ul class="ul article__text {{ $loop->even ? 'is-white' : '' }}">
 						{!! $sub->items !!}
-					</div>
+					</ul>
 				</div>
-				@if($loop->even)
+				@if($loop->odd)
 					<div class="ctn--image article__image">
 						<img src="{{ asset('images/abo-' . $loop->iteration . '.jpg') }}" alt="{{ $sub['title'] }}-abonnement">
 					</div>
