@@ -42,9 +42,8 @@
 			                type="text"
 			                class="form__input @error('location') is-invalid @enderror"
 			                name="location"
-			                placeholder="bv. jan.peeters@mail.be"
+			                placeholder="locatie"
 			                value="{{ old('location') }}"
-			                required
 			                autocomplete="location"
 		                >
 		                <label for="email" class="form__label">
@@ -64,13 +63,12 @@
 			                type="date"
 			                class="form__input @error('date') is-invalid @enderror"
 			                name="date"
-			                placeholder="bv. jan.peeters@mail.be"
+			                placeholder="date"
 			                value="{{ old('date') }}"
-			                required
 			                autocomplete="date"
 		                >
 		                <label for="date" class="form__label">
-			                e-mailadres
+			                datum
 		                </label>
 		                @error('date')
 		                <span class="invalid-feedback" role="alert">
@@ -81,7 +79,7 @@
 	                
                     <div class="form__group">
                         <select class="select" id="type" name="type">
-                            <option value="not given">-- selecteer type --</option>
+                            <option value="not given">Categorie</option>
                             <option value="conference">conferentie</option>
                             <option value="workshop">workshop</option>
                             <option value="reunion">reunie</option>

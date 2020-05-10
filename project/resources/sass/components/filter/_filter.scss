@@ -24,6 +24,13 @@
 		padding: 14px 20px;
 		border: none;
 		border-right: 1px solid $blue;
+
+		&:focus,
+		&:valid {
+			outline: none;
+			border: none;
+			border-right: 1px solid $blue;
+		}
 	}
 
 	.form__label {
