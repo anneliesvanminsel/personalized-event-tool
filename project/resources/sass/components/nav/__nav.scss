@@ -1,0 +1,115 @@
+.section {
+	.nav {
+		width: 100%;
+
+		font-size: 14px;
+		padding-bottom: 10px;
+		border-bottom: 1px solid $grey;
+		margin-bottom: 30px;
+		margin-top: 20px;
+
+		position: relative;
+		z-index: 1;
+
+		&__tabs {
+			display: flex;
+			width: 100%;
+			justify-content: space-between;
+		}
+
+		&__item {
+			position: relative;
+			text-transform: uppercase;
+			color: $grey;
+			font-weight: 400;
+
+			cursor: pointer;
+			border: none;
+			outline: none;
+
+			font-size: 14px;
+
+			&.active {
+				font-weight: 900;
+				color: $purple;
+
+				&:after {
+					@include pseudo();
+					height: 1px;
+					width: 100%;
+					bottom: -11px;
+					background-color: $purple;
+					z-index: 999;
+				}
+			}
+		}
+
+		.expands {
+			display: flex;
+			position: static;
+		}
+
+		#nav__search-input {
+			display: none;
+
+			&.is-expanded {
+				position: absolute;
+				top: -16px;
+				left: 0;
+				width: 100%;
+
+				display: block;
+
+				.nav__search-input {
+					width: 100%;
+					z-index: 10;
+					border: 1px solid $purple;
+					padding: 12px 10px;
+
+					::placeholder {
+						opacity: 1;
+					}
+				}
+			}
+
+			.close {
+				position: absolute;
+				right: 10px;
+				top: 14px;
+				width: 20px;
+				height: 20px;
+				opacity: 0.3;
+
+				border: none;
+				cursor: pointer;
+
+				&:hover {
+					opacity: 1;
+				}
+
+				&:before,
+				&:after {
+					position: absolute;
+					left: 8px;
+					top: -1px;
+					content: '';
+					height: 20px;
+					width: 2px;
+					background-color: #333;
+				}
+
+				&:before {
+					transform: rotate(45deg);
+				}
+
+				&:after {
+					transform: rotate(-45deg);
+				}
+			}
+
+			.hidden {
+				display: none;
+			}
+		}
+	}
+}

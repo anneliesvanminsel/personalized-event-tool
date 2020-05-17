@@ -117,6 +117,11 @@ Route::group(['prefix' => 'user'], function() {
         'as' => 'event.like'
     ]);
 
+	Route::post('event/{event_id}/save', [
+		'uses' => 'EventController@saveEvent',
+		'as' => 'event.save'
+	]);
+
     Route::get('event/special/{event_id}', [
         'uses' => 'EventController@getEventSpecial',
         'as' => 'event.special'
@@ -202,13 +207,25 @@ Route::group(['prefix' => 'admin'], function() {
 		'as' => 'event.postcreate'
 	]);
 
+	//add event
+	Route::get('event/create/{organisation_id}/personalisation/{event_id}', [
+		'uses' => 'EventController@createEventPersonalisation',
+		'as' => 'event.create-personalisation'
+	]);
+
+	Route::post('event/create/{organisation_id}/personalisation/{event_id}/post', [
+		'uses' => 'EventController@postCreateEventPersonalisation',
+		'as' => 'event.postcreate-personalisation'
+	]);
+
+
     //add event address
-    Route::get('event/create/{event_id}/newaddress', [
+    Route::get('event/create/{organisation_id}/address/{event_id}', [
         'uses' => 'AddressController@createAddressEvent',
         'as' => 'event.address.create'
     ]);
 
-    Route::post('event/create/{event_id}/newaddress/post', [
+    Route::post('event/create/{organisation_id}/address/{event_id}/post', [
         'uses' => 'AddressController@postCreateAddressEvent',
         'as' => 'event.address.postcreate'
     ]);

@@ -31,16 +31,29 @@
 				@endif
 			</div>
 			
-			<button title="download" class="button is-icon" type="submit">
-				@svg('download', 'is-btn is-white')
-			</button>
+			<form
+				class="form"
+				method="POST"
+				action="{{ route('event.save', ['event-id' => $event['id'] ]) }}"
+			>
+				{{ csrf_field() }}
+				@if(Auth::user() && $event->savedusers->contains(Auth::user()->id))
+					<button title="download" class="button is-icon" type="submit">
+						@svg('download', 'is-btn is-white')
+					</button>
+				@else
+					<button title="download" class="button is-icon" type="submit">
+						@svg('download', 'is-btn is-white')
+					</button>
+				@endif
+			</form>
 			<form
 				class="form"
 				method="POST"
 				action="{{ route('event.like', ['event-id' => $event['id'] ]) }}"
 			>
 				{{ csrf_field() }}
-				@if(Auth::user() && $event->users->contains(Auth::user()->id))
+				@if(Auth::user() && $event->favusers->contains(Auth::user()->id))
 					<button title="unlike" class="button is-icon" type="submit">
 						@svg('heart-full', 'is-btn is-heart')
 					</button>
@@ -93,6 +106,7 @@
 				} else {
 					$response = file_get_contents('https://instagram.com/evento_platform/?__a=1');
 				}
+				
 				$data = json_decode($response);
 			@endphp
 			@foreach($data->graphql->user->edge_owner_to_timeline_media->edges as $node)
@@ -131,5 +145,5 @@
 			</div>
 		</section>
 	@endif
-	<script src="{{ asset('js/openTabs.js') }}"></script>
+	
 @endsection

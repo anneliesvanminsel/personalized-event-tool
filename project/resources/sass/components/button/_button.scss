@@ -1,6 +1,10 @@
+button {
+	-webkit-appearance: none;
+	@include font-heading;
+}
+
 .btn,
-.button
-{
+.button {
 	display: inline-block;
 
 	width: 100%;
@@ -40,6 +44,11 @@
 		max-height: 50px;
 		margin: 0;
 		padding: 10px auto;
+	}
+
+	&.is-cancel {
+		background-color: transparent;
+		border: 1px solid $pink;
 	}
 }
 

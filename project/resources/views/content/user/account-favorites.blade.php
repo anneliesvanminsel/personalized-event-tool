@@ -70,7 +70,7 @@
 		</section>
 		
 		@php
-			$events = $user->events()->paginate(3);
+			$events = $user->favevents()->paginate(3);
 		@endphp
 		
 		<section class="content">

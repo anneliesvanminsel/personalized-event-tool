@@ -26,28 +26,31 @@
 			</h4>
 			
 			<div class="item__actions row">
-				@if(strpos(Route::currentRouteName(), 'org.dashboard') === 0)
+				@if(Auth::user() && $event->organisations->contains(Auth::user()->id))
+					@php
+						$organisation = $event->organisations->first();
+					@endphp
 					<div class="item__actions row row--stretch">
 						<form
 							class="form"
-							onsubmit="return confirm('Ben je zeker dat je {{ $event['title'] }} voor alle organisatoren wilt {{ $event['status'] === 0 ? 'zichtbaar maken' : 'onzichtbaar maken' }}?');"
+							onsubmit="return confirm('Ben je zeker dat je {{ $event['title'] }} voor alle organisatoren wilt {{ $event['published'] === 0 ? 'zichtbaar maken' : 'onzichtbaar maken' }}?');"
 							method="POST"
 							action="{{ route('event.publish', ['event-id' => $event['id'], 'organisation_id' => $organisation['id'] ]) }}"
 						>
 							{{ csrf_field() }}
 							
-							<button title="set visiblility" class="btn is-icon" type="submit">
-								@if($event['status'] === 0)
-									@svg('view')
-								@else
+							<button title="set visiblility" class="button is-icon" type="submit">
+								@if($event['published'] === 0)
 									@svg('hide')
+								@else
+									@svg('view')
 								@endif
 							</button>
 						</form>
-						<a title="edit event information" class="btn is-icon" href={{route('event.update', ['event_id' => $event->id])}}>
+						<a title="edit event information" class="button is-icon" href={{route('event.update', ['event_id' => $event->id])}}>
 							@svg('edit')
 						</a>
-						<a title="edit event settings" class="btn is-icon" href={{route('event.edit.settings', ['event_id' => $event->id])}}>
+						<a title="edit event settings" class="button is-icon" href={{route('event.edit.settings', ['event_id' => $event->id])}}>
 							@svg('tools')
 						</a>
 						<form
@@ -57,7 +60,7 @@
 							action="{{ route('event.delete', ['event_id' => $event['id'], 'organisation_id' => $organisation['id'] ]) }}"
 						>
 							{{ csrf_field() }}
-							<button class="btn is-icon" type="submit">
+							<button class="button is-icon" type="submit">
 								@svg('delete')
 							</button>
 						</form>
@@ -72,7 +75,7 @@
 						action="{{ route('event.like', ['event-id' => $event['id'] ]) }}"
 					>
 						{{ csrf_field() }}
-						@if(Auth::user() && $event->users->contains(Auth::user()->id))
+						@if(Auth::user() && $event->favusers->contains(Auth::user()->id))
 							<button title="unlike" class="button is-icon" type="submit">
 								@svg('heart-full', 'is-btn is-heart')
 							</button>

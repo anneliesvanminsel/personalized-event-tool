@@ -1,5 +1,6 @@
 .account {
 	display: flex;
+	font-size: 16px;
 
 	.sidebar {
 		min-width: 215px;
@@ -14,6 +15,7 @@
 			border-bottom: 1px solid $blue;
 			flex-grow: 1;
 			margin-bottom: 30px;
+			padding-bottom: 30px;
 		}
 
 		&__item {
@@ -29,6 +31,7 @@
 
 	.content {
 		max-width: 745px;
+		width: 745px;
 		padding-left: 30px;
 
 		h3 {
@@ -37,7 +40,7 @@
 		}
 
 		.card {
-			width: calc((100% / 3) - 18px );
+			width: calc((100% / 3) - 16px );
 		}
 	}
 }

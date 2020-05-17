@@ -18,6 +18,26 @@
 	&--container {
 		display: flex;
 		flex-direction: row;
+
+		&.has-wrap {
+			flex-wrap: wrap;
+
+			.card {
+				&:nth-child(3) {
+					margin-right: 0;
+				}
+
+				&:nth-child(4) {
+					margin-left: 0;
+				}
+
+				&:nth-child(4),
+				&:nth-child(5),
+				&:nth-child(6) {
+					margin-top: 24px;
+				}
+			}
+		}
 	}
 
 	.cover {
@@ -114,6 +134,10 @@
 		position: absolute;
 		right: 10px;
 		top: 10px;
+
+		svg {
+			fill: $blue;
+		}
 	}
 
 	&:hover {
@@ -122,6 +146,10 @@
 
 		.btn {
 			background-color: $pink;
+		}
+
+		svg {
+			background-color: transparent;
 		}
 	}
 

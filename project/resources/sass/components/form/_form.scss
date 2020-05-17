@@ -9,11 +9,29 @@
 		position: relative;
 		display: flex;
 		flex-flow: column-reverse;
+
+		&.is-select {
+			label {
+				transform: translate(10px, 10px) scale(.9);
+				max-width: fit-content;
+				background-color: white;
+				padding: 0 $spacing-xs;
+				width: auto;
+			}
+		}
+
+		.color {
+			position: absolute;
+			top: 36px;
+			left: 50px;
+			font-size: 16px;
+		}
 	}
 
 	&__label {
 		@include default-transition();
 		touch-action: manipulation;
+		text-transform: lowercase;
 
 		&.is-counter {
 			position: absolute;

@@ -6,11 +6,12 @@ input[type=textarea],
 input[type=file],
 input[type=date],
 input[type=time],
+input[type=color],
 textarea
 {
 	width: 100%;
 	padding: $spacing-s;
-	margin-bottom: $spacing-s;
+	margin-bottom: $spacing-ms;
 
 	font-size: 16px;
 	@include font-base;
@@ -36,7 +37,7 @@ textarea:placeholder-shown + label {
 	cursor: text;
 	max-width: fit-content;
 	transform-origin: left bottom;
-	transform: translate($spacing-s, $spacing-m) scale(1);
+	transform: translate(15px, 40px) scale(1);
 }
 /**
 * By default, the placeholder should be transparent. Also, it should
@@ -51,7 +52,7 @@ textarea:placeholder-shown + label {
 */
 input:focus::placeholder,
 textarea:focus::placeholder {
-  color: $grey;
+  	color: $grey;
 	opacity: 1;
 }
 /**
@@ -64,9 +65,19 @@ input:focus + label,
 textarea:not(:placeholder-shown) + label,
 textarea:focus + label {
 	max-width: fit-content;
-	transform: translate($spacing-xs, $spacing-xs) scale(.9);
+	transform: translate(15px, 10px) scale(.9);
 	background-color: white;
 	padding: 0 $spacing-xs;
 	width: auto;
+}
+
+input[type=date]:not(:placeholder-shown) + label,
+input[type=date]:focus + label {
+	transform: translate(-5px, 10px) scale(0.9);
+}
+
+input[type=file]:not(:placeholder-shown) + label,
+input[type=file]:focus + label {
+	transform: translate(6px, 10px) scale(0.9);
 }
 

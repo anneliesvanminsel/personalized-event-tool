@@ -1,38 +1,37 @@
-@extends('layouts.masterlayout')
+@extends('layouts.organisation')
 @section('title')
-	evento - organisatie
+	evento - maak event
 @endsection
 @section('content')
-	<section class="page-alignment wizard">
-		<div class="wizard__inner">
-			<div class="wizard__item">
-				Eventgegevens
-			</div>
-			<div class="wizard__item active is-blue">
-				Adresgegevens
+	<section class="content">
+		<h2>
+			evenement aanmaken
+		</h2>
+		
+		<div class="section__nav nav">
+			<div class="nav__tabs">
+				<p class="nav__item tab__links">
+					evenement gegevens
+				</p>
+				@if( $organisation->subscription_id === 2 || $organisation->subscription_id === 3 )
+					<p class="nav__item tab__links">
+						personalisatiegegevens
+					</p>
+				@endif
+				<p class="nav__item tab__links active">
+					adresgegevens
+				</p>
 			</div>
 		</div>
-	</section>
-	<section class="page-alignment spacing-top-m">
-		<h1>
-			Voeg de adresgegevens van het event toe
-		</h1>
-		<p class="subheading">
-			Voeg het adress van het bedrijf <span class="accent is-blue">{{ $event['name'] }}</span> toe. <br>
-		</p>
 		
-		<form method="POST" action="{{ route('event.address.postcreate', ['event_id' => $event['id']]) }}" class="form" enctype="multipart/form-data">
+		<form method="POST" action="{{ route('event.address.postcreate', ['event_id' => $event['id'], 'organisation_id' => $organisation['id']]) }}" class="form" enctype="multipart/form-data">
 			@csrf
 			
-			<h2 class="spacing-top-m">
-				Adresgegevens
-			</h2>
-			
-			<div class="form__group is-blue">
+			<div class="form__group">
 				<input
 						id="locationname"
 						type="text"
-						class="form__input @error('locationname') is-invalid @enderror"
+						class="form__input optional @error('locationname') is-invalid @enderror"
 						name="locationname"
 						placeholder="bv. 300CC, Begijnenhof, Zaal Rosa"
 						value="{{ old('locationname') }}"
@@ -48,7 +47,7 @@
 				@enderror
 			</div>
 			
-			<div class="form__group is-blue">
+			<div class="form__group">
 				<input
 						id="street"
 						type="text"
@@ -70,7 +69,7 @@
 			</div>
 			
 			<div class="row row--stretch">
-				<div class="form__group is-blue">
+				<div class="form__group">
 					<input
 							id="streetnumber"
 							type="text"
@@ -91,11 +90,11 @@
 					@enderror
 				</div>
 				
-				<div class="form__group is-blue">
+				<div class="form__group">
 					<input
 							id="box"
 							type="text"
-							class="form__input @error('box') is-invalid @enderror"
+							class="form__input optional @error('box') is-invalid @enderror"
 							name="box"
 							placeholder="busnummer"
 							value="{{ old('box') }}"
@@ -112,7 +111,7 @@
 				</div>
 			</div>
 			
-			<div class="form__group is-blue">
+			<div class="form__group">
 				<input
 						id="zipcode"
 						type="text"
@@ -133,7 +132,7 @@
 				@enderror
 			</div>
 			
-			<div class="form__group is-blue">
+			<div class="form__group">
 				<input
 						id="city"
 						type="text"
@@ -154,11 +153,11 @@
 				@enderror
 			</div>
 			
-			<div class="form__group is-blue">
+			<div class="form__group">
 				<input
 						id="region"
 						type="text"
-						class="form__input @error('region') is-invalid @enderror"
+						class="form__input optional @error('region') is-invalid @enderror"
 						name="region"
 						placeholder="Bv. Vlaams-Brabant"
 						value="{{ old('region') }}"
@@ -174,7 +173,7 @@
 				@enderror
 			</div>
 			
-			<div class="form__group">
+			<div class="form__group is-select">
 				<select class="select is-large" id="country" name="country">
 					<option value="België">-- Kies je land --</option>
 					<option value="België">België</option>
@@ -191,11 +190,11 @@
 				@enderror
 			</div>
 			
-			<div class="form__group is-blue">
+			<div class="form__group">
 				<input
 						id="googleframe"
 						type="text"
-						class="form__input @error('googleframe') is-invalid @enderror"
+						class="form__input optional @error('googleframe') is-invalid @enderror"
 						name="googleframe"
 						placeholder="Deel locatie van Google, klik op insluiten."
 						value="{{ old('googleframe') }}"
@@ -211,9 +210,12 @@
 				@enderror
 			</div>
 			
-			
-			<div class="spacing-top-m">
-				<button type="submit" class="btn btn--full is-blue">
+			<div class="spacing-top-m row row--center">
+				<a href="{{ route('org.dashboard', ['user_id' => Auth::user()->id]) }}" class="btn is-cancel">
+					annuleren
+				</a>
+				
+				<button type="submit" class="btn btn--full">
 					Voeg het adres toe
 				</button>
 			</div>

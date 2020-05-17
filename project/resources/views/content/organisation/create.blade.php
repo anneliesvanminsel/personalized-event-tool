@@ -1,180 +1,128 @@
 @extends('layouts.masterlayout')
 @section('title')
-	evento - registreer organisatie
+	evento - betalen
 @endsection
 @section('content')
-	<section class="page-alignment wizard">
-		<div class="wizard__inner">
-			<div class="wizard__item active is-blue">
-				Organisatiegegevens
-			</div>
-			<div class="wizard__item">
-				Adresgegevens
-			</div>
-			<div class="wizard__item">
-				Gebruikergegevens
-			</div>
-		</div>
-	</section>
-	
-	<section class="page-alignment spacing-top-l">
-		<h1>
-			Start nu jouw organisatie
-		</h1>
-		<p class="subheading">
-			Je hebt gekozen voor het <span class="accent is-blue">{{$subscription->title}}</span> pakket.
-		</p>
-
-		<form id="form-create" method="POST" action="{{ route('organisation.postcreate', ['subscription_id' => $subscription['id']]) }}" class="form" enctype="multipart/form-data">
-			@csrf
-
-			<h2 class="spacing-top-m">
-				1. Algemene gegevens
-			</h2>
-
-			<div class="form__group is-blue">
-				<input
-					id="name"
-					type="text"
-					class="form__input @error('name') is-invalid @enderror"
-					name="name"
-					placeholder="bv. Rock Werchter of Kerstdrink 2019"
-					value="{{ old('name') }}"
-					required
-					autofocus
-					autocomplete="off"
-				>
-
-				<label for="name" class="form__label">
-					Bedrijfsnaam
-				</label>
-
-				@error('name')
-				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-				@enderror
+	<div class="section account with-space-top">
+		<section class="is-grow">
+			<form method="POST" action=""
+			      class="form spacing-top-m" enctype="multipart/form-data">
+				@csrf
+				
+				<div class="container">
+					<div class="">
+						<div class="card__header">
+							<h3>
+								ticket aankopen
+							</h3>
+							<div class="tab-content spacing-top-m">
+								<div class="form__group">
+									<input
+										class="form__input"
+										type="text"
+										name="username"
+										placeholder="bv. Jan Peeters"
+									>
+									<label class="form__label" for="username">
+										Naam op de kaart
+									</label>
+								</div>
+								
+								<div class="form__group">
+									<input type="text" name="cardNumber" placeholder="Valid card number"
+									       class="form__input"
+									>
+									
+									<label class="form__label" for="cardNumber">
+										Kaartnummer
+									</label>
+								</div>
+								
+								<div class="form__group">
+									<input type="text" name="cardNumber" placeholder="Valid card number"
+									       class="form__input"
+									>
+									
+									<label class="form__label" for="cardNumber">
+										vervaldatum
+									</label>
+								</div>
+								
+								<div class="spacing-top-m">
+									<button type="submit" class="btn">
+										Betalen
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</section>
+		<section class="sidebar">
+			<h3 class="sidebar__title">
+				{{ $subscription['type'] }}
+			</h3>
+			
+			<div class="sidebar__section">
+				<div class="sidebar__item">
+					Je hebt gekozen voor een ticket '{{ $subscription['type'] }}'.
+					
+					Je kan nu betalen voor jouw ticket. Hieronder de betalingsgegevens.
+				</div>
 			</div>
 			
-			<div class="form__group is-blue">
-				<textarea
-						form="form-create"
-						id="description"
-						class="form__input @error('description') is-invalid @enderror"
-						name="description"
-						placeholder="Een korte beschrijving van jouw evenement."
-						required
-						autocomplete="off"
-						maxlength="1000"
-				></textarea>
-				
-				<label for="description" class="form__label">
-					Korte beschrijving
-				</label>
-				
-				<div id="word-counter" class="form__label is-counter"></div>
-				
-				@error('description')
-				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-				@enderror
-				<script>
-                    document.getElementById('description').onkeyup = function () {
-                        document.getElementById('word-counter').innerHTML = this.value.length + "/1000";
-                    };
-				</script>
+			<div class="sidebar__section">
+				<div class="sidebar__item row">
+					<p class="is-grow">
+						<b>
+							Prijs:
+						</b>
+					</p>
+					<p>
+						€ {{ $subscription['price'] }}
+					</p>
+				</div>
+				<div class="sidebar__item row">
+					<p class="is-grow">
+						<b>
+							datum:
+						</b>
+					</p>
+					<p>
+						€ {{ $subscription['date'] }}
+					</p>
+				</div>
 			</div>
-
-			<div class="form__group is-blue">
-				<input
-					id="logo"
-					type="file"
-					class="form__input @error('logo') is-invalid @enderror"
-					name="logo"
-					placeholder="bv. het event van de eeuw"
-					value="{{ old('logo') }}"
-					required
-					autocomplete="off"
-				>
-
-				<label for="logo" class="form__label">
-					Bedrijfslogo
-				</label>
-
-				@error('logo')
-				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-				@enderror
+			<div>
+				<div class="sidebar__item row">
+					<p class="is-grow">
+						<b>
+							Totaal:
+						</b>
+					</p>
+					<p>
+						€ {{ $subscription['price'] }}
+					</p>
+				</div>
 			</div>
-
-			<h2 class="spacing-top-m">
-				2. Opmaak mogelijkheden van de bedrijfspagina
-			</h2>
-
-			<p>
-				De volgende kleuren worden gebruikt om de <span class="accent is-blue">informatiepagina van het bedrijf</span> op te maken.
-			</p> <br>
-			<p>
-				<span class="accent  is-blue">Let op!: </span> <br>
-				De kleuren zullen soms samen gebruikt worden, let dan ook op de leesbaarheid. Dit kan je testen via
-				<a href="https://webaim.org/resources/contrastchecker/" target="_blank" class="link">
-					deze website
-				</a>.
-			</p>
-
-			<div class="form__group is-blue">
-				<input
-					id="bkgcolor"
-					type="text"
-					class="form__input @error('bkgcolor') is-invalid @enderror"
-					name="bkgcolor"
-					placeholder="bv. #112233"
-					value="{{ old('bkgcolor') }}"
-					autocomplete="off"
-				>
-
-				<label for="bkgcolor" class="form__label">
-					Accentkleur
-				</label>
-
-				@error('bkgcolor')
-				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-				@enderror
-			</div>
-
-
-			<div class="form__group is-blue">
-				<input
-					id="textcolor"
-					type="text"
-					class="form__input @error('textcolor') is-invalid @enderror"
-					name="textcolor"
-					placeholder="bv. #112233"
-					value="{{ old('textcolor') }}"
-					autocomplete="off"
-				>
-
-				<label for="textcolor" class="form__label">
-					Tekstkleur
-				</label>
-
-				@error('textcolor')
-				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-				@enderror
-			</div>
-
-
-			<div class="">
-				<button type="submit" class="btn btn--full is-blue">
-					Start nu jouw bedrijf
-				</button>
-			</div>
-		</form>
+		</section>
+	</div>
+	
+	<section class="page-alignment spacing-top-m">
+		<h1>
+			{{ $subscription['name'] }}
+		</h1>
+		<p>
+			Na betaling zal het ticket in uw account op de website of via tickets in uw applicatie te vinden zijn. <br>
+			U kunt niet afzien van de aankoop van het ticket.
+		</p>
+		
+		<p class="spacing-top-m">
+			Prijs:
+		</p>
+	
+	
+	
 	</section>
 @endsection

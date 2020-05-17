@@ -46,7 +46,7 @@
 					</div>
 					
 					<div class="card__actions ticket__actions">
-						<a class="btn btn--primary" href={{ route('event.detail', ['event_id' => $sub->id]) }}>
+						<a class="btn btn--primary" href={{ route('organisation.create', ['sub_id' => $sub->id]) }}>
 							ik wil dit pakket
 						</a>
 					</div>
