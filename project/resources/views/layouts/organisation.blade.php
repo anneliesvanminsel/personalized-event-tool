@@ -17,6 +17,15 @@
 <main>
 	<div class="section account with-space-top">
 		<section class="sidebar">
+			@if($organisation['logo'] && File::exists(public_path() . "/images/" . $organisation['logo']))
+				<div class="ctn--image">
+					<img src="{{ asset('images/' . $organisation['logo'] ) }}" alt="{{ $organisation['name'] }}" loading="lazy">
+				</div>
+			@else
+				<div class="ctn--image">
+					<img src="https://placekitten.com/600/600" alt="{{ $organisation['name'] }}" loading="lazy">
+				</div>
+			@endif
 			<h3 class="sidebar__title">
 				{{ $organisation['name'] }}
 			</h3>

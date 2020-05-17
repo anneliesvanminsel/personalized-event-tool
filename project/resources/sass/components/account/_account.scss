@@ -3,7 +3,8 @@
 	font-size: 16px;
 
 	.sidebar {
-		min-width: 215px;
+		min-width: 305px;
+		width: 305px;
 		padding-right: 30px;
 
 		display:flex;
@@ -27,11 +28,18 @@
 				font-weight: 900;
 			}
 		}
+
+		&.is-left {
+			border-right: none;
+			border-left: 1px solid $blue;
+			padding-right: 0;
+			padding-left: 30px;
+		}
 	}
 
 	.content {
-		max-width: 745px;
-		width: 745px;
+		max-width: 655px;
+		width: 655px;
 		padding-left: 30px;
 
 		h3 {
@@ -41,6 +49,11 @@
 
 		.card {
 			width: calc((100% / 3) - 16px );
+		}
+
+		&.is-right {
+			padding-right: 30px;
+			padding-left: 0;
 		}
 	}
 }

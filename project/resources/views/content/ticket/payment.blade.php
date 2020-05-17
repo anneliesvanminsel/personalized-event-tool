@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 	<div class="section account with-space-top">
-		<section class="is-grow">
+		<section class="content is-right">
 			<form method="POST" action="{{ route('ticket.postpayment', ['event_id' => $event['id'], 'ticket_id' => $ticket['id'] ]) }}"
 			      class="form spacing-top-m" enctype="multipart/form-data">
 				@csrf
@@ -59,7 +59,7 @@
 				</div>
 			</form>
 		</section>
-		<section class="sidebar">
+		<section class="sidebar is-left">
 			<h3 class="sidebar__title">
 				{{ $ticket['type'] }}
 			</h3>

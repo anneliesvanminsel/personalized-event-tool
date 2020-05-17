@@ -26,10 +26,11 @@ class CreateEventsTable extends Migration
 			$table->boolean('published')->default(0);
 
 			$table->integer('address_id')->nullable();
+			$table->integer('organisation_id');
 
-			$table->string('prim-color')->nullable();
-			$table->string('sec-color')->nullable();
-			$table->string('tert-color')->nullable();
+			$table->string('prim_color')->nullable();
+			$table->string('sec_color')->nullable();
+			$table->string('tert_color')->nullable();
 
 			$table->string('theme')->nullable();
 			$table->string('shape')->nullable();

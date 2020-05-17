@@ -1,9 +1,9 @@
 .icon {
+	min-width: $spacing-s;
 	width: $spacing-s;
-	height: $spacing-s;
+	height: auto;
 	fill: $black;
-	margin-left: $spacing-xxs;
-	margin-right: $spacing-xxs;
+	margin-right: 15px;
 	transform: scale(1);
 	@include default-transition(all);
 

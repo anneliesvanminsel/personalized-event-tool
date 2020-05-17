@@ -18,10 +18,7 @@ class Organisation extends Model
 	}
 
 	public function events(){
-		return $this->belongsToMany('App\Event',
-			'organisation_event',
-			'organisation_id',
-			'event_id')->withTimestamps();
+		return $this->hasMany('App\Event');
 	}
 
 	public function users(){

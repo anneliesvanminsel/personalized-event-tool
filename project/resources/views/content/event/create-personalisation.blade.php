@@ -25,11 +25,33 @@
 		<form
 			method="POST"
 			id="form-create"
-			action="{{ route('event.postcreate', ['organisation_id' => $organisation->id]) }}"
+			action="{{ route('event.postcreate-personalisation', ['organisation_id' => $organisation->id, 'event_id' => $event->id]) }}"
 			class="form"
 			enctype="multipart/form-data"
 		>
 			@csrf
+			
+			<div class="fieldset">
+				<label for="theme" class="form__label">
+					thema/theme
+				</label>
+				
+				<div class="checkbox__wrapper">
+					<div class="row row--center">
+						<input type="radio" id="light" name="theme" value="light">
+						<label for="light">light / licht</label>
+					</div>
+					
+				</div>
+				
+				<div class="checkbox__wrapper">
+					<div class="row row--center">
+						<input type="radio" id="dark" name="theme" value="dark">
+						<label for="dark">dark / donker</label>
+					</div>
+				</div>
+				
+			</div>
 			
 			<div class="form__group">
 				<input
@@ -121,52 +143,56 @@
 				@enderror
 			</div>
 			
-			<div class="form__group is-select">
-				<select class="select is-large" id="type" name="type">
-					<option value="not given">-- selecteer evenementstype --</option>
-					<option value="conference">conferentie</option>
-					<option value="workshop">workshop</option>
-					<option value="reunion">reunie</option>
-					<option value="party">feest</option>
-					<option value="gala">gala</option>
-					<option value="festival">festival</option>
-					<option value="semenar">semenarie</option>
-					<option value="auction">veiling</option>
-					<option value="market">beurs</option>
-				</select>
-				<label for="type" class="form__label">
-					evenementstype
+			<div class="fieldset">
+				<label for="shape" class="form__label">
+					vorm
 				</label>
 				
-				@error('type')
-				<span class="invalid-feedback" role="alert">
-					<strong>{{ $message }}</strong>
-				</span>
-				@enderror
+				<div class="checkbox__wrapper">
+					<div class="row row--center">
+						<input type="radio" id="round" name="shape" value="round">
+						<label for="round">rond</label>
+					</div>
+				
+				</div>
+				
+				<div class="checkbox__wrapper">
+					<div class="row row--center">
+						<input type="radio" id="square" name="shape" value="square">
+						<label for="square">vierkant</label>
+					</div>
+				</div>
+			
 			</div>
 			
-			<div class="form__group">
-				<input
-					id="ig-username"
-					type="text"
-					class="form__input optional @error('ig-username') is-invalid @enderror"
-					name="ig-username"
-					placeholder="Bv. event_platform"
-					value="{{ old('ig-username') }}"
-					required
-					autofocus
-					autocomplete="off"
-				>
-				
-				<label for="ig-username" class="form__label">
-					Instagram-username
+			<div class="fieldset">
+				<label for="schedule" class="form__label">
+					vorm
 				</label>
 				
-				@error('ig-username')
-				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-				@enderror
+				<div class="checkbox__wrapper">
+					<div class="row row--center">
+						<input type="radio" id="timeline" name="schedule" value="timeline">
+						<label for="timeline">tijdslijn</label>
+					</div>
+				
+				</div>
+				
+				<div class="checkbox__wrapper">
+					<div class="row row--center">
+						<input type="radio" id="table" name="schedule" value="table">
+						<label for="table">tabel</label>
+					</div>
+				
+				</div>
+				
+				<div class="checkbox__wrapper">
+					<div class="row row--center">
+						<input type="radio" id="timetable" name="schedule" value="timetable">
+						<label for="timetable">timetable</label>
+					</div>
+				</div>
+			
 			</div>
 			
 			<div class="spacing-top-m row row--center">

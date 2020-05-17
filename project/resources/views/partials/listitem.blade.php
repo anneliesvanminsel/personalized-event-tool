@@ -26,9 +26,9 @@
 			</h4>
 			
 			<div class="item__actions row">
-				@if(Auth::user() && $event->organisations->contains(Auth::user()->id))
+				@if(Auth::user() && $event->organisation_id === Auth::user()->organisation_id)
 					@php
-						$organisation = $event->organisations->first();
+						$organisation = $event->organisation;
 					@endphp
 					<div class="item__actions row row--stretch">
 						<form
@@ -41,17 +41,17 @@
 							
 							<button title="set visiblility" class="button is-icon" type="submit">
 								@if($event['published'] === 0)
-									@svg('hide')
+									@svg('hide', 'is-btn')
 								@else
-									@svg('view')
+									@svg('view', 'is-btn')
 								@endif
 							</button>
 						</form>
 						<a title="edit event information" class="button is-icon" href={{route('event.update', ['event_id' => $event->id])}}>
-							@svg('edit')
+							@svg('edit', 'is-btn')
 						</a>
 						<a title="edit event settings" class="button is-icon" href={{route('event.edit.settings', ['event_id' => $event->id])}}>
-							@svg('tools')
+							@svg('tools', 'is-btn')
 						</a>
 						<form
 							class="form"
@@ -61,14 +61,27 @@
 						>
 							{{ csrf_field() }}
 							<button class="button is-icon" type="submit">
-								@svg('delete')
+								@svg('delete', 'is-btn')
 							</button>
 						</form>
 					</div>
 				@else
-					<button title="download" class="button is-icon" type="submit">
-						@svg('download', 'is-btn')
-					</button>
+					<form
+						class="form"
+						method="POST"
+						action="{{ route('event.save', ['event-id' => $event['id'] ]) }}"
+					>
+						{{ csrf_field() }}
+						@if(Auth::user() && $event->savedusers->contains(Auth::user()->id))
+							<button title="download" class="button is-icon" type="submit">
+								@svg('download', 'is-btn')
+							</button>
+						@else
+							<button title="download" class="button is-icon" type="submit">
+								@svg('download', 'is-btn')
+							</button>
+						@endif
+					</form>
 					<form
 						class="form"
 						method="POST"

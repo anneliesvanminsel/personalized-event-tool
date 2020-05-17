@@ -5,19 +5,23 @@ namespace App\Http\Controllers;
 use App\Address;
 use App\Event;
 use App\Organisation;
+use App\Subscription;
 use Illuminate\Http\Request;
 
 class AddressController extends Controller
 {
     //
-    public function createAddressOrganisation($organisation_id) {
+    public function createAddressOrganisation($subscription_id, $organisation_id) {
         $organisation = Organisation::where('id', $organisation_id)->first();
+        $sub = Subscription::where('id', $subscription_id)->first();
 
-        return view('content.address.create-org', ['organisation' => $organisation]);
+        return view('content.address.create-org', ['organisation' => $organisation, 'subscription' => $sub]);
     }
 
-    public function postCreateAddressOrganisation(Request $request, $organisation_id) {
+    public function postCreateAddressOrganisation(Request $request, $subscription_id, $organisation_id) {
         $organisation = Organisation::where('id', $organisation_id)->first();
+		$sub = Subscription::where('id', $subscription_id)->first();
+		$user = $organisation->users()->first();
 
         //validatie
         $this->validate($request, [
@@ -51,8 +55,7 @@ class AddressController extends Controller
 
         $organisation->save();
 
-
-        return redirect()->route('organisation.admin.create', ['organisation' => $organisation]);
+        return redirect()->route('org.dashboard', ['user_id' => $user['id']]);
     }
 
     public function createAddressEvent($organisation_id, $event_id) {

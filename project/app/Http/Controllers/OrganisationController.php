@@ -34,26 +34,45 @@ class OrganisationController extends Controller
 	public function createOrganisation($subscription_id) {
 		$subscription = Subscription::where('id', $subscription_id)->first();
 
-		return view('content.organisation.create', ['subscription' => $subscription]);
+		return view('content.organisation.create-account', ['subscription' => $subscription]);
 	}
 
-	public function postCreateOrganisation(Request $request, $subscription_id) {
+	public function postCreateOrganisationAccount(Request $request, $subscription_id) {
 		$subscription = Subscription::where('id', $subscription_id)->first();
+
+		$this->validate($request, [
+			'name' => 'required|string|max:255',
+			'email' => 'required|string|email|max:255|unique:users',
+			'password' => 'required|string|min:8|confirmed',
+		]);
+
+		$user = new User([
+			'name' => $request->input('name'),
+			'email' => $request->input('email'),
+			'password' => Hash::make($request->input('password')),
+			'role' => 'organisator',
+		]);
+
+		$user->save();
+
+		return redirect()->route('organisation.createInformation', ['subscription_id' => $subscription['id'], 'account_id' => $user->id]);
+	}
+
+	public function createOrganisationInformation($subscription_id, $account_id) {
+		$subscription = Subscription::where('id', $subscription_id)->first();
+		$user = User::where('id', $account_id)->first();
+
+		return view('content.organisation.create', ['subscription' => $subscription, 'user' => $user]);
+	}
+
+	public function postCreateOrganisationInformation(Request $request, $subscription_id, $user_id) {
+		$subscription = Subscription::where('id', $subscription_id)->first();
+		$user = User::where('id', $user_id)->first();
 
 		//validatie
 		$this->validate($request, [
 			'name' => 'required|string|max:255',
             'description'=> 'required|string|max:1000',
-			'bkgcolor' => [
-				'nullable',
-				'string',
-				'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/',
-			],
-			'textcolor' => [
-				'nullable',
-				'string',
-				'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/',
-			],
 			'logo'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
 
@@ -64,15 +83,19 @@ class OrganisationController extends Controller
 
 		$organisation->name = $request->input('name');
 		$organisation->description = $request->input('description');
-		$organisation->bkgcolor = $request->input('bkgcolor');
-		$organisation->textcolor = $request->input('textcolor');
 		$organisation->logo = $imageName;
+
 
 		$organisation->subscription()->associate($subscription);
 
 		$organisation->save();
 
-		return redirect()->route('organisation.address.create', ['organisation_id' => $organisation['id']]);
+		$user['organisation_id'] = $organisation->id;
+
+		$user->save();
+		$organisation->users()->save($user);
+
+		return redirect()->route('organisation.address.create', ['subscription_id' => $subscription['id'], 'organisation_id' => $organisation['id']]);
 	}
 
     public function editOrganisation($organisation_id) {
@@ -88,23 +111,11 @@ class OrganisationController extends Controller
         $this->validate($request, [
             'name' => 'required|string|max:255',
             'description'=> 'required|string|max:1000',
-            'bkgcolor' => [
-                'nullable',
-                'string',
-                'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/',
-            ],
-            'textcolor' => [
-                'nullable',
-                'string',
-                'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/',
-            ],
             'logo'=> 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
         ]);
 
         $organisation->name = $request->input('name');
         $organisation->description = $request->input('description');
-        $organisation->bkgcolor = $request->input('bkgcolor');
-        $organisation->textcolor = $request->input('textcolor');
 
         if (request()->logo) {
             $image_path = public_path() . "/images/" . $organisation['logo'];  // Value is not URL but directory file path

@@ -60,6 +60,7 @@ class EventController extends Controller
 		$event->title = $request->input('title');
 		$event->ig_username = $request->input('ig-username');
 		$event->description = $request->input('description');
+		$event->organisation_id = $organisation['id'];
 		$event->category = $request->input('type');
 		$event->published = (int)$boolStatus;
 		$event->image = $imageName;
@@ -67,7 +68,6 @@ class EventController extends Controller
         $event->endtime = $request->input('endtime');
 
         $event->save();
-		$organisation->events()->attach($event);
 
         if($request->input('endtime')) {
             $starttime = new DateTime($request->input('starttime'));
@@ -101,39 +101,37 @@ class EventController extends Controller
 
 	}
 
-	public function createEventPersonalisation($event_id, $organisation_id) {
+	public function createEventPersonalisation($organisation_id, $event_id) {
 		$event = Event::where('id', $event_id)->first();
 		$organisation = Organisation::where('id', $organisation_id)->first();
 
 		return view('content.event.create-personalisation', ['organisation' => $organisation, 'event' => $event]);
 	}
 
-	public function postCreateEventPersonalisation(Request $request, $event_id, $organisation_id) {
-		$organisation = Organisation::where('id', $organisation_id)->first();
+	public function postCreateEventPersonalisation(Request $request, $organisation_id, $event_id) {
+		$organisation = Organisation::findOrFail($organisation_id);
 		$event = Event::findOrFail($event_id);
 
 		//validatie
 		$this->validate($request, [
-			'title' => 'required|string|max:255',
-			'description' => 'required|string|max:1000',
-			'type'=> 'required',
-			'starttime'=> 'required|date|max:20',
-			'endtime'=> 'nullable|date|max:20',
-			'ig-username' => 'required|string|max:255',
-			'logo'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
+			'theme' => '',
+			'prim-color' => '',
+			'sec-color'=> '',
+			'tert-color'=> '',
+			'shape'=> '',
+			'schedule' => '',
 		]);
 
-		$event->title = $request->input('title');
-		$event->ig_username = $request->input('ig-username');
-		$event->description = $request->input('description');
-		$event->category = $request->input('type');
-		$event->starttime = $request->input('starttime');
-		$event->endtime = $request->input('endtime');
+		$event->theme = $request->input('theme');
+		$event->prim_color = $request->input('prim-color');
+		$event->sec_color = $request->input('sec-color');
+		$event->tert_color = $request->input('tert-color');
+		$event->shape = $request->input('shape');
+		$event->schedule = $request->input('schedule');
 
 		$event->save();
-		$organisation->events()->attach($event);
 
-		return redirect()->route('event.address.create', ['event_id' => $event['id'], 'organisation_id' => $organisation['id']]);
+		return redirect()->route('event.address.create', [ 'organisation_id' => $organisation['id'], 'event_id' => $event['id'] ]);
 	}
 
 	public function UpdateEvent($id) {

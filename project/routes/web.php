@@ -48,16 +48,25 @@ Route::get('organisatie/{organisation_id}', [
 ]);
 
 //create an organisation account
-Route::get('registreer/{subscription_id}', [
+Route::get('organisatie/account/{subscription_id}', [
 	'uses' => 'OrganisationController@createOrganisation',
 	'as' => 'organisation.create'
 ]);
 
-Route::post('registreer/{subscription_id}/post', [
-	'uses' => 'OrganisationController@postCreateOrganisation',
+Route::post('organisatie/account/{subscription_id}/post', [
+	'uses' => 'OrganisationController@postCreateOrganisationAccount',
 	'as' => 'organisation.postcreate'
 ]);
 
+Route::get('organisatie/{subscription_id}/informatie/{account_id}', [
+	'uses' => 'OrganisationController@createOrganisationInformation',
+	'as' => 'organisation.createInformation'
+]);
+
+Route::post('organisatie/{subscription_id}/informatie/{account_id}', [
+	'uses' => 'OrganisationController@postCreateOrganisationInformation',
+	'as' => 'organisation.postcreateInformation'
+]);
 
 /*
 |--------------------------------------------------------------------------
@@ -230,24 +239,14 @@ Route::group(['prefix' => 'admin'], function() {
         'as' => 'event.address.postcreate'
     ]);
 
-    //add organisation admin
-    Route::get('organisation/{organisation_id}/newadmin', [
-        'uses' => 'OrganisationController@createAdmin',
-        'as' => 'organisation.admin.create'
-    ]);
 
-    Route::post('organisation/{organisation_id}/newadmin/post', [
-        'uses' => 'OrganisationController@postCreateAdmin',
-        'as' => 'organisation.admin.postcreate'
-    ]);
-
-    //add organisation event
-    Route::get('organisation/{organisation_id}/newaddress', [
+    //add organisation address
+    Route::get('organisatie/{subscription_id}/address/{organisation_id}', [
         'uses' => 'AddressController@createAddressOrganisation',
         'as' => 'organisation.address.create'
     ]);
 
-    Route::post('organisation/{organisation_id}/newaddress/post', [
+    Route::post('organisatie/{subscription_id}/address/{organisation_id}/post', [
         'uses' => 'AddressController@postCreateAddressOrganisation',
         'as' => 'organisation.address.postcreate'
     ]);

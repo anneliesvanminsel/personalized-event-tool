@@ -10,19 +10,16 @@ class Event extends Model
 	use SoftDeletes;
     //
 	protected $fillable = [
-		'image', 'title', 'description', 'category', 'published', 'prim-color', 'sec-color', 'tert-color', 'theme', 'shape',
-		'schedule', 'starttime', 'endtime', 'address_id', 'ig_username',
+		'image', 'title', 'description', 'category', 'published', 'prim_color', 'sec_color', 'tert_color', 'theme', 'shape',
+		'schedule', 'starttime', 'endtime', 'address_id', 'ig_username', 'organisation_id'
 	];
 
 	public function sessions(){
 		return $this->hasMany('App\Session');
 	}
 
-	public function organisations(){
-		return $this->belongsToMany('App\Organisation',
-			'organisation_event',
-			'event_id',
-			'organisation_id')->withTimestamps();
+	public function organisation(){
+		return $this->belongsTo('App\Organisation', 'organisation_id');
 	}
 
     public function savedusers(){

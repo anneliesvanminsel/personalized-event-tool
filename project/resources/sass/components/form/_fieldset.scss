@@ -1,0 +1,39 @@
+.fieldset {
+	position: relative;
+	width: 100%;
+	padding: $spacing-s;
+	margin-bottom: $spacing-ms;
+
+	font-size: 16px;
+	@include font-base;
+
+	@include border(1px, $blue);
+	@include default-transition();
+	touch-action: manipulation;
+
+	&:focus,
+	&:valid {
+		outline: none;
+		@include border(1px, $blue);
+	}
+
+	&.optional {
+		@include border(1px, $grey);
+	}
+
+	.form__label {
+		max-width: fit-content;
+		transform: scale(.9);
+		background-color: white;
+		padding: 0 $spacing-xs;
+		width: auto;
+
+		position: absolute;
+		top: -11px;
+		left: 10px;
+	}
+
+	label {
+		transform: none !important;
+	}
+}

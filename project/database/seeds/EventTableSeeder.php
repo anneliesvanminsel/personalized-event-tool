@@ -50,10 +50,11 @@ class EventTableSeeder extends Seeder
 				"description" => "Cat ipsum dolor sit amet, pelt around the house and up and down stairs chasing phantoms. Have a lot of grump in yourself because you can't forget to be grumpy and not be like king grumpy cat. Grab pompom in mouth and put in water dish hunt by meowing loudly at 5am next to human slave food dispenser lick butt purr like an angel. Meow meow go back to sleep owner brings food and water tries to pet on head, so scratch get sprayed by water because bad cat see brother cat receive pets, attack out of jealousy, or curl up and sleep on the freshly laundered towels.",
 				"category" => "workshop",
 				"published" => 1,
-				"prim-color" => "#CB4335",
-				"sec-color" => "#943126",
-				"tert-color" => "#EC7063",
+				"prim_color" => "#CB4335",
+				"sec_color" => "#943126",
+				"tert_color" => "#EC7063",
 				"theme" => "dark",
+				"organisation_id" => 1,
 				"shape" => "square",
 				"schedule" => "timeline",
 				"image" => "workshop-design.jpg",
@@ -61,8 +62,6 @@ class EventTableSeeder extends Seeder
 			]
 		);
 		$event->save();
-
-		$organisation->events()->attach($event);
 
 		$address = new Address(
 			[
@@ -88,12 +87,11 @@ class EventTableSeeder extends Seeder
 				"category" => "not given",
 				"published" => 1,
 				"image" => "brunch.jpeg",
+				"organisation_id" => 1,
 				"starttime" =>  Carbon::parse('2025-01-21 13:45:00'),
 			]
 		);
 		$event->save();
-
-		$organisation->events()->attach($event);
 
 		$event = new Event(
 			[
@@ -102,6 +100,7 @@ class EventTableSeeder extends Seeder
 				"category" => "festival",
 				"published" => 1,
 				"image" => "festival.jpg",
+				"organisation_id" => 1,
 				"ig_username" => "rockwerchterfestival",
 				"starttime" =>  Carbon::parse('2024-07-01 18:45:00'),
 				"endtime" =>  Carbon::parse('2024-07-04 23:30:00'),
@@ -109,18 +108,17 @@ class EventTableSeeder extends Seeder
 		);
 		$event->save();
 
-		$organisation->events()->attach($event);
-
 		$event4 = new Event(
 			[
 				"title" => "Wireframes - Wat? Hoe? Hunk?",
 				"description" => "This cat happen now, it was too purr-fect!!! pet me pet me pet me pet me, bite, scratch, why are you petting me.",
 				"category" => "workshop",
 				"published" => 1,
-				"prim-color" => "#91FC9E",
-				"sec-color" => "black",
+				"prim_color" => "#91FC9E",
+				"sec_color" => "black",
 				"image" => "wireframes.jpeg",
 				"theme" => "light",
+				"organisation_id" => 1,
 				"shape" => "round",
 				"schedule" => "timetable",
 				"starttime" =>  Carbon::parse('2026-2-04 20:30:00'),
@@ -128,7 +126,5 @@ class EventTableSeeder extends Seeder
 			]
 		);
 		$event4->save();
-
-		$organisation->events()->attach($event4);
 	}
 }
