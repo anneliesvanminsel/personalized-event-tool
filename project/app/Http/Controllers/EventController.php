@@ -33,11 +33,11 @@ class EventController extends Controller
 	public function createEvent($organisation_id) {
 		$organisation = Organisation::where('id', $organisation_id)->first();
 
-		return view('content.event.create', ['organisation_id' => $organisation->id]);
+		return view('content.event.create-data', ['organisation' => $organisation]);
 	}
 
 	public function postCreateEvent(Request $request, $organisation_id) {
-		$organisation = Organisation::where('id', $organisation_id)->first();
+		$organisation = Organisation::findOrFail($organisation_id);
 
 		//validatie
 		$this->validate($request, [
@@ -46,16 +46,7 @@ class EventController extends Controller
 			'type'=> 'required',
             'starttime'=> 'required|date|max:20',
             'endtime'=> 'nullable|date|max:20',
-			'bkgcolor' => [
-				'nullable',
-				'string',
-				'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/i',
-			],
-			'textcolor' => [
-				'nullable',
-				'string',
-				'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/i',
-			],
+			'ig-username' => 'required|string|max:255',
 			'logo'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
 
@@ -67,12 +58,11 @@ class EventController extends Controller
 		$event = new Event;
 
 		$event->title = $request->input('title');
+		$event->ig_username = $request->input('ig-username');
 		$event->description = $request->input('description');
-		$event->type = $request->input('type');
-		$event->status = (int)$boolStatus;
-		$event->bkgcolor = $request->input('bkgcolor');
-		$event->textcolor = $request->input('textcolor');
-		$event->logo = $imageName;
+		$event->category = $request->input('type');
+		$event->published = (int)$boolStatus;
+		$event->image = $imageName;
         $event->starttime = $request->input('starttime');
         $event->endtime = $request->input('endtime');
 
@@ -103,7 +93,47 @@ class EventController extends Controller
             $event->sessions()->save($session);
         }
 
-		return redirect()->route('event.address.create', ['id' => $event['id']]);
+		if( $organisation->subscription_id === 2 || $organisation->subscription_id === 3 ) {
+			return redirect()->route('event.create-personalisation', [ 'organisation_id' => $organisation['id'], 'event_id' => $event['id'] ]);
+		} else {
+			return redirect()->route('event.address.create', [ 'organisation_id' => $organisation['id'], 'event_id' => $event['id'] ]);
+		}
+
+	}
+
+	public function createEventPersonalisation($event_id, $organisation_id) {
+		$event = Event::where('id', $event_id)->first();
+		$organisation = Organisation::where('id', $organisation_id)->first();
+
+		return view('content.event.create-personalisation', ['organisation' => $organisation, 'event' => $event]);
+	}
+
+	public function postCreateEventPersonalisation(Request $request, $event_id, $organisation_id) {
+		$organisation = Organisation::where('id', $organisation_id)->first();
+		$event = Event::findOrFail($event_id);
+
+		//validatie
+		$this->validate($request, [
+			'title' => 'required|string|max:255',
+			'description' => 'required|string|max:1000',
+			'type'=> 'required',
+			'starttime'=> 'required|date|max:20',
+			'endtime'=> 'nullable|date|max:20',
+			'ig-username' => 'required|string|max:255',
+			'logo'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
+		]);
+
+		$event->title = $request->input('title');
+		$event->ig_username = $request->input('ig-username');
+		$event->description = $request->input('description');
+		$event->category = $request->input('type');
+		$event->starttime = $request->input('starttime');
+		$event->endtime = $request->input('endtime');
+
+		$event->save();
+		$organisation->events()->attach($event);
+
+		return redirect()->route('event.address.create', ['event_id' => $event['id'], 'organisation_id' => $organisation['id']]);
 	}
 
 	public function UpdateEvent($id) {
@@ -117,21 +147,12 @@ class EventController extends Controller
 		//validatie
 		$this->validate($request, [
 			'title' => 'required|string|max:255',
-			'description'=> 'required|string|max:1000',
-			'eventtype'=> 'required', //with examples
-			'bkgcolor' => [
-				'nullable',
-				'string',
-				'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/i',
-			],
-			'textcolor' => [
-				'nullable',
-				'string',
-				'regex:/^(\#[\da-f]{3}|\#[\da-f]{6})$/i',
-			],
-			'logo'=> 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
-			'starttime'=> 'required|string|max:20',
-			'endtime'=> 'nullable|string|max:20',
+			'description' => 'required|string|max:1000',
+			'type'=> 'required',
+			'starttime'=> 'required|date|max:20',
+			'endtime'=> 'nullable|date|max:20',
+			'ig-username' => 'required|string|max:255',
+			'logo'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
 
 		$event = Event::find($event_id);
@@ -214,10 +235,10 @@ class EventController extends Controller
 		$organisation = Organisation::where('id', $organisation_id)->first();
 		$user = Auth::user();
 
-		if ($event->status === 1) {
-			$event->status = (int)0;
+		if ($event->published === 1) {
+			$event->published = (int)0;
 		} else {
-			$event->status = (int)1;
+			$event->published = (int)1;
 		}
 
 		$event->save();
@@ -231,10 +252,10 @@ class EventController extends Controller
                 $event = Event::findOrFail($event_id);
                 $user = Auth::user();
 
-                if($event->users->contains($user['id'])) {
-                    $event->users()->where('user_id', $user['id'])->detach();
+                if($event->favusers->contains($user['id'])) {
+                    $event->favusers()->where('user_id', $user['id'])->detach();
                 } else {
-                    $event->users()->sync($user);
+                    $event->favusers()->sync($user);
                 }
 
                 return redirect()->back();
@@ -245,4 +266,25 @@ class EventController extends Controller
             return view('auth.login');
         }
     }
+
+	public function saveEvent($event_id){
+		if(Auth::user()) {
+			if(Auth::user()->role === 'volunteer' || Auth::user()->role === 'guest') {
+				$event = Event::findOrFail($event_id);
+				$user = Auth::user();
+
+				if($event->savedusers->contains($user['id'])) {
+					$event->savedusers()->where('user_id', $user['id'])->detach();
+				} else {
+					$event->savedusers()->sync($user);
+				}
+
+				return redirect()->back();
+			} else {
+				return redirect()->back();
+			}
+		} else {
+			return view('auth.login');
+		}
+	}
 }

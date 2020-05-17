@@ -102,7 +102,7 @@ class EventTableSeeder extends Seeder
 				"category" => "festival",
 				"published" => 1,
 				"image" => "festival.jpg",
-				"username" => "rockwerchterfestival",
+				"ig_username" => "rockwerchterfestival",
 				"starttime" =>  Carbon::parse('2024-07-01 18:45:00'),
 				"endtime" =>  Carbon::parse('2024-07-04 23:30:00'),
 			]

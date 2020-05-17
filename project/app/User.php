@@ -68,10 +68,17 @@ class User extends Authenticatable
         return $this->morphMany('App\Address', 'address');
     }
 
-    public function events(){
+    public function savedevents(){
         return $this->belongsToMany('App\Event',
-            'user_event',
+            'user_saved_event',
             'user_id',
             'event_id')->withTimestamps();
     }
+
+	public function favevents(){
+		return $this->belongsToMany('App\Event',
+			'user_fav_event',
+			'user_id',
+			'event_id')->withTimestamps();
+	}
 }

@@ -52,7 +52,7 @@ class GeneralController extends Controller
 
 		$highlights = Event::where('published', '=', 1)->where('starttime', '>', Carbon::now())->orderBy('id', 'desc')->take(4)->get();
 		$popularevents = Event::where('published', '=', 1)->where('starttime', '>', Carbon::now())->orderBy('starttime', 'asc')->paginate(3, ['*'], 'popular');
-        $searchedevents = Event::where('published', '=', 1)->where('type', $request->input('type'))->where('starttime', '>', Carbon::now())->orderBy('starttime', 'asc')->paginate(3, ['*'], 'search');
+        $searchedevents = Event::where('published', '=', 1)->where('category', $request->input('type'))->where('starttime', '>', Carbon::now())->orderBy('starttime', 'asc')->paginate(3, ['*'], 'search');
 
 		return view('home', ['highlights' => $highlights, 'searchedevents' => $searchedevents, 'popularevents' => $popularevents]);
 	}

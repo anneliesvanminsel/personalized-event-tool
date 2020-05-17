@@ -11,7 +11,7 @@ class Event extends Model
     //
 	protected $fillable = [
 		'image', 'title', 'description', 'category', 'published', 'prim-color', 'sec-color', 'tert-color', 'theme', 'shape',
-		'schedule', 'starttime', 'endtime', 'address_id', 'username',
+		'schedule', 'starttime', 'endtime', 'address_id', 'ig_username',
 	];
 
 	public function sessions(){
@@ -25,12 +25,19 @@ class Event extends Model
 			'organisation_id')->withTimestamps();
 	}
 
-    public function users(){
+    public function savedusers(){
         return $this->belongsToMany('App\User',
-            'user_event',
+            'user_saved_event',
             'event_id',
             'user_id')->withTimestamps();
     }
+
+	public function favusers(){
+		return $this->belongsToMany('App\User',
+			'user_fav_event',
+			'event_id',
+			'user_id')->withTimestamps();
+	}
 
 	public function tickets(){
 		return $this->hasMany('App\Ticket');

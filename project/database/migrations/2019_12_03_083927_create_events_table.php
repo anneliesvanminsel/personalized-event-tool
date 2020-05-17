@@ -35,7 +35,7 @@ class CreateEventsTable extends Migration
 			$table->string('shape')->nullable();
 			$table->string('schedule')->nullable();
 
-			$table->string('username')->nullable();
+			$table->string('ig_username')->nullable();
 
 			$table->softDeletes();
             $table->timestamps();

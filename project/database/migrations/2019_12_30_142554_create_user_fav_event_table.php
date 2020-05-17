@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserEventTable extends Migration
+class CreateUserFavEventTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateUserEventTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_event', function (Blueprint $table) {
+        Schema::create('user_fav_event', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->integer('event_id');
@@ -29,6 +29,6 @@ class CreateUserEventTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_event');
+        Schema::dropIfExists('user_fav_event');
     }
 }

@@ -55,14 +55,16 @@ class AddressController extends Controller
         return redirect()->route('organisation.admin.create', ['organisation' => $organisation]);
     }
 
-    public function createAddressEvent($event_id) {
+    public function createAddressEvent($organisation_id, $event_id) {
         $event = Event::where('id', $event_id)->first();
+		$organisation = Organisation::where('id', $organisation_id)->first();
 
-        return view('content.address.create-event', ['event' => $event]);
+		return view('content.address.create-event', ['event' => $event, 'organisation' => $organisation]);
     }
 
-    public function postCreateAddressEvent(Request $request, $event_id) {
+    public function postCreateAddressEvent(Request $request, $organisation_id, $event_id) {
         $event = Event::where('id', $event_id)->first();
+        $organisation = Organisation::where('id', $organisation_id)->first();
 
         //validatie
         $this->validate($request, [
