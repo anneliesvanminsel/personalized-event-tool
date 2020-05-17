@@ -258,12 +258,12 @@ Route::group(['prefix' => 'admin'], function() {
     ]);
 
 	//edit/update event
-	Route::get('event/edit/{event_id}', [
+	Route::get('event/{organisation_id}/edit/{event_id}', [
 		'uses' => 'EventController@updateEvent',
 		'as' => 'event.update'
 	]);
 
-	Route::post('event/edit/{event_id}/post', [
+	Route::post('event/{organisation_id}/edit/{event_id}/post', [
 		'uses' => 'EventController@postUpdateEvent',
 		'as' => 'event.postupdate'
 	]);

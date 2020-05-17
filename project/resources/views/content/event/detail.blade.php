@@ -42,17 +42,17 @@
 						
 						<button title="set visiblility" class="button is-icon" type="submit">
 							@if($event['published'] === 0)
-								@svg('hide')
+								@svg('hide', 'is-btn is-heart')
 							@else
-								@svg('view')
+								@svg('view', 'is-btn is-heart')
 							@endif
 						</button>
 					</form>
-					<a title="edit event information" class="button is-icon" href={{route('event.update', ['event_id' => $event->id])}}>
-						@svg('edit')
+					<a title="edit event information" class="button is-icon" href={{route('event.update', ['organisation_id' => $organisation['id'], 'event_id' => $event->id])}}>
+						@svg('edit', 'is-btn is-heart')
 					</a>
 					<a title="edit event settings" class="button is-icon" href={{route('event.edit.settings', ['event_id' => $event->id])}}>
-						@svg('tools')
+						@svg('tools', 'is-btn is-heart')
 					</a>
 					<form
 						class="form"
@@ -62,7 +62,7 @@
 					>
 						{{ csrf_field() }}
 						<button class="button is-icon" type="submit">
-							@svg('delete')
+							@svg('delete', 'is-btn is-heart')
 						</button>
 					</form>
 				</div>

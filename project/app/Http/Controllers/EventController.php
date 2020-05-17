@@ -46,7 +46,7 @@ class EventController extends Controller
 			'type'=> 'required',
             'starttime'=> 'required|date|max:20',
             'endtime'=> 'nullable|date|max:20',
-			'ig-username' => 'required|string|max:255',
+			'ig-username' => 'string|max:255',
 			'logo'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
 
@@ -93,7 +93,7 @@ class EventController extends Controller
             $event->sessions()->save($session);
         }
 
-		if( $organisation->subscription_id === 2 || $organisation->subscription_id === 3 ) {
+		if( $organisation->subscription_id === 3 ) {
 			return redirect()->route('event.create-personalisation', [ 'organisation_id' => $organisation['id'], 'event_id' => $event['id'] ]);
 		} else {
 			return redirect()->route('event.address.create', [ 'organisation_id' => $organisation['id'], 'event_id' => $event['id'] ]);
@@ -134,13 +134,15 @@ class EventController extends Controller
 		return redirect()->route('event.address.create', [ 'organisation_id' => $organisation['id'], 'event_id' => $event['id'] ]);
 	}
 
-	public function UpdateEvent($id) {
-		$event = Event::where('id', $id)->first();
+	public function UpdateEvent($organisation_id, $event_id) {
+		$event = Event::where('id', $event_id)->first();
+		$org = Organisation::where('id', $organisation_id)->first();
 
-		return view('content.event.edit',['event' => $event]);
+		return view('content.event.edit',['event' => $event, 'organisation' => $org]);
 	}
 
-	public function postUpdateEvent(Request $request, $event_id) {
+	public function postUpdateEvent(Request $request, $organisation_id, $event_id) {
+		$org = Organisation::where('id', $organisation_id)->first();
 
 		//validatie
 		$this->validate($request, [
@@ -149,19 +151,18 @@ class EventController extends Controller
 			'type'=> 'required',
 			'starttime'=> 'required|date|max:20',
 			'endtime'=> 'nullable|date|max:20',
-			'ig-username' => 'required|string|max:255',
-			'logo'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
+			'ig-username' => 'string|max:255',
+			'logo'=> 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
 
 		$event = Event::find($event_id);
 
 		$event->title = $request->input('title');
+		$event->ig_username = $request->input('ig-username');
 		$event->description = $request->input('description');
-		$event->type = $request->input('eventtype');
-		$event->bkgcolor = $request->input('bkgcolor');
-		$event->textcolor = $request->input('textcolor');
-		$event->endtime = $request->input('endtime');
+		$event->category = $request->input('type');
 		$event->starttime = $request->input('starttime');
+		$event->endtime = $request->input('endtime');
 
 		if (request()->logo) {
 			$image_path = public_path() . "/images/" . $event['logo'];  // Value is not URL but directory file path

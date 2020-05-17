@@ -1,20 +1,32 @@
-@extends('layouts.masterlayout')
+@extends('layouts.organisation')
 @section('title')
-	evento - edit event
+	evento - bewerken
 @endsection
 @section('content')
-	<section class="page-alignment spacing-top-m">
-		<h1>
+	<section class="content">
+		<h2>
 			Bewerk {{ $event['title'] }}
-		</h1>
-
-		<form method="POST" id="form-edit" action="{{ route('event.postupdate', ['event_id' => $event['id']]) }}" class="form" enctype="multipart/form-data">
+		</h2>
+		
+		<div class="section__nav nav">
+			<div class="nav__tabs">
+				<p class="nav__item tab__links active">
+					evenement gegevens
+				</p>
+				@if( $organisation->subscription_id === 3 )
+					<p class="nav__item tab__links">
+						personalisatiegegevens
+					</p>
+				@endif
+				<p class="nav__item tab__links">
+					adresgegevens
+				</p>
+			</div>
+		</div>
+		
+		<form method="POST" id="form-edit" action="{{ route('event.postupdate', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}" class="form" enctype="multipart/form-data">
 			@csrf
-
-			<h2 class="spacing-top-m">
-				1. Algemene gegevens
-			</h2>
-
+			
 			<div class="form__group">
 				<input
 					id="title"
@@ -27,19 +39,19 @@
 					autofocus
 					autocomplete="off"
 				>
-
+				
 				<label for="title" class="form__label">
 					De titel van het event
 				</label>
-
+				
 				@error('title')
 				<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
 					</span>
 				@enderror
 			</div>
-
-
+			
+			
 			<div class="form__group">
 				<textarea
 					form="form-edit"
@@ -52,15 +64,15 @@
 					autocomplete="off"
 					maxlength="1000"
 				>{{ $event['description'] }}</textarea>
-
+				
 				<label for="description" class="form__label">
 					Korte beschrijving
 				</label>
-
+				
 				<div id="word-counter" class="form__label is-counter"></div>
-
+				
 				@error('description')
-					<span class="invalid-feedback" role="alert">
+				<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
 					</span>
 				@enderror
@@ -70,22 +82,22 @@
                     };
 				</script>
 			</div>
-
+			
 			<div class="form__group">
 				<input
 					id="logo"
 					type="file"
-					class="form__input @error('logo') is-invalid @enderror"
+					class="form__input optional @error('logo') is-invalid @enderror"
 					name="logo"
 					placeholder="bv. het event van de eeuw"
 					value="{{ $event['logo'] }}"
 					autocomplete="off"
 				>
-
+				
 				<label for="logo" class="form__label">
 					hoofdafbeelding
 				</label>
-
+				
 				@error('logo')
 				<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
@@ -95,14 +107,14 @@
 			
 			<div class="form__group">
 				<input
-						id="starttime"
-						type="date"
-						class="form__input @error('starttime') is-invalid @enderror"
-						name="starttime"
-						placeholder="bv: 12/10/2022"
-						value="{{ $event['starttime'] }}"
-						required
-						autocomplete="off"
+					id="starttime"
+					type="datetime-local"
+					class="form__input @error('starttime') is-invalid @enderror"
+					name="starttime"
+					placeholder="bv: 12/10/2022"
+					value="{{ \Carbon\Carbon::parse($event['starttime'])->format('Y-m-d\TH:i') }}"
+					required
+					autocomplete="off"
 				>
 				
 				<label for="title" class="form__label">
@@ -115,19 +127,16 @@
 					</span>
 				@enderror
 			</div>
-			<p class="spacing-top-s">
-				Wanneer het evenement op meerdere dagen valt, kan je hieronder de laatste dag van het evenement noteren.
-			</p>
 			
 			<div class="form__group spacing-top-s">
 				<input
-						id="endtime"
-						type="date"
-						class="form__input @error('endtime') is-invalid @enderror"
-						name="endtime"
-						placeholder="bv: 14/10/2022"
-						value="{{ $event['endtime'] }}"
-						autocomplete="off"
+					id="endtime"
+					type="datetime-local"
+					class="form__input optional @error('endtime') is-invalid @enderror"
+					name="endtime"
+					placeholder="bv: 14/10/2022"
+					value="{{ \Carbon\Carbon::parse($event['endtime'])->format('Y-m-d\TH:i') }}"
+					autocomplete="off"
 				>
 				
 				<label for="title" class="form__label">
@@ -141,14 +150,9 @@
 				@enderror
 			</div>
 			
-			
-			<h2 class="spacing-top-m">
-				2. Technische informatie
-			</h2>
-
-			<div class="form__group">
-				<select class="select" id="eventtype" name="eventtype">
-					<option value="{{ $event['type'] }}">{{ $event['type'] }}</option>
+			<div class="form__group is-select">
+				<select class="select is-large" id="type" name="type">
+					<option value="{{ $event['category'] }}">{{ $event['category'] }}</option>
 					<option value="conference">conferentie</option>
 					<option value="workshop">workshop</option>
 					<option value="reunion">reunie</option>
@@ -159,76 +163,24 @@
 					<option value="auction">veiling</option>
 					<option value="market">beurs</option>
 				</select>
-
-				<label for="eventtype" class="form__label">
+				
+				<label for="type" class="form__label">
 					evenementstype
 				</label>
-
-				@error('eventtype')
+				
+				@error('type')
 				<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
 					</span>
 				@enderror
 			</div>
-
-			<h2 class="spacing-top-m">
-				3. Opmaak mogelijkheden
-			</h2>
-			<p>
-				Hier zal je de evenementspagina kunnen personaliseren. Deze kleuren zullen in de applicatie en op de website terugkomen.
-				<br>
-				Gelieve deze te noteren in <span class="accent">hex-notatie.</span>
-			</p>
-
-			<div class="form__group spacing-top-s">
-				<input
-					id="bkgcolor"
-					type="text"
-					class="form__input @error('bkgcolor') is-invalid @enderror"
-					name="bkgcolor"
-					placeholder="bv. #112233"
-					value="{{ $event['bkgcolor'] }}"
-					autocomplete="off"
-				>
-
-				<label for="bkgcolor" class="form__label">
-					Achtergrondkleur
-				</label>
-
-				@error('bkgcolor')
-				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-				@enderror
-			</div>
-
-
-			<div class="form__group">
-				<input
-					id="textcolor"
-					type="text"
-					class="form__input @error('textcolor') is-invalid @enderror"
-					name="textcolor"
-					placeholder="bv. #112233"
-					value="{{ $event['textcolor'] }}"
-					autocomplete="off"
-				>
-
-				<label for="textcolor" class="form__label">
-					Tekstkleur
-				</label>
-
-				@error('textcolor')
-				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-				@enderror
-			</div>
-
-
-			<div class="spacing-top-m">
+			<div class="spacing-top-m row row--center">
+				<a href="{{ route('org.dashboard', ['user_id' => Auth::user()->id]) }}" class="btn is-cancel">
+					annuleren
+				</a>
+				
 				<button type="submit" class="btn btn--full">
-					Sla wijzigingen op
+					Bewerk de gegevens
 				</button>
 			</div>
 		</form>

@@ -13,7 +13,7 @@
 				<p class="nav__item tab__links">
 					evenement gegevens
 				</p>
-				@if( $organisation->subscription_id === 2 || $organisation->subscription_id === 3 )
+				@if( $organisation->subscription_id === 3 )
 					<p class="nav__item tab__links">
 						personalisatiegegevens
 					</p>

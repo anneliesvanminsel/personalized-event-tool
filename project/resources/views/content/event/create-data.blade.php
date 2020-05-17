@@ -13,7 +13,7 @@
 				<p class="nav__item tab__links active">
 					evenement gegevens
 				</p>
-				@if( $organisation->subscription_id === 2 || $organisation->subscription_id === 3 )
+				@if( $organisation->subscription_id === 3 )
 					<p class="nav__item tab__links">
 						personalisatiegegevens
 					</p>
@@ -113,7 +113,7 @@
 			<div class="form__group">
 				<input
 					id="starttime"
-					type="date"
+					type="datetime-local"
 					class="form__input @error('starttime') is-invalid @enderror"
 					name="starttime"
 					placeholder="bv: 12/10/2022"
@@ -136,7 +136,7 @@
 			<div class="form__group spacing-top-s">
 				<input
 					id="endtime"
-					type="date"
+					type="datetime-local"
 					class="form__input optional @error('endtime') is-invalid @enderror"
 					name="endtime"
 					placeholder="bv: 14/10/2022"

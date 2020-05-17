@@ -21,7 +21,7 @@
 						@endif
 					</button>
 				</form>
-				<a title="edit event information" class="button is-icon" href={{route('event.update', ['event_id' => $event->id])}}>
+				<a title="edit event information" class="button is-icon" href={{route('event.update', ['organisation_id' => $organisation['id'], 'event_id' => $event->id])}}>
 					@svg('edit', 'is-btn')
 				</a>
 				<a title="edit event settings" class="button is-icon" href={{route('event.edit.settings', ['event_id' => $event->id])}}>
