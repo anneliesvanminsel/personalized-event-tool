@@ -150,46 +150,6 @@ Route::group(['prefix' => 'user'], function() {
         'uses' => 'MessageController@getMessageSpecial',
         'as' => 'message.special'
     ]);
-
-    //
-    //
-    // === MOBILE ===
-    //
-    //
-    Route::get('mobile/index', [
-        'uses' => 'MobileController@getIndex',
-        'as' => 'mobile.index'
-    ]);
-
-    Route::get('mobile/account/{user_id}', [
-        'uses' => 'MobileController@getAccount',
-        'as' => 'mobile.account'
-    ]);
-
-    Route::get('mobile/event/{event_id}', [
-        'uses' => 'MobileController@getEventDetail',
-        'as' => 'mobile.event.detail'
-    ]);
-
-    Route::get('mobile/events/saved', [
-        'uses' => 'MobileController@getLikedEvents',
-        'as' => 'mobile.events'
-    ]);
-
-    Route::get('mobile/tickets', [
-        'uses' => 'MobileController@getTickets',
-        'as' => 'mobile.ticket'
-    ]);
-
-    Route::get('mobile/search', [
-        'uses' => 'MobileController@getSearch',
-        'as' => 'mobile.search'
-    ]);
-
-    Route::post('mobile/search/post', [
-        'uses' => 'MobileController@postSearch',
-        'as' => 'mobile.postsearch'
-    ]);
 });
 
 /*
@@ -205,42 +165,234 @@ Route::group(['prefix' => 'admin'], function() {
 		'as' => 'org.dashboard'
 	]);
 
-	//add event
-	Route::get('event/create/{organisation_id}', [
-		'uses' => 'EventController@createEvent',
-		'as' => 'event.create'
-	]);
-
-	Route::post('event/create/{organisation_id}/post', [
-		'uses' => 'EventController@postCreateEvent',
-		'as' => 'event.postcreate'
-	]);
-
-	//add event
-	Route::get('event/create/{organisation_id}/personalisation/{event_id}', [
-		'uses' => 'EventController@createEventPersonalisation',
-		'as' => 'event.create-personalisation'
-	]);
-
-	Route::post('event/create/{organisation_id}/personalisation/{event_id}/post', [
-		'uses' => 'EventController@postCreateEventPersonalisation',
-		'as' => 'event.postcreate-personalisation'
-	]);
+	//
+	//
+	// >>> EVENT <<<
+	//
+	//
 
 
-    //add event address
-    Route::get('event/create/{organisation_id}/address/{event_id}', [
-        'uses' => 'AddressController@createAddressEvent',
-        'as' => 'event.address.create'
-    ]);
+	Route::group(['prefix' => '{organisation_id}/event'], function() {
 
-    Route::post('event/create/{organisation_id}/address/{event_id}/post', [
-        'uses' => 'AddressController@postCreateAddressEvent',
-        'as' => 'event.address.postcreate'
-    ]);
+		//
+		//
+		// === CREATE ===
+		//
+		//
+
+		Route::group(['prefix' => 'create'], function() {
+			Route::get('data', [
+				'uses' => 'EventController@createEvent',
+				'as' => 'event.create'
+			]);
+
+			Route::post('data/post', [
+				'uses' => 'EventController@postCreateEvent',
+				'as' => 'event.postcreate'
+			]);
+
+			//add personalisation
+			Route::get('data/personalisation/{event_id}', [
+				'uses' => 'EventController@createEventPersonalisation',
+				'as' => 'event.create-personalisation'
+			]);
+
+			Route::post('data/personalisation/{event_id}/post', [
+				'uses' => 'EventController@postCreateEventPersonalisation',
+				'as' => 'event.postcreate-personalisation'
+			]);
+
+			//add event address
+			Route::get('data/address/{event_id}', [
+				'uses' => 'AddressController@createAddressEvent',
+				'as' => 'event.address.create'
+			]);
+
+			Route::post('data/address/{event_id}/post', [
+				'uses' => 'AddressController@postCreateAddressEvent',
+				'as' => 'event.address.postcreate'
+			]);
+		});
+
+		Route::group(['prefix' => '{event_id}'], function() {
+//
+			//
+			// === UPDATE ===
+			//
+			//
+
+			Route::group(['prefix' => 'update'], function() {
+				Route::get('data', [
+					'uses' => 'EventController@updateEvent',
+					'as' => 'event.update'
+				]);
+
+				Route::post('data/post', [
+					'uses' => 'EventController@postUpdateEvent',
+					'as' => 'event.postupdate'
+				]);
+			});
+
+			//
+			//
+			// === SETTINGS ===
+			//
+			//
+
+			Route::group(['prefix' => 'settings'], function() {
+				Route::get('overview', [
+					'uses' => 'EventController@EditSettings',
+					'as' => 'event.edit.settings'
+				]);
+
+				//
+				// --- TICKETS ---
+				//
+
+				Route::group(['prefix' => 'tickets'], function() {
+					Route::get('overview', [
+						'uses' => 'TicketController@getTickets',
+						'as' => 'event.settings.ticket'
+					]);
+
+					Route::get('create', [
+						'uses' => 'TicketController@createTicket',
+						'as' => 'ticket.create'
+					]);
+
+					Route::post('create/post', [
+						'uses' => 'TicketController@postCreateTicket',
+						'as' => 'ticket.postcreate'
+					]);
+
+					//edit ticket
+					Route::get('{ticket_id}/update', [
+						'uses' => 'TicketController@updateTicket',
+						'as' => 'ticket.update'
+					]);
+
+					Route::post('{ticket_id}/update/post', [
+						'uses' => 'TicketController@postUpdateTicket',
+						'as' => 'ticket.postupdate'
+					]);
+
+					//delete ticket
+					Route::post('{ticket_id}/delete/post', [
+						'uses' => 'TicketController@deleteTicket',
+						'as' => 'ticket.delete'
+					]);
+				});
+
+				//
+				// --- FLOORPLANS ---
+				//
+
+				Route::group(['prefix' => 'floorplans'], function() {
+					Route::get('overview', [
+						'uses' => 'FloorplanController@getFloorplans',
+						'as' => 'event.settings.floorplan'
+					]);
+
+					//add floorplan
+					Route::get('create', [
+						'uses' => 'FloorplanController@createFloorplan',
+						'as' => 'floorplan.create'
+					]);
+
+					Route::post('create/post', [
+						'uses' => 'FloorplanController@postCreateFloorplan',
+						'as' => 'floorplan.postcreate'
+					]);
+
+					//edit floorplan
+					Route::get('update/{floorplan_id}', [
+						'uses' => 'FloorplanController@postUpdateFloorplan',
+						'as' => 'floorplan.update'
+					]);
+
+					Route::post('update/{floorplan_id}/post', [
+						'uses' => 'FloorplanController@postUpdateFloorplan',
+						'as' => 'floorplan.postupdate'
+					]);
+
+					//delete floorplan
+					Route::post('delete/{floorplan_id}/post', [
+						'uses' => 'FloorplanController@deleteFloorplan',
+						'as' => 'floorplan.delete'
+					]);
+				});
+
+				//
+				// --- SCHEDULES ---
+				//
+
+				Route::group(['prefix' => 'schedules'], function() {
+					Route::get('overview', [
+						'uses' => 'ScheduleController@getSchedules',
+						'as' => 'event.settings.schedule'
+					]);
+
+					//add planning
+					Route::get('create', [
+						'uses' => 'ScheduleController@createSchedule',
+						'as' => 'schedule.create'
+					]);
+
+					Route::post('create/post', [
+						'uses' => 'ScheduleController@postCreateSchedule',
+						'as' => 'schedule.postcreate'
+					]);
+
+					//edit planning
+					Route::get('update/{schedule_id}', [
+						'uses' => 'ScheduleController@updateSchedule',
+						'as' => 'schedule.update'
+					]);
+
+					Route::post('update/{schedule_id}/post', [
+						'uses' => 'ScheduleController@postUpdateSchedule',
+						'as' => 'schedule.postupdate'
+					]);
+				});
 
 
-    //add organisation address
+				//
+				// --- MESSAGES ---
+				//
+
+				Route::group(['prefix' => 'messages'], function() {
+					Route::get('overview', [
+						'uses' => 'MessageController@getMessages',
+						'as' => 'event.settings.message'
+					]);
+
+					//add message
+					Route::get('create', [
+						'uses' => 'MessageController@createMessage',
+						'as' => 'message.create'
+					]);
+
+					Route::post('create/post', [
+						'uses' => 'MessageController@postCreateMessage',
+						'as' => 'message.postcreate'
+					]);
+
+					//delete message
+					Route::post('delete/{message_id}/post', [
+						'uses' => 'MessageController@deleteMessage',
+						'as' => 'message.delete'
+					]);
+				});
+			});
+		});
+	});
+
+	//
+	//
+	// === CREATE ORGANISATION ADDRESS ===
+	//
+    //
+
     Route::get('organisatie/{subscription_id}/address/{organisation_id}', [
         'uses' => 'AddressController@createAddressOrganisation',
         'as' => 'organisation.address.create'
@@ -251,31 +403,14 @@ Route::group(['prefix' => 'admin'], function() {
         'as' => 'organisation.address.postcreate'
     ]);
 
-    //add event settings
-    Route::get('event/settings/{event_id}', [
-        'uses' => 'EventController@EditSettings',
-        'as' => 'event.edit.settings'
-    ]);
-
-	//edit/update event
-	Route::get('event/{organisation_id}/edit/{event_id}', [
-		'uses' => 'EventController@updateEvent',
-		'as' => 'event.update'
-	]);
-
-	Route::post('event/{organisation_id}/edit/{event_id}/post', [
-		'uses' => 'EventController@postUpdateEvent',
-		'as' => 'event.postupdate'
-	]);
-
 	//change publish status
-    Route::post('{organisation_id}/event/{event_id}/publish', [
+    Route::post('event/{event_id}/publish', [
         'uses' => 'EventController@publishEvent',
         'as' => 'event.publish'
     ]);
 
 	//delete event
-	Route::post('event/delete/{organisation_id}/{event_id}', [
+	Route::post('event/delete/{event_id}', [
 		'uses' => 'EventController@deleteEvent',
 		'as' => 'event.delete'
 	]);
@@ -289,77 +424,6 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('bewerken/{organisation_id}/post', [
         'uses' => 'OrganisationController@postEditOrganisation',
         'as' => 'organisation.postupdate'
-    ]);
-
-    //add ticket
-    Route::post('ticket/create/{event_id}/post', [
-        'uses' => 'TicketController@postCreateTicket',
-        'as' => 'ticket.postcreate'
-    ]);
-
-    //edit ticket
-    Route::post('ticket/update/{event_id}/{ticket_id}/post', [
-        'uses' => 'TicketController@postUpdateTicket',
-        'as' => 'ticket.postupdate'
-    ]);
-
-    //delete ticket
-    Route::post('ticket/delete/{event_id}/{ticket_id}/post', [
-        'uses' => 'TicketController@deleteTicket',
-        'as' => 'ticket.delete'
-    ]);
-
-    //add floorplan
-    Route::post('grondplan/create/{event_id}/post', [
-        'uses' => 'FloorplanController@postCreateFloorplan',
-        'as' => 'floorplan.postcreate'
-    ]);
-
-    //edit floorplan
-    Route::post('grondplan/update/{event_id}/{floorplan_id}/post', [
-        'uses' => 'FloorplanController@postUpdateFloorplan',
-        'as' => 'floorplan.postupdate'
-    ]);
-
-    //delete floorplan
-    Route::post('grondplan/delete/{event_id}/{floorplan_id}/post', [
-        'uses' => 'FloorplanController@deleteFloorplan',
-        'as' => 'floorplan.delete'
-    ]);
-
-    //add planning
-    Route::post('schedule/create/{event_id}/post', [
-        'uses' => 'ScheduleController@postCreateSchedule',
-        'as' => 'schedule.postcreate'
-    ]);
-
-    //edit planning
-    Route::post('schedule/update/{event_id}/{schedule_id}/post', [
-        'uses' => 'ScheduleController@postUpdateSchedule',
-        'as' => 'schedule.postupdate'
-    ]);
-
-    //add organisation admin
-    Route::get('organisation/{organisation_id}/newvolunteer', [
-        'uses' => 'OrganisationController@createVolunteer',
-        'as' => 'volunteer.create'
-    ]);
-
-    Route::post('organisation/{organisation_id}/newvolunteer/post', [
-        'uses' => 'OrganisationController@postCreateVolunteer',
-        'as' => 'volunteer.postcreate'
-    ]);
-
-    //add message
-    Route::post('message/create/{event_id}/post', [
-        'uses' => 'MessageController@postCreateMessage',
-        'as' => 'message.postcreate'
-    ]);
-
-    //delete message
-    Route::post('message/delete/{event_id}/{message_id}/post', [
-        'uses' => 'MessageController@deleteMessage',
-        'as' => 'message.delete'
     ]);
 });
 

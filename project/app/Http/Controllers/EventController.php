@@ -201,12 +201,13 @@ class EventController extends Controller
 		return redirect()->route('event.detail', ['id' => $event['id']]);
 	}
 
-    public function EditSettings($id) {
-	    if(Auth::user() && Auth::user()->role === "organisator") {
-            $event = Event::findOrFail($id);
+    public function EditSettings($organisation_id, $event_id) {
+		if(Auth::user() && Auth::user()->role === "organisator") {
+            $event = Event::findOrFail($event_id);
+			$org = Organisation::where('id', $organisation_id)->first();
 
-            if($event->organisations->contains( Auth::user()->organisation_id )) {
-                return view('content.event.settings',['event' => $event]);
+			if($event->organisation_id === Auth::user()->organisation_id) {
+				return redirect()->route('event.settings.schedule', ['organisation_id' => $org['id'], 'event_id' => $event['id']]);
             }
 
             return view('errors.401');

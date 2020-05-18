@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Organisation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Event;
@@ -13,41 +14,56 @@ use Carbon\Carbon;
 class ScheduleController extends Controller
 {
     //
-    function postCreateSchedule(Request $request, $event_id) {
-        $event = Event::where('id', $event_id)->first();
+	function getSchedules($organisation_id, $event_id) {
+		$org = Organisation::where('id', $organisation_id)->first();
+		$event = Event::where('id', $event_id)->first();
 
+		return view('content.schedule.overview', ['organisation' => $org,'event' => $event]);
+	}
+
+	function createSchedule($organisation_id, $event_id) {
+		$org = Organisation::where('id', $organisation_id)->first();
+		$event = Event::where('id', $event_id)->first();
+
+		return view('content.schedule.create', ['organisation' => $org,'event' => $event]);
+	}
+
+    function postCreateSchedule(Request $request, $org_id, $event_id) {
+        $event = Event::where('id', $event_id)->first();
+		$org = Organisation::where('id', $org_id)->first();
 
         $this->validate($request, [
-            'schedule-create-sessionid' => 'required',
-            'schedule-create-title' => 'required|string|max:255',
-            'schedule-create-description' => 'nullable|string|max:1000',
-            'schedule-create-starttime' => 'required|date_format:H:i',
-            'schedule-create-endtime' => 'nullable|date_format:H:i',
-            'schedule-create-location' => 'nullable|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'session_id' => 'required',
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string|max:1000',
+            'starttime' => 'required|date_format:H:i',
+            'endtime' => 'nullable|date_format:H:i',
+            'location' => 'nullable|string|max:255',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $session = Session::where('id', (int)$request->input('schedule-create-sessionid'))->first();
+        $session = Session::where('id', (int)$request->input('session_id'))->first();
 
         $schedule = new Schedule;
 
-        if($request->input('schedule-create-image')) {
-            $imageName = time().'.'.$request->input('schedule-create-image')->getClientOriginalExtension();
-            $request->input('schedule-create-image')->move(public_path('images'), $imageName);
-            $schedule->image = $imageName;
-        }
 
-        $schedule->title = $request->input('schedule-create-title');
-        $schedule->description = $request->input('schedule-create-description');
-        $schedule->starttime = $request->input('schedule-create-starttime');
-        $schedule->endtime = $request->input('schedule-create-endtime');
-        $schedule->location = $request->input('schedule-create-location');
+		if( request()->logo ) {
+			$imageName = time().'.'.request()->logo->getClientOriginalExtension();
+			request()->logo->move(public_path('images'), $imageName);
+			$schedule->image = $imageName;
+		}
+
+        $schedule->title = $request->input('title');
+        $schedule->description = $request->input('description');
+        $schedule->starttime = $request->input('starttime');
+        $schedule->endtime = $request->input('endtime');
+        $schedule->location = $request->input('location');
         $schedule->session_id = $session['id'];
 
-        $schedule->save();
+		$schedule->save();
         $session->schedules()->save($schedule);
 
-        return redirect()->route('event.edit.settings', ['id' => $event['id']]);
+        return redirect()->route('event.edit.settings', ['organisation_id' => $org->id, 'event_id' => $event['id']]);
     }
 
     public function deleteSchedule($event_id, $schedule_id){

@@ -36,7 +36,7 @@
 						class="form"
 						onsubmit="return confirm('Ben je zeker dat je {{ $event['title'] }} voor alle organisatoren wilt {{ $event['published'] === 0 ? 'zichtbaar maken' : 'onzichtbaar maken' }}?');"
 						method="POST"
-						action="{{ route('event.publish', ['event-id' => $event['id'], 'organisation_id' => $organisation['id'] ]) }}"
+						action="{{ route('event.publish', ['organisation_id' => $organisation['id'],'event-id' => $event['id']]) }}"
 					>
 						{{ csrf_field() }}
 						
@@ -51,14 +51,14 @@
 					<a title="edit event information" class="button is-icon" href={{route('event.update', ['organisation_id' => $organisation['id'], 'event_id' => $event->id])}}>
 						@svg('edit', 'is-btn is-heart')
 					</a>
-					<a title="edit event settings" class="button is-icon" href={{route('event.edit.settings', ['event_id' => $event->id])}}>
+					<a title="edit event settings" class="button is-icon" href={{route('event.edit.settings', ['organisation_id' => $organisation['id'],'event_id' => $event->id])}}>
 						@svg('tools', 'is-btn is-heart')
 					</a>
 					<form
 						class="form"
 						onsubmit="return confirm('Ben je zeker dat je {{ $event['title'] }} voor alle organisatoren wilt verwijderen? Dit kan niet ongedaan worden gemaakt.');"
 						method="POST"
-						action="{{ route('event.delete', ['event_id' => $event['id'], 'organisation_id' => $organisation['id'] ]) }}"
+						action="{{ route('event.delete', ['organisation_id' => $organisation['id'],'event_id' => $event['id'] ]) }}"
 					>
 						{{ csrf_field() }}
 						<button class="button is-icon" type="submit">
@@ -160,6 +160,9 @@
 
 	@if($event->sessions()->exists())
 		<section class="section schedule">
+			<h3 class="schedule__title">
+				Planning
+			</h3>
 			@if($event->schedule === 'timeline')
 				@include('content.schedule.timeline')
 			@elseif($event->schedule === 'timetable')

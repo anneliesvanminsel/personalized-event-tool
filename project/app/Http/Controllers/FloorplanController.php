@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Organisation;
 use Illuminate\Http\Request;
 use App\Event;
 use App\Floorplan;
@@ -9,8 +10,23 @@ use App\Floorplan;
 class FloorplanController extends Controller
 {
     //
-    public function postCreateFloorplan(Request $request, $event_id) {
+	function getFloorplans($organisation_id, $event_id) {
+		$org = Organisation::where('id', $organisation_id)->first();
+		$event = Event::where('id', $event_id)->first();
+
+		return view('content.floorplan.overview', ['organisation' => $org,'event' => $event]);
+	}
+
+	function createFloorplan($organisation_id, $event_id) {
+		$org = Organisation::where('id', $organisation_id)->first();
+		$event = Event::where('id', $event_id)->first();
+
+		return view('content.floorplan.create', ['organisation' => $org,'event' => $event]);
+	}
+
+    public function postCreateFloorplan(Request $request, $organisation_id, $event_id) {
         $event = Event::where('id', $event_id)->first();
+        $organisation = Organisation::where('id', $organisation_id)->first();
 
         //validatie
         $this->validate($request, [
@@ -31,11 +47,13 @@ class FloorplanController extends Controller
         $floorplan->save();
         $event->floorplans()->save($floorplan);
 
-        return redirect()->route('event.edit.settings', ['id' => $event['id']]);
+        return redirect()->route('event.settings.floorplan', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]);
     }
 
-    public function postUpdateFloorplan(Request $request, $event_id, $floorplan_id) {
+    public function postUpdateFloorplan(Request $request, $organisation_id, $event_id, $floorplan_id) {
         $floorplan = Floorplan::where('id', $floorplan_id)->first();
+		$event = Event::where('id', $event_id)->first();
+		$organisation = Organisation::where('id', $organisation_id)->first();
 
         //validatie
         $this->validate($request, [
@@ -54,16 +72,17 @@ class FloorplanController extends Controller
 
         $floorplan->save();
 
-        return redirect()->route('event.edit.settings', ['id' => $event_id]);
-    }
+		return redirect()->route('event.settings.floorplan', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]);
+	}
 
-    public function deleteFloorplan($event_id, $floorplan_id){
+    public function deleteFloorplan($organisation_id, $event_id, $floorplan_id) {
+		$organisation = Organisation::where('id', $organisation_id)->first();
         $event = Event::findOrFail($event_id);
         $floorplan = Floorplan::findOrFail($floorplan_id);
         $floorplan->delete();
 
-        return redirect()->route('event.edit.settings', ['id' => $event['id']]);
-    }
+		return redirect()->route('event.settings.floorplan', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]);
+	}
 
     public function getFloorplanSpecial($event_id) {
         $event = Event::findOrFail($event_id);

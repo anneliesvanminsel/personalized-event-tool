@@ -1,7 +1,3 @@
-<h3 class="schedule__title">
-	Planning
-</h3>
-
 <div class="tab spacing-top-s">
 	<div class="tab__heading">
 		@foreach($event->sessions()->get() as $session)
@@ -69,4 +65,6 @@
 		@endforeach
 	</div>
 </div>
+
 <script src="{{ asset('js/openTabs.js') }}"></script>
+

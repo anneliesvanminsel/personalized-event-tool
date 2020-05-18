@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Organisation;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -12,6 +13,13 @@ use App\User;
 class TicketController extends Controller
 {
     //
+	function getTickets($organisation_id, $event_id) {
+		$org = Organisation::where('id', $organisation_id)->first();
+		$event = Event::where('id', $event_id)->first();
+
+		return view('content.ticket.overview', ['organisation' => $org,'event' => $event]);
+	}
+
     public function getTicket($event_id, $ticket_id) {
         $event = Event::where('id', $event_id)->first();
         $ticket =Ticket::where('id', $ticket_id)->first();
@@ -28,35 +36,41 @@ class TicketController extends Controller
         return redirect()->route('index');
     }
 
-    public function postCreateTicket(Request $request, $event_id) {
+	function createTicket($organisation_id, $event_id) {
+		$org = Organisation::where('id', $organisation_id)->first();
+		$event = Event::where('id', $event_id)->first();
+
+		return view('content.ticket.create', ['organisation' => $org,'event' => $event]);
+	}
+
+    public function postCreateTicket(Request $request, $organisation_id, $event_id) {
         $event = Event::where('id', $event_id)->first();
+		$org = Organisation::where('id', $organisation_id)->first();
 
-        //validatie
+		//validatie
         $this->validate($request, [
-            'ticket-create-name' => 'nullable|string|max:255',
-            'ticket-create-description' => 'nullable|string|max:255',
-            'ticket-create-type'=> 'nullable|string',
-            'ticket-create-date'=> 'required|date',
-            'ticket-create-price'=> 'required|regex:/^\d*(\.\d{2})?$/',
-            'ticket-create-totaltickets'=> 'required|string',
+            'description' => 'nullable|string|max:255',
+            'type'=> 'nullable|string',
+            'date'=> 'required|date',
+            'price'=> 'required|regex:/^\d*(\.\d{2})?$/',
+            'totaltickets'=> 'required|string',
         ]);
-
 
         $ticket = new Ticket;
 
-        $ticket->name = $request->input('ticket-create-name');
-        $ticket->description = $request->input('ticket-create-description');
-        $ticket->type = $request->input('ticket-create-type');;
-        $ticket->date = $request->input('ticket-create-date');
-        $ticket->price = $request->input('ticket-create-price');
-        $ticket->totaltickets = $request->input('ticket-create-totaltickets');
+        $ticket->description = $request->input('description');
+        $ticket->type = $request->input('type');
+        $ticket->date = $request->input('date');
+        $ticket->price = $request->input('price');
+        $ticket->totaltickets = $request->input('totaltickets');
         $ticket->event_id = $event['id'];
 
         $ticket->save();
         $event->tickets()->save($ticket);
 
-        return redirect()->route('event.edit.settings', ['id' => $event['id']]);
-    }
+		return redirect()->route('event.settings.ticket', ['organisation_id' => $org['id'], 'event_id' => $event['id']]);
+
+	}
 
     public function postUpdateTicket(Request $request, $event_id, $ticket_id) {
         $ticket = Ticket::where('id', $ticket_id)->first();

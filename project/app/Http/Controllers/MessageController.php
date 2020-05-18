@@ -4,16 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use App\Message;
+use App\Organisation;
 use Illuminate\Http\Request;
 
 class MessageController extends Controller
 {
     //
-    public function getMessageSpecial($event_id) {
-        $event = Event::where('id', $event_id)->first();
+	function getMessages($organisation_id, $event_id) {
+		$org = Organisation::where('id', $organisation_id)->first();
+		$event = Event::where('id', $event_id)->first();
 
-        return view('content.message.special', ['event' => $event]);
-    }
+		return view('content.message.overview', ['organisation' => $org,'event' => $event]);
+	}
+
+	function createMessage($organisation_id, $event_id) {
+		$org = Organisation::where('id', $organisation_id)->first();
+		$event = Event::where('id', $event_id)->first();
+
+		return view('content.message.create', ['organisation' => $org,'event' => $event]);
+	}
 
     public function postCreateMessage(Request $request, $event_id) {
         $event = Event::where('id', $event_id)->first();
@@ -54,4 +63,10 @@ class MessageController extends Controller
 
         return redirect()->route('event.edit.settings', ['id' => $event['id']]);
     }
+
+	public function getMessageSpecial($event_id) {
+		$event = Event::where('id', $event_id)->first();
+
+		return view('content.message.special', ['event' => $event]);
+	}
 }

@@ -93,7 +93,6 @@
 					type="file"
 					class="form__input @error('logo') is-invalid @enderror"
 					name="logo"
-					placeholder="bv. het event van de eeuw"
 					value="{{ old('logo') }}"
 					required
 					autocomplete="off"

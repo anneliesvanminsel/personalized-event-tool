@@ -1,7 +1,8 @@
 .timeline {
 	position: relative;
 	max-width: 1200px;
-	margin: 0 auto;
+	margin: 20px auto;
+	padding: 20px 0;
 
 	&::after {
 		content: '';
@@ -16,6 +17,10 @@
 		@media screen and (min-width: 600px) {
 			left: 50%;
 		}
+	}
+
+	&__content {
+		padding: 20px;
 	}
 
 	.item {
@@ -113,16 +118,6 @@
 		.icon {
 			margin-left: 0;
 			margin-right: 10px;
-		}
-	}
-}
-
-@media screen and (max-width: 600px) {
-	.timeline {
-		.item {
-
-
-
 		}
 	}
 }

@@ -50,6 +50,14 @@ button {
 		background-color: transparent;
 		border: 1px solid $pink;
 	}
+
+	&.is-small {
+		height: 40px;
+		font-size: 14px;
+		padding: 12px;
+		min-width: 200px;
+		width: 200px;
+	}
 }
 
 .btn {
