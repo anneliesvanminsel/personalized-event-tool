@@ -50,6 +50,14 @@ class FloorplanController extends Controller
         return redirect()->route('event.settings.floorplan', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]);
     }
 
+	function updateFloorplan($organisation_id, $event_id, $floorplan_id) {
+		$floorplan = Floorplan::where('id', $floorplan_id)->first();
+		$org = Organisation::where('id', $organisation_id)->first();
+		$event = Event::where('id', $event_id)->first();
+
+		return view('content.floorplan.edit', ['organisation' => $org,'event' => $event, 'current_floorplan' => $floorplan]);
+	}
+
     public function postUpdateFloorplan(Request $request, $organisation_id, $event_id, $floorplan_id) {
         $floorplan = Floorplan::where('id', $floorplan_id)->first();
 		$event = Event::where('id', $event_id)->first();

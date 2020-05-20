@@ -20,7 +20,7 @@ class CreateTicketsTable extends Migration
 			$table->double('price');
 			$table->integer('totaltickets')->nullable();
 			$table->integer('event_id');
-			$table->date('date');
+			$table->date('date')->nullable();
 			$table->softDeletes();
             $table->timestamps();
         });

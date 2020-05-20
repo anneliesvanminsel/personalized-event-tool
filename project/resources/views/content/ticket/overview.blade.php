@@ -87,7 +87,7 @@
 									@endif
 								</div>
 								<div class="card__actions">
-									<a href="" class="btn">
+									<a href="{{ route('ticket.update', ['organisation_id' => $organisation['id'], 'event_id' => $event['id'], 'ticket_id' => $ticket['id'] ]) }}" class="btn">
 										bewerken
 									</a>
 								</div>

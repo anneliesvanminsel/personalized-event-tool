@@ -5,7 +5,7 @@
 @section('content')
 	<div class="section content">
 		<h2>
-			{{ $event['title'] }}
+			{{ $event['title'] }} - voeg een ticket toe
 		</h2>
 		
 		<div class="section__nav nav">
@@ -31,8 +31,6 @@
 				action="{{ route('ticket.postcreate', ['organisation_id' => $organisation['id'], 'event_id' => $event['id'] ]) }}"
 			>
 				@csrf
-				
-				<h1>Voeg een ticket toe</h1>
 				
 				<div class="form__group">
 					<input

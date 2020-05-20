@@ -2202,15 +2202,56 @@ input[type=radio]:disabled {
 }
 
 .message {
-  background-color: #ffffff;
-  color: #262323;
-  padding: 40px;
-  margin-bottom: 40px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.message__image {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  margin-right: 30px;
+  border: 1px solid #46D5EF;
+}
+
+.message__image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100px;
+  min-height: 100px;
+  height: 100%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.message__image.is-hidden {
+  display: none;
+  border: none;
 }
 
 .message__title {
-  font-size: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.message__content {
+  -webkit-box-flex: 1;
+          flex-grow: 1;
+}
+
+.message__text {
+  margin-bottom: 10px;
+}
+
+.message__text.is-type {
+  font-size: 12px;
+}
+
+.message__actions {
+  display: -webkit-box;
+  display: flex;
 }
 
 .message.default {
@@ -2706,8 +2747,6 @@ span.round-tab:hover {
 
 .account .sidebar__section {
   border-bottom: 1px solid #46D5EF;
-  -webkit-box-flex: 1;
-          flex-grow: 1;
   margin-bottom: 30px;
   padding-bottom: 30px;
 }
@@ -2746,6 +2785,10 @@ span.round-tab:hover {
 .account .content.is-right {
   padding-right: 30px;
   padding-left: 0;
+}
+
+.account h2 {
+  padding-top: 0;
 }
 
 .filter {

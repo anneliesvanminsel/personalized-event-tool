@@ -72,29 +72,37 @@ class TicketController extends Controller
 
 	}
 
-    public function postUpdateTicket(Request $request, $event_id, $ticket_id) {
+	function updateTicket($organisation_id, $event_id, $ticket_id) {
+		$organisation = Organisation::where('id', $organisation_id)->first();
+		$event = Event::where('id', $event_id)->first();
+		$ticket = Ticket::where('id', $ticket_id)->first();
+
+		return view('content.ticket.edit', ['organisation' => $organisation, 'event' => $event, 'current_ticket' => $ticket]);
+	}
+
+    public function postUpdateTicket(Request $request, $organisation_id, $event_id, $ticket_id) {
         $ticket = Ticket::where('id', $ticket_id)->first();
+		$event = Event::where('id', $event_id)->first();
+		$org = Organisation::where('id', $organisation_id)->first();
 
         //validatie
         $this->validate($request, [
-            'ticket-edit-name' => 'nullable|string|max:255',
-            'ticket-edit-description' => 'nullable|string|max:255',
-            'ticket-edit-type'=> 'nullable|string',
-            'ticket-edit-date'=> 'required|date',
-            'ticket-edit-price'=> 'required|regex:/^\d*(\.\d{2})?$/',
-            'ticket-edit-totaltickets'=> 'required|string',
+            'description' => 'nullable|string|max:255',
+            'type'=> 'nullable|string',
+            'date'=> 'required|date',
+            'price'=> 'required|regex:/^\d*(\.\d{2})?$/',
+            'totaltickets'=> 'required|string',
         ]);
 
-        $ticket->name = $request->input('ticket-edit-name');
-        $ticket->description = $request->input('ticket-edit-description');
-        $ticket->type = $request->input('ticket-edit-type');;
-        $ticket->date = $request->input('ticket-edit-date');
-        $ticket->price = $request->input('ticket-edit-price');
-        $ticket->totaltickets = $request->input('ticket-edit-totaltickets');
+        $ticket->description = $request->input('description');
+        $ticket->type = $request->input('type');;
+        $ticket->date = $request->input('date');
+        $ticket->price = $request->input('price');
+        $ticket->totaltickets = $request->input('totaltickets');
 
         $ticket->save();
 
-        return redirect()->route('event.edit.settings', ['id' => $event_id]);
+        return redirect()->route('event.settings.ticket', ['organisation_id' => $org['id'], 'event_id' => $event['id']]);
     }
 
     public function deleteTicket($event_id, $ticket_id){

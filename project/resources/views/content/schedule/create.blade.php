@@ -5,7 +5,7 @@
 @section('content')
 	<div class="section content">
 		<h2>
-			{{ $event['title'] }}
+			{{ $event['title'] }} - voeg een item aan de planning toe
 		</h2>
 		
 		<div class="section__nav nav">
@@ -34,10 +34,6 @@
 				id="form"
 			>
 				@csrf
-				
-				<h1>
-					Voeg een item aan jouw planning toe
-				</h1>
 				
 				<div class="form__group is-select">
 					<select class="select is-large" id="session_id" name="session_id">

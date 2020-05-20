@@ -5,7 +5,7 @@
 @section('content')
 	<div class="section content">
 		<h2>
-			{{ $event['title'] }}
+			{{ $event['title'] }} - voeg een grondplan toe
 		</h2>
 		
 		<div class="section__nav nav">
@@ -33,16 +33,13 @@
 			>
 				@csrf
 				
-				<h1>Voeg een grondplan toe</h1>
-				
-				
 				<div class="form__group">
 					<input
-							type="text"
-							placeholder="bv. eerste verdieping"
-							name="name"
-							id="name"
-							value="{{ old('name') }}"
+						type="text"
+						placeholder="bv. eerste verdieping"
+						name="name"
+						id="name"
+						value="{{ old('name') }}"
 					>
 					<label for="name" class="form__label">
 						Naam van het grondplan
@@ -72,7 +69,9 @@
 				</div>
 				
 				<div class="row spacing-top-s">
-					<button type="button" class="btn" onclick="closeForm('floorplan-form')">Sluiten</button>
+					<a class="btn is-cancel" href="{{ route('event.settings.floorplan', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
+						Sluiten
+					</a>
 					<button type="submit" class="btn btn--full">Grondplan toevoegen</button>
 				</div>
 			</form>

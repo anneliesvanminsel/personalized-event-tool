@@ -46,7 +46,7 @@ class EventController extends Controller
 			'type'=> 'required',
             'starttime'=> 'required|date|max:20',
             'endtime'=> 'nullable|date|max:20',
-			'ig-username' => 'string|max:255',
+			'ig-username' => 'nullable|string|max:255',
 			'logo'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
 
@@ -151,7 +151,7 @@ class EventController extends Controller
 			'type'=> 'required',
 			'starttime'=> 'required|date|max:20',
 			'endtime'=> 'nullable|date|max:20',
-			'ig-username' => 'string|max:255',
+			'ig-username' => 'nullable|string|max:255',
 			'logo'=> 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
 

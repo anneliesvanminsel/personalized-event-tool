@@ -3,7 +3,7 @@
 	evento - maak event
 @endsection
 @section('content')
-	<div class="section content">
+	<section class="section content">
 		<h2>
 			{{ $event['title'] }}
 		</h2>
@@ -48,9 +48,50 @@
 			
 			@if($event->messages()->exists())
 				<section class="section schedule">
-				
+					<div id="tab__container table">
+						@foreach($event->messages()->get() as $msg)
+							<div class="message row">
+								@if($msg['image'] && File::exists(public_path() . "/images/" . $msg['image']))
+									<div class="message__image">
+										<img src="{{ asset('images/' . $msg['image']) }}" alt="logo voor {{ $msg->title }}">
+									</div>
+								@else
+									<div class="message__image is-hidden"></div>
+								@endif
+								
+								<div class="message__content">
+									<h4 class="message__title">
+										{{ $msg['title'] }}
+									</h4>
+									<p class="message__text is-type">
+										{{ $msg['type'] }}
+									</p>
+									<div class="message__text">
+										{{ $msg['message'] }}
+									</div>
+								</div>
+								
+								<div class="message__actions">
+									<a href="{{ route('message.update', ['organisation_id' => $organisation['id'], 'event_id' => $event['id'], 'message_id' => $msg['id'] ]) }}" class="">
+										@svg('edit', 'is-btn')
+									</a>
+									<form
+										class="form"
+										onsubmit="return confirm('Ben je zeker dat je dit bericht wilt verwijderen? Dit kan niet ongedaan worden gemaakt.');"
+										method="POST"
+										action="{{ route('message.delete', ['organisation_id' => $organisation['id'], 'event_id' => $event['id'], 'message_id' => $msg['id'] ]) }}"
+									>
+										{{ csrf_field() }}
+										<button class="button is-icon" type="submit">
+											@svg('delete', 'is-btn')
+										</button>
+									</form>
+								</div>
+							</div>
+						@endforeach
+					</div>
 				</section>
 			@endif
 		</div>
-	</div>
+	</section>
 @endsection

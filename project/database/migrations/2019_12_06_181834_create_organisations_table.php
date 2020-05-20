@@ -17,8 +17,6 @@ class CreateOrganisationsTable extends Migration
             $table->bigIncrements('id');
 			$table->string('name');
 			$table->text('description');
-			$table->string('prim-color')->nullable();
-			$table->string('sec-color')->nullable();
 			$table->string('logo')->nullable();
 			$table->integer('subscription_id');
 			$table->integer('address_id')->nullable();

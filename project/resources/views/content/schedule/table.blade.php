@@ -57,7 +57,7 @@
 						@endforeach
 					</div>
 				@else
-					<p>
+					<p class="timeline__content">
 						Er is nog geen planning toegevoegd.
 					</p>
 				@endif

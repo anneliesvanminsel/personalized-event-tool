@@ -77,7 +77,7 @@
 									</h4>
 								</div>
 								<div class="card__actions">
-									<a href="" class="btn">
+									<a href="{{ route('floorplan.update', ['organisation_id' => $organisation['id'], 'event_id' => $event['id'], 'floorplan_id' => $floorplan['id'] ]) }}" class="btn">
 										bewerken
 									</a>
 								</div>

@@ -306,7 +306,7 @@ Route::group(['prefix' => 'admin'], function() {
 
 					//edit floorplan
 					Route::get('update/{floorplan_id}', [
-						'uses' => 'FloorplanController@postUpdateFloorplan',
+						'uses' => 'FloorplanController@updateFloorplan',
 						'as' => 'floorplan.update'
 					]);
 
@@ -375,6 +375,17 @@ Route::group(['prefix' => 'admin'], function() {
 					Route::post('create/post', [
 						'uses' => 'MessageController@postCreateMessage',
 						'as' => 'message.postcreate'
+					]);
+
+					//update message
+					Route::get('update/{message_id}', [
+						'uses' => 'MessageController@updateMessage',
+						'as' => 'message.update'
+					]);
+
+					Route::post('update/{message_id}/post', [
+						'uses' => 'MessageController@postUpdateMessage',
+						'as' => 'message.postupdate'
 					]);
 
 					//delete message

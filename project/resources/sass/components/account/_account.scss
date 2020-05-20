@@ -14,7 +14,6 @@
 
 		&__section {
 			border-bottom: 1px solid $blue;
-			flex-grow: 1;
 			margin-bottom: 30px;
 			padding-bottom: 30px;
 		}
@@ -55,5 +54,9 @@
 			padding-right: 30px;
 			padding-left: 0;
 		}
+	}
+
+	h2 {
+		padding-top: 0;
 	}
 }

@@ -1,33 +1,71 @@
 .message {
-  background-color: $white;
-  color: $black;
-  padding: $spacing-m;
-  margin-bottom: $spacing-m;
+  padding: $spacing-xs;
+  margin-bottom: $spacing-xs;
 
-  &__title {
-	font-size: 20px;
-	margin-bottom: 15px;
-  }
+	&__image {
+		position: relative;
 
-  &__text {
+		width: 100px;
+		height: 100px;
+		overflow: hidden;
 
-  }
+		margin-right: 30px;
 
-  &.default {
-	border: 5px solid $grey;
-  }
+		border: 1px solid $blue;
 
-  &.important {
-	border: 5px solid $orange;
+		img {
+			position: absolute;
+			top: 50%;
+			left: 50%;
 
-  }
+			min-width: 100px;
+			min-height: 100px;
+			height: 100%;
 
-  &.information {
-	border: 5px solid $blue;
+			transform: translate(-50%, -50%);
+		}
 
-  }
+		&.is-hidden {
+			display: none;
+			border: none;
+		}
+	}
 
-  &.warning {
-	border: 5px solid $red;
-  }
+	&__title {
+		margin-bottom: 10px;
+		padding: 0;
+	}
+
+	&__content {
+		flex-grow: 1;
+	}
+
+	&__text {
+		margin-bottom: 10px;
+
+		&.is-type {
+			font-size: 12px;
+		}
+	}
+
+	&__actions {
+		display: flex;
+	}
+
+	&.default {
+		border: 5px solid $grey;
+	}
+
+	&.important {
+		border: 5px solid $orange;
+
+	}
+
+	&.information {
+		border: 5px solid $blue;
+	}
+
+	&.warning {
+		border: 5px solid $red;
+	}
 }

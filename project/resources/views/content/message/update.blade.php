@@ -5,7 +5,7 @@
 @section('content')
 	<div class="section content">
 		<h2>
-			{{ $event['title'] }} - voeg een bericht toe
+			{{ $event['title'] }} - bewerk het bericht {{ $msg->title }}
 		</h2>
 		
 		<div class="section__nav nav">
@@ -28,7 +28,7 @@
 		<div id="tab__container">
 			<form
 				method="POST"
-				action="{{ route('message.postcreate', ['organisation_id' => $organisation['id'], 'event_id' => $event['id'] ]) }}"
+				action="{{ route('message.postupdate', ['organisation_id' => $organisation['id'], 'event_id' => $event['id'], 'message_id' => $msg['id'] ]) }}"
 				enctype="multipart/form-data"
 			>
 				@csrf
@@ -39,13 +39,13 @@
 						placeholder="Titel van het bericht"
 						name="title"
 						id="title"
-						value="{{ old('title') }}"
+						value="{{ $msg->title }}"
 					>
 					<label for="name" class="form__label">
 						Titel
 					</label>
 					@error('title')
-						<span class="invalid-feedback" role="alert">
+					<span class="invalid-feedback" role="alert">
 							<strong>{{ $message }}</strong>
 						</span>
 					@enderror
@@ -57,14 +57,14 @@
 						placeholder="Inhoud van het bericht"
 						name="message"
 						id="message"
-						value="{{ old('message') }}"
+						value="{{ $msg->message }}"
 						required
 					>
 					<label for="name" class="form__label">
 						Bericht
 					</label>
 					@error('message')
-						<span class="invalid-feedback" role="alert">
+					<span class="invalid-feedback" role="alert">
 							<strong>{{ $message }}</strong>
 						</span>
 					@enderror
@@ -84,13 +84,13 @@
 					</label>
 					
 					@error('image')
-						<span class="invalid-feedback" role="alert">
+					<span class="invalid-feedback" role="alert">
 							<strong>{{ $message }}</strong>
 						</span>
 					@enderror
 				</div>
 				
-				<div class="form__group is-select">
+				<div class="form__group">
 					<select class="select is-large" id="type" name="type">
 						<option value="default">-- selecteer berichtstype --</option>
 						<option value="default">standaard / gewoon</option>
@@ -103,7 +103,7 @@
 					</label>
 					
 					@error('type')
-						<span class="invalid-feedback" role="alert">
+					<span class="invalid-feedback" role="alert">
 								<strong>{{ $message }}</strong>
 							</span>
 					@enderror
@@ -113,9 +113,11 @@
 					<a href="{{ route('event.settings.message', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}" class="btn is-cancel">
 						annuleren
 					</a>
-					<button type="submit" class="btn btn--full">Bericht toevoegen</button>
+					<button type="submit" class="btn btn--full">
+						Bericht toevoegen
+					</button>
 				</div>
 			</form>
 		</div>
 	</div>
-	@endsection
+@endsection
