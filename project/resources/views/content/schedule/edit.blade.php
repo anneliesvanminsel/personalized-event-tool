@@ -175,8 +175,8 @@
 					@enderror
 				</div>
 				
-				<div class="row spacing-top-s">
-					<a class="btn">
+				<div class="row row--center in-form">
+					<a class="btn is-cancel">
 						Sluiten
 					</a>
 					<button type="submit" class="btn btn--full">

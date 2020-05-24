@@ -54,31 +54,6 @@
 	&__content {
 		padding: 20px;
 		flex-grow: 1;
-
-		&:before,
-		&:after {
-			content: "";
-			position: absolute;
-			display: block;
-			width: 24px;
-			height: 24px;
-			background: $white;
-			border-radius: 50%;
-			@include border(1px, $blue);
-			top: 27%;
-			left: 0;
-			z-index: 100;
-			//transform: translateY(-50%);
-		}
-
-		&:before {
-			left: -12px;
-		}
-
-		&:after {
-			right: -12px;
-			left: auto;
-		}
 	}
 
 	&__type {
@@ -120,6 +95,35 @@
 
 		&:after {
 			right: -20px;
+			left: auto;
+		}
+	}
+
+	&__accent {
+		width: 100%;
+		
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			display: block;
+			width: 24px;
+			height: 24px;
+			background: $white;
+			border-radius: 50%;
+			@include border(1px, $blue);
+			top: 20%;
+			left: 0;
+			z-index: 100;
+			//transform: translateY(-50%);
+		}
+
+		&:before {
+			left: -32px;
+		}
+
+		&:after {
+			right: -32px;
 			left: auto;
 		}
 	}

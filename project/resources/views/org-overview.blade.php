@@ -40,7 +40,7 @@
 						<div class="card__price ticket__price">
 							€ {{ $sub['price'] }}
 						</div>
-						<div>
+						<div class="card__items">
 							{!! $sub['description'] !!}
 						</div>
 					</div>

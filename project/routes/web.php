@@ -396,6 +396,19 @@ Route::group(['prefix' => 'admin'], function() {
 				});
 			});
 		});
+
+		//change publish status
+		Route::post('event/{event_id}/publish', [
+			'uses' => 'EventController@publishEvent',
+			'as' => 'event.publish'
+		]);
+
+		//delete event
+		Route::post('event/delete/{event_id}', [
+			'uses' => 'EventController@deleteEvent',
+			'as' => 'event.delete'
+		]);
+
 	});
 
 	//
@@ -414,17 +427,7 @@ Route::group(['prefix' => 'admin'], function() {
         'as' => 'organisation.address.postcreate'
     ]);
 
-	//change publish status
-    Route::post('event/{event_id}/publish', [
-        'uses' => 'EventController@publishEvent',
-        'as' => 'event.publish'
-    ]);
 
-	//delete event
-	Route::post('event/delete/{event_id}', [
-		'uses' => 'EventController@deleteEvent',
-		'as' => 'event.delete'
-	]);
 
     //edit an organisation account
     Route::get('bewerken/{organisation_id}', [

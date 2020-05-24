@@ -12,9 +12,18 @@
             </div>
             
             <div>
-                <a class="btn btn--purple btn--small {{ (strpos(Route::currentRouteName(), 'start.organisation') === 0) ? 'active' : '' }}" href="{{ route('start.organisation') }}">
-                    maak een event
-                </a>
+                @guest
+                    <a class="btn btn--purple btn--small" href="{{ route('start.organisation') }}">
+                        maak een event
+                    </a>
+                @else
+                    @if(Auth::user()->role == "organisator")
+                        <a class="btn btn--purple btn--small" href="{{ route('event.create', ['organisation_id' => Auth::user()->organisation_id]) }}">
+                            maak een event
+                        </a>
+                    @endif
+                @endguest
+                
             </div>
             
             <div>

@@ -109,7 +109,7 @@
 					@enderror
 				</div>
 				
-				<div class="row spacing-top-s">
+				<div class="row in-form">
 					<a href="{{ route('event.settings.message', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}" class="btn is-cancel">
 						annuleren
 					</a>

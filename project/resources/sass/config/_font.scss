@@ -1,7 +1,16 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Montserrat:wght@400;900|Poiret+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poiret+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
 
+@font-face {
+	font-family: MontserratBlack;
+	src: url('/fonts/Montserrat-Medium.tff');
+}
+
+@font-face {
+	font-family: Montserrat;
+	src: url('/fonts/Montserrat-Regular.tff');
+}
 
 @mixin font-logo {
 	font-family: 'Poiret One', cursive;
@@ -9,13 +18,12 @@
 }
 
 @mixin font-heading {
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 900;
+	font-family: 'MontserratBlack', sans-serif;
+	letter-spacing: 2px;
 }
 
 @mixin font-base {
 	font-family: 'Montserrat', sans-serif;
-	font-weight: 400;
 }
 
 .code {

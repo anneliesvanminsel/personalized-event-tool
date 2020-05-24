@@ -6,7 +6,7 @@
 			</div>
 		@endif
 		<div class="card__price ticket__price">
-			€ {{ $ticket['price'] }}
+			<span class="ticket__accent">€ {{ $ticket['price'] }} </span>
 		</div>
 		@if($ticket['description'])
 			<p class="card__text ticket__description">

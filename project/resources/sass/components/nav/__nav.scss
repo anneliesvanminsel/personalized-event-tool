@@ -29,6 +29,10 @@
 
 			font-size: 14px;
 
+			&:hover {
+				color: $black;
+			}
+
 			&.active {
 				font-weight: 900;
 				color: $purple;

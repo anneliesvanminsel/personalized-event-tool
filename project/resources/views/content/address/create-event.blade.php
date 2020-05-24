@@ -68,7 +68,7 @@
 				@enderror
 			</div>
 			
-			<div class="row row--stretch">
+			<div class="row row--stretch in-form">
 				<div class="form__group">
 					<input
 							id="streetnumber"
@@ -210,7 +210,7 @@
 				@enderror
 			</div>
 			
-			<div class="spacing-top-m row row--center">
+			<div class="row row--center in-form">
 				<a href="{{ route('org.dashboard', ['user_id' => Auth::user()->id]) }}" class="btn is-cancel">
 					annuleren
 				</a>

@@ -20,7 +20,7 @@
 		</div>
 		
 		<div class="hero__actions row">
-			<div class="hero__organisation row">
+			<div class="hero__organisation row row--center">
 					Georganiseerd door:
 				<a href="">
 					{{ $event->organisation->name }}
@@ -114,12 +114,12 @@
 	
 	@if($event->tickets()->exists())
 		<section class="section is-pull-up">
-			<div class="row">
+			<div class="row row--center">
 				<h3 class="is-white hero__subtitle">
 					tickets
 				</h3>
 				@if($event->address()->exists())
-					<div class="row hero__location">
+					<div class="row row--center hero__location">
 						@svg('location', 'is-white')
 						{{ $event->address()->first()->locationname }}, {{ $event->address()->first()->city }}
 					</div>

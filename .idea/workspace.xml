@@ -5,27 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f878aba-b48c-4183-85f6-a405c212ebe5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/project/app/Http/Controllers/EventController.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Controllers/EventController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/app/Http/Controllers/FloorplanController.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Controllers/FloorplanController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/app/Http/Controllers/MessageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Controllers/MessageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/app/Http/Controllers/TicketController.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/Http/Controllers/TicketController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/database/migrations/2019_12_06_180907_create_tickets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/database/migrations/2019_12_06_180907_create_tickets_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/database/migrations/2019_12_06_181834_create_organisations_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/database/migrations/2019_12_06_181834_create_organisations_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/project/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/sass/components/account/_account.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/components/account/_account.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/sass/components/message/_message.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/components/message/_message.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/content/floorplan/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/floorplan/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/sass/components/card/_card.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/components/card/_card.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/sass/components/card/_ticket.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/components/card/_ticket.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/sass/components/hero/_hero.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/components/hero/_hero.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/sass/components/list/_ul.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/components/list/_ul.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/sass/components/nav/__nav.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/components/nav/__nav.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/sass/components/row/_row.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/components/row/_row.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/sass/components/table/_table.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/components/table/_table.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/sass/components/tabs/_tabs.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/components/tabs/_tabs.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/sass/components/timeline/_timeline.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/components/timeline/_timeline.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/sass/config/_font.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/config/_font.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/sass/config/base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/sass/config/base.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/views/content/address/create-event.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/address/create-event.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/views/content/address/create-org.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/address/create-org.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/views/content/event/create-data.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/event/create-data.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/views/content/event/create-personalisation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/event/create-personalisation.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/views/content/event/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/event/detail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/resources/views/content/floorplan/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/floorplan/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/content/floorplan/overview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/floorplan/overview.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/resources/views/content/message/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/message/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/content/message/overview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/message/overview.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/views/content/message/update.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/message/update.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/views/content/organisation/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/organisation/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/resources/views/content/schedule/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/schedule/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/resources/views/content/schedule/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/schedule/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/resources/views/content/schedule/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/schedule/table.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/content/schedule/timetable.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/schedule/timetable.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/content/ticket/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/ticket/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/content/ticket/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/ticket/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/resources/views/content/ticket/overview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/ticket/overview.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/views/content/schedule/timeline.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/content/schedule/timeline.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/views/org-overview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/org-overview.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/views/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/partials/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/resources/views/partials/ticket.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/resources/views/partials/ticket.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/project/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,7 +47,62 @@
     <pharConfigPath>$PROJECT_DIR$/project/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/resources/views/content/schedule/create.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="333">
+              <caret line="179" column="53" selection-start-line="179" selection-start-column="46" selection-end-line="179" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/resources/views/content/schedule/edit.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="178" column="43" selection-start-line="178" selection-start-column="43" selection-end-line="178" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/resources/views/content/message/create.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="452">
+              <caret line="120" column="20" selection-start-line="120" selection-start-column="20" selection-end-line="120" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/resources/views/content/message/update.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="333">
+              <caret line="111" column="39" selection-start-line="111" selection-start-column="39" selection-end-line="111" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/project/resources/views/content/floorplan/edit.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="341">
+              <caret line="72" column="39" selection-start-line="72" selection-start-column="39" selection-end-line="72" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/project/resources/views/content/floorplan/create.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="70" column="39" selection-start-line="70" selection-start-column="39" selection-end-line="70" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -52,6 +116,7 @@
       <find>image</find>
       <find>ticket-create-</find>
       <find>ticket-edit-</find>
+      <find>pub</find>
     </findStrings>
     <replaceStrings>
       <replace>published</replace>
@@ -68,57 +133,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/project/resources/views/content/address/create-org.blade.php" />
-        <option value="$PROJECT_DIR$/project/resources/views/layouts/organisation.blade.php" />
-        <option value="$PROJECT_DIR$/project/resources/sass/components/form/_checkbox-radio.scss" />
-        <option value="$PROJECT_DIR$/project/resources/sass/components/form/_fieldset.scss" />
-        <option value="$PROJECT_DIR$/project/resources/views/content/event/create-personalisation.blade.php" />
-        <option value="$PROJECT_DIR$/project/database/migrations/2019_12_03_083927_create_events_table.php" />
-        <option value="$PROJECT_DIR$/project/database/seeds/EventTableSeeder.php" />
-        <option value="$PROJECT_DIR$/project/app/Organisation.php" />
-        <option value="$PROJECT_DIR$/project/app/Event.php" />
-        <option value="$PROJECT_DIR$/project/resources/sass/components/icon/_icon.scss" />
-        <option value="$PROJECT_DIR$/project/resources/views/content/address/create-event.blade.php" />
-        <option value="$PROJECT_DIR$/project/resources/sass/components/form/_input.scss" />
-        <option value="$PROJECT_DIR$/project/resources/views/content/event/edit.blade.php" />
-        <option value="$PROJECT_DIR$/project/resources/sass/components/form/_form.scss" />
-        <option value="$PROJECT_DIR$/project/resources/sass/components/form/_colors.scss" />
-        <option value="$PROJECT_DIR$/project/resources/sass/components/timeline/_timeline.scss" />
-        <option value="$PROJECT_DIR$/project/resources/views/content/organisation/dashboard.blade.php" />
-        <option value="$PROJECT_DIR$/project/resources/views/usage.blade.php" />
-        <option value="$PROJECT_DIR$/project/resources/views/maintenance.blade.php" />
-        <option value="$PROJECT_DIR$/project/resources/sass/components/button/_button.scss" />
-        <option value="$PROJECT_DIR$/project/resources/views/content/event/create-data.blade.php" />
         <option value="$PROJECT_DIR$/project/app/Http/Controllers/ScheduleController.php" />
         <option value="$PROJECT_DIR$/project/resources/views/content/event/settings.blade.php" />
         <option value="$PROJECT_DIR$/project/resources/views/content/schedule/overview.blade.php" />
-        <option value="$PROJECT_DIR$/project/resources/views/partials/header.blade.php" />
         <option value="$PROJECT_DIR$/project/resources/views/partials/listitem.blade.php" />
         <option value="$PROJECT_DIR$/project/resources/views/partials/card.blade.php" />
-        <option value="$PROJECT_DIR$/project/resources/views/content/schedule/timeline.blade.php" />
-        <option value="$PROJECT_DIR$/project/resources/views/content/event/detail.blade.php" />
         <option value="$PROJECT_DIR$/project/app/Http/Controllers/EventController.php" />
-        <option value="$PROJECT_DIR$/project/resources/views/content/schedule/table.blade.php" />
         <option value="$PROJECT_DIR$/project/resources/views/content/schedule/timetable.blade.php" />
         <option value="$PROJECT_DIR$/project/resources/sass/components/message/_message.scss" />
         <option value="$PROJECT_DIR$/project/resources/views/content/message/overview.blade.php" />
         <option value="$PROJECT_DIR$/project/app/Http/Controllers/MessageController.php" />
-        <option value="$PROJECT_DIR$/project/resources/views/content/message/create.blade.php" />
-        <option value="$PROJECT_DIR$/project/resources/views/content/message/update.blade.php" />
-        <option value="$PROJECT_DIR$/project/resources/views/content/schedule/create.blade.php" />
-        <option value="$PROJECT_DIR$/project/resources/views/content/schedule/edit.blade.php" />
         <option value="$PROJECT_DIR$/project/resources/views/content/ticket/edit.blade.php" />
         <option value="$PROJECT_DIR$/project/resources/views/content/ticket/overview.blade.php" />
         <option value="$PROJECT_DIR$/project/app/Http/Controllers/TicketController.php" />
         <option value="$PROJECT_DIR$/project/resources/views/content/ticket/create.blade.php" />
-        <option value="$PROJECT_DIR$/project/resources/views/content/floorplan/create.blade.php" />
         <option value="$PROJECT_DIR$/project/resources/views/content/floorplan/overview.blade.php" />
         <option value="$PROJECT_DIR$/project/app/Http/Controllers/FloorplanController.php" />
-        <option value="$PROJECT_DIR$/project/resources/views/content/floorplan/edit.blade.php" />
-        <option value="$PROJECT_DIR$/project/routes/web.php" />
         <option value="$PROJECT_DIR$/project/resources/sass/components/account/_account.scss" />
         <option value="$PROJECT_DIR$/project/database/migrations/2019_12_06_180907_create_tickets_table.php" />
         <option value="$PROJECT_DIR$/project/database/migrations/2019_12_06_181834_create_organisations_table.php" />
+        <option value="$PROJECT_DIR$/project/resources/sass/components/list/_ul.scss" />
+        <option value="$PROJECT_DIR$/project/resources/views/org-overview.blade.php" />
+        <option value="$PROJECT_DIR$/project/resources/sass/components/card/_card.scss" />
+        <option value="$PROJECT_DIR$/project/resources/views/content/event/detail.blade.php" />
+        <option value="$PROJECT_DIR$/project/resources/sass/components/hero/_hero.scss" />
+        <option value="$PROJECT_DIR$/project/resources/views/partials/ticket.blade.php" />
+        <option value="$PROJECT_DIR$/project/resources/sass/components/card/_ticket.scss" />
+        <option value="$PROJECT_DIR$/project/resources/sass/components/nav/__nav.scss" />
+        <option value="$PROJECT_DIR$/project/resources/sass/config/_heading.scss" />
+        <option value="$PROJECT_DIR$/project/resources/sass/config/_font.scss" />
+        <option value="$PROJECT_DIR$/project/resources/views/partials/header.blade.php" />
+        <option value="$PROJECT_DIR$/project/resources/sass/config/base.scss" />
+        <option value="$PROJECT_DIR$/project/resources/sass/components/row/_row.scss" />
+        <option value="$PROJECT_DIR$/project/resources/views/content/address/create-event.blade.php" />
+        <option value="$PROJECT_DIR$/project/resources/views/content/organisation/create.blade.php" />
+        <option value="$PROJECT_DIR$/project/resources/views/content/address/create-org.blade.php" />
+        <option value="$PROJECT_DIR$/project/resources/views/content/schedule/edit.blade.php" />
+        <option value="$PROJECT_DIR$/project/resources/views/content/schedule/create.blade.php" />
+        <option value="$PROJECT_DIR$/project/resources/sass/app.scss" />
+        <option value="$PROJECT_DIR$/project/resources/sass/components/scrollbar/_scrollbar.scss" />
+        <option value="$PROJECT_DIR$/project/resources/views/content/schedule/timeline.blade.php" />
+        <option value="$PROJECT_DIR$/project/resources/views/content/schedule/table.blade.php" />
+        <option value="$PROJECT_DIR$/project/resources/sass/components/tabs/_tabs.scss" />
+        <option value="$PROJECT_DIR$/project/resources/sass/components/table/_table.scss" />
+        <option value="$PROJECT_DIR$/project/resources/sass/components/timeline/_timeline.scss" />
+        <option value="$PROJECT_DIR$/project/resources/views/content/event/create-data.blade.php" />
+        <option value="$PROJECT_DIR$/project/resources/views/content/event/create-personalisation.blade.php" />
+        <option value="$PROJECT_DIR$/project/routes/web.php" />
+        <option value="$PROJECT_DIR$/project/resources/views/content/message/create.blade.php" />
+        <option value="$PROJECT_DIR$/project/resources/views/content/message/update.blade.php" />
+        <option value="$PROJECT_DIR$/project/resources/views/content/floorplan/edit.blade.php" />
+        <option value="$PROJECT_DIR$/project/resources/views/content/floorplan/create.blade.php" />
       </list>
     </option>
   </component>
@@ -264,19 +329,6 @@
               <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
               <item name="evento-v3" type="462c0819:PsiDirectoryNode" />
               <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="evento-v3" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="evento-v3" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -301,7 +353,96 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="sass" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="account" type="462c0819:PsiDirectoryNode" />
+              <item name="card" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="evento-v3" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="sass" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="hero" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="evento-v3" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="sass" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="list" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="evento-v3" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="sass" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="nav" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="evento-v3" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="sass" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="row" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="evento-v3" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="sass" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="schedule" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="evento-v3" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="sass" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="scrollbar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="evento-v3" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="sass" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="table" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="evento-v3" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="sass" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="tabs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="evento-v3" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="sass" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="timeline" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="evento-v3" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="sass" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
@@ -317,6 +458,24 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="content" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="evento-v3" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
+              <item name="address" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="evento-v3" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
+              <item name="event" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
@@ -326,6 +485,41 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="content" type="462c0819:PsiDirectoryNode" />
               <item name="floorplan" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="evento-v3" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
+              <item name="message" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="evento-v3" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
+              <item name="organisation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="evento-v3" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="content" type="462c0819:PsiDirectoryNode" />
+              <item name="schedule" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="evento-v3" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="evento-v3" type="b2602c69:ProjectViewProjectNode" />
@@ -407,15 +601,16 @@
       <workItem from="1589108392445" duration="9667000" />
       <workItem from="1589211244848" duration="51472000" />
       <workItem from="1589801645541" duration="368000" />
-      <workItem from="1589803290241" duration="26602000" />
+      <workItem from="1589803290241" duration="34673000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="233038000" />
+    <option name="totallyTimeSpent" value="241109000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21745351" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -430,7 +625,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.2614458" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.2614458" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32891566" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -465,261 +660,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/project/app/Schedule.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="74" selection-start-line="12" selection-start-column="69" selection-end-line="12" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/partials/header.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="26" column="159" selection-start-line="26" selection-start-column="159" selection-end-line="26" selection-end-column="159" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/event/settings.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-321">
-          <caret line="12" column="157" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="157" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/partials/listitem.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="59" column="130" selection-start-line="59" selection-start-column="130" selection-end-line="59" selection-end-column="130" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/schedule/overview.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="50" column="56" lean-forward="true" selection-end-line="62" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/app/Http/Controllers/ScheduleController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="21" column="5" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="21" selection-end-column="5" />
-          <folding>
-            <element signature="e#40#61#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/event/detail.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="165" column="12" selection-start-line="165" selection-start-column="12" selection-end-line="165" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/ticket/card.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/app/Ticket.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/organisation/dashboard.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="57" column="48" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/partials/ticket.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="14" selection-start-line="2" selection-start-column="8" selection-end-line="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/block.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="248" column="16" selection-start-line="248" selection-start-column="16" selection-end-line="248" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/schedule/timetable.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="54" column="48" selection-start-line="54" selection-start-column="48" selection-end-line="54" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/schedule/table.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="59" column="48" selection-start-line="59" selection-start-column="48" selection-end-line="59" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/schedule/timeline.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="41" column="48" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/partials/card.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="81" column="14" lean-forward="true" selection-start-line="77" selection-start-column="8" selection-end-line="81" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/sass/config/_heading.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-96" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/sass/components/message/_message.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="28" column="26" lean-forward="true" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/message/overview.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="74" column="69" selection-start-line="74" selection-start-column="69" selection-end-line="74" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/app/Http/Controllers/EventController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="96" column="111" selection-start-line="96" selection-start-column="71" selection-end-line="96" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/organisation/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="110" column="44" lean-forward="true" selection-start-line="108" selection-start-column="40" selection-end-line="110" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/message/update.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/app/Http/Controllers/MessageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="103" column="130" selection-start-line="103" selection-start-column="27" selection-end-line="103" selection-end-column="130" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/address/create-event.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/address/create-org.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/message/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/schedule/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="163" column="35" lean-forward="true" selection-start-line="163" selection-start-column="35" selection-end-line="163" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/schedule/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="10" column="38" lean-forward="true" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/ticket/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="635">
-          <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/ticket/overview.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="89" column="172" selection-start-line="89" selection-start-column="172" selection-end-line="89" selection-end-column="172" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/app/Http/Controllers/TicketController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="75" column="21" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
-          <folding>
-            <element signature="e#40#61#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/ticket/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="113" column="20" selection-start-line="113" selection-start-column="20" selection-end-line="115" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/floorplan/overview.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="607">
-          <caret line="76" column="41" lean-forward="true" selection-start-line="76" selection-start-column="41" selection-end-line="76" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/floorplan/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="75" column="24" lean-forward="true" selection-start-line="73" selection-start-column="20" selection-end-line="75" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="308" column="56" selection-start-line="308" selection-start-column="56" selection-end-line="308" selection-end-column="56" />
-          <folding>
-            <element signature="e#7#177#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/project/resources/views/content/floorplan/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="65" column="59" lean-forward="true" selection-start-line="65" selection-start-column="59" selection-end-line="65" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/database/migrations/2019_12_03_083927_create_events_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14">
@@ -825,6 +765,255 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/sass/components/list/_ul.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/partials/card.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="81" column="14" lean-forward="true" selection-start-line="77" selection-start-column="8" selection-end-line="81" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/sass/components/card/_card.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="124" column="26" selection-start-line="124" selection-start-column="26" selection-end-line="124" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/sass/components/hero/_hero.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="99" column="27" lean-forward="true" selection-start-line="99" selection-start-column="27" selection-end-line="99" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/content/event/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="116" column="39" selection-start-line="116" selection-start-column="39" selection-end-line="116" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/org-overview.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="43" lean-forward="true" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/partials/ticket.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="35" lean-forward="true" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/sass/components/steps/_steps.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1615" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/sass/config/base.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/partials/header.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="15" column="92" selection-start-line="15" selection-start-column="92" selection-end-line="15" selection-end-column="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/sass/config/_font.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/sass/config/_heading.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/sass/components/card/_ticket.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="111" column="31" lean-forward="true" selection-start-line="111" selection-start-column="31" selection-end-line="111" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/sass/components/nav/__nav.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/content/organisation/dashboard.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="15" column="87" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/content/organisation/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1109">
+          <caret line="107" column="85" selection-start-line="107" selection-start-column="85" selection-end-line="107" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/content/address/create-org.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="217" column="24" selection-start-line="217" selection-start-column="24" selection-end-line="217" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/sass/app.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="73" column="39" selection-start-line="73" selection-start-column="39" selection-end-line="73" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/content/address/create-event.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3180">
+          <caret line="212" column="47" selection-start-line="212" selection-start-column="40" selection-end-line="212" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/sass/components/row/_row.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="45" column="1" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/content/schedule/timeline.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="56" selection-start-line="13" selection-start-column="56" selection-end-line="13" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/content/schedule/table.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="62" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/sass/components/tabs/_tabs.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="74" column="64" selection-start-line="74" selection-start-column="64" selection-end-line="74" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/sass/components/table/_table.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/sass/components/schedule/_schedule.scss">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/content/event/create-data.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="201" column="47" selection-start-line="201" selection-start-column="40" selection-end-line="201" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/sass/components/timeline/_timeline.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/content/event/create-personalisation.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="197" column="24" selection-start-line="197" selection-start-column="24" selection-end-line="197" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/sass/components/scrollbar/_scrollbar.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="44" lean-forward="true" selection-start-column="44" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="406" column="48" lean-forward="true" selection-start-line="406" selection-start-column="48" selection-end-line="406" selection-end-column="48" />
+          <folding>
+            <element signature="e#7#177#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/content/schedule/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="179" column="53" selection-start-line="179" selection-start-column="46" selection-end-line="179" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/content/schedule/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="178" column="43" selection-start-line="178" selection-start-column="43" selection-end-line="178" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/content/message/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="120" column="20" selection-start-line="120" selection-start-column="20" selection-end-line="120" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/content/message/update.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="111" column="39" selection-start-line="111" selection-start-column="39" selection-end-line="111" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/content/floorplan/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="72" column="39" selection-start-line="72" selection-start-column="39" selection-end-line="72" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/project/resources/views/content/floorplan/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="70" column="39" selection-start-line="70" selection-start-column="39" selection-end-line="70" selection-end-column="39" />
         </state>
       </provider>
     </entry>

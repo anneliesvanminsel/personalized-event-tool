@@ -109,11 +109,16 @@
 					@enderror
 				</div>
 				
-				<div class="row spacing-top-s">
-					<a href="{{ route('event.settings.message', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}" class="btn is-cancel">
+				<div class="row in-form">
+					<a
+						href="{{ route('event.settings.message', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}"
+						class="btn is-cancel"
+					>
 						annuleren
 					</a>
-					<button type="submit" class="btn btn--full">Bericht toevoegen</button>
+					<button type="submit" class="btn btn--full">
+						Bericht toevoegen
+					</button>
 				</div>
 			</form>
 		</div>

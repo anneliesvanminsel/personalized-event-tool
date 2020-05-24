@@ -24,7 +24,7 @@
 					@csrf
 					
 					<h2 class="spacing-top-m">
-						Adresgegevens
+						Adresgegevens toevoegen
 					</h2>
 					
 					<div class="form__group">
@@ -68,7 +68,7 @@
 						@enderror
 					</div>
 					
-					<div class="row row--stretch">
+					<div class="row row--stretch in-form">
 						<div class="form__group  ">
 							<input
 								id="streetnumber"
@@ -211,8 +211,12 @@
 					</div>
 					
 					
-					<div class="spacing-top-m">
-						<button type="submit" class="btn btn--full  ">
+					<div class="row row--center in-form">
+						<a href="{{ route('index') }}" class="btn is-cancel">
+							annuleren
+						</a>
+						
+						<button type="submit" class="btn btn--full">
 							Voeg het adres toe
 						</button>
 					</div>

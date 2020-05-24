@@ -105,7 +105,7 @@
 										@enderror
 									</div>
 									
-									<div class="spacing-top-m row row--center">
+									<div class="spacing-top-m row row--center in-form">
 										<a href="{{ route('index') }}" class="btn is-cancel">
 											annuleren
 										</a>

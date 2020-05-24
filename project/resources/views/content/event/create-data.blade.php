@@ -199,7 +199,7 @@
 				@enderror
 			</div>
 			
-			<div class="spacing-top-m row row--center">
+			<div class="row row--center in-form">
 				<a href="{{ route('org.dashboard', ['user_id' => Auth::user()->id]) }}" class="btn is-cancel">
 					annuleren
 				</a>

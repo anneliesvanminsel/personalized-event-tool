@@ -1,5 +1,5 @@
 <div class="tab spacing-top-s">
-	<div class="tab__heading">
+	<div class="tab__heading" id="scrollbar">
 		@foreach($event->sessions()->get() as $session)
 			<button class="tab__button tab__links {{$loop->iteration === 1 ? 'active' : ''}}" onclick="openTabs(event, {{ $session['id'] }})">
 				{{ date('d/m', strtotime( $session['date'])) }}
@@ -21,7 +21,7 @@
 						</div>
 						<div class="item__location"></div>
 					</div>
-					<div class="table__content">
+					<div class="table__content" id="scrollbar">
 						@foreach($session->schedules()->orderBy('starttime', 'asc')->get() as $sched)
 							<div class="item row">
 								<div class="item__time">

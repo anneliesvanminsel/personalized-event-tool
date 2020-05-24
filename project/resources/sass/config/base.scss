@@ -19,7 +19,8 @@ a {
 }
 
 .link {
-  text-decoration: $blue underline;
+  border-bottom: 1px $blue solid;
+  line-height: 1;
   display: inline-block;
 
 }

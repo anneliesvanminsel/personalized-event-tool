@@ -11,7 +11,7 @@
 		@foreach($event->sessions()->get() as $session)
 			<div class="tab__content" id="{{ $session['id'] }}" {{$loop->iteration === 1 ? 'style=display:'.'block' : ''}}>
 				@if($session->schedules()->exists())
-					<div class="timeline">
+					<div class="timeline" id="scrollbar">
 						@foreach($session->schedules()->orderBy('starttime', 'asc')->get() as $sched)
 							<div class="item">
 								<div class="item__content">

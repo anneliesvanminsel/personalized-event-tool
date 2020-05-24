@@ -68,7 +68,7 @@
 					@enderror
 				</div>
 				
-				<div class="row spacing-top-s">
+				<div class="row in-form">
 					<a class="btn is-cancel" href="{{ route('event.settings.floorplan', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
 						Sluiten
 					</a>
