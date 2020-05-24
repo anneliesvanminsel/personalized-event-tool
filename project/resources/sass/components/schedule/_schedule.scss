@@ -9,4 +9,10 @@
 	}
 
 	&__heading {}
+
+	&.dark {
+		.schedule__title {
+			color: $white;
+		}
+	}
 }

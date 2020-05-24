@@ -9,12 +9,18 @@ html {
 	scroll-behavior: smooth;
 }
 @import '../config/font';
+@import '../config/variables';
+
 body {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	@include font-base;
 	width: 100%;
+
+	&.dark {
+		background-color: $medium-grey;
+	}
 }
 
 main {

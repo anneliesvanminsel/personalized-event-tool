@@ -40,6 +40,10 @@ body {
   width: 100%;
 }
 
+body.dark {
+  background-color: #414141;
+}
+
 main {
   -webkit-box-flex: 1;
           flex-grow: 1;
@@ -215,6 +219,21 @@ span.invalid-feedback {
   height: 90px;
 }
 
+.header__container.dark {
+  color: #ffffff;
+}
+
+.header__container.dark .logo.has-line::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 65%;
+  left: -1040px;
+  width: 1000px;
+  height: 1px;
+  background-color: #ffffff;
+}
+
 .header .logo {
   position: relative;
   margin: 0;
@@ -257,6 +276,14 @@ span.invalid-feedback {
   padding-bottom: 80px;
   background-color: #6F3BD9;
   color: #ffffff;
+}
+
+.footer--container.dark {
+  background-color: #2B2B2B;
+}
+
+.footer--container.dark .sub-footer {
+  background-color: #141414;
 }
 
 .footer .row {
@@ -800,6 +827,19 @@ button {
 
 .hero__description.is-large {
   font-size: 25px;
+}
+
+.hero.dark:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -99;
+  opacity: 0.4;
+  background-image: -webkit-gradient(linear, left top, right top, from(#414141), to(#414141));
+  background-image: linear-gradient(to right, #414141, #414141);
 }
 
 .is-pull-up {
@@ -1373,6 +1413,10 @@ input[type=radio]:disabled {
   font-size: 25px;
 }
 
+.schedule.dark .schedule__title {
+  color: #ffffff;
+}
+
 .v-grid {
   display: -webkit-box;
   display: flex;
@@ -1821,7 +1865,7 @@ input[type=radio]:disabled {
 
 .tab {
   overflow: hidden;
-  background-color: #ffffff;
+  background-color: transparent;
   /* Track */
 }
 
@@ -1834,6 +1878,24 @@ input[type=radio]:disabled {
   border-bottom: 1px solid #e0e0e0;
   margin-bottom: 30px;
   overflow-x: scroll;
+}
+
+.tab__heading.dark {
+  border-bottom: 1px solid #ffffff;
+}
+
+.tab__heading.dark .tab__button {
+  color: #e0e0e0;
+}
+
+.tab__heading.dark .tab__button:hover {
+  color: #ffffff;
+}
+
+.tab__heading.dark .tab__button.active {
+  color: #46D5EF;
+  font-weight: 900;
+  border-bottom: 1px #46D5EF solid;
 }
 
 .tab #scrollbar::-webkit-scrollbar {
@@ -1893,6 +1955,10 @@ input[type=radio]:disabled {
   -webkit-animation: fadeEffect 1s;
           animation: fadeEffect 1s;
   /* Fading effect takes 1 second */
+}
+
+.tab__content.dark {
+  color: #ffffff;
 }
 
 @-webkit-keyframes fadeEffect {
@@ -1982,6 +2048,11 @@ input[type=radio]:disabled {
   border: 1px solid #FF5E91;
 }
 
+.ticket:hover .ticket__accent:before,
+.ticket:hover .ticket__accent:after {
+  border: 1px solid #FF5E91;
+}
+
 .ticket:hover .sub__content:before,
 .ticket:hover .sub__content:after {
   border: 1px solid #FF5E91;
@@ -2067,6 +2138,16 @@ input[type=radio]:disabled {
 
 .ticket__text {
   margin-bottom: 10px;
+}
+
+.ticket.dark {
+  background-color: #2B2B2B;
+  color: #ffffff;
+}
+
+.ticket.dark .ticket__accent:before,
+.ticket.dark .ticket__accent:after {
+  background-color: #2B2B2B;
 }
 
 .card {
@@ -2656,8 +2737,6 @@ span.round-tab:hover {
   max-width: 1200px;
   margin: 20px auto;
   padding: 20px 0;
-  max-height: 600px;
-  overflow-y: scroll;
 }
 
 .timeline::after {
@@ -2779,6 +2858,22 @@ span.round-tab:hover {
 .timeline .item .icon {
   margin-left: 0;
   margin-right: 10px;
+}
+
+.timeline.dark .item {
+  color: #ffffff;
+}
+
+.timeline.dark .item::after {
+  background-color: #414141;
+}
+
+.timeline.dark .icon {
+  fill: #ffffff;
+}
+
+.timeline.dark .timeline__content {
+  color: #ffffff;
 }
 
 .account {

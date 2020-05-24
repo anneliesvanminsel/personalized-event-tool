@@ -1,4 +1,4 @@
-<div class="footer--container">
+<div class="footer--container {{ $event ? $event['theme'] : '' }}">
 	<footer class="footer">
 		<div class="logo is-white has-line">
 			evento

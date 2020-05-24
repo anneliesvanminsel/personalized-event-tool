@@ -1,7 +1,7 @@
 /* Style the tab */
 .tab {
   overflow: hidden;
-  background-color: $white;
+  background-color: transparent;
 
   &__heading {
     display: flex;
@@ -11,6 +11,24 @@
     border-bottom: 1px solid $grey;
     margin-bottom: 30px;
     overflow-x: scroll;
+
+    &.dark {
+      border-bottom: 1px solid $white;
+
+      .tab__button {
+        color: $grey;
+
+        &:hover {
+          color: $white;
+        }
+
+        &.active {
+          color: $blue;
+          font-weight: 900;
+          border-bottom: 1px $blue solid;
+        }
+      }
+    }
   }
 
   #scrollbar::-webkit-scrollbar {
@@ -73,6 +91,10 @@
     display: none;
     border-top: none;
     animation: fadeEffect 1s; /* Fading effect takes 1 second */
+
+    &.dark {
+      color: $white;
+    }
   }
 }
 

@@ -1,5 +1,19 @@
+<style>
+	.timeline:after {
+		 background-color: {{ $event['prim_color'] }};
+	}
+	
+	.timeline .item:after {
+		 border: 1px solid {{ $event['prim_color'] }};
+	}
+	
+	.timeline .item__title {
+		color: {{ $event['prim_color'] }};
+	}
+</style>
+
 <div class="tab spacing-top-s">
-	<div class="tab__heading">
+	<div class="tab__heading {{ $event['theme'] }}">
 		@foreach($event->sessions()->get() as $session)
 			<button class="tab__button tab__links {{$loop->iteration === 1 ? 'active' : ''}}" onclick="openTabs(event, {{ $session['id'] }})">
 				{{ date('d/m', strtotime( $session['date'])) }}
@@ -9,9 +23,9 @@
 	
 	<div id="tab__container">
 		@foreach($event->sessions()->get() as $session)
-			<div class="tab__content" id="{{ $session['id'] }}" {{$loop->iteration === 1 ? 'style=display:'.'block' : ''}}>
+			<div class="tab__content {{ $event['theme'] }}" id="{{ $session['id'] }}" {{$loop->iteration === 1 ? 'style=display:'.'block' : ''}}>
 				@if($session->schedules()->exists())
-					<div class="timeline" id="scrollbar">
+					<div class="timeline {{ $event['theme'] }}" id="scrollbar">
 						@foreach($session->schedules()->orderBy('starttime', 'asc')->get() as $sched)
 							<div class="item">
 								<div class="item__content">

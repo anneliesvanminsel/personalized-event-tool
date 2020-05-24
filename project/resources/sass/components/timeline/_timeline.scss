@@ -4,9 +4,6 @@
 	margin: 20px auto;
 	padding: 20px 0;
 
-	max-height: 600px;
-	overflow-y: scroll;
-
 	&::after {
 		content: '';
 		position: absolute;
@@ -121,6 +118,24 @@
 		.icon {
 			margin-left: 0;
 			margin-right: 10px;
+		}
+	}
+
+	&.dark {
+		.item {
+			color: $white;
+
+			&::after {
+				background-color: $medium-grey;
+			}
+		}
+
+		.icon {
+			fill: $white;
+		}
+
+		.timeline__content {
+			color: $white;
 		}
 	}
 }

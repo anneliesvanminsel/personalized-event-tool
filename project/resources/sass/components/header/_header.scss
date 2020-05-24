@@ -11,6 +11,23 @@
 		width: 100%;
 		margin: 0 auto;
 		height: 90px;
+
+		&.dark {
+			color: $white;
+
+			.logo {
+				&.has-line {
+					&::before {
+						@include pseudo;
+						top: 65%;
+						left: -1040px;
+						width: 1000px;
+						height: 1px;
+						background-color: $white;
+					}
+				}
+			}
+		}
 	}
 
 	.logo {
@@ -39,5 +56,7 @@
 	.btn {
 		margin-right: 30px;
 	}
+
+
 }
 

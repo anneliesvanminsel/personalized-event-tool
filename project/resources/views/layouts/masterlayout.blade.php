@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Poiret+One&display=swap" rel="stylesheet">
 
 </head>
-<body>
+<body class="@yield('theme')">
     @include('partials.header')
 
     <main>

@@ -8,6 +8,14 @@
 
 		background-color: $purple;
 		color: $white;
+
+		&.dark {
+			background-color: $dark-grey;
+
+			.sub-footer {
+				background-color: $darkest-grey;
+			}
+		}
 	}
 
 	.row {

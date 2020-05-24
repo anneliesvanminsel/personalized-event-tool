@@ -43,6 +43,13 @@
 			}
 		}
 
+		.ticket__accent {
+			&:before,
+			&:after {
+				@include border(1px, $pink);
+			}
+		}
+
 		.sub__content {
 			&:before,
 			&:after {
@@ -130,5 +137,17 @@
 
 	&__text {
 		margin-bottom: 10px;
+	}
+
+	&.dark {
+		background-color: $dark-grey;
+		color: $white;
+
+		.ticket__accent {
+			&:before,
+			&:after {
+				background-color: $dark-grey;
+			}
+		}
 	}
 }

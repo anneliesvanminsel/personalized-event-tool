@@ -106,4 +106,10 @@
 			font-size: 25px;
 		}
 	}
+
+	&.dark {
+		&:before {
+			@include gradient(right, $medium-grey, $medium-grey);
+		}
+	}
 }

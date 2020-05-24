@@ -1,4 +1,4 @@
-<div class="card ticket">
+<div class="card ticket {{$event['theme']}}">
 	<div class="card__content ticket__content">
 		@if($ticket['type'])
 			<div class="ticket__type">

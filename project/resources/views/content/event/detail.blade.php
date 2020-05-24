@@ -1,16 +1,21 @@
 @extends('layouts.masterlayout')
+
+@section('theme'){{ $event['theme'] }}@endsection
+
 @section('title')
 	evento - {{ $event['title'] }}
 @endsection
+
 @section('content')
-	
 	<style>
 		.hero:before {
-			background-image: linear-gradient(to right, {{ $event['prim-color'] }}, {{ $event['sec-color'] }});
+			background-image: linear-gradient(to right, {{ $event['prim_color'] }}, {{ $event['sec_color'] }});
+		}
+		.hero.dark:before {
+			background-image: linear-gradient(to right, {{ $event['prim_color'] }}, {{ $event['sec_color'] }});
 		}
 	</style>
-	
-	<div class="hero">
+	<div class="hero {{ $event ? $event['theme'] : '' }}">
 		<div class="hero__image">
 			@if(File::exists(public_path() . "/images/" . $event['image']))
 				<img src="{{ asset('images/' . $event['image'] ) }}" alt="{{ $event['title'] }}" loading="lazy">
@@ -112,6 +117,68 @@
 		</div>
 	</div>
 	
+	<style>
+		.card.ticket {
+			border: 1px solid {{ $event['prim_color'] }};
+		}
+		
+		.ticket__price {
+			color: {{ $event['prim_color'] }};
+		}
+		
+		.card.ticket:hover {
+			border: 1px solid {{ $event['sec_color'] }};
+		}
+		
+		.ticket__actions .btn {
+			background-color: {{ $event['prim_color'] }};
+		}
+		
+		.ticket__accent:after {
+			border: 1px solid {{ $event['prim_color'] }};
+		}
+		
+		.ticket__accent:before {
+			border: 1px solid {{ $event['prim_color'] }};
+		}
+		
+		.ticket__price:after {
+			background: {{ $event['prim_color'] }};
+		}
+		
+		.ticket__price:before {
+			background: {{ $event['prim_color'] }};
+		}
+		
+		.card.ticket:hover .ticket__price:before {
+			background: {{ $event['sec_color'] }};
+		}
+		
+		.card.ticket:hover .ticket__price {
+			color: {{ $event['sec_color'] }};
+		}
+		
+		.card.ticket:hover .ticket__actions .btn {
+			background-color: {{ $event['sec_color'] }};
+		}
+		
+		.card.ticket:hover .ticket__accent:before {
+			border: 1px solid {{ $event['sec_color'] }};
+		}
+		
+		.card.ticket:hover .ticket__accent:after {
+			border: 1px solid {{ $event['sec_color'] }};
+		}
+		
+		.card.ticket:hover .ticket__price:before {
+			background: {{ $event['sec_color'] }};
+		}
+		
+		.card.ticket:hover .ticket__price:after {
+			background: {{ $event['sec_color'] }};
+		}
+	</style>
+	
 	@if($event->tickets()->exists())
 		<section class="section is-pull-up">
 			<div class="row row--center">
@@ -134,32 +201,30 @@
 		</section>
 	@endif
 	
+	@include('partials.photowall')
 	
-	<section class="photowall">
-		<ul class="photolist">
-			@php
-				if($event->username) {
-					$response = file_get_contents('https://instagram.com/'.$event->username.'/?__a=1');
-				} else {
-					$response = file_get_contents('https://instagram.com/evento_platform/?__a=1');
-				}
-				
-				$data = json_decode($response);
-			@endphp
-			@foreach($data->graphql->user->edge_owner_to_timeline_media->edges as $node)
-				<li class="photolist__item">
-					<img
-						src="{{ $node->node->display_url }}"
-						alt="{{ $node->node->accessibility_caption }}"
-						loading="lazy"
-					>
-				</li>
-			@endforeach
-		</ul>
-	</section>
-
+	<style>
+		.tab__button {
+			color: {{ $event['sec_color'] }};
+		}
+		
+		.tab__button.active {
+			color: {{ $event['prim_color'] }};
+			border-color: {{ $event['prim_color'] }};
+		}
+		
+		.tab__heading.dark .tab__button {
+			color: {{ $event['sec_color'] }};
+		}
+		
+		.tab__heading.dark .tab__button.active {
+			color: {{ $event['prim_color'] }};
+			border-color: {{ $event['prim_color'] }};
+		}
+	</style>
+	
 	@if($event->sessions()->exists())
-		<section class="section schedule">
+		<section class="section schedule {{ $event['theme'] }}">
 			<h3 class="schedule__title">
 				Planning
 			</h3>

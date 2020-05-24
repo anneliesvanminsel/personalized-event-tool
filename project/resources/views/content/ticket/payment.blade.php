@@ -48,7 +48,13 @@
 									</label>
 								</div>
 								
-								<div class="spacing-top-m">
+								<div class="row in-form">
+									<a
+										href="{{ route('event.detail', ['event_id' => $event['id']]) }}"
+										class="btn is-cancel"
+									>
+										annuleren
+									</a>
 									<button type="submit" class="btn">
 										Betalen
 									</button>
@@ -67,8 +73,12 @@
 			<div class="sidebar__section">
 				<div class="sidebar__item">
 					Je hebt gekozen voor een ticket '{{ $ticket['type'] }}' van {{ $event['title'] }}.
-					
-					Je kan nu betalen voor jouw ticket. Hieronder de betalingsgegevens.
+					<br>
+					<br>
+					Na betaling zal het ticket in uw account op de website of via tickets in uw applicatie te vinden zijn.
+					<br>
+					<br>
+					U kunt niet afzien van de aankoop van het ticket.
 				</div>
 			</div>
 			
@@ -90,7 +100,7 @@
 						</b>
 					</p>
 					<p>
-						€ {{ $ticket['date'] }}
+						{{ \Jenssegers\Date\Date::parse(strtotime( $ticket->date ))->format('j / m / Y') }}
 					</p>
 				</div>
 			</div>
@@ -108,21 +118,4 @@
 			</div>
 		</section>
 	</div>
-	
-	<section class="page-alignment spacing-top-m">
-		<h1>
-			{{ $event['title'] }} - {{ $ticket['name'] }}
-		</h1>
-		<p>
-			Na betaling zal het ticket in uw account op de website of via tickets in uw applicatie te vinden zijn. <br>
-			U kunt niet afzien van de aankoop van het ticket.
-		</p>
-		
-		<p class="spacing-top-m">
-			Prijs:
-		</p>
-		
-		
-		
-	</section>
 @endsection
