@@ -1,19 +1,11 @@
-<div class="list__item item row row--stretch">
-	<div class="item__date">
+<div class="list__item item row row--stretch row--reverse">
+	<div class="item__image ctn--image">
 		<a href={{ route('event.detail', ['event_id' => $event->id]) }}>
-			<div class="date-field">
-				<div>
-					@if($event['endtime'])
-						{{ \Jenssegers\Date\Date::parse(strtotime($event['starttime']))->format('j') }} -
-						{{ \Jenssegers\Date\Date::parse(strtotime($event['endtime']))->format('j') }}
-					@else
-						{{ \Jenssegers\Date\Date::parse(strtotime($event['starttime']))->format('j') }}
-					@endif
-				</div>
-			</div>
-			<div class="date-month">
-				{{ \Jenssegers\Date\Date::parse(strtotime($event['starttime']))->format('M') }}
-			</div>
+			@if(File::exists(public_path() . "/images/" . $event['image']))
+				<img src="{{ asset('images/' . $event['image'] ) }}" alt="{{ $event['title'] }}" loading="lazy">
+			@else
+				<img src="https://placekitten.com/600/600" alt="{{ $event['title'] }}" loading="lazy">
+			@endif
 		</a>
 	</div>
 	
@@ -121,13 +113,21 @@
 		</div>
 	</div>
 	
-	<div class="item__image ctn--image">
+	<div class="item__date">
 		<a href={{ route('event.detail', ['event_id' => $event->id]) }}>
-			@if(File::exists(public_path() . "/images/" . $event['image']))
-				<img src="{{ asset('images/' . $event['image'] ) }}" alt="{{ $event['title'] }}" loading="lazy">
-			@else
-				<img src="https://placekitten.com/600/600" alt="{{ $event['title'] }}" loading="lazy">
-			@endif
+			<div class="date-field">
+				<div>
+					@if($event['endtime'])
+						{{ \Jenssegers\Date\Date::parse(strtotime($event['starttime']))->format('j') }} -
+						{{ \Jenssegers\Date\Date::parse(strtotime($event['endtime']))->format('j') }}
+					@else
+						{{ \Jenssegers\Date\Date::parse(strtotime($event['starttime']))->format('j') }}
+					@endif
+				</div>
+			</div>
+			<div class="date-month">
+				{{ \Jenssegers\Date\Date::parse(strtotime($event['starttime']))->format('M') }}
+			</div>
 		</a>
 	</div>
 </div>

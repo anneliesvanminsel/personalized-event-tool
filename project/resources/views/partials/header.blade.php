@@ -1,4 +1,4 @@
-<div class="header__container {{ $event ? $event['theme'] : '' }}">
+<div class="header__container {{ (strpos(Route::currentRouteName(), 'event.detail') === 0) ? $event['theme'] : '' }}">
     <header class="header">
         <a class="logo has-line" href="{{ route('index') }}">
             evento
@@ -36,8 +36,8 @@
                         dashboard
                     </a>
                 @else
-                    <a class="nav__link {{ (strpos(Route::currentRouteName(), 'user.account') === 0) ? 'active' : '' }}" href="{{ route('user.account', ['user_id' => Auth::user()->id]) }}">
-                        account
+                    <a class="nav__link {{ (strpos(Route::currentRouteName(), 'user.account') === 0) || (strpos(Route::currentRouteName(), 'user.events') === 0) || (strpos(Route::currentRouteName(), 'user.favorites') === 0) ? 'active' : '' }}" href="{{ route('user.account', ['user_id' => Auth::user()->id]) }}">
+                        {{ Auth::user()->name }}
                     </a>
                 @endif
             @endguest

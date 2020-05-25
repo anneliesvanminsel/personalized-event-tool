@@ -1,5 +1,13 @@
 .footer {
-	@include grid();
+	padding: 10px 40px;
+
+	@media screen and (min-width: $breakpoint-tablet-small) {
+		padding: 10px 40px;
+	}
+
+	@media screen and (min-width: $breakpoint-tablet) {
+		@include grid();
+	}
 
 	&--container {
 		position: relative;
@@ -19,7 +27,12 @@
 	}
 
 	.row {
-		justify-content: space-between;
+		display: block;
+
+		@media screen and (min-width: $breakpoint-tablet-small) {
+			display: flex;
+			justify-content: space-between;
+		}
 	}
 
 	&__logo {
@@ -47,7 +60,7 @@
 .sub-footer {
 	background-color: $dark-purple;
 	position: absolute;
-	bottom: 0;
+	bottom: -100px;
 	left: 0;
 	right: 0;
 	width: 100%;
@@ -55,12 +68,29 @@
 	font-size: 12px;
 	padding: 10px;
 
+	@media screen and (min-width: $breakpoint-tablet-small) {
+		bottom: 0;
+	}
+
 	&__content {
 		@include grid();
 	}
 
 	.row {
-		justify-content: space-between;
+		display: block;
+
+		> * {
+			margin: 10px 0;
+		}
+
+		@media screen and (min-width: $breakpoint-tablet-small) {
+			display: flex;
+			justify-content: space-between;
+
+			> * {
+				margin: 0;
+			}
+		}
 	}
 
 	.link {

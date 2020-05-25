@@ -51,6 +51,14 @@
 				padding-right: 0;
 			}
 		}
+
+		&__link {
+			&.active {
+				font-family: "MontserratBlack", sans-serif;
+				font-size: 17px;
+				letter-spacing: 1px;
+			}
+		}
 	}
 
 	.btn {

@@ -165,6 +165,29 @@ Route::group(['prefix' => 'admin'], function() {
 		'as' => 'org.dashboard'
 	]);
 
+	Route::get('organisatie/{subscription_id}/address/{organisation_id}', [
+		'uses' => 'AddressController@createAddressOrganisation',
+		'as' => 'organisation.address.create'
+	]);
+
+	Route::post('organisatie/{subscription_id}/address/{organisation_id}/post', [
+		'uses' => 'AddressController@postCreateAddressOrganisation',
+		'as' => 'organisation.address.postcreate'
+	]);
+
+
+
+	//edit an organisation account
+	Route::get('bewerken/{organisation_id}', [
+		'uses' => 'OrganisationController@editOrganisation',
+		'as' => 'organisation.update'
+	]);
+
+	Route::post('bewerken/{organisation_id}/post', [
+		'uses' => 'OrganisationController@postEditOrganisation',
+		'as' => 'organisation.postupdate'
+	]);
+
 	//
 	//
 	// >>> EVENT <<<
@@ -408,36 +431,6 @@ Route::group(['prefix' => 'admin'], function() {
 			'uses' => 'EventController@deleteEvent',
 			'as' => 'event.delete'
 		]);
-
 	});
-
-	//
-	//
-	// === CREATE ORGANISATION ADDRESS ===
-	//
-    //
-
-    Route::get('organisatie/{subscription_id}/address/{organisation_id}', [
-        'uses' => 'AddressController@createAddressOrganisation',
-        'as' => 'organisation.address.create'
-    ]);
-
-    Route::post('organisatie/{subscription_id}/address/{organisation_id}/post', [
-        'uses' => 'AddressController@postCreateAddressOrganisation',
-        'as' => 'organisation.address.postcreate'
-    ]);
-
-
-
-    //edit an organisation account
-    Route::get('bewerken/{organisation_id}', [
-        'uses' => 'OrganisationController@editOrganisation',
-        'as' => 'organisation.update'
-    ]);
-
-    Route::post('bewerken/{organisation_id}/post', [
-        'uses' => 'OrganisationController@postEditOrganisation',
-        'as' => 'organisation.postupdate'
-    ]);
 });
 

@@ -1,3 +1,11 @@
 .is-pull-up {
-	margin-top: -250px;
+	margin-top: 40px;
+
+	@media screen and (min-width: $breakpoint-mobile) {
+		margin-top: -150px;
+	}
+
+	@media screen and (min-width: $breakpoint-tablet-small) {
+		margin-top: -250px;
+	}
 }

@@ -1,6 +1,8 @@
 @extends('layouts.masterlayout')
 
-@section('theme'){{ $event['theme'] }}@endsection
+@section('theme')
+	{{ $event['theme'] }}
+@endsection
 
 @section('title')
 	evento - {{ $event['title'] }}
@@ -27,7 +29,7 @@
 		<div class="hero__actions row">
 			<div class="hero__organisation row row--center">
 					Georganiseerd door:
-				<a href="">
+				<a href="{{ route('organisation.detail', ['organisation_id' => $event['organisation_id']]) }}">
 					{{ $event->organisation->name }}
 				</a>
 			</div>
@@ -188,7 +190,7 @@
 				@if($event->address()->exists())
 					<div class="row row--center hero__location">
 						@svg('location', 'is-white')
-						{{ $event->address()->first()->locationname }}, {{ $event->address()->first()->city }}
+						{{ $event->address->first()->locationname ? $event->address->first()->locationname . ',' : '' }} {{ $event->address()->first()->city }}
 					</div>
 				@endif
 			</div>

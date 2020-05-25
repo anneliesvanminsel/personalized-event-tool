@@ -1,4 +1,4 @@
-<div class="footer--container {{ $event ? $event['theme'] : '' }}">
+<div class="footer--container {{ (strpos(Route::currentRouteName(), 'event.detail') === 0) ? $event['theme'] : '' }}">
 	<footer class="footer">
 		<div class="logo is-white has-line">
 			evento
