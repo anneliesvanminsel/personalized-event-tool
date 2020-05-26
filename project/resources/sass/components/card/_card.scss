@@ -57,6 +57,10 @@
 			flex-wrap: nowrap;
 		}
 
+		@media screen and (min-width: $breakpoint-tablet) {
+			justify-content: flex-start;
+		}
+
 		.card {
 			&:nth-child(2) {
 				margin-right: 0;

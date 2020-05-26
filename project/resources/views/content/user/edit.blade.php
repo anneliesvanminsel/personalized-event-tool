@@ -19,16 +19,9 @@
 			</div>
 			
 			<div class="card--container">
-				@if($events->count() > 0)
-					@foreach($events as $event)
-						@include('partials.card')
-					@endforeach
-				@else
-					<p>
-						Nog geen evenementen opgeslagen. <br>
-						Verken <a href="{{route('index')}}" class="link">onze evenementen</a>!
-					</p>
-				@endif
+				@foreach($events as $event)
+					@include('partials.card')
+				@endforeach
 			</div>
 		</section>
 	</div>

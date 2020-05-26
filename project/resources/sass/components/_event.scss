@@ -3,3 +3,8 @@
     opacity: .5;
   }
 }
+
+.is-disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}

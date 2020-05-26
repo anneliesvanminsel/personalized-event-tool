@@ -104,8 +104,14 @@
 		@endif
 	</div>
 	<div class="card__actions">
-		<a class="btn btn--primary" href={{ route('event.detail', ['event_id' => $event->id]) }}>
-			event details
-		</a>
+		@if(strpos(Route::currentRouteName(), 'user.events') === 0)
+			<a class="btn btn--primary" href={{ route('event.special', ['event_id' => $event->id]) }}>
+				event details
+			</a>
+		@else
+			<a class="btn btn--primary" href={{ route('event.detail', ['event_id' => $event->id]) }}>
+				event details
+			</a>
+		@endif
 	</div>
 </div>

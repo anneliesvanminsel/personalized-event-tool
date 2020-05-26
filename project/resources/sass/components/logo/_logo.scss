@@ -28,6 +28,10 @@
 		}
 	}
 
+	&.is-white {
+		color: $white;
+	}
+
 	&.has-lines {
 		&::before,
 		&::after {

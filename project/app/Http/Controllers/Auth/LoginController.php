@@ -28,43 +28,20 @@ class LoginController extends Controller
      * @var string
      */
 
-    protected function authenticated(Request $request, $user)
-	{
+    protected function authenticated(Request $request, $user) {
 		if ( $user ) {
 			if ($user['role'] === 'organisator') {
-                //return back();
-				return redirect()->route('org.dashboard', ['id' => $user['id']]);
-			}
-
-			if ($user['role'] === 'volunteer') {
-                //return back();
-                $Agent = new Agent();
-                // agent detection influences the view storage path
-                if ($Agent->isMobile()) {
-                    // you're a mobile device
-                    return redirect()->route('mobile.account', ['id' => $user['id']] );
-                } else {
-                    // you're a desktop device, or something similar
-                    return redirect()->route('user.account', ['id' => $user['id']] );
-                }
+				return redirect()->to(url()->previous());
 			}
 
 			if ($user['role'] === 'guest') {
-                $Agent = new Agent();
-                // agent detection influences the view storage path
-                if ($Agent->isMobile()) {
-                    // you're a mobile device
-                    return redirect()->route('mobile.account', ['id' => $user['id']] );
-                } else {
-                    // you're a desktop device, or something similar
-                    return redirect()->route('user.account', ['id' => $user['id']] );
-                }
+				return redirect()->to(url()->previous());
 			}
 
 			return redirect()->route('login');
 		}
 
-		return redirect('/index.php');
+		return redirect( url()->previous() );
 	}
 
     /**

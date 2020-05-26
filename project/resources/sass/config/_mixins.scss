@@ -54,11 +54,15 @@ border
 /*--------------------------------------------------------------
 grid
 --------------------------------------------------------------*/
-@mixin grid($padding: 0px, $maxWidth: 960px) {
+@mixin grid($padding: 10px, $maxWidth: 960px) {
 	padding: 0 $padding;
 	max-width: $maxWidth;
 	width: 100%;
 	margin: 0 auto;
+
+	@media screen and (min-width: $breakpoint-tablet) {
+		padding: 0;
+	}
 }
 
 /*--------------------------------------------------------------

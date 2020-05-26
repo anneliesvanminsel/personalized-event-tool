@@ -8,6 +8,7 @@ html {
 	min-height: 100vh;
 	scroll-behavior: smooth;
 }
+
 @import '../config/font';
 @import '../config/variables';
 
@@ -32,4 +33,8 @@ a {
 
 	text-decoration: none;
 	color: inherit;
+}
+
+button {
+	outline: none;
 }

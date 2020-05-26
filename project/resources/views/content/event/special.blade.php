@@ -3,7 +3,7 @@
 	evento - {{ $event['title'] }}
 @endsection
 @section('content')
-	<div class="page special" style="background-color: {{ $event['bkgcolor'] }}; color: {{ $event['textcolor'] }}">
+	<div class="special">
 		<style>
 			.header .nav__link {
 				color: {{ $event['textcolor'] }}
@@ -30,53 +30,47 @@
 			}
 		</style>
 		
-		<section class="page-alignment spacing-top-m">
-			<h1 class="center">
-				{{ $event['title'] }}
-			</h1>
-		</section>
-		
-		<section class="special__content row row--stretch">
-			@if(File::exists(public_path() . "/images/" . $event['logo']))
-				<div class="special__image ctn--image">
-					<img src="{{ asset('images/' . $event['logo'] ) }}" alt="{{ $event['title'] }}" loading="lazy">
-				</div>
-			@else
-				<div class="special__image ctn--image">
+		<section class="special__content">
+			
+			<div class="special__image ctn--image">
+				@if(File::exists(public_path() . "/images/" . $event['image']))
+					<img src="{{ asset('images/' . $event['image'] ) }}" alt="{{ $event['title'] }}" loading="lazy">
+				@else
 					<img src="https://placekitten.com/600/600" alt="{{ $event['title'] }}" loading="lazy">
-				</div>
-			@endif
-			<div class="row row--wrap is-mobile">
-				@if($event->sessions()->exists())
-					<a title="bekijk planning" class="special__svg" href="{{ route('schedule.special', ['event_id' => $event['id']]) }}">
-						@svg('calendar (3)')
-					</a>
-				@endif
-				
-				@if($event->floorplans()->exists())
-					<a title="bekijk grondplan" class="special__svg" href="{{ route('floorplan.special', ['event_id' => $event['id']]) }}">
-						@svg('map (1)')
-					</a>
-				@endif
-				
-				
-				<a title="bekijk afbeeldingen" class="special__svg">
-					@svg('camera')
-				</a>
-				
-				<a title="bekijk informatie" class="special__svg">
-					@svg('info')
-				</a>
-				<a title="bekijk groepen" class="special__svg">
-					@svg('team')
-				</a>
-				
-				@if($event->messages()->exists())
-					<a title="bekijk berichten" class="special__svg" href="{{ route('message.special', ['event_id' => $event['id']]) }}">
-						@svg('comment')
-					</a>
 				@endif
 			</div>
+			
+			
+			<div class="special__items section">
+				<div class="row row--stretch">
+					<a title="bekijk informatie" class="special__svg is-disabled">
+						@svg('info', 'is-large')
+					</a>
+					
+					<div>
+						<a title="bekijk grondplan" class="special__svg" href="{{ route('floorplan.special', ['event_id' => $event['id']]) }}">
+							@svg('map', 'is-large')
+						</a>
+						
+						<div class="row">
+							<a title="bekijk berichten" class="special__svg" href="{{ route('message.special', ['event_id' => $event['id']]) }}">
+								@svg('comment', 'is-large')
+							</a>
+							
+							<a title="bekijk afbeeldingen" class="special__svg is-disabled">
+								@svg('instagram', 'is-large')
+							</a>
+						</div>
+					</div>
+					
+					<a title="bekijk planning" class="special__svg" href="{{ route('schedule.special', ['event_id' => $event['id']]) }}">
+						@svg('calendar', 'is-large')
+					</a>
+				</div>
+				
+				
+			</div>
+			
 		</section>
 	</div>
 @endsection
