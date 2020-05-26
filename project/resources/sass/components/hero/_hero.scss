@@ -45,21 +45,41 @@
 			content: "";
 			position: absolute;
 			display: block;
-			width: 400px;
+			width: 40px;
 			height: 1px;
 			background: $white;
 			top: 50%;
 			left: 0;
 			transform: translateY(-50%);
+
+			@media screen and (min-width: $breakpoint-tablet-small) {
+				width: 400px;
+			}
 		}
 
 		&:before {
-			left: -150px;
+			left: 0;
+
+			@media screen and (min-width: $breakpoint-tablet-small) {
+				left: -200px;
+			}
+
+			@media screen and (min-width: $breakpoint-tablet) {
+				left: -150px;
+			}
 		}
 
 		&:after {
-			right: -150px;
+			right: 0;
 			left: auto;
+
+			@media screen and (min-width: $breakpoint-tablet-small) {
+				right: -200px;
+			}
+
+			@media screen and (min-width: $breakpoint-tablet) {
+				right: -150px;
+			}
 		}
 	}
 
@@ -101,6 +121,11 @@
 		margin-bottom: 80px;
 		font-size: 20px;
 		line-height: 30px;
+		padding: 0 20px;
+
+		@media screen and (min-width: $breakpoint-tablet) {
+			padding: 0;
+		}
 
 		&.is-large {
 			font-size: 25px;

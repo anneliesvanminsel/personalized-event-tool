@@ -20,7 +20,7 @@ class EventTableSeeder extends Seeder
 			[
 				"name" => "The Ginger Studio",
 				"description" => "The Ginger Studio is een design studio dat regelmatig een design evenementen organiseert.",
-				"subscription_id" => 1,
+				"subscription_id" => 3,
 				"logo" => 'company.jpg',
 				"address_id" => 1,
 			]

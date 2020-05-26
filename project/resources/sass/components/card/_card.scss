@@ -16,6 +16,11 @@
 	}
 
 	@media screen and (min-width: $breakpoint-tablet-small) {
+		width: calc((100% / 4) - 8px );
+		margin: 0 5px;
+	}
+
+	@media screen and (min-width: $breakpoint-desktop) {
 		width: calc((100% / 4) - 18px );
 		margin: 0 12px;
 	}
@@ -46,38 +51,42 @@
 			flex-direction: row;
 			flex-wrap: wrap;
 			justify-content: center;
-
-			.card {
-				&:nth-child(2) {
-					margin-right: 0;
-				}
-
-				&:nth-child(3) {
-					margin-left: 0;
-				}
-
-				&:nth-child(3),
-				&:nth-child(4) {
-					margin-top: 24px;
-				}
-			}
 		}
 
 		@media screen and (min-width: $breakpoint-tablet-small) {
 			flex-wrap: nowrap;
-			justify-content: flex-start;
+		}
 
-			.card {
-				&:nth-child(2) {
+		.card {
+			&:nth-child(2) {
+				margin-right: 0;
+
+				@media screen and (min-width: $breakpoint-tablet-small) {
+					margin-right: 5px;
+				}
+
+				@media screen and (min-width: $breakpoint-desktop) {
 					margin-right: 12px;
 				}
+			}
 
-				&:nth-child(3) {
-					margin-left: 12px;
+			&:nth-child(3) {
+				margin-left: 0;
+
+				@media screen and (min-width: $breakpoint-tablet-small) {
+					margin-left: 5px;
 				}
 
-				&:nth-child(3),
-				&:nth-child(4) {
+				@media screen and (min-width: $breakpoint-desktop) {
+					margin-left: 12px;
+				}
+			}
+
+			&:nth-child(3),
+			&:nth-child(4) {
+				margin-top: 24px;
+
+				@media screen and (min-width: $breakpoint-tablet-small) {
 					margin-top: 0;
 				}
 			}

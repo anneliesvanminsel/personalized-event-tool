@@ -2,6 +2,8 @@ h1, h2, h3, h4, h5 {
 	@include font-heading;
 	text-transform: lowercase;
 	width: 100%;
+	padding: 0;
+	margin: 0;
 
 	&.is-white {
 		color: $white;
@@ -21,7 +23,12 @@ h2 {
 
 h3 {
 	font-size: 20px;
-	padding: 20px 0;
+	padding-bottom: 20px;
+	margin-left: 10px;
+
+	@media screen and (min-width: $breakpoint-tablet-small) {
+		margin-left: 0;
+	}
 }
 
 h4 {

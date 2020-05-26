@@ -1,8 +1,16 @@
 .is-pull-up {
 	margin-top: 40px;
 
+	h3.is-white {
+		color: $black;
+	}
+
 	@media screen and (min-width: $breakpoint-mobile) {
 		margin-top: -150px;
+
+		h3.is-white {
+			color: $white;
+		}
 	}
 
 	@media screen and (min-width: $breakpoint-tablet-small) {

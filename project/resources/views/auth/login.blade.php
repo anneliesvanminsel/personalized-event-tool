@@ -73,9 +73,12 @@
 					</div>
 					
 					@if (Route::has('password.request'))
-						<a class="link auth__link" href="{{ route('password.request') }}">
-							Wachtwoord vergeten?
-						</a> <br> <br>
+						<div class="auth__link">
+							<a class="link" href="{{ route('password.request') }}">
+								Wachtwoord vergeten?
+							</a>
+						</div>
+						<br>
 					@endif
 
 					<div class="">

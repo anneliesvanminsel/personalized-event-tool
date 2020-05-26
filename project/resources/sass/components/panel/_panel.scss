@@ -4,18 +4,25 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 
-	width: 500px;
+	width: 100%;
 
 	color: $black;
 	background-color: white;
-	padding: 60px 50px;
+	padding: 40px 10px;
 	z-index: 1;
+
+	@media screen and (min-width: $breakpoint-mobile) {
+		padding: 40px 25px;
+	}
+
+	@media screen and (min-width: $breakpoint-tablet-small) {
+		width: 500px;
+		padding: 60px 50px;
+	}
 
 	&__title {
 		padding-top: 0;
 	}
 
-	&__body {
-
-	}
+	&__body {}
 }

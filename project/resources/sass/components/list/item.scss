@@ -15,6 +15,7 @@
 			margin: 0;
 
 			flex-direction: row-reverse;
+			justify-content: center;
 		}
 
 		> * {
@@ -35,6 +36,8 @@
 
 			@media screen and (min-width: $breakpoint-tablet-small) {
 				position: relative;
+				top: 0;
+				left: 0;
 			}
 
 			.date-field {
@@ -55,6 +58,12 @@
 				}
 
 				@media screen and (min-width: $breakpoint-tablet-small) {
+					width: 100px;
+					height: 100px;
+					font-size: 25px;
+				}
+
+				@media screen and (min-width: $breakpoint-tablet) {
 					position: relative;
 					width: 120px;
 					height: 120px;
@@ -77,20 +86,45 @@
 			padding: 0;
 		}
 
-		&__actions {}
+		&__actions {
+			position: absolute;
+			top: -200px;
+			z-index: 999;
+			right: 15px;
+
+			@media screen and (min-width: $breakpoint-mobile) {
+				top: -150px;
+			}
+
+			@media screen and (min-width: $breakpoint-tablet-small) {
+				position: relative;
+				top: 0;
+			}
+		}
 
 		&__content {
+			position: relative;
 			flex-grow: 1;
-			max-width: 580px;
+			width: 100%;
 			margin-top: $spacing-s;
+			padding: $spacing-s;
 
 			@media screen and (min-width: $breakpoint-tablet-small) {
 				margin-top: 0;
 				margin-right: $spacing-s;
+				margin-left: $spacing-s;
+				padding: 0;
+				width: 375px;
+			}
+
+			@media screen and (min-width: $breakpoint-tablet) {
+				max-width: 580px;
 			}
 
 			@media screen and (min-width: $breakpoint-desktop-small) {
 				margin-right: $spacing-ms;
+				margin-left: $spacing-ms;
+				max-width: 580px;
 			}
 		}
 
@@ -106,10 +140,14 @@
 
 			margin-right: 0;
 
-			@media screen and (min-width: $breakpoint-tablet-small) {
-				width: 200px;
+			@media screen and (min-width: $breakpoint-mobile) {
 				height: 150px;
 			}
+
+			@media screen and (min-width: $breakpoint-tablet-small) {
+				width: 200px;
+			}
+
 
 			img {
 				height: 100%;

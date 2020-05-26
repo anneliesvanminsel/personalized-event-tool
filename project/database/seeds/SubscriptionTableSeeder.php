@@ -18,7 +18,7 @@ class SubscriptionTableSeeder extends Seeder
 			[
 				'title' => 'basis',
 				'description' => 'Toeslag per verkocht ticket </br> Gratis voor gratis tickets',
-				'items' => '<li>één tickettype,</li>  <li>basis evenementpagina,</li>  <li>vermelding op <span class="logo logo--s">evento</span>,</li> <li>online hulpcentrum</li>',
+				'items' => '<li>één tickettype,</li>  <li>basis evenementpagina,</li>  <li>vermelding op <span class="logo logo--s">evento</span>,</li> <li>online hulpcentrum.</li>',
 				'price' => 0.60,
 			]
 		);
@@ -28,7 +28,7 @@ class SubscriptionTableSeeder extends Seeder
 			[
 				'title' => 'professioneel',
 				'description' => 'Toeslag per verkocht ticket </br> Gratis voor gratis tickets',
-				'items' => '<li>alles van basis abonnement,</li> <li>meerdere tickettypes (max. 4),</li> <li>extra elementen (grondplan, programma, en meer) toevoegen aan de evenementpagina</li> <li>telefonisch hulpcentrum</li>',
+				'items' => '<li>alles van basis abonnement,</li> <li>meerdere tickettypes (max. 4),</li> <li>extra elementen (grondplan, programma, en meer) toevoegen aan de evenementpagina,</li> <li>telefonisch hulpcentrum.</li>',
 				'price' => 1,
 			]
 		);
@@ -38,7 +38,7 @@ class SubscriptionTableSeeder extends Seeder
 			[
 				'title' => 'premium',
 				'description' => 'Toeslag per verkocht ticket </br> Gratis voor gratis tickets',
-				'items' => '<li>alles van professioneel abonnement,,</li>  <li>eigen personaliseerbare evenementpagina,</li> <li>ongelimiteerde tickettypes</li>',
+				'items' => '<li>alles van professioneel abonnement,</li>  <li>eigen personaliseerbare evenementpagina,</li> <li>ongelimiteerde tickettypes.</li>',
 				'price' => 1.50,
 			]
 		);
