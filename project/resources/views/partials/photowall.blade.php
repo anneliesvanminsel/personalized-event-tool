@@ -15,16 +15,6 @@
 		@endphp
 		
 		@if($response)
-			@foreach($data->graphql->user->edge_owner_to_timeline_media->edges as $node)
-				<li class="photolist__item">
-					<img
-						src="{{ $node->node->display_url }}"
-						alt="{{ $node->node->accessibility_caption }}"
-						loading="lazy"
-					>
-				</li>
-			@endforeach
-			
 			@if($data->graphql->user->edge_owner_to_timeline_media->count == 0)
 				<li class="photolist__item">
 					<img
@@ -82,6 +72,16 @@
 						loading="lazy"
 					>
 				</li>
+			@else
+				@foreach($data->graphql->user->edge_owner_to_timeline_media->edges as $node)
+					<li class="photolist__item">
+						<img
+							src="{{ $node->node->display_url }}"
+							alt="{{ $node->node->accessibility_caption }}"
+							loading="lazy"
+						>
+					</li>
+				@endforeach
 			@endif
 		@else
 			<li class="photolist__item">

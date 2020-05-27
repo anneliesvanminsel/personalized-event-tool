@@ -1,82 +1,176 @@
 .special {
-  position: relative;
+	position: relative;
 
-  min-height: 100vh;
-  background-color: $white;
-  margin: 0;
+	min-height: calc(100vh - 90px);
 
-  &__image {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+	overflow: hidden;
 
-    z-index: -999;
+	&__image {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
 
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+		z-index: -999;
 
-    img {
-      min-width: 100%;
-      min-height: 100%;
+		width: 100%;
+		height: 50vh;
+		overflow: hidden;
 
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+		img {
+			min-width: 100%;
+			min-height: 100%;
 
-      @media screen and (min-width: $breakpoint-tablet-small) {
-        width: 100%;
-      }
-    }
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
 
-    &:before {
-      @include gradient();
-      z-index: 1;
-    }
-  }
+			@media screen and (min-width: $breakpoint-tablet-small) {
+				width: 100%;
+			}
+		}
 
-  &__content {
-    position: relative;
-    z-index: 20;
+		&:before {
+			@include gradient();
+			z-index: 1;
+		}
 
-    @media screen and (min-width: $breakpoint-tablet-small) {
-      @include grid();
-    }
+		&.dark {
+			&:before {
+				@include gradient(right, $medium-grey, $medium-grey);
+				z-index: 1;
+			}
+		}
+	}
 
-    .row--wrap {
-      width: 100%;
-      margin: 15px auto;
-      flex-wrap: wrap;
-      justify-content: center;
+	$breakpoint-mobile: 420px;
+	$breakpoint-tablet-small: 640px;
+	$breakpoint-tablet: 768px;
+	$breakpoint-desktop-small: 960px;
+	$breakpoint-desktop: 1280px;
+	$breakpoint-desktop-large: 1440px;
+	$breakpoint-desktop-extra-large: 1600px;
 
-      @media screen and (min-width: $breakpoint-tablet-small) {
-        margin: auto 0 auto 40px;
-      }
-    }
-  }
+	&__content {
+		position: relative;
+		z-index: 20;
 
-  &__svg {
-    background-color: $blue;
-    padding: $spacing-xs;
-    margin: $spacing-xxs;
-    text-align: center;
-    height: 12vh;
-    width: 12vh;
+		max-width: 280px;
+		margin: 100px auto 0;
 
-    svg {
-      display: block;
-      margin: auto;
-      fill: $black;
-      position: relative;
-      top: 50%;
-      transform: scale(1) translateY(-50%);
+		@media screen and (min-width: $breakpoint-mobile) {
+			max-width: 450px;
+		}
 
-      &:hover {
-        transform: scale(1.2) translateY(-50%);
-      }
-    }
-  }
+		@media screen and (min-width: $breakpoint-tablet-small) {
+			max-width: 500px;
+		}
+
+		@media screen and (min-width: $breakpoint-tablet) {
+			max-width: 650px;
+		}
+
+		@media screen and (min-width: $breakpoint-desktop-small) {
+			max-width: 800px;
+		}
+
+		@media screen and (min-width: $breakpoint-desktop) {
+			max-width: 960px;
+		}
+	}
+
+	&__description {
+		padding: 40px 10px;
+
+		font-size: 20px;
+		line-height: 25px;
+		color: $white;
+	}
+
+	&__items {
+		height: 300px;
+		margin-top: 100px;
+
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	&__svg {
+		position: relative;
+		width: calc((100% / 3) - 10px);
+
+		background-color: $blue;
+		text-align: center;
+
+		margin-right: 10px;
+		margin-bottom: 10px;
+
+		@media screen and (min-width: $breakpoint-tablet) {
+			width: calc((100% / 3) - 20px);
+			margin-right: 20px;
+			margin-bottom: 20px;
+		}
+
+		svg {
+			position: absolute;
+			top: 50%;
+
+			fill: $black;
+
+			transform: scale(1) translate(-50%,-50%);
+
+			margin: 0;
+
+			&.is-large {
+				@media screen and (min-width: $breakpoint-mobile) {
+					width: 40px;
+					height: 40px;
+				}
+
+				@media screen and (min-width: $breakpoint-desktop) {
+					width: 50px;
+					height: 50px;
+				}
+			}
+		}
+
+		&:hover {
+			background-color: $pink;
+
+			svg {
+				transform: scale(1.2) translate(-40%,-50%);
+			}
+		}
+
+		&.is-disabled {
+			&:hover {
+				background-color: $blue;
+
+				svg {
+					transform: scale(1) translate(-50%,-50%);
+				}
+			}
+		}
+
+		&:first-child {
+			width: calc( (100% / 3 - 5px)  * 2 );
+
+			@media screen and (min-width: $breakpoint-tablet) {
+				width: calc( (100% / 3 - 10px)  * 2 );
+			}
+		}
+
+		&:nth-child(2),
+		&:nth-child(5) {
+			margin-right: 0;
+		}
+	}
+
+	&__text {
+		display: none;
+	}
 }

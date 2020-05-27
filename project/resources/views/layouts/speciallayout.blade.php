@@ -29,11 +29,11 @@
 						</h2>
 					</a>
 				</div>
-				<a href="#">
+				<a href="{{ route('user.events', ['user_id' => Auth::user()->id]) }}">
 					@if($event['theme'] === "dark")
-						@svg('grid', 'is-white is-large')
+						@svg('account', 'is-white is-large')
 					@else
-						@svg('grid', 'is-large')
+						@svg('account', 'is-large')
 					@endif
 				</a>
 			</header>

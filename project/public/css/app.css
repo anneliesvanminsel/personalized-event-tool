@@ -3203,9 +3203,8 @@ span.round-tab:hover {
 
 .special {
   position: relative;
-  min-height: 100vh;
-  background-color: #ffffff;
-  margin: 0;
+  min-height: calc(100vh - 90px);
+  overflow: hidden;
 }
 
 .special__image {
@@ -3216,7 +3215,7 @@ span.round-tab:hover {
   left: 0;
   z-index: -999;
   width: 100%;
-  height: 100vh;
+  height: 50vh;
   overflow: hidden;
 }
 
@@ -3250,62 +3249,152 @@ span.round-tab:hover {
   z-index: 1;
 }
 
+.special__image.dark:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -99;
+  opacity: 0.4;
+  background-image: -webkit-gradient(linear, left top, right top, from(#414141), to(#414141));
+  background-image: linear-gradient(to right, #414141, #414141);
+  z-index: 1;
+}
+
 .special__content {
   position: relative;
   z-index: 20;
+  max-width: 280px;
+  margin: 100px auto 0;
+}
+
+@media screen and (min-width: 420px) {
+  .special__content {
+    max-width: 450px;
+  }
 }
 
 @media screen and (min-width: 640px) {
   .special__content {
-    padding: 0 10px;
-    max-width: 960px;
-    width: 100%;
-    margin: 0 auto;
+    max-width: 500px;
   }
 }
 
-@media screen and (min-width: 640px) and (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .special__content {
-    padding: 0;
+    max-width: 650px;
   }
 }
 
-.special__content .row--wrap {
-  width: 100%;
-  margin: 15px auto;
+@media screen and (min-width: 960px) {
+  .special__content {
+    max-width: 800px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .special__content {
+    max-width: 960px;
+  }
+}
+
+.special__description {
+  padding: 40px 10px;
+  font-size: 20px;
+  line-height: 25px;
+  color: #ffffff;
+}
+
+.special__items {
+  height: 300px;
+  margin-top: 100px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
   flex-wrap: wrap;
   -webkit-box-pack: center;
           justify-content: center;
 }
 
-@media screen and (min-width: 640px) {
-  .special__content .row--wrap {
-    margin: auto 0 auto 40px;
+.special__svg {
+  position: relative;
+  width: calc((100% / 3) - 10px);
+  background-color: #46D5EF;
+  text-align: center;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .special__svg {
+    width: calc((100% / 3) - 20px);
+    margin-right: 20px;
+    margin-bottom: 20px;
   }
 }
 
-.special__svg {
-  background-color: #46D5EF;
-  padding: 10px;
-  margin: 5px;
-  text-align: center;
-  height: 100%;
-  width: 100%;
-}
-
 .special__svg svg {
-  display: block;
-  margin: auto;
-  fill: #262323;
-  position: relative;
+  position: absolute;
   top: 50%;
-  -webkit-transform: scale(1) translateY(-50%);
-          transform: scale(1) translateY(-50%);
+  fill: #262323;
+  -webkit-transform: scale(1) translate(-50%, -50%);
+          transform: scale(1) translate(-50%, -50%);
+  margin: 0;
 }
 
-.special__svg svg:hover {
-  -webkit-transform: scale(1.2) translateY(-50%);
-          transform: scale(1.2) translateY(-50%);
+@media screen and (min-width: 420px) {
+  .special__svg svg.is-large {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .special__svg svg.is-large {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.special__svg:hover {
+  background-color: #FF5E91;
+}
+
+.special__svg:hover svg {
+  -webkit-transform: scale(1.2) translate(-40%, -50%);
+          transform: scale(1.2) translate(-40%, -50%);
+}
+
+.special__svg.is-disabled:hover {
+  background-color: #46D5EF;
+}
+
+.special__svg.is-disabled:hover svg {
+  -webkit-transform: scale(1) translate(-50%, -50%);
+          transform: scale(1) translate(-50%, -50%);
+}
+
+.special__svg:first-child {
+  width: calc( (100% / 3 - 5px) * 2 );
+}
+
+@media screen and (min-width: 768px) {
+  .special__svg:first-child {
+    width: calc( (100% / 3 - 10px) * 2 );
+  }
+}
+
+.special__svg:nth-child(2),
+.special__svg:nth-child(5) {
+  margin-right: 0;
+}
+
+.special__text {
+  display: none;
 }
 
 .timeline {
