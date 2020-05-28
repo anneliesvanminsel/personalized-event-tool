@@ -84,7 +84,7 @@
                 
                 <div class="form__group">
                     <select class="select" id="type" name="type">
-                        <option>categorie</option>
+                        <option value="">categorie</option>
                         <option value="conference">conferentie</option>
                         <option value="workshop">workshop</option>
                         <option value="reunion">reunie</option>
