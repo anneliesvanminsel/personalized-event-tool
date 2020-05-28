@@ -111,21 +111,65 @@
 			
 			<div class="form__group">
 				<input
-					id="starttime"
-					type="datetime-local"
-					class="form__input @error('starttime') is-invalid @enderror"
-					name="starttime"
+					id="startdate"
+					type="date"
+					class="form__input @error('startdate') is-invalid @enderror"
+					name="startdate"
 					placeholder="bv: 12/10/2022"
-					value="{{ old('starttime') ? old('starttime') : '03/02/2019' }}"
+					value="{{ old('startdate')}}"
 					required
 					autocomplete="off"
 				>
 				
-				<label for="title" class="form__label">
+				<label for="startdate" class="form__label">
 					De begindatum van het evenement
 				</label>
 				
+				@error('startdate')
+				<span class="invalid-feedback" role="alert">
+						<strong>{{ $message }}</strong>
+					</span>
+				@enderror
+			</div>
+			
+			<div class="form__group">
+				<input
+					id="starttime"
+					type="time"
+					class="form__input"
+					name="starttime"
+					placeholder="bv: 12/10/2022"
+					value="{{ old('starttime') }}"
+					required
+					autocomplete="off"
+				>
+				
+				<label for="starttime" class="form__label">
+					Startuur
+				</label>
 				@error('starttime')
+				<span class="invalid-feedback" role="alert">
+							<strong>{{ $message }}</strong>
+						</span>
+				@enderror
+			</div>
+			
+			<div class="form__group spacing-top-s">
+				<input
+					id="enddate"
+					type="date"
+					class="form__input optional @error('enddate') is-invalid @enderror"
+					name="enddate"
+					placeholder="bv: 14/10/2022"
+					value="{{ old('enddate') }}"
+					autocomplete="off"
+				>
+				
+				<label for="enddate" class="form__label">
+					De einddatum van het evenement
+				</label>
+				
+				@error('enddate')
 				<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
 					</span>
@@ -135,22 +179,21 @@
 			<div class="form__group spacing-top-s">
 				<input
 					id="endtime"
-					type="datetime-local"
-					class="form__input optional @error('endtime') is-invalid @enderror"
+					type="time"
+					class="form__input optional"
 					name="endtime"
 					placeholder="bv: 14/10/2022"
 					value="{{ old('endtime') }}"
 					autocomplete="off"
 				>
 				
-				<label for="title" class="form__label">
-					De einddatum van het evenement
+				<label for="endtime" class="form__label">
+					Einduur
 				</label>
-				
 				@error('endtime')
 				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
+							<strong>{{ $message }}</strong>
+						</span>
 				@enderror
 			</div>
 			

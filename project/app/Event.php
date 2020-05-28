@@ -11,7 +11,7 @@ class Event extends Model
     //
 	protected $fillable = [
 		'image', 'title', 'description', 'category', 'published', 'prim_color', 'sec_color', 'tert_color', 'theme', 'shape',
-		'schedule', 'starttime', 'endtime', 'address_id', 'ig_username', 'organisation_id'
+		'schedule', 'startdate', 'enddate', 'starttime', 'endtime', 'address_id', 'ig_username', 'organisation_id'
 	];
 
 	public function sessions(){

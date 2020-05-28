@@ -44,8 +44,10 @@ class EventController extends Controller
 			'title' => 'required|string|max:255',
 			'description' => 'required|string|max:1000',
 			'type'=> 'required',
-            'starttime'=> 'required|date|max:20',
-            'endtime'=> 'nullable|date|max:20',
+			'startdate'=> 'required|date|max:20',
+			'enddate'=> 'nullable|date|max:20',
+			'starttime'=> 'required|date_format:H:i',
+			'endtime'=> 'nullable|date_format:H:i',
 			'ig-username' => 'nullable|string|max:255',
 			'logo'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
@@ -64,20 +66,22 @@ class EventController extends Controller
 		$event->category = $request->input('type');
 		$event->published = (int)$boolStatus;
 		$event->image = $imageName;
-        $event->starttime = $request->input('starttime');
-        $event->endtime = $request->input('endtime');
+		$event->startdate = $request->input('startdate');
+		$event->starttime = $request->input('starttime');
+		$event->enddate = $request->input('enddate');
+		$event->endtime = $request->input('endtime');
 
         $event->save();
 
-        if($request->input('endtime')) {
-            $starttime = new DateTime($request->input('starttime'));
-            $endtime = new DateTime($request->input('endtime'));
+        if($request->input('enddate')) {
+            $starttime = new DateTime($request->input('startdate'));
+            $endtime = new DateTime($request->input('enddate'));
 
             $difference = $starttime->diff($endtime);
 
             for($i = 0; $i < $difference->d + 1; $i++) {
                 $session = new Session([
-                    'date' => Carbon::parse(strtotime($request->input('starttime'). ' + ' . $i . ' days')),
+                    'date' => Carbon::parse(strtotime($request->input('startdate'). ' + ' . $i . ' days')),
                     'event_id' => $event['id']
                 ]);
 
@@ -86,7 +90,7 @@ class EventController extends Controller
             }
         } else {
             $session = new Session([
-                'date' => Carbon::parse($request->input('starttime')),
+                'date' => Carbon::parse($request->input('startdate')),
                 'event_id' => $event['id']
             ]);
             $session->save();
@@ -149,8 +153,10 @@ class EventController extends Controller
 			'title' => 'required|string|max:255',
 			'description' => 'required|string|max:1000',
 			'type'=> 'required',
-			'starttime'=> 'required|date|max:20',
-			'endtime'=> 'nullable|date|max:20',
+			'startdate'=> 'required|date|max:20',
+			'enddate'=> 'nullable|date|max:20',
+			'starttime'=> 'required|date_format:H:i',
+			'endtime'=> 'nullable|date_format:H:i',
 			'ig-username' => 'nullable|string|max:255',
 			'logo'=> 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
@@ -161,7 +167,9 @@ class EventController extends Controller
 		$event->ig_username = $request->input('ig-username');
 		$event->description = $request->input('description');
 		$event->category = $request->input('type');
+		$event->startdate = $request->input('startdate');
 		$event->starttime = $request->input('starttime');
+		$event->enddate = $request->input('enddate');
 		$event->endtime = $request->input('endtime');
 
 		if (request()->logo) {
@@ -177,17 +185,17 @@ class EventController extends Controller
 			$event->logo = $imageName;
 		}
 
-        if($request->input('endtime')) {
+        if($request->input('enddate')) {
             $event->sessions()->delete();
 
-            $starttime = new DateTime($request->input('starttime'));
-            $endtime = new DateTime($request->input('endtime'));
+            $starttime = new DateTime($request->input('startdate'));
+            $endtime = new DateTime($request->input('enddate'));
 
             $difference = $starttime->diff($endtime);
 
             for($i = 0; $i < $difference->d + 1; $i++) {
                 $session = new Session([
-                    'date' => Carbon::parse(strtotime($request->input('starttime'). ' + ' . $i . ' days')),
+                    'date' => Carbon::parse(strtotime($request->input('startdate'). ' + ' . $i . ' days')),
                     'event_id' => $event['id']
                 ]);
 

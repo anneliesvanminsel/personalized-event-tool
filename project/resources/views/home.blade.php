@@ -29,9 +29,15 @@
     </section>
 
     <section class="section">
-        <h3>
-            Wat is er te doen?
-        </h3>
+	    <div class="row">
+		    <h3 class="is-grow">
+			    Wat is er te doen?
+		    </h3>
+		    <button class="btn is-icon filter__icon">
+			    @svg('filter', 'is-btn')
+		    </button>
+	    </div>
+       
         <form action="{{ route('home.searchevents') }}" method="post" class="filter--container">
             @csrf
             <div class="row filter">
@@ -42,7 +48,7 @@
 		                class="form__input @error('location') is-invalid @enderror"
 		                name="location"
 		                placeholder="locatie"
-		                value="{{ old('location') }}"
+		                value="{{ $oldLocation }}"
 		                autocomplete="location"
 	                >
 	                <label for="email" class="form__label">
@@ -63,7 +69,7 @@
 		                class="form__input @error('date') is-invalid @enderror"
 		                name="date"
 		                placeholder="date"
-		                value="{{ old('date') }}"
+		                value=""
 		                autocomplete="date"
 	                >
 	                <label for="date" class="form__label">
@@ -78,7 +84,7 @@
                 
                 <div class="form__group">
                     <select class="select" id="type" name="type">
-                        <option value="not given">Categorie</option>
+                        <option>categorie</option>
                         <option value="conference">conferentie</option>
                         <option value="workshop">workshop</option>
                         <option value="reunion">reunie</option>
@@ -88,6 +94,7 @@
                         <option value="semenar">semenarie</option>
                         <option value="auction">veiling</option>
                         <option value="market">beurs</option>
+                        <option value="not given">niet opgegeven</option>
                     </select>
                    
                     @error('type')
@@ -102,6 +109,16 @@
                 </button>
             </div>
         </form>
+	    
+	    <script>
+            ( ()=> {
+                const button = document.querySelector('.filter__icon');
+                button.addEventListener('click', () => {
+                    document.querySelector('.filter--container').classList.toggle('is-open');
+                })
+            })();
+	    </script>
+	    
         <div class="list">
             @if($searchedevents->count() > 0)
                 @foreach($searchedevents as $event)

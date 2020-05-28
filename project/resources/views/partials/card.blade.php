@@ -87,11 +87,11 @@
 		</h4>
 		<div class="card__text row">
 			@svg('calendar')
-			@if($event['endtime'])
-				{{ \Jenssegers\Date\Date::parse(strtotime($event['starttime']))->format('j') }} -
-				{{ \Jenssegers\Date\Date::parse(strtotime($event['endtime']))->format('j F Y') }}
+			@if($event['enddate'])
+				{{ \Jenssegers\Date\Date::parse(strtotime($event['startdate']))->format('j') }} -
+				{{ \Jenssegers\Date\Date::parse(strtotime($event['enddate']))->format('j F Y') }}
 			@else
-				{{ \Jenssegers\Date\Date::parse(strtotime($event['starttime']))->format('j F Y') }}
+				{{ \Jenssegers\Date\Date::parse(strtotime($event['startdate']))->format('j F Y') }}
 			@endif
 		</div>
 		@if($event->address()->exists())

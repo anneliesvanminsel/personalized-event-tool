@@ -20,8 +20,6 @@
 
 		> * {
 			flex-shrink: 0;
-
-
 		}
 
 		&:last-child {
@@ -84,6 +82,12 @@
 
 		&__title {
 			padding: 0;
+
+			a {
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
 		}
 
 		&__actions {
@@ -99,6 +103,17 @@
 			@media screen and (min-width: $breakpoint-tablet-small) {
 				position: relative;
 				top: 0;
+				right: 0;
+
+				text-align: right;
+			}
+
+			.form {
+				&:last-child {
+					svg {
+						margin-right: 0;
+					}
+				}
 			}
 		}
 
@@ -129,7 +144,12 @@
 		}
 
 		&__section {
+			position: relative;
 			margin-bottom: $spacing-xs;
+
+			.needs-space {
+				margin-right: 50px;
+			}
 		}
 
 		&__image {
@@ -153,6 +173,10 @@
 				height: 100%;
 				min-width: 100%;
 			}
+		}
+
+		&__text {
+			line-height: 20px;
 		}
 	}
 }

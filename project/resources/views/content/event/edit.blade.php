@@ -105,23 +105,25 @@
 				@enderror
 			</div>
 			
+			
+			
 			<div class="form__group">
 				<input
-					id="starttime"
-					type="datetime-local"
-					class="form__input @error('starttime') is-invalid @enderror"
-					name="starttime"
+					id="startdate"
+					type="date"
+					class="form__input @error('startdate') is-invalid @enderror"
+					name="startdate"
 					placeholder="bv: 12/10/2022"
-					value="{{ \Carbon\Carbon::parse($event['starttime'])->format('Y-m-d\TH:i') }}"
+					value="{{ \Carbon\Carbon::parse($event['startdate'])->format('Y-m-d') }}"
 					required
 					autocomplete="off"
 				>
 				
-				<label for="title" class="form__label">
+				<label for="startdate" class="form__label">
 					De begindatum van het evenement
 				</label>
 				
-				@error('starttime')
+				@error('startdate')
 				<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
 					</span>
@@ -130,20 +132,20 @@
 			
 			<div class="form__group spacing-top-s">
 				<input
-					id="endtime"
-					type="datetime-local"
-					class="form__input optional @error('endtime') is-invalid @enderror"
-					name="endtime"
+					id="enddate"
+					type="date"
+					class="form__input optional @error('enddate') is-invalid @enderror"
+					name="enddate"
 					placeholder="bv: 14/10/2022"
-					value="{{ \Carbon\Carbon::parse($event['endtime'])->format('Y-m-d\TH:i') }}"
+					value="{{ \Carbon\Carbon::parse($event['enddate'])->format('Y-m-d') }}"
 					autocomplete="off"
 				>
 				
-				<label for="title" class="form__label">
+				<label for="enddate" class="form__label">
 					De einddatum van het evenement
 				</label>
 				
-				@error('endtime')
+				@error('enddate')
 				<span class="invalid-feedback" role="alert">
 						<strong>{{ $message }}</strong>
 					</span>

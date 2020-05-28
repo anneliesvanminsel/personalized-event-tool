@@ -95,7 +95,7 @@
 		</div>
 		
 		<div class="item__section row">
-			<div class="row">
+			<div class="row needs-space">
 				@svg('clock')
 				{{ \Jenssegers\Date\Date::parse(strtotime($event['starttime']))->format('H:i') }}
 			</div>
@@ -117,16 +117,16 @@
 		<a href={{ route('event.detail', ['event_id' => $event->id]) }}>
 			<div class="date-field">
 				<div>
-					@if($event['endtime'])
-						{{ \Jenssegers\Date\Date::parse(strtotime($event['starttime']))->format('j') }} -
-						{{ \Jenssegers\Date\Date::parse(strtotime($event['endtime']))->format('j') }}
+					@if($event['enddate'])
+						{{ \Jenssegers\Date\Date::parse(strtotime($event['startdate']))->format('j') }} -
+						{{ \Jenssegers\Date\Date::parse(strtotime($event['enddate']))->format('j') }}
 					@else
-						{{ \Jenssegers\Date\Date::parse(strtotime($event['starttime']))->format('j') }}
+						{{ \Jenssegers\Date\Date::parse(strtotime($event['startdate']))->format('j') }}
 					@endif
 				</div>
 			</div>
 			<div class="date-month">
-				{{ \Jenssegers\Date\Date::parse(strtotime($event['starttime']))->format('M') }}
+				{{ \Jenssegers\Date\Date::parse(strtotime($event['startdate']))->format('M') }}
 			</div>
 		</a>
 	</div>

@@ -20,8 +20,11 @@ class CreateEventsTable extends Migration
 			$table->text('description');
 			$table->string('category');
 
-			$table->dateTime('starttime');
-			$table->dateTime('endtime')->nullable();
+			$table->date('startdate');
+			$table->date('enddate')->nullable();
+
+			$table->time('starttime');
+			$table->time('endtime')->nullable();
 
 			$table->boolean('published')->default(0);
 

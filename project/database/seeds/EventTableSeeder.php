@@ -58,7 +58,8 @@ class EventTableSeeder extends Seeder
 				"shape" => "square",
 				"schedule" => "timeline",
 				"image" => "workshop-design.jpg",
-				"starttime" =>  Carbon::parse('2025-10-21 18:50:00'),
+				"starttime" =>  Carbon::parse('18:50:00'),
+				"startdate" =>  Carbon::parse('2025-10-21'),
 			]
 		);
 		$event->save();
@@ -88,7 +89,8 @@ class EventTableSeeder extends Seeder
 				"published" => 1,
 				"image" => "brunch.jpeg",
 				"organisation_id" => 1,
-				"starttime" =>  Carbon::parse('2025-01-21 13:45:00'),
+				"starttime" =>  Carbon::parse('13:45:00'),
+				"startdate" =>  Carbon::parse('2025-01-21'),
 			]
 		);
 		$event->save();
@@ -102,8 +104,10 @@ class EventTableSeeder extends Seeder
 				"image" => "festival.jpg",
 				"organisation_id" => 1,
 				"ig_username" => "rockwerchterfestival",
-				"starttime" =>  Carbon::parse('2024-07-01 18:45:00'),
-				"endtime" =>  Carbon::parse('2024-07-04 23:30:00'),
+				"startdate" =>  Carbon::parse('2024-07-01'),
+				"starttime" =>  Carbon::parse('18:45:00'),
+				"enddate" =>  Carbon::parse('2024-07-04'),
+				"endtime" =>  Carbon::parse('23:30:00'),
 			]
 		);
 		$event->save();
@@ -121,8 +125,10 @@ class EventTableSeeder extends Seeder
 				"organisation_id" => 1,
 				"shape" => "round",
 				"schedule" => "timetable",
-				"starttime" =>  Carbon::parse('2026-2-04 20:30:00'),
-				"endtime" =>  Carbon::parse('2026-2-05 02:30:00'),
+				"startdate" =>  Carbon::parse('2026-2-04'),
+				"starttime" =>  Carbon::parse('20:30:00'),
+				"enddate" =>  Carbon::parse('2026-2-05'),
+				"endtime" =>  Carbon::parse('02:30:00'),
 			]
 		);
 		$event4->save();

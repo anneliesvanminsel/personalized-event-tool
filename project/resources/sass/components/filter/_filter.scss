@@ -1,8 +1,37 @@
 .filter {
-	border: 1px solid $blue;
+	flex-direction: column;
+
+	@media screen and (min-width: $breakpoint-tablet) {
+		border: 1px solid $blue;
+		flex-direction: row;
+	}
+
+	&__icon {
+		align-self: flex-start;
+
+		@media screen and (min-width: $breakpoint-tablet) {
+			display: none;
+		}
+
+		&:hover {
+			background-color: transparent;
+		}
+
+		svg {
+			margin-right: 0;
+		}
+	}
 
 	&--container {
+		display: none;
 
+		@media screen and (min-width: $breakpoint-tablet) {
+			display: block;
+		}
+
+		&.is-open {
+			display: block;
+		}
 	}
 
 	&.row {
@@ -10,26 +39,57 @@
 
 		> .btn {
 			margin-left: 0;
+			align-self: flex-end;
+			margin-top: 10px;
+
+			@media screen and (min-width: $breakpoint-tablet) {
+				margin-top: 0;
+			}
 		}
 	}
 
 	.form__group {
-		width: 253px;
-		max-height: 50px;
+		width: 100%;
+
+		@media screen and (min-width: $breakpoint-tablet) {
+			width: calc(100% / 3);
+			max-height: 50px;
+		}
+
+		@media screen and (min-width: $breakpoint-desktop-small) {
+			width: 253px;
+			max-height: 60px;
+		}
+
+		&:last-child {
+			.form__input {
+				border-bottom: 1px solid $blue;
+			}
+		}
 	}
 
 	.form__input {
 		height: 100%;
 		margin-bottom: 0;
 		padding: 14px 20px;
-		border: none;
-		border-right: 1px solid $blue;
+		border: 1px solid $blue;
+		border-bottom: none;
+
+		@media screen and (min-width: $breakpoint-tablet) {
+			border: none;
+			border-right: 1px solid $blue;
+		}
 
 		&:focus,
 		&:valid {
-			outline: none;
-			border: none;
-			border-right: 1px solid $blue;
+			border: 1px solid $blue;
+			border-bottom: none;
+
+			@media screen and (min-width: $breakpoint-tablet) {
+				outline: none;
+				border: none;
+				border-right: 1px solid $blue;
+			}
 		}
 	}
 
@@ -43,8 +103,16 @@
 	}
 
 	.select {
-		width: 250px;
+		width: 100%;
 		padding: 14px 20px;
-		border: none;
+
+		@media screen and (min-width: $breakpoint-tablet) {
+			border: none;
+			width: 100%;
+		}
+
+		@media screen and (min-width: $breakpoint-desktop-small) {
+			width: 250px;
+		}
 	}
 }
