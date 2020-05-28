@@ -1,6 +1,6 @@
 @extends('layouts.masterlayout')
 @section('title')
-	e - organiseren
+	evento - voor organisatoren
 @endsection
 @section('content')
 	<div class="hero">
@@ -13,9 +13,8 @@
 				Breng je evenementen tot een hoger niveau
 			</h1>
 			<div class="hero__description">
-				Cupcake lollipop chocolate. Dessert chupa chups cotton candy brownie dessert. Tootsie roll sesame
-				snaps pie sesame snaps candy canes jelly-o biscuit topping. Soufflé sesame snaps tootsie roll gummies
-				croissant pastry. Biscuit candy biscuit jujubes gingerbread muffin cotton candy cake.
+				Van muziekfestivals tot workshops, zet jouw evenement op de kaart. <br>
+				
 			</div>
 		</div>
 	</div>
