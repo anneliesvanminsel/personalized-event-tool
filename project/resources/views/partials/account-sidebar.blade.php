@@ -1,4 +1,4 @@
-<section class="sidebar">
+<section class="sidebar" id="sidebar">
 	<h3 class="sidebar__title is-white">
 		Account
 	</h3>
@@ -63,3 +63,16 @@
 		</div>
 	</div>
 </section>
+<div>
+	<button onclick="openNav()" class="btn is-icon sidebar__icon" id="icon">
+		@svg('right', 'is-icon')
+	</button>
+</div>
+
+<script>
+    function openNav() {
+        document.getElementById("sidebar").classList.toggle('is-open');
+        document.getElementById("account").classList.toggle('open');
+        document.getElementById("icon").classList.toggle('open');
+    }
+</script>

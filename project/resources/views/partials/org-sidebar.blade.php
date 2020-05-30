@@ -1,4 +1,4 @@
-<section class="sidebar">
+<section class="sidebar" id="sidebar">
 	@if($organisation['logo'] && File::exists(public_path() . "/images/" . $organisation['logo']))
 		<div class="ctn--image">
 			<img src="{{ asset('images/' . $organisation['logo'] ) }}" alt="{{ $organisation['name'] }}" loading="lazy">
@@ -63,3 +63,17 @@
 		</div>
 	</div>
 </section>
+
+<div>
+	<button onclick="openNav()" class="btn is-icon sidebar__icon" id="icon">
+		@svg('right', 'is-icon')
+	</button>
+</div>
+
+<script>
+    function openNav() {
+        document.getElementById("sidebar").classList.toggle('is-open');
+        document.getElementById("account").classList.toggle('open');
+        document.getElementById("icon").classList.toggle('open');
+    }
+</script>

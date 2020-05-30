@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 	@php
-		$events = $organisation->events()->where('published', '=', 1)->where('starttime', '>', \Carbon\Carbon::now())->orderBy('id', 'desc')->paginate(6);
+		$events = $organisation->events()->where('published', '=', 1)->where('startdate', '>', \Carbon\Carbon::now())->orderBy('id', 'desc')->paginate(6);
 		$drafts = $organisation->events()->where('published', '=', 0)->paginate(6);
 	@endphp
 	

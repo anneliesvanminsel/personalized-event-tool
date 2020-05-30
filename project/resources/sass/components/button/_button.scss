@@ -31,6 +31,10 @@ button {
 		width: auto;
 		border: none;
 		background-color: transparent;
+
+		&:hover {
+			background-color: transparent;
+		}
 	}
 
 	&--purple {
@@ -41,9 +45,8 @@ button {
 	&--small {
 		min-width: 200px;
 		width: 200px;
-		max-height: 50px;
 		margin: 0;
-		padding: 10px auto;
+		padding: 10px;
 	}
 
 	&.is-cancel {

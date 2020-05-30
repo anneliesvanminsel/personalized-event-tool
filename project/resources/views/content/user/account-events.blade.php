@@ -10,7 +10,7 @@
 			$events = $user->savedevents()->paginate(3);
 		@endphp
 		
-		<section class="content">
+		<section class="content" id="account">
 			<div class="row row--center">
 				<h3>
 					mijn opgeslagen evenementen

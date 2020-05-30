@@ -9,10 +9,10 @@
 
 @section('content')
 	<section class="section">
-		<h1>
+		<h2>
 			{{ $organisation['name'] }}
-		</h1>
-		<div class="row row--stretch spacing-top-s">
+		</h2>
+		<div class="row row--stretch">
 			<div class="is-grow">
 				{{ $organisation['description'] }}
 			</div>
@@ -55,11 +55,13 @@
 			</div>
 		</div>
 	</section>
+	
+	
 	@if($organisation->events()->exists())
 		<section class="section">
-			<h2>
+			<h3>
 				Onze evenementen
-			</h2>
+			</h3>
 			<div class="list">
 				@foreach($organisation->events()->where('published', '=', 1)->orderBy('starttime', 'ASC')->get() as $event)
 					@include('partials.listitem', $event)
@@ -67,20 +69,18 @@
 			</div>
 		</section>
 	@endif
-
-	<section class="photowall">
-		<ul class="photolist">
-			<li class="photolist__item">
-				<img src="{{ asset('images/' . $organisation['logo'] ) }}" alt="" loading="lazy">
-			</li>
-		</ul>
-	</section>
 	
 	<section class="section reviews">
-		<h2>
-			Meningen van onze bezoekers
-		</h2>
-		<div class="review">
+		<div class="row row--center">
+			<h3 class="is-grow">
+				Meningen van onze bezoekers
+			</h3>
+			<a href="#" class="btn is-disabled">
+				Laat een bericht achter
+			</a>
+		</div>
+		
+		<div class="list review">
 			<div class="review__item is-blue">
 				<div class="review__title row row--stretch is-mobile">
 					<h5 class="is-grow">
@@ -128,14 +128,16 @@
 			</div>
 		</div>
 	</section>
-	@if($organisation->address()->first())
+	@if($organisation->address()->exists())
 		@php
 			$address = $organisation->address()->first();
 		@endphp
-		<section class="spacing-top-l">
-			<div>
-				{!! $address['googleframe'] !!}
-			</div>
-		</section>
+		@if($address['googleframe'])
+			<section class="spacing-top-l">
+				<div>
+					{!! $address['googleframe'] !!}
+				</div>
+			</section>
+		@endif
 	@endif
 @endsection

@@ -14,7 +14,7 @@
 			$data = json_decode($response);
 		@endphp
 		
-		@if($response)
+		@if($response && $data)
 			@if($data->graphql->user->edge_owner_to_timeline_media->count == 0)
 				<li class="photolist__item">
 					<img

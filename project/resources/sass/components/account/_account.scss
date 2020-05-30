@@ -2,15 +2,75 @@
 	display: flex;
 	font-size: 16px;
 
-	.sidebar {
-		min-width: 305px;
-		width: 305px;
-		padding-right: 30px;
+	position: relative;
 
+	min-height: 380px;
+
+	.sidebar {
 		display:flex;
 		flex-direction: column;
+		border-bottom: none;
 
-		border-right: 1px solid $blue;
+		width: 0;
+		height: 100%;
+		overflow: hidden;
+
+		@include default-transition;
+
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		z-index: 99;
+
+		background-color: $white;
+
+		@media screen and (min-width: $breakpoint-tablet) {
+			position: relative;
+			min-width: 250px;
+			width: 250px;
+			padding-right: 30px;
+			border-right: 1px solid $blue;
+		}
+
+		@media screen and (min-width: $breakpoint-desktop) {
+			min-width: 305px;
+			width: 305px;
+			padding-right: 30px;
+			border-right: 1px solid $blue;
+		}
+
+		&.is-open {
+			left: -10px;
+			width: 200px;
+			min-width: 200px;
+			padding: 0 20px 20px;
+		}
+
+		&__icon {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 990;
+
+			display: block;
+			transform: rotate(0deg);
+
+			@include default-transition;
+
+			@media screen and (min-width: $breakpoint-tablet) {
+				display: none;
+			}
+
+			svg {
+				margin: 0;
+			}
+
+			&.open {
+				left: 160px;
+				transform: rotate(-180deg);
+			}
+		}
 
 		&__section {
 			border-bottom: 1px solid $blue;
@@ -39,9 +99,20 @@
 	}
 
 	.content {
-		max-width: 655px;
-		width: 655px;
-		padding-left: 30px;
+		width: 100%;
+		padding-left: 20px;
+
+		@media screen and (min-width: $breakpoint-tablet) {
+			max-width: calc(100% - 250px);
+			width: calc(100% - 250px);
+			padding-left: 30px;
+		}
+
+		@media screen and (min-width: $breakpoint-desktop) {
+			max-width: 655px;
+			width: 655px;
+			padding-left: 30px;
+		}
 
 		h3 {
 			width: auto;
@@ -49,7 +120,15 @@
 		}
 
 		.card {
-			width: calc((100% / 3) - 16px );
+			width: 100%;
+
+			@media screen and (min-width: $breakpoint-mobile) {
+				width: calc((100% / 2) - 15px );
+			}
+
+			@media screen and (min-width: $breakpoint-tablet-small) {
+				width: calc((100% / 3) - 16px );
+			}
 		}
 
 		&.is-right {
