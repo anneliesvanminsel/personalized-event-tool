@@ -132,7 +132,7 @@ class OrganisationController extends Controller
 
         $organisation->save();
 
-        return redirect()->route('org.dashboard', ['organisation_id' => $organisation['id']]);
+        return redirect()->route('organisation.address.update', ['organisation_id' => $organisation['id']]);
     }
 
 	public function createAdmin($organisation_id) {

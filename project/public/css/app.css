@@ -57,6 +57,7 @@ a {
 
 button {
   outline: none;
+  background-color: transparent;
 }
 
 @font-face {
@@ -3644,7 +3645,7 @@ span.round-tab:hover {
   display: flex;
   font-size: 16px;
   position: relative;
-  min-height: 380px;
+  min-height: 450px;
 }
 
 .account .sidebar {
@@ -3781,6 +3782,12 @@ span.round-tab:hover {
 }
 
 @media screen and (min-width: 640px) {
+  .account .content .card {
+    width: calc((100% / 3) - 8px );
+  }
+}
+
+@media screen and (min-width: 1280px) {
   .account .content .card {
     width: calc((100% / 3) - 16px );
   }

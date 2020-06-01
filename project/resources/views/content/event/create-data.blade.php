@@ -87,27 +87,27 @@
 				</script>
 			</div>
 			
-			<div class="form__group">
-				<input
-					id="logo"
-					type="file"
-					class="form__input @error('logo') is-invalid @enderror"
-					name="logo"
-					value="{{ old('logo') }}"
-					required
-					autocomplete="off"
-				>
-				
-				<label for="logo" class="form__label">
-					hoofdafbeelding
-				</label>
-				
-				@error('logo')
-				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
-				@enderror
-			</div>
+			@if($organisation->subscription_id === 3)
+				<div class="form__group">
+					<input
+						id="logo"
+						type="file"
+						class="form__input @error('logo') is-invalid @enderror"
+						name="logo"
+						value="{{ old('logo') }}"
+					>
+					
+					<label for="logo" class="form__label">
+						eventlogo
+					</label>
+					
+					@error('logo')
+					<span class="invalid-feedback" role="alert">
+							<strong>{{ $message }}</strong>
+						</span>
+					@enderror
+				</div>
+			@endif
 			
 			<div class="form__group">
 				<input
@@ -194,6 +194,28 @@
 				<span class="invalid-feedback" role="alert">
 							<strong>{{ $message }}</strong>
 						</span>
+				@enderror
+			</div>
+			
+			<div class="form__group">
+				<input
+					id="image"
+					type="file"
+					class="form__input @error('image') is-invalid @enderror"
+					name="image"
+					value="{{ old('image') }}"
+					required
+					autocomplete="off"
+				>
+				
+				<label for="image" class="form__label">
+					sfeerafbeelding
+				</label>
+				
+				@error('image')
+				<span class="invalid-feedback" role="alert">
+						<strong>{{ $message }}</strong>
+					</span>
 				@enderror
 			</div>
 			

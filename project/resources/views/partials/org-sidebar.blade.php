@@ -16,7 +16,7 @@
 		<div class="sidebar__item">
 			<a
 				class="sidebar__link {{ (strpos(Route::currentRouteName(), 'org.dashboard') === 0) ? 'active' : '' }}"
-				href=""
+				href="{{ route('org.dashboard', ['user_id' => Auth::user()->id]) }}"
 			>
 				mijn evenementen
 			</a>
@@ -34,16 +34,16 @@
 	<div>
 		<div class="sidebar__item">
 			<a
-				class="sidebar__link {{ (strpos(Route::currentRouteName(), 'user.account') === 0) ? 'active' : '' }}"
-				href="{{ route('user.account', ['user_id' => Auth::user()->id]) }}"
+				class="sidebar__link {{ (strpos(Route::currentRouteName(), 'organisation.update') === 0) ? 'active' : '' }}"
+				href="{{ route('organisation.update', ['organisation_id' => $organisation->id]) }}"
 			>
 				organisatie bewerken
 			</a>
 		</div>
 		<div class="sidebar__item">
 			<a
-				class="sidebar__link is-disabled {{ (strpos(Route::currentRouteName(), 'user.account') === 0) ? 'active' : '' }}"
-				href="{{ route('user.account', ['user_id' => Auth::user()->id]) }}"
+				class="sidebar__link is-disabled"
+				href=""
 			>
 				instellingen
 			</a>

@@ -41,6 +41,11 @@ Route::get('event/{event_id}', [
 	'as' => 'event.detail'
 ]);
 
+Route::get('event/detail/{event_title}/{event_id}/', [
+	'uses' => 'EventController@getEventDetailSpecial',
+	'as' => 'event.detail.special'
+]);
+
 // get organisation detail
 Route::get('organisatie/{organisation_id}', [
 	'uses' => 'OrganisationController@getOrganisationDetail',
@@ -177,7 +182,7 @@ Route::group(['prefix' => 'admin'], function() {
 
 
 
-	//edit an organisation account
+	//edit an organisation data
 	Route::get('bewerken/{organisation_id}', [
 		'uses' => 'OrganisationController@editOrganisation',
 		'as' => 'organisation.update'
@@ -186,6 +191,17 @@ Route::group(['prefix' => 'admin'], function() {
 	Route::post('bewerken/{organisation_id}/post', [
 		'uses' => 'OrganisationController@postEditOrganisation',
 		'as' => 'organisation.postupdate'
+	]);
+
+	//edit organisation address
+	Route::get('bewerken/{organisation_id}/adres', [
+		'uses' => 'AddressController@updateAddressOrganisation',
+		'as' => 'organisation.address.update'
+	]);
+
+	Route::post('bewerken/{organisation_id}/adres/{address_id}/post', [
+		'uses' => 'AddressController@postUpdateAddressOrganisation',
+		'as' => 'organisation.address.postupdate'
 	]);
 
 	//

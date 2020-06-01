@@ -1,27 +1,65 @@
 @extends('layouts.organisation')
 @section('title')
-	evento - maak event
+	{{ $event['title'] }} - tickets
 @endsection
 @section('content')
 	<div class="section content">
-		<h2>
-			{{ $event['title'] }}
-		</h2>
+		<div class="row row--stretch">
+			<h2 class="is-grow">
+				{{ $event['title'] }}
+			</h2>
+			<div class="item__actions row row--stretch">
+				<form
+					class="form"
+					onsubmit="return confirm('Ben je zeker dat je {{ $event['title'] }} voor alle organisatoren wilt {{ $event['published'] === 0 ? 'zichtbaar maken' : 'onzichtbaar maken' }}?');"
+					method="POST"
+					action="{{ route('event.publish', ['organisation_id' => $organisation['id'], 'event-id' => $event['id'] ]) }}"
+				>
+					{{ csrf_field() }}
+					
+					<button title="set visiblility" class="button is-icon" type="submit">
+						@if($event['published'] === 0)
+							@svg('hide', 'is-btn')
+						@else
+							@svg('view', 'is-btn')
+						@endif
+					</button>
+				</form>
+				<a title="edit event information" class="button is-icon" href={{route('event.update', ['organisation_id' => $organisation['id'], 'event_id' => $event->id])}}>
+					@svg('edit', 'is-btn')
+				</a>
+				<form
+					class="form"
+					onsubmit="return confirm('Ben je zeker dat je {{ $event['title'] }} voor alle organisatoren wilt verwijderen? Dit kan niet ongedaan worden gemaakt.');"
+					method="POST"
+					action="{{ route('event.delete', ['organisation_id' => $organisation['id'], 'event_id' => $event['id'] ]) }}"
+				>
+					{{ csrf_field() }}
+					<button class="button is-icon" type="submit">
+						@svg('delete', 'is-btn')
+					</button>
+				</form>
+			</div>
+		</div>
 		
 		<div class="section__nav nav">
 			<div class="nav__tabs">
 				<a class="nav__item" href="{{ route('event.settings.schedule', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
 					Planning
 				</a>
-				<a class="nav__item" href="{{ route('event.settings.floorplan', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
-					Grondplan
-				</a>
+				@if($organisation->subscription_id === 2 || $organisation->subscription_id === 3)
+					<a class="nav__item" href="{{ route('event.settings.floorplan', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
+						Grondplan
+					</a>
+				@endif
 				<a class="nav__item active" href="{{ route('event.settings.ticket', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
 					Ticket
 				</a>
-				<a class="nav__item" href="{{ route('event.settings.message', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
-					Berichten
-				</a>
+				@if($organisation->subscription_id === 2 || $organisation->subscription_id === 3)
+					<a class="nav__item" href="{{ route('event.settings.message', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
+						Berichten
+					</a>
+				@endif
 			</div>
 		</div>
 		
@@ -33,17 +71,29 @@
 							@svg('search')
 						</div>
 						
-						<div id="nav__search-input" style="display: none;">
-							<input class="nav__search-input form__input" type="text" placeholder="zoek jouw evenement.." autofocus>
+						<div id="nav__search-input">
+							<input class="nav__search-input" type="text" placeholder="zoek een ticket" autofocus>
 							<button class="close" id="nav__search-close">
 								<span class="hidden">sluiten</span>
 							</button>
 						</div>
 					</div>
 				</div>
-				<a class="btn is-small" href="{{ route('ticket.create', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
-					Voeg een item toe
-				</a>
+				@if( $organisation->subscription_id === 1 && $event->tickets()->count() < 1)
+					<a class="btn is-small" href="{{ route('ticket.create', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
+						Voeg een item toe
+					</a>
+				@endif
+				@if( $organisation->subscription_id === 2 && $event->tickets()->count() < 4)
+					<a class="btn is-small" href="{{ route('ticket.create', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
+						Voeg een item toe
+					</a>
+				@endif
+				@if( $organisation->subscription_id === 3)
+					<a class="btn is-small" href="{{ route('ticket.create', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
+						Voeg een item toe
+					</a>
+				@endif
 			</div>
 			
 			@if($event->tickets()->exists())
@@ -98,4 +148,17 @@
 			@endif
 		</div>
 	</div>
+	<script>
+        ( ()=> {
+            const button = document.getElementById('nav__search-icon');
+            button.addEventListener('click', () => {
+                document.getElementById('nav__search-input').classList.toggle('is-expanded');
+            });
+
+            const btn = document.getElementById('nav__search-close');
+            btn.addEventListener('click', () => {
+                document.getElementById('nav__search-input').classList.toggle('is-expanded');
+            });
+        })();
+	</script>
 @endsection
