@@ -22,33 +22,35 @@
 <body class="@yield('theme')">
     <div class="header__container {{ $event['theme'] }}">
         <header class="header">
-            <div class="nav">
-                <div class="row is-grow">
+            <a class="logo is-special row row--center is-grow" href="{{ route('event.detail.special', [ 'event_title' => $event['title'], 'event_id' => $event['id'] ]) }}">
+                @if($event->logo)
                     <img src="{{ asset('images/' . $event['logo'] ) }}" alt="">
-                    <div>
-                        {{ $event->title }}
-                    </div>
+                @endif
+                <div>
+                    {{ $event->title }}
                 </div>
-                
-                <div class="nav__bar">
-                    <a class="nav__link" href="#tickets">
+            </a>
+            <div class="nav">
+                <div class="is-grow"></div>
+                <div class="nav__bar is-special">
+                    <a class="nav__link nav__item" href="#tickets">
                         tickets
                     </a>
-                    <a class="nav__link" href="#schedule">
+                    <a class="nav__link nav__item" href="#schedule">
                         planning
                     </a>
                     
                     @guest
-                        <a class="nav__link" href="{{ route('login') }}">
+                        <a class="nav__link nav__item" href="{{ route('login') }}">
                             aanmelden
                         </a>
                     @else
                         @if(Auth::user()->role == "organisator")
-                            <a class="nav__link {{ (strpos(Route::currentRouteName(), 'org.dashboard') === 0) ? 'active' : '' }}" href="{{ route('org.dashboard', ['user_id' => Auth::user()->id]) }}">
+                            <a class="nav__link nav__item {{ (strpos(Route::currentRouteName(), 'org.dashboard') === 0) ? 'active' : '' }}" href="{{ route('org.dashboard', ['user_id' => Auth::user()->id]) }}">
                                 dashboard
                             </a>
                         @else
-                            <a class="nav__link {{ (strpos(Route::currentRouteName(), 'user.account') === 0) || (strpos(Route::currentRouteName(), 'user.events') === 0) || (strpos(Route::currentRouteName(), 'user.favorites') === 0) ? 'active' : '' }}" href="{{ route('user.account', ['user_id' => Auth::user()->id]) }}">
+                            <a class="nav__link nav__item {{ (strpos(Route::currentRouteName(), 'user.account') === 0) || (strpos(Route::currentRouteName(), 'user.events') === 0) || (strpos(Route::currentRouteName(), 'user.favorites') === 0) ? 'active' : '' }}" href="{{ route('user.account', ['user_id' => Auth::user()->id]) }}">
                                 {{ Auth::user()->name }}
                             </a>
                         @endif
@@ -86,13 +88,14 @@
         }
         
         .sub-footer {
-            background-color: {{ $event['sec_color'] }};
+            background-color: {{ $event['prim_color'] }};
+            filter: brightness(80%);
         }
     </style>
     
     <div class="footer--container {{ $event['theme'] }}">
         <footer class="footer">
-            <div class="">
+            <div class="logo is-special">
                 {{ $organisation->name }}
             </div>
             <div class="row row--stretch">
@@ -101,7 +104,7 @@
                         {{ $organisation->name }}
                     </li>
                     <li class="list__item">
-                        {{ $address->street . ', ' . $address->streetnumber }}
+                        {{ $address->street . ' ' . $address->streetnumber }}
                     </li>
                     <li class="list__item">
                         {{ $address->postalcode }} {{ $address->city }}
@@ -161,12 +164,14 @@
         <div class="sub-footer">
             <div class="sub-footer__content row row--center">
                 <div class="row">
-                    event op <a href="{{ route('index') }}" style="margin-left: 5px;">www.evento.be</a>.
+                    <span>event op <a href="{{ route('index') }}" style="margin-left: 5px; margin-right: 0;" class="link">www.evento.be</a>.</span>
+                </div>
+                <div>
+                    &copy; <span class="logo logo--xs">evento</span>
                 </div>
             </div>
         </div>
     </div>
-
 
     <script src="{{ asset('js/app.js') }}"></script>
 </body>

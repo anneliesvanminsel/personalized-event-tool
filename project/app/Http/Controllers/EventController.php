@@ -177,6 +177,7 @@ class EventController extends Controller
 			'endtime'=> 'nullable|date_format:H:i',
 			'ig-username' => 'nullable|string|max:255',
 			'logo'=> 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
+			'image'=> 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
 
 		$event = Event::find($event_id);

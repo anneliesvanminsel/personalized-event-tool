@@ -27,7 +27,7 @@
 			<ul class="list spacing-top-s">
 				<li class="list__item">
 					<h5>
-						Bezoekers (link!)
+						Bezoekers
 					</h5>
 				</li>
 				<li class="list__item">
@@ -53,7 +53,7 @@
 			<ul class="list spacing-top-s">
 				<li class="list__item">
 					<h5>
-						Bedrijven (link!)
+						Bedrijven
 					</h5>
 				</li>
 				<li class="list__item">

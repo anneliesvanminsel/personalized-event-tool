@@ -16,8 +16,8 @@ Route::get('index.php', [
 	'as' => 'index'
 ]);
 
-Route::post('searchevents', [
-    'uses' => 'GeneralController@postSearch',
+Route::get('searchevents', [
+    'uses' => 'SearchController@postSearchFilter',
     'as' => 'home.searchevents'
 ]);
 

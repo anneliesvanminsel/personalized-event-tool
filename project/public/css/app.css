@@ -470,7 +470,7 @@ span.invalid-feedback {
 .sub-footer {
   background-color: #4F2999;
   position: absolute;
-  bottom: -100px;
+  bottom: -80px;
   left: 0;
   right: 0;
   width: 100%;
@@ -995,6 +995,15 @@ button {
 .logo--xs {
   font-size: 20px;
   width: auto;
+}
+
+.logo.is-special {
+  width: auto;
+  font-family: "MontserratBlack", sans-serif;
+  letter-spacing: 2px;
+  font-size: 25px;
+  display: inline-block;
+  text-transform: uppercase;
 }
 
 .hero {

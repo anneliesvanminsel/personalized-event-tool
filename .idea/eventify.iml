@@ -17,6 +17,7 @@
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/fideloper/proxy" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/filp/whoops" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/fzaninotto/faker" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/geoip2/geoip2" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/hamcrest/hamcrest-php" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/jakub-onderka/php-console-color" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/jakub-onderka/php-console-highlighter" />
@@ -26,6 +27,8 @@
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/laravel/framework" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/laravel/tinker" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/league/flysystem" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/maxmind-db/reader" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/maxmind/web-service-common" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/mobiledetect/mobiledetectlib" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/mockery/mockery" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/monolog/monolog" />
@@ -67,6 +70,7 @@
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/sebastian/resource-operations" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/sebastian/version" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/simplesoftwareio/simple-qrcode" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/stevebauman/location" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/swiftmailer/swiftmailer" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/symfony/console" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/symfony/css-selector" />

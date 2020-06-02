@@ -40,6 +40,17 @@ class UsersTableSeeder extends Seeder
 
 		$user = new User(
 			[
+				'name' => 'Rock Werchter',
+				'email' => 'rockwerchter@bedrijf.be',
+				'password' => \Illuminate\Support\Facades\Hash::make("bedrijf"),
+				'role' => 'organisator',
+				'organisation_id' => 2
+			]
+		);
+		$user->save();
+
+		$user = new User(
+			[
 				'name' => 'Jan Peeters',
 				'email' => 'bezoeker@mail.be',
 				'password' => \Illuminate\Support\Facades\Hash::make("bedrijf"),

@@ -27,10 +27,12 @@
 		</div>
 		
 		<div class="hero__actions row">
+			<div class="is-grow"></div>
 			@if(Auth::user() && $event->organisation_id === Auth::user()->organisation_id)
 				@php
 					$organisation = $event->organisation;
 				@endphp
+			
 				<div class="item__actions row row--stretch">
 					<form
 						class="form"

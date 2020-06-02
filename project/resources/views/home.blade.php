@@ -134,7 +134,12 @@
             {{ $searchedevents->links() }}
         </div>
     </section>
-
+    
+    @php
+        $ip_address = \Request::ip();
+		$position = \Location::get($ip_address);
+    @endphp
+    
     <section class="section">
 	    <div class="row row--center">
 		    <h3>
@@ -148,9 +153,17 @@
 			    <div class="cover">
 				    <img src="{{ asset('images/brunch.jpeg') }}">
 			    </div>
-			    <div class="cover__text row">
-				    @svg('location', 'is-white is-large') Leuven
-			    </div>
+			    @if($popularevents->count() > 0)
+				    @if($position && $position->cityName)
+					    <div class="cover__text row">
+						    @svg('location', 'is-white is-large') {{ $position->cityName }}
+					    </div>
+					@else
+					    <div class="cover__text row">
+						    @svg('location', 'is-white is-large') Brussel
+					    </div>
+					@endif
+				@endif
 		    </div>
 		    @foreach($popularevents as $event)
 			    @include('partials.card', $event)

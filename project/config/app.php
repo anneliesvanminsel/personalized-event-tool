@@ -183,7 +183,7 @@ return [
 		 *
 		 */
 		Jenssegers\Date\DateServiceProvider::class,
-
+		Stevebauman\Location\LocationServiceProvider::class,
     ],
 
     /*

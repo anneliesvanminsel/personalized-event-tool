@@ -68,4 +68,12 @@
 		font-size: 20px;
 		width: auto;
 	}
+
+	&.is-special {
+		width: auto;
+		@include font-heading;
+		font-size: 25px;
+		display: inline-block;
+		text-transform: uppercase;
+	}
 }
