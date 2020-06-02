@@ -154,14 +154,17 @@ class AddressController extends Controller
 	public function updateAddressEvent($organisation_id, $event_id) {
 		$event = Event::where('id', $event_id)->first();
 		$organisation = Organisation::where('id', $organisation_id)->first();
+
 		$address = Address::where('id', $event->address_id)->first();
 
 		return view('content.address.edit-event', ['event' => $event, 'organisation' => $organisation, 'address' => $address]);
 	}
 
-	public function postUpdateAddressEvent(Request $request, $organisation_id, $event_id) {
+	public function postUpdateAddressEvent(Request $request, $organisation_id, $event_id, $address_id) {
 		$event = Event::where('id', $event_id)->first();
 		$organisation = Organisation::where('id', $organisation_id)->first();
+		$address = Address::where('id', $address_id)->first();
+
 
 		//validatie
 		$this->validate($request, [
@@ -175,8 +178,6 @@ class AddressController extends Controller
 			'country'=> 'required|string|max:255',
 			'googleframe'=> 'nullable|string',
 		]);
-
-		$address = new Address;
 
 		$address->locationname = $request->input('locationname');
 		$address->street = $request->input('street');

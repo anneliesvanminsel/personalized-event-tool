@@ -97,7 +97,7 @@
 					>
 					
 					<label for="logo" class="form__label">
-						eventlogo
+						Logo van het evenement
 					</label>
 					
 					@error('logo')
@@ -160,7 +160,7 @@
 					class="form__input optional @error('enddate') is-invalid @enderror"
 					name="enddate"
 					placeholder="bv: 14/10/2022"
-					value="{{ \Carbon\Carbon::parse($event->endate)->format('Y-m-d') }}"
+					value="{{ \Carbon\Carbon::parse($event->enddate)->format('Y-m-d') }}"
 					autocomplete="off"
 				>
 				

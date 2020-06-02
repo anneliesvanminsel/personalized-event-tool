@@ -67,15 +67,8 @@
 			<div class="row row--center">
 				<div class="is-grow" style="position: relative;">
 					<div class="nav__item expands">
-						<div class="nav__search-icon" role="button" id="nav__search-icon">
+						<div class="nav__search-icon is-disabled">
 							@svg('search')
-						</div>
-						
-						<div id="nav__search-input">
-							<input class="nav__search-input" type="text" placeholder="zoek een ticket" autofocus>
-							<button class="close" id="nav__search-close">
-								<span class="hidden">sluiten</span>
-							</button>
 						</div>
 					</div>
 				</div>
@@ -148,17 +141,4 @@
 			@endif
 		</div>
 	</div>
-	<script>
-        ( ()=> {
-            const button = document.getElementById('nav__search-icon');
-            button.addEventListener('click', () => {
-                document.getElementById('nav__search-input').classList.toggle('is-expanded');
-            });
-
-            const btn = document.getElementById('nav__search-close');
-            btn.addEventListener('click', () => {
-                document.getElementById('nav__search-input').classList.toggle('is-expanded');
-            });
-        })();
-	</script>
 @endsection
