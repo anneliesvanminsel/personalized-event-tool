@@ -102,7 +102,7 @@
 			@if($event->address()->exists())
 				<div class="row">
 					@svg('location')
-					{{ $event->address()->first()->locationname }}, {{ $event->address()->first()->city }}
+					{{ $event->address()->first()->locationname }}{{ $event->address()->first()->locationname ? ',' : '' }} {{ $event->address()->first()->city }}
 				</div>
 			@endif
 		</div>
