@@ -1,11 +1,11 @@
 @extends('layouts.organisation')
 @section('title')
-	evento - maak event
+	evento - bewerk het adres
 @endsection
 @section('content')
 	<section class="content">
 		<h2>
-			evenement aanmaken
+			evenement bewerken
 		</h2>
 		
 		<div class="section__nav nav">
@@ -24,38 +24,38 @@
 			</div>
 		</div>
 		
-		<form method="POST" action="{{ route('event.address.postcreate', ['event_id' => $event['id'], 'organisation_id' => $organisation['id']]) }}" class="form" enctype="multipart/form-data">
+		<form method="POST" action="{{ route('event.address.postupdate', ['event_id' => $event['id'], 'organisation_id' => $organisation['id'], 'address_id' => $address['id'] ]) }}" class="form" enctype="multipart/form-data">
 			@csrf
 			
 			<div class="form__group">
 				<input
-						id="locationname"
-						type="text"
-						class="form__input optional @error('locationname') is-invalid @enderror"
-						name="locationname"
-						placeholder="bv. 300CC, Begijnenhof, Zaal Rosa"
-						value="{{ old('locationname') }}"
+					id="locationname"
+					type="text"
+					class="form__input optional @error('locationname') is-invalid @enderror"
+					name="locationname"
+					placeholder="bv. 300CC, Begijnenhof, Zaal Rosa"
+					value="{{ $address->locationname }}"
 				>
 				<label for="locationname" class="form__label">
 					Naam van de locatie
 				</label>
 				
 				@error('locationname')
-					<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
+				<span class="invalid-feedback" role="alert">
+					<strong>{{ $message }}</strong>
+				</span>
 				@enderror
 			</div>
 			
 			<div class="form__group">
 				<input
-						id="street"
-						type="text"
-						class="form__input @error('street') is-invalid @enderror"
-						name="street"
-						placeholder="bv. Tervuursesteenweg"
-						value="{{ old('street') }}"
-						required
+					id="street"
+					type="text"
+					class="form__input @error('street') is-invalid @enderror"
+					name="street"
+					placeholder="bv. Tervuursesteenweg"
+					value="{{ $address->street }}"
+					required
 				>
 				<label for="street" class="form__label">
 					Straatnaam
@@ -63,21 +63,21 @@
 				
 				@error('street')
 				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
+					<strong>{{ $message }}</strong>
+				</span>
 				@enderror
 			</div>
 			
 			<div class="row row--stretch in-form">
-				<div class="form__group">
+				<div class="form__group  ">
 					<input
-							id="streetnumber"
-							type="text"
-							class="form__input @error('streetnumber') is-invalid @enderror"
-							name="streetnumber"
-							placeholder="huisnummer"
-							value="{{ old('streetnumber') }}"
-							required
+						id="streetnumber"
+						type="text"
+						class="form__input @error('streetnumber') is-invalid @enderror"
+						name="streetnumber"
+						placeholder="huisnummer"
+						value="{{ $address->streetnumber }}"
+						required
 					>
 					<label for="streetnumber" class="form__label">
 						Nummer
@@ -85,19 +85,19 @@
 					
 					@error('streetnumber')
 					<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
+					<strong>{{ $message }}</strong>
+				</span>
 					@enderror
 				</div>
 				
-				<div class="form__group">
+				<div class="form__group  ">
 					<input
-							id="box"
-							type="text"
-							class="form__input optional @error('box') is-invalid @enderror"
-							name="box"
-							placeholder="busnummer"
-							value="{{ old('box') }}"
+						id="box"
+						type="text"
+						class="form__input optional @error('box') is-invalid @enderror"
+						name="box"
+						placeholder="busnummer"
+						value="{{ $address->box }}"
 					>
 					<label for="box" class="form__label">
 						Bus
@@ -105,21 +105,21 @@
 					
 					@error('box')
 					<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
+					<strong>{{ $message }}</strong>
+				</span>
 					@enderror
 				</div>
 			</div>
 			
 			<div class="form__group">
 				<input
-						id="zipcode"
-						type="text"
-						class="form__input @error('zipcode') is-invalid @enderror"
-						name="zipcode"
-						placeholder="tussen 1000 en 9999"
-						value="{{ old('zipcode') }}"
-						required
+					id="zipcode"
+					type="text"
+					class="form__input @error('zipcode') is-invalid @enderror"
+					name="zipcode"
+					placeholder="tussen 1000 en 9999"
+					value="{{ $address->postalcode }}"
+					required
 				>
 				<label for="zipcode" class="form__label">
 					Postcode
@@ -127,20 +127,20 @@
 				
 				@error('zipcode')
 				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
+					<strong>{{ $message }}</strong>
+				</span>
 				@enderror
 			</div>
 			
 			<div class="form__group">
 				<input
-						id="city"
-						type="text"
-						class="form__input @error('city') is-invalid @enderror"
-						name="city"
-						placeholder="Bv. Leuven, Brussel, etc."
-						value="{{ old('city') }}"
-						required
+					id="city"
+					type="text"
+					class="form__input @error('city') is-invalid @enderror"
+					name="city"
+					placeholder="Bv. Leuven, Brussel, etc."
+					value="{{ $address->city }}"
+					required
 				>
 				<label for="city" class="form__label">
 					Gemeente
@@ -148,19 +148,19 @@
 				
 				@error('city')
 				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
+					<strong>{{ $message }}</strong>
+				</span>
 				@enderror
 			</div>
 			
 			<div class="form__group">
 				<input
-						id="region"
-						type="text"
-						class="form__input optional @error('region') is-invalid @enderror"
-						name="region"
-						placeholder="Bv. Vlaams-Brabant"
-						value="{{ old('region') }}"
+					id="region"
+					type="text"
+					class="form__input optional @error('region') is-invalid @enderror"
+					name="region"
+					placeholder="Bv. Vlaams-Brabant"
+					value="{{ $address->region }}"
 				>
 				<label for="region" class="form__label">
 					Regio
@@ -168,14 +168,13 @@
 				
 				@error('region')
 				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
+					<strong>{{ $message }}</strong>
+				</span>
 				@enderror
 			</div>
 			
 			<div class="form__group is-select">
 				<select class="select is-large" id="country" name="country">
-					<option value="België">-- Kies je land --</option>
 					<option value="België">België</option>
 				</select>
 				
@@ -185,19 +184,19 @@
 				
 				@error('country')
 				<span class="invalid-feedback" role="alert">
-					<strong>{{ $message }}</strong>
-				</span>
+				<strong>{{ $message }}</strong>
+			</span>
 				@enderror
 			</div>
 			
-			<div class="form__group">
+			<div class="form__group  ">
 				<input
-						id="googleframe"
-						type="text"
-						class="form__input optional @error('googleframe') is-invalid @enderror"
-						name="googleframe"
-						placeholder="Deel locatie van Google, klik op insluiten."
-						value="{{ old('googleframe') }}"
+					id="googleframe"
+					type="text"
+					class="form__input optional @error('googleframe') is-invalid @enderror"
+					name="googleframe"
+					placeholder="Deel locatie van Google, klik op insluiten."
+					value="{{ $address->googleframe }}"
 				>
 				<label for="googleframe" class="form__label">
 					Google Maps iFrame
@@ -205,8 +204,8 @@
 				
 				@error('googleframe')
 				<span class="invalid-feedback" role="alert">
-						<strong>{{ $message }}</strong>
-					</span>
+					<strong>{{ $message }}</strong>
+				</span>
 				@enderror
 			</div>
 			
@@ -216,7 +215,7 @@
 				</a>
 				
 				<button type="submit" class="btn btn--full">
-					Voeg het adres toe
+					Bewerk het adres
 				</button>
 			</div>
 		</form>

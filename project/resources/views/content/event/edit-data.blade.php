@@ -5,7 +5,7 @@
 @section('content')
 	<section class="content">
 		<h2>
-			evenement aanmaken
+			evenement bewerken
 		</h2>
 		
 		<div class="section__nav nav">
@@ -203,7 +203,6 @@
 					class="form__input @error('image') is-invalid @enderror"
 					name="image"
 					value="{{ old('image') }}"
-					required
 					autocomplete="off"
 				>
 				
@@ -269,7 +268,7 @@
 				</a>
 				
 				<button type="submit" class="btn btn--full">
-					Maak het evenement aan
+					Bewerk het evenement
 				</button>
 			</div>
 		</form>

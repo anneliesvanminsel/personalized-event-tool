@@ -3753,6 +3753,13 @@ span.round-tab:hover {
   padding-left: 30px;
 }
 
+.account .sidebar__image {
+  width: 100%;
+  max-height: 200px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
 .account .content {
   width: 100%;
   padding-left: 20px;
@@ -4081,6 +4088,26 @@ span.round-tab:hover {
 }
 
 .section .nav #nav__search-input.is-expanded .nav__search-input ::placeholder {
+  opacity: 1;
+}
+
+.section .nav #nav__search-input ::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+.section .nav #nav__search-input ::-moz-placeholder {
+  opacity: 1;
+}
+
+.section .nav #nav__search-input :-ms-input-placeholder {
+  opacity: 1;
+}
+
+.section .nav #nav__search-input ::-ms-input-placeholder {
+  opacity: 1;
+}
+
+.section .nav #nav__search-input ::placeholder {
   opacity: 1;
 }
 

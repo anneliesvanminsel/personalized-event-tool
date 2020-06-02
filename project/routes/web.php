@@ -16,7 +16,7 @@ Route::get('index.php', [
 	'as' => 'index'
 ]);
 
-Route::get('searchevents', [
+Route::any('searchevents', [
     'uses' => 'SearchController@postSearchFilter',
     'as' => 'home.searchevents'
 ]);
@@ -170,6 +170,11 @@ Route::group(['prefix' => 'admin'], function() {
 		'as' => 'org.dashboard'
 	]);
 
+	Route::any('dashboard/{user_id}/zoek-evenementen', [
+		'uses' => 'OrganisationController@postSearchEvents',
+		'as' => 'organisation.search.events'
+	]);
+
 	Route::get('organisatie/{subscription_id}/address/{organisation_id}', [
 		'uses' => 'AddressController@createAddressOrganisation',
 		'as' => 'organisation.address.create'
@@ -261,6 +266,7 @@ Route::group(['prefix' => 'admin'], function() {
 			//
 
 			Route::group(['prefix' => 'update'], function() {
+				// DATA
 				Route::get('data', [
 					'uses' => 'EventController@updateEvent',
 					'as' => 'event.update'
@@ -269,6 +275,28 @@ Route::group(['prefix' => 'admin'], function() {
 				Route::post('data/post', [
 					'uses' => 'EventController@postUpdateEvent',
 					'as' => 'event.postupdate'
+				]);
+
+				// PERSONALISATION
+				Route::get('personalisation}', [
+					'uses' => 'EventController@updateEventPersonalisation',
+					'as' => 'event.update-personalisation'
+				]);
+
+				Route::post('personalisation/post', [
+					'uses' => 'EventController@postUpdateEventPersonalisation',
+					'as' => 'event.postupdate-personalisation'
+				]);
+
+				// ADDRESS
+				Route::get('address', [
+					'uses' => 'AddressController@updateAddressEvent',
+					'as' => 'event.address.update'
+				]);
+
+				Route::post('address/{address_id}/post', [
+					'uses' => 'AddressController@postUpdateAddressEvent',
+					'as' => 'event.address.postupdate'
 				]);
 			});
 

@@ -154,8 +154,9 @@ class AddressController extends Controller
 	public function updateAddressEvent($organisation_id, $event_id) {
 		$event = Event::where('id', $event_id)->first();
 		$organisation = Organisation::where('id', $organisation_id)->first();
+		$address = Address::where('id', $event->address_id)->first();
 
-		return view('content.address.edit-event', ['event' => $event, 'organisation' => $organisation]);
+		return view('content.address.edit-event', ['event' => $event, 'organisation' => $organisation, 'address' => $address]);
 	}
 
 	public function postUpdateAddressEvent(Request $request, $organisation_id, $event_id) {

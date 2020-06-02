@@ -1,11 +1,7 @@
 <section class="sidebar" id="sidebar">
 	@if($organisation['logo'] && File::exists(public_path() . "/images/" . $organisation['logo']))
-		<div class="ctn--image">
+		<div class="ctn--image sidebar__image">
 			<img src="{{ asset('images/' . $organisation['logo'] ) }}" alt="{{ $organisation['name'] }}" loading="lazy">
-		</div>
-	@else
-		<div class="ctn--image">
-			<img src="https://placekitten.com/600/600" alt="{{ $organisation['name'] }}" loading="lazy">
 		</div>
 	@endif
 	<h3 class="sidebar__title">
@@ -15,7 +11,7 @@
 	<div class="sidebar__section">
 		<div class="sidebar__item">
 			<a
-				class="sidebar__link {{ (strpos(Route::currentRouteName(), 'org.dashboard') === 0) ? 'active' : '' }}"
+				class="sidebar__link {{ (strpos(Route::currentRouteName(), 'org.dashboard') === 0) || (strpos(Route::currentRouteName(), 'organisation.search.events') === 0) ? 'active' : '' }}"
 				href="{{ route('org.dashboard', ['user_id' => Auth::user()->id]) }}"
 			>
 				mijn evenementen
@@ -23,8 +19,7 @@
 		</div>
 		<div class="sidebar__item">
 			<a
-				class="sidebar__link is-disabled {{ (strpos(Route::currentRouteName(), 'user.favorites') === 0) ? 'active' : '' }}"
-				href=""
+				class="sidebar__link is-disabled"
 			>
 				mijn gegevens
 			</a>
@@ -43,7 +38,6 @@
 		<div class="sidebar__item">
 			<a
 				class="sidebar__link is-disabled"
-				href=""
 			>
 				instellingen
 			</a>

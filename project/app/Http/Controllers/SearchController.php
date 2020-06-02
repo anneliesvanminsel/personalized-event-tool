@@ -36,7 +36,7 @@ class SearchController extends Controller
 						->where('startdate', $date)
 						->orWhere('enddate', $date)
 						->where('published', '=', 1)
-						->where('startdate', '>', Carbon::now())
+						->where('startdate', '>=', Carbon::now())
 						->orderBy('startdate', 'asc')
 						->paginate(3, ['*'], 'search');
 				} else {
@@ -49,7 +49,7 @@ class SearchController extends Controller
 					})
 						->where('category', $type)
 						->where('published', '=', 1)
-						->where('startdate', '>', Carbon::now())
+						->where('startdate', '>=', Carbon::now())
 						->orderBy('startdate', 'asc')
 						->paginate(3, ['*'], 'search');
 				}
@@ -65,7 +65,7 @@ class SearchController extends Controller
 					->where('startdate', $date)
 					->orWhere('enddate', $date)
 					->where('published', '=', 1)
-					->where('startdate', '>', Carbon::now())
+					->where('startdate', '>=', Carbon::now())
 					->orderBy('startdate', 'asc')
 					->paginate(3, ['*'], 'search');
 			} else {
@@ -77,7 +77,7 @@ class SearchController extends Controller
 					$q->where('city', 'like', '%' . $location . '%')->orWhere('locationname', 'like', '%' . $location . '%');
 				})
 					->where('published', '=', 1)
-					->where('startdate', '>', Carbon::now())
+					->where('startdate', '>=', Carbon::now())
 					->orderBy('startdate', 'asc')
 					->paginate(3, ['*'], 'search');
 
@@ -94,7 +94,7 @@ class SearchController extends Controller
 					->where('startdate', $date)
 					->orWhere('enddate', $date)
 					->where('published', '=', 1)
-					->where('startdate', '>', Carbon::now())
+					->where('startdate', '>=', Carbon::now())
 					->orderBy('startdate', 'asc')
 					->paginate(3, ['*'], 'search');
 			} else {
@@ -103,7 +103,7 @@ class SearchController extends Controller
 
 				$searchedevents = Event::where('category', $type)
 					->where('published', '=', 1)
-					->where('startdate', '>', Carbon::now())
+					->where('startdate', '>=', Carbon::now())
 					->orderBy('startdate', 'asc')
 					->paginate(3, ['*'], 'search');
 			}
@@ -115,12 +115,12 @@ class SearchController extends Controller
 			$searchedevents = Event::where('startdate', $date)
 				->orWhere('enddate', $date)
 				->where('published', '=', 1)
-				->where('startdate', '>', Carbon::now())
+				->where('startdate', '>=', Carbon::now())
 				->orderBy('startdate', 'asc')
 				->paginate(3, ['*'], 'search');
 		} else {
 			$searchedevents = Event::where('published', '=', 1)
-				->where('startdate', '=>', Carbon::now()->format('Y-m-d'))
+				->where('startdate', '>=', Carbon::now()->format('Y-m-d'))
 				->orderBy('startdate', 'asc')
 				->paginate(3, ['*'], 'search');
 		}

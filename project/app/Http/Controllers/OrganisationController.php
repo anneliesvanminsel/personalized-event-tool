@@ -8,6 +8,7 @@ use App\Subscription;
 use Illuminate\Http\Request;
 use App\User;
 use App\Event;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 
@@ -19,10 +20,37 @@ class OrganisationController extends Controller
             $user = User::where('id', $user_id)->first();
             $organisation = Organisation::where('id', $user['organisation_id'])->first();
 
-            return view('content.organisation.dashboard', ['user' => $user, 'organisation' => $organisation]);
+			$events = $organisation->events()->where('published', '=', 1)->where('startdate', '>=', Carbon::now())->orderBy('id', 'desc')->paginate(6);
+			$drafts = $organisation->events()->where('published', '=', 0)->paginate(6);
+
+            return view('content.organisation.dashboard', ['user' => $user, 'organisation' => $organisation, 'events' => $events, 'drafts' => $drafts]);
         }
 
 	    return redirect()->route('index');
+	}
+
+	public function postSearchEvents(Request $request, $user_id) {
+		$user = User::where('id', $user_id)->first();
+		$org = Organisation::where('id', $user->organisation_id)->first();
+
+		//validatie
+		$this->validate($request, [
+			'title' => 'string|max:255'
+		]);
+
+		$title = $request->input('title');
+
+		$drafts = $org->events()->where('published', '=', 0)->paginate(6);
+
+		if($title) {
+			$events = $org->events()->where('title', 'like', '%' . $title . '%')->where('startdate', '>=', Carbon::now())->orderBy('id', 'desc')->paginate(6);
+		} else {
+			$events = $org->events()->where('published', '=', 1)->where('startdate', '>=', Carbon::now())->orderBy('id', 'desc')->paginate(6);
+		}
+
+		$events->appends(['search' => $request]);
+
+		return view('content.organisation.dashboard', ['user' => $user, 'organisation' => $org, 'events' => $events, 'drafts' => $drafts]);
 	}
 
 	public function getOrganisationDetail($id) {

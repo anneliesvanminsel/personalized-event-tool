@@ -4,6 +4,10 @@
 @endsection
 @section('content')
 	<div class="content">
+		<h2>
+			Organisatiegegevens bewerken
+		</h2>
+		
 		<div class="section__nav nav">
 			<div class="nav__tabs">
 				<p class="nav__item tab__links active">
@@ -24,9 +28,6 @@
 					<div class="container">
 						<div class="">
 							<div class="card__header">
-								<h3>
-									informatie van jouw organisatie
-								</h3>
 								<div class="tab-content spacing-top-m">
 									<div class="form__group">
 										<input
@@ -102,7 +103,7 @@
 									</div>
 									
 									<div class="spacing-top-m row row--center in-form">
-										<a href="{{ route('index') }}" class="btn is-cancel">
+										<a href="{{ route('org.dashboard', ['user_id' => Auth::user()->id]) }}" class="btn is-cancel">
 											annuleren
 										</a>
 										

@@ -25,7 +25,7 @@
 		<form
 			method="POST"
 			id="form-create"
-			action="{{ route('event.postcreate-personalisation', ['organisation_id' => $organisation->id, 'event_id' => $event->id]) }}"
+			action="{{ route('event.postupdate-personalisation', ['organisation_id' => $organisation->id, 'event_id' => $event->id]) }}"
 			class="form"
 			enctype="multipart/form-data"
 		>
@@ -38,10 +38,14 @@
 					</label>
 					
 					<div class="checkbox__wrapper">
-						<div class="row row--center">
-							<input type="radio" id="light" name="theme" value="light">
-							<label for="light">light / licht</label>
+						<div>
+							<div class="row row--center">
+								<input type="radio" id="light" name="theme" value="light">
+								<label for="light">light / licht</label>
+							</div>
+							<img src="" alt="">
 						</div>
+						
 						
 					</div>
 					
@@ -203,7 +207,7 @@
 				</a>
 				
 				<button type="submit" class="btn btn--full">
-					Maak het evenement aan
+					sla de bewerkingen op
 				</button>
 			</div>
 		</form>

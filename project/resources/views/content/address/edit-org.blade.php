@@ -1,9 +1,13 @@
 @extends('layouts.organisation')
 @section('title')
-	evento - organisatie
+	evento - organisatie bewerken
 @endsection
 @section('content')
 	<div class="content">
+		<h2>
+			Organisatiegegevens bewerken
+		</h2>
+		
 		<div class="section__nav nav">
 			<div class="nav__tabs">
 				<p class="nav__item tab__links">
@@ -16,13 +20,8 @@
 		</div>
 		
 		<div class="">
-			
 			<form method="POST" action="{{ route('organisation.address.postupdate', ['organisation_id' => $organisation['id'], 'address_id' => $address->id ]) }}" class="form" enctype="multipart/form-data">
 				@csrf
-				
-				<h2 class="spacing-top-m">
-					Adresgegevens toevoegen
-				</h2>
 				
 				<div class="form__group">
 					<input
@@ -208,12 +207,12 @@
 				
 				
 				<div class="row row--center in-form">
-					<a href="{{ route('index') }}" class="btn is-cancel">
+					<a href="{{ route('org.dashboard', ['user_id' => Auth::user()->id]) }}" class="btn is-cancel">
 						annuleren
 					</a>
 					
 					<button type="submit" class="btn btn--full">
-						Voeg het adres toe
+						Bewerk het adres
 					</button>
 				</div>
 			</form>

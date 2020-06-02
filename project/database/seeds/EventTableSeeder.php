@@ -81,6 +81,7 @@ class EventTableSeeder extends Seeder
 				"tert_color" => "#EC7063",
 				"theme" => "dark",
 				"organisation_id" => 1,
+				"address_id" => 3,
 				"shape" => "square",
 				"schedule" => "timeline",
 				"image" => "workshop-design.jpg",

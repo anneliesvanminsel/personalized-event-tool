@@ -120,7 +120,6 @@ class EventController extends Controller
 		} else {
 			return redirect()->route('event.address.create', [ 'organisation_id' => $organisation['id'], 'event_id' => $event['id'] ]);
 		}
-
 	}
 
 	public function createEventPersonalisation($organisation_id, $event_id) {
@@ -225,7 +224,11 @@ class EventController extends Controller
 
 		$event->save();
 
-		return redirect()->route('event.detail', ['id' => $event['id']]);
+		if( $org->subscription_id === 2 || $org->subscription_id === 3) {
+			return redirect()->route('event.update-personalisation', [ 'organisation_id' => $org['id'], 'event_id' => $event['id'] ]);
+		} else {
+			return redirect()->route('event.address.update', [ 'organisation_id' => $org['id'], 'event_id' => $event['id'] ]);
+		}
 	}
 
     public function EditSettings($organisation_id, $event_id) {

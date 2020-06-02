@@ -76,6 +76,10 @@
 				}
 			}
 
+			::placeholder {
+				opacity: 1;
+			}
+
 			.close {
 				position: absolute;
 				right: 10px;

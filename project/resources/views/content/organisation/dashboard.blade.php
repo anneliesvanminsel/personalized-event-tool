@@ -3,11 +3,6 @@
 	evento - dashboard
 @endsection
 @section('content')
-	@php
-		$events = $organisation->events()->where('published', '=', 1)->where('startdate', '>', \Carbon\Carbon::now())->orderBy('id', 'desc')->paginate(6);
-		$drafts = $organisation->events()->where('published', '=', 0)->paginate(6);
-	@endphp
-	
 	<section class="content">
 		<div class="row row--center">
 			<h3>
@@ -32,25 +27,44 @@
 					</div>
 					
 					<div id="nav__search-input" >
-						<input class="nav__search-input form__input" type="text" placeholder="zoek jouw evenement.." autofocus>
-						<button class="close" id="nav__search-close">
-							<span class="hidden">sluiten</span>
-						</button>
+						<form
+							action="{{ route('organisation.search.events', ['user_id' => $user->id]) }}"
+							method="post"
+						>
+							@csrf
+							<input
+								class="nav__search-input form__input"
+								name="title"
+								id="title"
+								type="text"
+								placeholder="zoek jouw evenement.."
+							>
+							<button class="close" id="nav__search-close">
+								<span class="hidden">sluiten</span>
+							</button>
+						</form>
+						
 					</div>
 				</div>
 			</div>
 		</div>
 		
 		<div class="tab__content" id="1" style="display: block;">
-			<div class="card--container has-wrap">
-				@foreach($events as $event)
-					@include('partials.card')
-				@endforeach
-			</div>
-			
-			<div>
-				{{ $events->links() }}
-			</div>
+			@if($events->count() > 0)
+				<div class="card--container has-wrap">
+					@foreach($events as $event)
+						@include('partials.card')
+					@endforeach
+				</div>
+				
+				<div>
+					{{ $events->links() }}
+				</div>
+			@else
+				<div class="card--container has-wrap">
+					Er zijn (nog) geen evenementen gevonden.
+				</div>
+			@endif
 		</div>
 		
 		
