@@ -1549,7 +1549,11 @@ input[type=color]::-webkit-color-swatch {
 }
 
 .checkbox__wrapper {
-  margin-top: 10px;
+  margin-top: 5px;
+}
+
+.checkbox__wrapper .row {
+  margin-bottom: 15px;
 }
 
 .checkbox__label {
@@ -3296,6 +3300,11 @@ span.round-tab:hover {
 
 .row.in-form > * {
   width: calc((100% / 2) - 20px);
+}
+
+.row.in-form.has-three > * {
+  width: calc((100% /3) - 10px);
+  padding: 10px;
 }
 
 .is-grow {

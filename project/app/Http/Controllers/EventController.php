@@ -93,13 +93,9 @@ class EventController extends Controller
 		$organisation = Organisation::where('id', $organisation_id)->first();
 		$user = Auth::user();
 
-		$organisation->events()->detach($event_id); //event van deze organisatie verwijderen
-		$event->organisations()->detach(); //event voor alle organisaties verwijderen
 		$event->delete(); //event echt verwijderen
 
-		//TODO: wat met alle gelinkte files van events en sessions en tickets en users etc ??
-
-		return view('content.organisation.dashboard', ['user' => $user, 'organisation' => $organisation]);
+		return redirect()->route('org.dashboard', ['user_id' => $user['id']]);
 	}
 
 	public function publishEvent($organisation_id, $event_id){
@@ -115,7 +111,7 @@ class EventController extends Controller
 
 		$event->save();
 
-		return redirect()->route('org.dashboard', ['user' => $user, 'organisation' => $organisation]);
+		return redirect()->route('org.dashboard', ['user_id' => $organisation['account_id']]);
 	}
 
     public function likeEvent($event_id){
@@ -177,17 +173,18 @@ class EventController extends Controller
 			'image'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
 		]);
 
+		$event = new Event;
+
 		$imageName = time().'.'.request()->image->getClientOriginalExtension();
 		request()->image->move(public_path('images'), $imageName);
 
 		if($request->logo) {
 			$logoName = time().'.'.request()->logo->getClientOriginalExtension();
 			request()->logo->move(public_path('images'), $logoName);
+			$event->logo = $logoName;
 		}
 
 		$boolStatus = 0;
-
-		$event = new Event;
 
 		$event->title = $request->input('title');
 		$event->ig_username = $request->input('ig-username');
@@ -196,7 +193,6 @@ class EventController extends Controller
 		$event->category = $request->input('type');
 		$event->published = (int)$boolStatus;
 		$event->image = $imageName;
-		$event->logo = $logoName;
 		$event->startdate = $request->input('startdate');
 		$event->starttime = $request->input('starttime');
 		$event->enddate = $request->input('enddate');
@@ -249,9 +245,21 @@ class EventController extends Controller
 			'schedule' => 'nullable',
 		]);
 
+		if($request->input('prim-color') === '#ffffff') {
+			$prim_color = null;
+		} else {
+			$prim_color = $request->input('prim-color');
+		}
+
+		if($request->input('sec-color') === '#ffffff') {
+			$sec_color = null;
+		} else {
+			$sec_color = $request->input('sec-color');
+		}
+
 		$event->theme = $request->input('theme');
-		$event->prim_color = $request->input('prim-color');
-		$event->sec_color = $request->input('sec-color');
+		$event->prim_color = $prim_color;
+		$event->sec_color = $sec_color;
 		$event->tert_color = $request->input('tert-color');
 		$event->shape = $request->input('shape');
 		$event->schedule = $request->input('schedule');
@@ -296,10 +304,23 @@ class EventController extends Controller
 				File::delete($image_path);
 			}
 
-			$imageName = time().'.'.request()->logo->getClientOriginalExtension();
-			request()->logo->move(public_path('images'), $imageName);
+			$logoName = time().'.'.request()->logo->getClientOriginalExtension();
+			request()->logo->move(public_path('images'), $logoName);
 
-			$event->logo = $imageName;
+			$event->logo = $logoName;
+		}
+
+		if (request()->image) {
+			$image_path = public_path() . "/images/" . $event['image'];  // Value is not URL but directory file path
+
+			if(File::exists($image_path)) {
+				File::delete($image_path);
+			}
+
+			$imageName = time().'.'.request()->image->getClientOriginalExtension();
+			request()->image->move(public_path('images'), $imageName);
+
+			$event->image = $imageName;
 		}
 
 		if($request->input('enddate')) {
@@ -343,9 +364,21 @@ class EventController extends Controller
 			'schedule' => 'nullable',
 		]);
 
+		if($request->input('prim-color') === '#ffffff') {
+			$prim_color = null;
+		} else {
+			$prim_color = $request->input('prim-color');
+		}
+
+		if($request->input('sec-color') === '#ffffff') {
+			$sec_color = null;
+		} else {
+			$sec_color = $request->input('sec-color');
+		}
+
 		$event->theme = $request->input('theme');
-		$event->prim_color = $request->input('prim-color');
-		$event->sec_color = $request->input('sec-color');
+		$event->prim_color = $prim_color;
+		$event->sec_color = $sec_color;
 		$event->shape = $request->input('shape');
 		$event->schedule = $request->input('schedule');
 
