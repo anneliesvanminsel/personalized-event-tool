@@ -36,9 +36,14 @@ class EventController extends Controller
 	}
 
     public function getEventSpecial($event_id) {
-        $event = Event::findOrFail($event_id);
+		if(Auth::user()) {
+			$event = Event::findOrFail($event_id);
 
-        return view('content.event.special', ['event' => $event]);
+			return view('content.event.special', ['event' => $event]);
+		}
+
+		return view('errors.401');
+
     }
 
 	public function createEvent($organisation_id) {

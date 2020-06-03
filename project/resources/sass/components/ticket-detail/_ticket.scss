@@ -1,9 +1,17 @@
 .ticket-detail {
+	min-height: 100vh;
+	height: auto;
+
 	.ticket {
 		display: flex;
 		height: 100%;
 		color: $black;
 		overflow: hidden;
+		flex-direction: column;
+
+		@media screen and (min-width: $breakpoint-tablet-small) {
+			flex-direction: row;
+		}
 
 		&:hover {
 			border:none;
@@ -17,7 +25,7 @@
 		&:after {
 			content: "";
 			position: absolute;
-			display: block;
+			display: none;
 			width: 110px;
 			height: 110px;
 			background: $white;
@@ -27,10 +35,10 @@
 			left: 295px;
 			z-index: 100;
 			//transform: translateY(-50%);
-		}
 
-		&:before {
-
+			@media screen and (min-width: $breakpoint-tablet-small) {
+				display: block;
+			}
 		}
 
 		&:after {
@@ -39,32 +47,96 @@
 		}
 
 		&--container {
-			height: 70vh;
-			margin: 11vh auto;
+			width: calc(100% - 40px);
+			height: auto;
+			margin: 40px 20px;
 			position: relative;
 			border: 1px solid $pink;
 			background-color: $white;
+
+			@media screen and (min-width: $breakpoint-tablet-small) {
+				height: 70vh;
+				margin: 11vh auto;
+			}
+
+			&.section {
+				padding: 0;
+			}
 		}
 
-		&__qrcode {}
+		&__qrcode {
+			width: 200px;
+			height: 200px;
+			margin: 0 auto;
+
+			@media screen and (min-width: $breakpoint-tablet-small) {
+				width: auto;
+				height: auto;
+			}
+
+			svg {
+				width: 100%;
+				height: 100%;
+			}
+		}
 
 		&__left {
-			min-width: 350px;
-			padding: 100px 30px;
+			position: relative;
 
-			background-image: linear-gradient($pink 40%, rgba(255,255,255,0) 0%);
-			background-position: right;
-			background-size: 1px 50px;
-			background-repeat: repeat-y;
+			width: 100%;
+			padding: 20px 15px;
+
+			background-image: linear-gradient(to right, $pink 40%, rgba(255,255,255,0) 0%);
+			background-position: bottom;
+			background-size: 10px 1px;
+			background-repeat: repeat-x;
 
 			text-align: center;
 			color: $black;
+
+			@media screen and (min-width: $breakpoint-tablet-small) {
+				min-width: 350px;
+				padding: 100px 30px;
+
+				background-image: linear-gradient($pink 40%, rgba(255,255,255,0) 0%);
+
+				background-position: right;
+				background-size: 1px 50px;
+				background-repeat: repeat-y;
+
+			}
+
+			&:before,
+			&:after {
+				content: "";
+				position: absolute;
+				display: block;
+				width: 50px;
+				height: 50px;
+				background: $white;
+				border-radius: 50%;
+				@include border(1px, $pink);
+				bottom: -25px;
+				left: -25px;
+				z-index: 100;
+				//transform: translateY(-50%);
+
+				@media screen and (min-width: $breakpoint-tablet-small) {
+					display: none;
+				}
+			}
+
+			&:after {
+				bottom: -25px;
+				right: -25px;
+				left: auto;
+			}
 		}
 
 		&__info {
-			width: 250px;
+			width: 300px;
 			margin: 0 auto;
-			margin-top: 40px;
+			padding: 20px 20px;
 
 			text-align: left;
 
@@ -76,8 +148,12 @@
 		}
 
 		&__content {
-			padding: 100px 80px;
+			padding: 60px 50px;
 			color: $black;
+
+			@media screen and (min-width: $breakpoint-tablet-small) {
+				padding: 100px 80px;
+			}
 		}
 
 		&__price {
