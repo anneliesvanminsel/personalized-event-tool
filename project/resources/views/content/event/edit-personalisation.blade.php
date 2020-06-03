@@ -5,7 +5,7 @@
 @section('content')
 	<section class="content">
 		<h2>
-			evenement aanmaken
+			evenement bewerken
 		</h2>
 		
 		<div class="section__nav nav">
@@ -30,31 +30,34 @@
 			enctype="multipart/form-data"
 		>
 			@csrf
-			
 			@if($organisation->subscription_id === 3)
 				<div class="fieldset">
 					<label for="theme" class="form__label">
 						thema/theme
 					</label>
 					
-					<div class="checkbox__wrapper">
-						<div>
+					<div class="row in-form">
+						<div class="checkbox__wrapper">
 							<div class="row row--center">
 								<input type="radio" id="light" name="theme" value="light" {{ $event->theme == 'light' ? 'checked' : ''   }}>
 								<label for="light">light / licht</label>
 							</div>
-							<img src="" alt="">
+							<div class="ctn--image form__image">
+								<img src="{{ asset('images/pers/light.png' ) }}" alt="">
+							</div>
 						</div>
 						
-						
-					</div>
-					
-					<div class="checkbox__wrapper">
-						<div class="row row--center">
-							<input type="radio" id="dark" name="theme" value="dark"  {{ $event->theme === 'dark' ? 'checked' : ''   }}>
-							<label for="dark">dark / donker</label>
+						<div class="checkbox__wrapper">
+							<div class="row row--center">
+								<input type="radio" id="dark" name="theme" value="dark" {{ $event->theme == 'dark' ? 'checked' : ''   }}>
+								<label for="dark">dark / donker</label>
+							</div>
+							<div class="ctn--image form__image">
+								<img src="{{ asset('images/pers/dark.png' ) }}" alt="">
+							</div>
 						</div>
 					</div>
+				
 				</div>
 			@endif
 			
@@ -65,7 +68,7 @@
 					class="form__input @error('prim-color') is-invalid @enderror"
 					name="prim-color"
 					placeholder="bv. #effeff"
-					value="{{ $event->prim_color   }}"
+					value="{{ $event->prim_color }}"
 					required
 					autofocus
 					autocomplete="off"
@@ -144,29 +147,41 @@
 			@if($organisation->subscription_id === 3)
 				<div class="fieldset">
 					<label for="schedule" class="form__label">
-						Weergave van de planning
+						Planningsweergave
 					</label>
 					
-					<div class="checkbox__wrapper">
-						<div class="row row--center">
-							<input type="radio" id="timeline" name="schedule" value="timeline" {{ $event->schedule == 'timeline' ? 'checked' : ''   }}>
-							<label for="timeline">tijdslijn</label>
+					<div class="row in-form has-three">
+						<div class="checkbox__wrapper">
+							<div class="row row--center">
+								<input type="radio" id="timeline" name="schedule" value="timeline" {{ $event->schedule == 'timeline' ? 'checked' : ''   }}>
+								<label for="timeline">tijdslijn</label>
+							</div>
+							<div class="ctn--image form__image">
+								<img src="{{ asset('images/pers/timeline.png' ) }}" alt="">
+							</div>
+						</div>
+						
+						<div class="checkbox__wrapper">
+							<div class="row row--center">
+								<input type="radio" id="table" name="schedule" value="table" {{ $event->schedule == 'table' ? 'checked' : ''   }}>
+								<label for="table">tabel</label>
+							</div>
+							<div class="ctn--image form__image">
+								<img src="{{ asset('images/pers/table.png' ) }}" alt="">
+							</div>
+						</div>
+						
+						<div class="checkbox__wrapper">
+							<div class="row row--center">
+								<input type="radio" id="timetable" name="schedule" value="timetable" {{ $event->schedule == 'timetable' ? 'checked' : ''   }}>
+								<label for="timetable">timetable</label>
+							</div>
+							<div class="ctn--image form__image">
+								<img src="{{ asset('images/pers/timetable.png' ) }}" alt="">
+							</div>
 						</div>
 					</div>
-					
-					<div class="checkbox__wrapper">
-						<div class="row row--center">
-							<input type="radio" id="table" name="schedule" value="table" {{ $event->schedule == 'table' ? 'checked' : ''   }}>
-							<label for="table">tabel</label>
-						</div>
-					</div>
-					
-					<div class="checkbox__wrapper">
-						<div class="row row--center">
-							<input type="radio" id="timetable" name="schedule" value="timetable" {{ $event->schedule == 'timetable' ? 'checked' : ''   }}>
-							<label for="timetable">timetable</label>
-						</div>
-					</div>
+				
 				</div>
 			@endif
 			

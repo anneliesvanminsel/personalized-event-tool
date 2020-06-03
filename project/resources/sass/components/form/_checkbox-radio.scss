@@ -1,6 +1,10 @@
 .checkbox {
 	&__wrapper {
-		margin-top: 10px;
+		margin-top: 5px;
+
+		.row {
+			margin-bottom: 15px;
+		}
 	}
 
 	&__label {

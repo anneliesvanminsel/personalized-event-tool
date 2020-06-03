@@ -42,6 +42,13 @@
         > * {
             width: calc((100% / 2) - 20px);
         }
+
+        &.has-three {
+            > * {
+                width: calc((100% /3) - 10px);
+                padding: $spacing-xs;
+            }
+        }
     }
 }
 

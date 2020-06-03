@@ -37,20 +37,28 @@
 						thema/theme
 					</label>
 					
-					<div class="checkbox__wrapper">
-						<div class="row row--center">
-							<input type="radio" id="light" name="theme" value="light">
-							<label for="light">light / licht</label>
+					<div class="row in-form">
+						<div class="checkbox__wrapper">
+							<div class="row row--center">
+								<input type="radio" id="light" name="theme" value="light">
+								<label for="light">light / licht</label>
+							</div>
+							<div class="ctn--image form__image">
+								<img src="{{ asset('images/pers/light.png' ) }}" alt="">
+							</div>
 						</div>
 						
-					</div>
-					
-					<div class="checkbox__wrapper">
-						<div class="row row--center">
-							<input type="radio" id="dark" name="theme" value="dark">
-							<label for="dark">dark / donker</label>
+						<div class="checkbox__wrapper">
+							<div class="row row--center">
+								<input type="radio" id="dark" name="theme" value="dark">
+								<label for="dark">dark / donker</label>
+							</div>
+							<div class="ctn--image form__image">
+								<img src="{{ asset('images/pers/dark.png' ) }}" alt="">
+							</div>
 						</div>
 					</div>
+					
 				</div>
 			@endif
 			
@@ -114,7 +122,7 @@
 				@enderror
 			</div>
 			
-			@if($organisation->subscription_id === 3)
+			@if($organisation->subscription_id === 4)
 				<div class="form__group">
 					<input
 						id="tert-color"
@@ -145,7 +153,7 @@
 				</div>
 			@endif
 			
-			@if($organisation->subscription_id === 3)
+			@if($organisation->subscription_id === 4)
 				<div class="fieldset">
 					<label for="shape" class="form__label">
 						vorm
@@ -171,29 +179,41 @@
 			@if($organisation->subscription_id === 3)
 				<div class="fieldset">
 					<label for="schedule" class="form__label">
-						vorm
+						Planningsweergave
 					</label>
 					
-					<div class="checkbox__wrapper">
-						<div class="row row--center">
-							<input type="radio" id="timeline" name="schedule" value="timeline">
-							<label for="timeline">tijdslijn</label>
+					<div class="row in-form has-three">
+						<div class="checkbox__wrapper">
+							<div class="row row--center">
+								<input type="radio" id="timeline" name="schedule" value="timeline">
+								<label for="timeline">tijdslijn</label>
+							</div>
+							<div class="ctn--image form__image">
+								<img src="{{ asset('images/pers/timeline.png' ) }}" alt="">
+							</div>
+						</div>
+						
+						<div class="checkbox__wrapper">
+							<div class="row row--center">
+								<input type="radio" id="table" name="schedule" value="table">
+								<label for="table">tabel</label>
+							</div>
+							<div class="ctn--image form__image">
+								<img src="{{ asset('images/pers/table.png' ) }}" alt="">
+							</div>
+						</div>
+						
+						<div class="checkbox__wrapper">
+							<div class="row row--center">
+								<input type="radio" id="timetable" name="schedule" value="timetable">
+								<label for="timetable">timetable</label>
+							</div>
+							<div class="ctn--image form__image">
+								<img src="{{ asset('images/pers/timetable.png' ) }}" alt="">
+							</div>
 						</div>
 					</div>
 					
-					<div class="checkbox__wrapper">
-						<div class="row row--center">
-							<input type="radio" id="table" name="schedule" value="table">
-							<label for="table">tabel</label>
-						</div>
-					</div>
-					
-					<div class="checkbox__wrapper">
-						<div class="row row--center">
-							<input type="radio" id="timetable" name="schedule" value="timetable">
-							<label for="timetable">timetable</label>
-						</div>
-					</div>
 				</div>
 			@endif
 			
