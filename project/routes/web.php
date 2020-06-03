@@ -86,75 +86,88 @@ Auth::routes();
 |--------------------------------------------------------------------------
 */
 Route::group(['prefix' => 'user'], function() {
-    Route::get('event/{event_id}/{ticket_id}/buyticket', [
-        'uses' => 'TicketController@buyEventTicket',
-        'as' => 'ticket.payment'
-    ]);
 
-    Route::post('event/{event_id}/{ticket_id}/buyticket/post', [
-        'uses' => 'TicketController@postBuyEventTicket',
-        'as' => 'ticket.postpayment'
-    ]);
+	Route::group(['prefix' => 'event/{event_id}'], function() {
 
-	Route::get('account/{user_id}/bewerken', [
-		'uses' => 'GeneralController@getAccountEdit',
-		'as' => 'user.edit'
-	]);
+		Route::post('like', [
+			'uses' => 'EventController@likeEvent',
+			'as' => 'event.like'
+		]);
 
-    Route::get('account/{user_id}/tickets', [
-        'uses' => 'GeneralController@getAccount',
-        'as' => 'user.account'
-    ]);
+		Route::post('save', [
+			'uses' => 'EventController@saveEvent',
+			'as' => 'event.save'
+		]);
 
-	Route::get('account/{user_id}/evenementen', [
-		'uses' => 'GeneralController@getAccountEvent',
-		'as' => 'user.events'
-	]);
+		Route::get('special', [
+			'uses' => 'EventController@getEventSpecial',
+			'as' => 'event.special'
+		]);
 
-	Route::get('account/{user_id}/favorieten', [
-		'uses' => 'GeneralController@getAccountFav',
-		'as' => 'user.favorites'
-	]);
+		Route::get('special/floorplan', [
+			'uses' => 'FloorplanController@getFloorplanSpecial',
+			'as' => 'floorplan.special'
+		]);
 
-    Route::get('ticket/{event_id}/{ticket_id}/detail', [
-        'uses' => 'TicketController@getTicket',
-        'as' => 'ticket.detail'
-    ]);
+		Route::get('special/schedule', [
+			'uses' => 'ScheduleController@getScheduleSpecial',
+			'as' => 'schedule.special'
+		]);
 
-    Route::get('ticket/{ticket_id}/{user_id}/post', [
-        'uses' => 'TicketController@scanTicket',
-        'as' => 'ticket.scan'
-    ]);
+		Route::get('special/messages', [
+			'uses' => 'MessageController@getMessageSpecial',
+			'as' => 'message.special'
+		]);
 
-    Route::post('event/{event_id}/like', [
-        'uses' => 'EventController@likeEvent',
-        'as' => 'event.like'
-    ]);
+		Route::group(['prefix' => 'ticket/{ticket_id}'], function() {
+			Route::get('buyticket', [
+				'uses' => 'TicketController@buyEventTicket',
+				'as' => 'ticket.payment'
+			]);
 
-	Route::post('event/{event_id}/save', [
-		'uses' => 'EventController@saveEvent',
-		'as' => 'event.save'
-	]);
+			Route::post('buyticket/post', [
+				'uses' => 'TicketController@postBuyEventTicket',
+				'as' => 'ticket.postpayment'
+			]);
 
-    Route::get('event/special/{event_id}', [
-        'uses' => 'EventController@getEventSpecial',
-        'as' => 'event.special'
-    ]);
+			Route::get('detail', [
+				'uses' => 'TicketController@getTicket',
+				'as' => 'ticket.detail'
+			]);
 
-    Route::get('floorplan/special/{event_id}', [
-        'uses' => 'FloorplanController@getFloorplanSpecial',
-        'as' => 'floorplan.special'
-    ]);
+			Route::get('scan', [
+				'uses' => 'TicketController@scanTicket',
+				'as' => 'ticket.scan'
+			]);
+		});
+	});
 
-    Route::get('schedule/special/{event_id}', [
-        'uses' => 'ScheduleController@getScheduleSpecial',
-        'as' => 'schedule.special'
-    ]);
+	Route::group(['prefix' => 'account/{user_id}'], function() {
+		Route::get('bewerken', [
+			'uses' => 'GeneralController@getAccountEdit',
+			'as' => 'user.edit'
+		]);
 
-    Route::get('messages/special/{event_id}', [
-        'uses' => 'MessageController@getMessageSpecial',
-        'as' => 'message.special'
-    ]);
+		Route::post('bewerken/post', [
+			'uses' => 'GeneralController@postAccountEdit',
+			'as' => 'user.postedit'
+		]);
+
+		Route::get('tickets', [
+			'uses' => 'GeneralController@getAccount',
+			'as' => 'user.account'
+		]);
+
+		Route::get('evenementen', [
+			'uses' => 'GeneralController@getAccountEvent',
+			'as' => 'user.events'
+		]);
+
+		Route::get('favorieten', [
+			'uses' => 'GeneralController@getAccountFav',
+			'as' => 'user.favorites'
+		]);
+	});
 });
 
 /*

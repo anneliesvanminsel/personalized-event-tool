@@ -66,7 +66,7 @@ input:focus + label,
 textarea:not(:placeholder-shown) + label,
 textarea:focus + label {
 	max-width: fit-content;
-	transform: translate(15px, 10px) scale(.9);
+	transform: translate(4px, 10px) scale(.9);
 	background-color: white;
 	padding: 0 $spacing-xs;
 	width: auto;
@@ -74,7 +74,7 @@ textarea:focus + label {
 
 input[type=date]:not(:placeholder-shown) + label,
 input[type=date]:focus + label {
-	transform: translate(-5px, 10px) scale(0.9);
+	transform: translate(4px, 10px) scale(0.9);
 }
 
 input[type=file]:not(:placeholder-shown) + label,

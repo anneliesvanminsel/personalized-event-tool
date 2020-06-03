@@ -3,7 +3,7 @@
 	evento - {{ $event['title'] }}
 @endsection
 @section('content')
-	<div class="page special" style="background-color: {{ $event['bkgcolor'] }}; color: {{ $event['textcolor'] }}">
+	<div class="page special">
 		<style>
 			.header .nav__link {
 				color: {{ $event['textcolor'] }}
@@ -17,21 +17,21 @@
 				border: none;
 				width: auto;
 				background-color: {{ $event['textcolor'] }};
-				color: {{ $event['bkgcolor'] }}
+				color: {{ $event['prim_color'] }}
 			}
 			
 			.btn:hover {
 				border: none;
 				background-color: {{ $event['textcolor'] }};
-				color: {{ $event['bkgcolor'] }};
+				color: {{ $event['prim_color'] }};
 			}
 			
 			.special__svg svg {
-				fill: {{ $event['bkgcolor'] }};
+				fill: {{ $event['prim_color'] }};
 			}
 			
 			.btn:hover svg {
-				fill: {{ $event['bkgcolor'] }};
+				fill: {{ $event['prim_color'] }};
 			}
 			
 			.tab {
@@ -39,22 +39,14 @@
 			}
 			
 			.tab__button.active {
-				background-color:{{ $event['bkgcolor'] }};
+				background-color:{{ $event['prim_color'] }};
 				color: {{ $event['textcolor'] }};
 			}
 			
 			.table__item:nth-child(odd) {
-				background-color: {{ $event['bkgcolor'] }}55; /* laatste twee cijfers zijn opacity*/
+				background-color: {{ $event['prim_color'] }}55; /* laatste twee cijfers zijn opacity*/
 			}
 		</style>
-		
-		<section class="page-alignment spacing-top-m">
-			<h1 class="center">
-				<a href="{{ route('event.special', ['event' => $event['id']] ) }}">
-					{{ $event['title'] }}
-				</a>
-			</h1>
-		</section>
 		
 		<section class="special__content row row--stretch">
 			<div class="tab spacing-top-s">

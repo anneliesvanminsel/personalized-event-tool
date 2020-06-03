@@ -33,8 +33,8 @@
 	<div>
 		<div class="sidebar__item">
 			<a
-				class="sidebar__link {{ (strpos(Route::currentRouteName(), 'user.account') === 0) ? 'active' : '' }}"
-				href="{{ route('user.account', ['user_id' => Auth::user()->id]) }}"
+				class="sidebar__link {{ (strpos(Route::currentRouteName(), 'user.edit') === 0) ? 'active' : '' }}"
+				href="{{ route('user.edit', ['user_id' => Auth::user()->id]) }}"
 			>
 				account bewerken
 			</a>
@@ -43,7 +43,6 @@
 			<a
 				class="sidebar__link is-disabled"
 				href="#"
-				disabled
 			>
 				account instellingen
 			</a>
