@@ -35,6 +35,7 @@
 				<div class="form__group">
 					<input
 						type="text"
+						class="form__input is-optional"
 						placeholder="bv. combiticket, dagticket"
 						name="type"
 						id="type"
@@ -68,6 +69,7 @@
 							placeholder="Bv. 200, 150, 25, ..."
 							name="totaltickets"
 							id="totaltickets"
+							class="form__input optional"
 							value="{{ old('totaltickets') }}"
 					>
 					<label for="totaltickets" class="form__label">
@@ -78,11 +80,10 @@
 				<div class="form__group">
 					<input
 							type="date"
-							placeholder="{{ $event['starttime'] }}"
 							name="date"
 							id="date"
 							required
-							value="{{ $event['starttime'] }}"
+							value="{{ \Carbon\Carbon::parse($event['startdate'])->format('Y-m-d') }}"
 					>
 					<label for="date" class="form__label">
 						Datum van het ticket
@@ -110,7 +111,7 @@
 			        };
 				</script>
 				
-				<div class="row spacing-top-s">
+				<div class="row in-form">
 					<a class="btn is-cancel" href="{{ route('event.settings.ticket', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
 						Sluiten
 					</a>

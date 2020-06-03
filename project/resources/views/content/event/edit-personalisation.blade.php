@@ -96,7 +96,7 @@
 					class="form__input optional @error('sec-color') is-invalid @enderror"
 					name="sec-color"
 					placeholder="bv. #effeff"
-					value="{{ $event->sec_color }}"
+					value="{{ $event->sec_color ? $event->sec_color : ''}}"
 					required
 					autofocus
 					autocomplete="off"

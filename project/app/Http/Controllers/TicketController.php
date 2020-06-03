@@ -53,7 +53,7 @@ class TicketController extends Controller
             'type'=> 'nullable|string',
             'date'=> 'required|date',
             'price'=> 'required|regex:/^\d*(\.\d{2})?$/',
-            'totaltickets'=> 'required|string',
+            'totaltickets'=> 'nullable|string',
         ]);
 
         $ticket = new Ticket;

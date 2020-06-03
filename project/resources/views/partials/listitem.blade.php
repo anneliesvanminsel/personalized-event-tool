@@ -66,7 +66,7 @@
 						{{ csrf_field() }}
 						@if(Auth::user() && $event->savedusers->contains(Auth::user()->id))
 							<button title="download" class="button is-icon" type="submit">
-								@svg('download', 'is-btn')
+								@svg('check', 'is-btn')
 							</button>
 						@else
 							<button title="download" class="button is-icon" type="submit">

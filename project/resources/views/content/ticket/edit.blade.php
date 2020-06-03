@@ -109,7 +109,7 @@
                     };
 				</script>
 				
-				<div class="row spacing-top-s">
+				<div class="row in-form">
 					<a class="btn is-cancel" href="{{ route('event.settings.ticket', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
 						Sluiten
 					</a>
