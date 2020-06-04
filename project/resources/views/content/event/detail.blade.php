@@ -210,9 +210,12 @@
 			color: {{ $event['sec_color'] }};
 		}
 		
-		.tab__button.active {
+		.tab__heading .tab__button.active {
 			color: {{ $event['prim_color'] }};
-			border-color: {{ $event['prim_color'] }};
+		}
+		
+		.tab__heading .tab__button.active:after {
+			background-color: {{ $event['prim_color'] }};
 		}
 		
 		.tab__heading.dark .tab__button {
@@ -221,15 +224,30 @@
 		
 		.tab__heading.dark .tab__button.active {
 			color: {{ $event['prim_color'] }};
-			border-color: {{ $event['prim_color'] }};
+		}
+		
+		.tab__heading.dark .tab__button.active:after {
+			background-color: {{ $event['prim_color'] }};
 		}
 	</style>
 	
 	@if($event->sessions()->exists())
+		@php
+			if($event->schedule === 'timetable') {
+				$sessions = $event->sessions()->orderBy('date', 'asc')->paginate(5);
+			} else {
+				$sessions = $event->sessions()->orderBy('date', 'asc')->paginate(10);
+			}
+		@endphp
+		
 		<section class="section schedule {{ $event['theme'] }}">
-			<h3 class="schedule__title">
-				Planning
-			</h3>
+			<div class="row row--center">
+				<h3 class="schedule__title">
+					Planning
+				</h3>
+				{{ $sessions->links('vendor.pagination.simple') }}
+			</div>
+			
 			@if($event->schedule === 'timeline')
 				@include('content.schedule.timeline')
 			@elseif($event->schedule === 'timetable')
@@ -237,7 +255,6 @@
 			@else
 				@include('content.schedule.table')
 			@endif
-			
 		</section>
 	@endif
 	

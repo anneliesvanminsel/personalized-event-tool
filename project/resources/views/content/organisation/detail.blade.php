@@ -8,29 +8,38 @@
 @endsection
 
 @section('content')
-	<section class="section">
-		<h2>
-			{{ $organisation['name'] }}
-		</h2>
-		<div class="row row--stretch">
-			<div class="is-grow">
-				{{ $organisation['description'] }}
+	<section class="section org-heading">
+		
+		<div class="org-heading__row row row--stretch">
+			<div class="org-heading__head">
+				<div class="row">
+					<a href="{{ url()->previous() }}">
+						@svg('left')
+					</a>
+					<h2 class="org-heading__title">
+						{{ $organisation['name'] }}
+					</h2>
+				</div>
+				
+				<div class="org-heading__description is-grow">
+					{{ $organisation['description'] }}
+				</div>
 			</div>
-			<div class="org-heading">
-				@if($organisation['logo'] && File::exists(public_path() . "/images/" . $organisation['logo']))
-					<div class="ctn--image">
+			
+			<div class="org-heading__content">
+				<div class="ctn--image org-heading__image">
+					@if($organisation['logo'] && File::exists(public_path() . "/images/" . $organisation['logo']))
 						<img src="{{ asset('images/' . $organisation['logo'] ) }}" alt="{{ $organisation['name'] }}" loading="lazy">
-					</div>
-				@else
-					<div class="ctn--image">
+					@else
 						<img src="https://placekitten.com/600/600" alt="{{ $organisation['name'] }}" loading="lazy">
-					</div>
-				@endif
+					@endif
+				</div>
+				
 				@if($organisation->address()->first())
 					@php
 						$address = $organisation->address()->first();
 					@endphp
-					<div class="spacing-top-s">
+					<div class="org-heading__address">
 						@if( $address->locationname)
 							<p>
 								{{ $address->locationname }}
@@ -62,7 +71,7 @@
 			<h3>
 				Onze evenementen
 			</h3>
-			<div class="list">
+			<div class="list" style="margin-top: 0;">
 				@foreach($organisation->events()->where('published', '=', 1)->orderBy('starttime', 'ASC')->get() as $event)
 					@include('partials.listitem', $event)
 				@endforeach
@@ -75,19 +84,16 @@
 			<h3 class="is-grow">
 				Meningen van onze bezoekers
 			</h3>
-			<a href="#" class="btn is-disabled">
-				Laat een bericht achter
-			</a>
 		</div>
 		
-		<div class="list review">
+		<div class="review">
 			<div class="review__item is-blue">
 				<div class="review__title row row--stretch is-mobile">
 					<h5 class="is-grow">
 						Fijne sfeer en fijne mensen!
 					</h5>
 					<div class="row row--stretch is-mobile">
-						@svg('star')
+						@svg('star-full') @svg('star-full') @svg('star-full') @svg('star-full') @svg('star')
 					</div>
 				</div>
 				<div class="review__text">
@@ -99,16 +105,15 @@
 			<div class="review__item is-blue">
 				<div class="review__title row row--stretch is-mobile">
 					<h5 class="is-grow">
-						Titel
+						Goede feestjes maar te duur...
 					</h5>
 					<div class="row row--stretch is-mobile">
-						@svg('star') @svg('star')
+						@svg('star-full') @svg('star-full') @svg('star-full') @svg('star') @svg('star')
 					</div>
 				</div>
 				<div class="review__text">
-					Cupcake lollipop chocolate. Dessert chupa chups cotton candy brownie dessert. Tootsie roll sesame
-					snaps pie sesame snaps candy canes jelly-o biscuit topping. Soufflé sesame snaps tootsie roll gummies
-					croissant pastry. Biscuit candy biscuit jujubes gingerbread muffin cotton candy cake.
+					De sfeer, de muziek en al is zeer goed. Goede feestjes zijn altijd duurder maar dit gaat er soms wel over.
+					Ook de prijs van drank en toiletten is er soms wel erg hoog!
 				</div>
 			</div>
 			
@@ -118,7 +123,7 @@
 						VUILE DIEVEN HEBBE MIJN HANDTAS GESTOLEN
 					</h5>
 					<div class="row row--stretch is-mobile">
-						@svg('star') @svg('star') @svg('star') @svg('star')
+						@svg('star-full') @svg('star') @svg('star') @svg('star') @svg('star')
 					</div>
 				</div>
 				<div class="review__text">

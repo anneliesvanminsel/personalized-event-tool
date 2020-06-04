@@ -1,0 +1,68 @@
+.org-heading {
+	margin-top: 20px;
+	margin-bottom: 20px;
+
+	@media screen and (min-width: $breakpoint-tablet-small) {
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
+
+	&__head {
+		width: 100%;
+
+		@media screen and (min-width: $breakpoint-mobile) {
+			width: auto;
+		}
+	}
+
+	&__content {
+		width: 100%;
+
+		@media screen and (min-width: $breakpoint-mobile) {
+			max-width: calc(100% / 2);
+			min-width: 200px;
+			margin-left: 20px;
+		}
+
+		@media screen and (min-width: $breakpoint-tablet-small) {
+			max-width: 200px;
+			margin-left: 20px;
+		}
+	}
+
+	&__address {
+		> p {
+			margin-top: 5px;
+
+			&:first-child {
+				margin-top: 20px;
+			}
+		}
+	}
+
+	&__description {}
+
+	&__image {
+		display: none;
+
+		@media screen and (min-width: $breakpoint-mobile) {
+			display: block;
+		}
+	}
+
+	&__row {
+		flex-direction: column !important;
+
+		@media screen and (min-width: $breakpoint-mobile) {
+			flex-direction: row !important;
+		}
+
+		&.row--stretch {
+			align-items: flex-start;
+		}
+	}
+
+	&__title {
+		padding-top: 0;
+	}
+}

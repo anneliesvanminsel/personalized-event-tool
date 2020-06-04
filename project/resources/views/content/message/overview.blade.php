@@ -73,7 +73,7 @@
 					</div>
 				</div>
 				<a class="btn is-small" href="{{ route('message.create', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
-					Voeg een item toe
+					Voeg item toe
 				</a>
 			</div>
 			

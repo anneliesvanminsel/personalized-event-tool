@@ -1,6 +1,6 @@
 <div class="tab spacing-top-s">
 	<div class="tab__heading" id="scrollbar">
-		@foreach($event->sessions()->get() as $session)
+		@foreach($sessions as $session)
 			<button class="tab__button tab__links {{$loop->iteration === 1 ? 'active' : ''}}" onclick="openTabs(event, {{ $session['id'] }})">
 				{{ date('d/m', strtotime( $session['date'])) }}
 			</button>
@@ -8,7 +8,7 @@
 	</div>
 	
 	<div id="tab__container">
-		@foreach($event->sessions()->get() as $session)
+		@foreach($sessions as $session)
 			<div class="tab__content table" id="{{ $session['id'] }}" {{$loop->iteration === 1 ? 'style=display:'.'block' : ''}}>
 				@if($session->schedules()->exists())
 					<div class="table__heading row row--stretch is-mobile" style="border-color: {{ $event['bkgcolor'] }}">
@@ -34,7 +34,7 @@
 								</div>
 								
 								@if($sched['image'] && File::exists(public_path() . "/images/" . $sched['image']))
-									<div class="item__image">
+									<div class="ctn--image item__image">
 										<img src="{{ asset('images/' . $sched['image'] ) }}" alt="{{ $sched['title'] }}" loading="lazy">
 									</div>
 								@else
@@ -50,8 +50,8 @@
 									</p>
 								</div>
 								
-								<div class="item__location row">
-									@svg('location') {{ $sched['location'] }}
+								<div class="item__location row row--center">
+									@svg('location') The Ginger Studio, Brussel
 								</div>
 							</div>
 						@endforeach

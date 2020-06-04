@@ -184,6 +184,7 @@ return [
 		 */
 		Jenssegers\Date\DateServiceProvider::class,
 		Stevebauman\Location\LocationServiceProvider::class,
+		MaddHatter\LaravelFullcalendar\ServiceProvider::class,
     ],
 
     /*
@@ -238,6 +239,7 @@ return [
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
 
 		'Date' => Jenssegers\Date\Date::class,
+		'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
     ],
 
 ];

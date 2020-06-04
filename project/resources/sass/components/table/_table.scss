@@ -2,25 +2,44 @@
 	margin-top: $spacing-s;
 
 	&__heading {
-		padding: $spacing-xs $spacing-s;
+		display: none !important;
 
-		@include font-heading;
-		font-size: 20px;
+		@media screen and (min-width: $breakpoint-tablet-small) {
+			display: flex !important;
 
-		border-bottom: 1px solid $grey;
+			padding: $spacing-xs $spacing-s;
 
-	  & > * {
-		width: calc(100% / 3);
-	  }
+			@include font-heading;
+			font-size: 20px;
+
+			border-bottom: 1px solid $grey;
+		}
+
+
+
+		& > * {
+			width: calc(100% / 3);
+		}
+
+		.item__time {
+			text-align: left !important;
+			width: 50px;
+		}
 	}
 
 	&__content {
-		max-height: 600px;
-		overflow-y: scroll;
+		@media screen and (min-width: $breakpoint-tablet-small) {
+			max-height: 600px;
+		}
 	}
 
 	.item {
 		padding: $spacing-ms $spacing-s;
+		flex-direction: column;
+
+		@media screen and (min-width: $breakpoint-tablet-small) {
+			flex-direction: row;
+		}
 
 		&:nth-child(odd){
 			background-color: rgba($blue, .2);
@@ -31,18 +50,45 @@
 		}
 
 		&__time {
-		  width: 80px;
-		  text-align: center;
-		  margin-right: $spacing-s;
+			width: 100%;
+			margin-bottom: 5px;
+
+			@media screen and (max-width: $breakpoint-tablet-small) {
+				br{
+					content:' ';
+
+					&:after {
+						content:' ';
+					}
+				}
+			}
+
+			@media screen and (min-width: $breakpoint-tablet-small) {
+				max-width: 50px;
+				width: 50px;
+				text-align: center;
+				margin-right: $spacing-s;
+				margin-bottom: 0;
+			}
 		}
 
 		&__image {
-			width: 60px;
-			height: 60px;
-			border-radius: 50%;
+			position: relative;
+			width: 100%;
+			height: 100px;
 			border: 1px solid $blue;
 			overflow: hidden;
-			margin-right: $spacing-s;
+			margin-bottom: 10px;
+
+			flex-shrink: 0;
+
+			@media screen and (min-width: $breakpoint-tablet-small) {
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+				margin-right: $spacing-s;
+				margin-bottom: 0;
+			}
 
 			&.is-hidden {
 				height: 10px;
@@ -50,25 +96,51 @@
 			}
 
 			img {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+
 				min-width: 100%;
 				max-width: 100px;
 				width: auto;
 				min-height: 100%;
-				max-height: 100px;
+				max-height: 600px;
 				height: auto;
+
+				@media screen and (min-width: $breakpoint-tablet-small) {
+					max-height: 100px;
+				}
 			}
 		}
 
 		&__content {
 			flex-grow: 1;
+			width: 100%;
+			margin-bottom: 20px;
+
+			@media screen and (min-width: $breakpoint-tablet-small) {
+				max-width: 600px;
+				width: 300px;
+				margin-right: 20px;
+			}
 		}
 
 		&__title {
 			padding-top: 0;
+
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
 
 		&__location {
-			width: 180px;
+			width: 100%;
+			flex-shrink: 0;
+
+			@media screen and (min-width: $breakpoint-tablet-small) {
+				width: 180px;
+			}
 		}
 	}
 }

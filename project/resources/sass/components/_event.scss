@@ -8,3 +8,13 @@
   opacity: .5;
   cursor: not-allowed;
 }
+
+.dark {
+  .pagination {
+    color: $white;
+
+    svg {
+      fill: $white;
+    }
+  }
+}

@@ -1,3 +1,105 @@
 .timetable {
+	background-color: transparent;
+	overflow-x: scroll;
 
+	@media screen and (min-width: $breakpoint-tablet) {
+		overflow: hidden;
+	}
+
+	&__column {
+		min-width: 100%;
+		flex-grow: 1;
+		flex-shrink: 1;
+		margin: 0 5px;
+
+		@media screen and (min-width: $breakpoint-mobile) {
+			min-width: calc(100% / 2);
+		}
+
+		@media screen and (min-width: $breakpoint-tablet-small) {
+			min-width: calc(100% / 4);
+		}
+
+		@media screen and (min-width: $breakpoint-tablet) {
+			min-width: auto;
+			width: calc(100% / 5);
+		}
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		&:nth-child(odd) {
+			.item {
+				border: 1px solid $blue;
+				//background-color: $blue;
+			}
+		}
+
+		&:nth-child(even) {
+			.item {
+				border: 1px solid $pink;
+				//background-color: $pink;
+			}
+		}
+	}
+
+	&__heading {
+		@include font-heading;
+		font-size: 20px;
+		padding: 10px 0;
+		margin-bottom: 20px;
+
+		text-align: center;
+		text-transform: uppercase;
+
+		vertical-align: center;
+		border-bottom: 1px solid $grey;
+	}
+
+	.item {
+		position: relative;
+
+		margin-bottom: 10px;
+		padding: 15px 20px;
+
+		&__time {
+			font-size: 14px;
+		}
+
+		&__content {}
+
+		&__title {
+			@include font-heading;
+			font-size: 16px;
+			margin: 10px 0;
+
+			text-transform: uppercase;
+		}
+
+		&__description {
+			font-size: 14px;
+		}
+
+		&__location {
+			margin-top: 10px;
+			font-size: 14px;
+		}
+	}
+
+	&.dark {
+		color: $white;
+
+		.item {
+			background-color: $dark-grey;
+		}
+
+		svg {
+			fill: $white;
+		}
+	}
 }

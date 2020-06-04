@@ -14,7 +14,7 @@
 
 <div class="tab spacing-top-s">
 	<div class="tab__heading {{ (strpos(Route::currentRouteName(), 'event.settings.schedule') === 0) ? '' : $event['theme'] }}">
-		@foreach($event->sessions()->get() as $session)
+		@foreach($sessions as $session)
 			<button class="tab__button tab__links {{$loop->iteration === 1 ? 'active' : ''}}" onclick="openTabs(event, {{ $session['id'] }})">
 				{{ date('d/m', strtotime( $session['date'])) }}
 			</button>
@@ -22,7 +22,7 @@
 	</div>
 	
 	<div id="tab__container">
-		@foreach($event->sessions()->get() as $session)
+		@foreach($sessions as $session)
 			<div class="tab__content {{ (strpos(Route::currentRouteName(), 'event.settings.schedule') === 0) ? '' : $event['theme'] }}" id="{{ $session['id'] }}" {{$loop->iteration === 1 ? 'style=display:'.'block' : ''}}>
 				@if($session->schedules()->exists())
 					<div class="timeline {{ (strpos(Route::currentRouteName(), 'event.settings.schedule') === 0) ? '' : $event['theme'] }}" id="scrollbar">

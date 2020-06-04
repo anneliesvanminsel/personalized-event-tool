@@ -27,6 +27,7 @@
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/laravel/framework" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/laravel/tinker" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/league/flysystem" />
+      <excludeFolder url="file://$MODULE_DIR$/project/vendor/maddhatter/laravel-fullcalendar" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/maxmind-db/reader" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/maxmind/web-service-common" />
       <excludeFolder url="file://$MODULE_DIR$/project/vendor/mobiledetect/mobiledetectlib" />

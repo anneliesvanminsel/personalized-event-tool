@@ -96,6 +96,7 @@
       <path value="$PROJECT_DIR$/project/vendor/maxmind/web-service-common" />
       <path value="$PROJECT_DIR$/project/vendor/maxmind-db/reader" />
       <path value="$PROJECT_DIR$/project/vendor/stevebauman/location" />
+      <path value="$PROJECT_DIR$/project/vendor/maddhatter/laravel-fullcalendar" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />

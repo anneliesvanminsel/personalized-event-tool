@@ -10,7 +10,6 @@
     padding-bottom: -1px;
     border-bottom: 1px solid $grey;
     margin-bottom: 30px;
-    overflow-x: scroll;
 
     &.dark {
       border-bottom: 1px solid $white;
@@ -25,7 +24,10 @@
         &.active {
           color: $blue;
           font-weight: 900;
-          border-bottom: 1px $blue solid;
+
+          &:after {
+            background-color: $blue;
+          }
         }
       }
     }
@@ -83,7 +85,15 @@
     &.active {
       color: $purple;
       font-weight: 900;
-      border-bottom: 1px $purple solid;
+
+      &:after {
+        @include pseudo;
+        height: 1px;
+        width: 100%;
+        left: 0;
+        bottom: -1px;
+        background-color: $purple;
+      }
     }
   }
 

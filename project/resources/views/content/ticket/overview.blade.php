@@ -84,7 +84,7 @@
 				@endif
 				@if( $organisation->subscription_id === 3)
 					<a class="btn is-small" href="{{ route('ticket.create', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
-						Voeg een item toe
+						Voeg item toe
 					</a>
 				@endif
 			</div>

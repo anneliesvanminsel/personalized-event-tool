@@ -11,6 +11,11 @@ Route::get('/', [
 	'as' => 'index'
 ]);
 
+Route::get('/calendar', [
+	'uses' => 'CalendarController@getIndex',
+	'as' => 'calendar'
+]);
+
 Route::get('index.php', [
 	'uses' => 'GeneralController@getIndex',
 	'as' => 'index'

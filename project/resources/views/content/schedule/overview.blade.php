@@ -73,11 +73,19 @@
 					</div>
 				</div>
 				<a class="btn is-small" href="{{ route('schedule.create', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
-					Voeg een item toe
+					Voeg item toe
 				</a>
 			</div>
 				
 			@if($event->sessions()->exists())
+				@php
+					if($event->schedule === 'timetable') {
+						$sessions = $event->sessions()->orderBy('date', 'asc')->paginate(5);
+					} else {
+						$sessions = $event->sessions()->orderBy('date', 'asc')->paginate(10);
+					}
+				@endphp
+			
 				<section class="section schedule">
 					@if($event->schedule === 'timeline')
 						@include('content.schedule.timeline')
