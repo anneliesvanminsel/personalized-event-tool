@@ -53,6 +53,7 @@ class AddressController extends Controller
         $address->address()->associate($organisation);
         $address->save();
 
+		$organisation->address_id = $address['id'];
         $organisation->save();
 
         return redirect()->route('org.dashboard', ['user_id' => $user['id']]);
@@ -99,6 +100,7 @@ class AddressController extends Controller
         $address->address()->associate($event);
         $address->save();
 
+		$event->address_id = $address['id'];
         $event->save();
 
         return redirect()->route('event.detail', ['event_id' => $event['id']]);
@@ -141,9 +143,6 @@ class AddressController extends Controller
 		$address->country = $request->input('country');
 		$address->googleframe = $request->input('googleframe');
 
-		$address->address_id = $organisation['id'];
-
-		$address->address()->associate($organisation);
 		$address->save();
 
 		$organisation->save();
@@ -191,10 +190,7 @@ class AddressController extends Controller
 
 		$address->address_id = $event['id'];
 
-		$address->address()->associate($event);
 		$address->save();
-
-		$event->address_id = $address['id'];
 
 		$event->save();
 

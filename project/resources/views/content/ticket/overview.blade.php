@@ -74,12 +74,12 @@
 				</div>
 				@if( $organisation->subscription_id === 1 && $event->tickets()->count() < 1)
 					<a class="btn is-small" href="{{ route('ticket.create', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
-						Voeg een item toe
+						Voeg item toe
 					</a>
 				@endif
 				@if( $organisation->subscription_id === 2 && $event->tickets()->count() < 4)
 					<a class="btn is-small" href="{{ route('ticket.create', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
-						Voeg een item toe
+						Voeg item toe
 					</a>
 				@endif
 				@if( $organisation->subscription_id === 3)
