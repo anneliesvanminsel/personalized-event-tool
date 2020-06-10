@@ -66,7 +66,7 @@
 					placeholder="Een korte beschrijving van jouw evenement."
 					required
 					autocomplete="off"
-					maxlength="1000"
+					maxlength="300"
 				>{{ $event->description }}</textarea>
 				
 				<label for="description" class="form__label">
@@ -82,7 +82,7 @@
 				@enderror
 				<script>
                     document.getElementById('description').onkeyup = function () {
-                        document.getElementById('word-counter').innerHTML = this.value.length + "/1000";
+                        document.getElementById('word-counter').innerHTML = this.value.length + "/300";
                     };
 				</script>
 			</div>
