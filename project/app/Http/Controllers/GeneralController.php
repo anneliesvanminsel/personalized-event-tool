@@ -44,7 +44,7 @@ class GeneralController extends Controller
 
 
 	public function getOrganisationPage() {
-		$subs = Subscription::orderBy('created_at', 'desc')->get();
+		$subs = Subscription::orderBy('id', 'asc')->get();
 		return view('org-overview', ['subs' => $subs]);
 	}
 

@@ -57,6 +57,7 @@
 				@endif
 			</form>
 			<form
+				id="form"
 				class="form"
 				method="POST"
 				action="{{ route('event.like', ['event-id' => $event['id'] ]) }}"

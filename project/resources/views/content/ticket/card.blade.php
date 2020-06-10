@@ -20,9 +20,13 @@
 		</div>
 	</div>
 	<div class="card__content">
-		<h4 class="card__title">
-			{{ $event->title }}
-		</h4>
+		<a
+			href="{{ route('ticket.detail', [ 'ticket_id' => $ticket['id'], 'event' => $ticket['event_id'] ]) }}"
+		>
+			<h4 class="card__title">
+				{{ $event->title }}
+			</h4>
+		</a>
 		<div class="card__text row">
 			@svg('calendar')
 			{{ \Jenssegers\Date\Date::parse(strtotime( $ticket->date ))->format('j F Y') }}

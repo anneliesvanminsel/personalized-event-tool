@@ -23,13 +23,15 @@
 		<div class="header__container {{ (strpos(Route::currentRouteName(), 'event.detail') === 0) ? $event['theme'] : '' }}">
 			<header class="header">
 				<div class="row row--center is-grow">
-					<a href="{{ url()->previous() }}">
-						@if($event['theme'] === "dark")
-							@svg('left', 'is-white')
-						@else
-							@svg('left')
-						@endif
-					</a>
+					@if((strpos(Route::currentRouteName(), 'event.special') === 1))
+						<a href="{{ url()->previous() }}">
+							@if($event['theme'] === "dark")
+								@svg('left', 'is-white')
+							@else
+								@svg('left')
+							@endif
+						</a>
+					@endif
 					
 					<a href="{{ route('event.special', ['event' => $event['id']] ) }}">
 						<h2 class="{{ $event['theme'] === 'dark' ? 'is-white' : '' }}">

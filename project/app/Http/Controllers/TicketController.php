@@ -105,12 +105,13 @@ class TicketController extends Controller
         return redirect()->route('event.settings.ticket', ['organisation_id' => $org['id'], 'event_id' => $event['id']]);
     }
 
-    public function deleteTicket($event_id, $ticket_id){
-        $event = Event::find($event_id);
-        $ticket = Ticket::find($ticket_id);
+    public function deleteTicket($organisation_id, $event_id, $ticket_id){
+        $event = Event::findOrFail($event_id);
+        $ticket = Ticket::findOrFail($ticket_id);
+		$org = Organisation::where('id', $organisation_id)->first();
         $ticket->delete();
 
-        return redirect()->route('event.edit.settings', ['id' => $event['id']]);
+		return redirect()->route('event.settings.ticket', ['organisation_id' => $org['id'], 'event_id' => $event['id']]);
     }
 
     public function buyEventTicket($event_id, $ticket_id){

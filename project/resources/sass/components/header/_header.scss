@@ -64,7 +64,7 @@
 		width: calc(100% - 20px);
 
 		@media screen and (min-width: $breakpoint-tablet) {
-			width:200px;
+			width: 100px;
 		}
 	}
 
@@ -90,13 +90,36 @@
 			&:last-child {
 				padding-right: 0;
 			}
-		}
 
-		&__link {
 			&.active {
 				font-family: "MontserratBlack", sans-serif;
 				font-size: 17px;
 				letter-spacing: 1px;
+			}
+		}
+
+		&__link {
+			position: relative;
+
+			&.active {
+				font-family: "MontserratBlack", sans-serif;
+				font-size: 17px;
+				letter-spacing: 1px;
+			}
+
+			&.fit {
+				width: fit-content;
+				margin-right: 30px;
+				margin-left: auto;
+			}
+
+			&:hover {
+				&:after {
+					@include pseudo();
+					height: 1px;
+					width: 100%;
+					background-color: $blue;
+				}
 			}
 		}
 

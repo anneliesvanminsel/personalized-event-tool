@@ -28,7 +28,7 @@
 	    </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="search-events-form">
 	    <div class="row">
 		    <h3 class="is-grow">
 			    Wat is er te doen?
@@ -38,7 +38,7 @@
 		    </button>
 	    </div>
        
-        <form action="{{ route('home.searchevents') }}" method="post" class="filter--container">
+        <form action="{{ route('home.searchevents') }}" method="post" class="filter--container" >
             @csrf
             <div class="row filter">
                 <div class="form__group">

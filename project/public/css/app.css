@@ -11,7 +11,7 @@ html {
 
 @font-face {
   font-family: MontserratBlack;
-  src: url("/fonts/Montserrat-Medium.tff");
+  src: url("/fonts/Montserrat-Bold.tff");
 }
 
 @font-face {
@@ -62,7 +62,7 @@ button {
 
 @font-face {
   font-family: MontserratBlack;
-  src: url("/fonts/Montserrat-Medium.tff");
+  src: url("/fonts/Montserrat-Bold.tff");
 }
 
 @font-face {
@@ -154,9 +154,6 @@ h4 {
   font-size: 18px;
   padding: 15px 0;
   text-transform: uppercase;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 h5 {
@@ -183,6 +180,10 @@ a {
   border-bottom: 1px #46D5EF solid;
   line-height: 1;
   display: inline-block;
+}
+
+.link:hover {
+  border-bottom: 1px #FF5E91 solid;
 }
 
 iframe {
@@ -271,7 +272,7 @@ span.invalid-feedback {
 
 @media screen and (min-width: 768px) {
   .header .logo {
-    width: 200px;
+    width: 100px;
   }
 }
 
@@ -307,10 +308,37 @@ span.invalid-feedback {
   padding-right: 0;
 }
 
+.header .nav__item.active {
+  font-family: "MontserratBlack", sans-serif;
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+
+.header .nav__link {
+  position: relative;
+}
+
 .header .nav__link.active {
   font-family: "MontserratBlack", sans-serif;
   font-size: 17px;
   letter-spacing: 1px;
+}
+
+.header .nav__link.fit {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-right: 30px;
+  margin-left: auto;
+}
+
+.header .nav__link:hover:after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background-color: #46D5EF;
 }
 
 .header .nav.is-open {
@@ -465,6 +493,24 @@ span.invalid-feedback {
   text-decoration: none;
   color: #ffffff;
   position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.footer .list__link.active {
+  font-family: "MontserratBlack", sans-serif;
+  font-size: 17px;
+  letter-spacing: 1px;
+}
+
+.footer .list__link:hover:after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background-color: #46D5EF;
 }
 
 .sub-footer {

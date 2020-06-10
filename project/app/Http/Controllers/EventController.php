@@ -111,7 +111,7 @@ class EventController extends Controller
 
 		$event->save();
 
-		return redirect()->route('org.dashboard', ['user_id' => $organisation['account_id']]);
+		return redirect()->route('org.dashboard', ['user_id' => $user['id']]);
 	}
 
     public function likeEvent($event_id){

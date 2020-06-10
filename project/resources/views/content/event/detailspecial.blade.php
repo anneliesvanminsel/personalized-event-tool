@@ -236,7 +236,7 @@
 			}
 		@endphp
 		
-		<section class="section schedule {{ $event['theme'] }}">
+		<section class="section schedule {{ $event['theme'] }}" id="schedule">
 			<div class="row row--center">
 				<h3 class="schedule__title">
 					Planning

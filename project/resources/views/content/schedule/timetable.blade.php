@@ -24,7 +24,7 @@
 							</p>
 						</div>
 						<div class="item__location row row--center">
-							@svg('location') The Ginger Studio, Brussel
+							@svg('location') {{ $sched['location'] }}
 						</div>
 					</div>
 				@endforeach
