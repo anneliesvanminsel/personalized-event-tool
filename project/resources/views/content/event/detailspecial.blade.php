@@ -241,7 +241,7 @@
 				<h3 class="schedule__title">
 					Planning
 				</h3>
-				{{ $sessions->links('vendor.pagination.simple') }}
+				{{ $sessions->fragment('schedule')->links('vendor.pagination.simple') }}
 			</div>
 			
 			@if($event->schedule === 'timeline')

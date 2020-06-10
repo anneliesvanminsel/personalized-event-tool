@@ -23,7 +23,9 @@
         <header class="header">
             <a class="logo is-special row row--center is-grow" href="{{ route('event.detail.special', [ 'event_title' => $event['title'], 'event_id' => $event['id'] ]) }}">
                 @if($event->logo)
-                    <img src="{{ asset('images/' . $event['logo'] ) }}" alt="">
+                    <div class="ctn--image">
+                        <img src="{{ asset('images/' . $event['logo'] ) }}" alt="">
+                    </div>
                 @endif
                 <div>
                     {{ $event->title }}

@@ -1062,8 +1062,26 @@ button {
   font-family: "MontserratBlack", sans-serif;
   letter-spacing: 2px;
   font-size: 25px;
-  display: inline-block;
   text-transform: uppercase;
+}
+
+.logo.is-special .ctn--image {
+  max-height: 60px;
+  width: 100px;
+  height: 60px;
+  overflow: hidden;
+  margin: 0;
+  margin-right: 15px;
+  position: relative;
+}
+
+.logo.is-special .ctn--image img {
+  min-width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .hero {

@@ -131,7 +131,7 @@
             @endif
         </div>
         <div>
-            {{ $searchedevents->links() }}
+            {{ $searchedevents->fragment('search-events-form')->links() }}
         </div>
     </section>
     
@@ -140,12 +140,12 @@
 		$position = \Location::get($ip_address);
     @endphp
     
-    <section class="section">
+    <section class="section" id="popular">
 	    <div class="row row--center">
 		    <h3>
 			    populair bij jou in de buurt
 		    </h3>
-		    {{ $popularevents->links('vendor.pagination.simple') }}
+		    {{ $popularevents->fragment('popular')->links('vendor.pagination.simple') }}
 	    </div>
 	    
 	    <div class="card--container">

@@ -77,7 +77,7 @@
 						Voeg item toe
 					</a>
 				@endif
-				@if( $organisation->subscription_id === 2 && $event->tickets()->count() < 4)
+				@if( $organisation->subscription_id === 2 && $event->tickets()->count() < 3)
 					<a class="btn is-small" href="{{ route('ticket.create', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
 						Voeg item toe
 					</a>

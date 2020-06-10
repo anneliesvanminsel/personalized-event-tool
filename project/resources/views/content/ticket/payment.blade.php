@@ -29,7 +29,7 @@
 								</div>
 								
 								<div class="form__group">
-									<input type="text" name="cardNumber" placeholder="Valid card number"
+									<input type="text" name="cardNumber" placeholder="Jouw kaartnummer"
 									       class="form__input"
 									>
 									
@@ -39,7 +39,7 @@
 								</div>
 								
 								<div class="form__group">
-									<input type="text" name="cardNumber" placeholder="Valid card number"
+									<input type="text" name="cardNumber" placeholder="Vervaldatum"
 									       class="form__input"
 									>
 									
