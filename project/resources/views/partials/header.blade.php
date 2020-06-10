@@ -7,16 +7,12 @@
         <div class="nav">
             <div class="is-grow">
                 <a class="nav__link fit {{ (strpos(Route::currentRouteName(), 'start.organisation') === 0) ? 'active' : '' }}" href="{{ route('start.organisation') }}">
-                    voor organisatoren
+                    organisator
                 </a>
             </div>
             
             <div class="nav__bar">
-                @guest
-                    <a class="btn btn--purple btn--small" href="{{ route('start.organisation') }}">
-                        maak een event
-                    </a>
-                @else
+                @auth
                     @if(Auth::user()->role == "organisator")
                         <a class="btn btn--purple btn--small" href="{{ route('event.create', ['organisation_id' => Auth::user()->organisation_id]) }}">
                             maak een event
@@ -25,7 +21,7 @@
                 @endguest
         
                 @guest
-                    <a class="nav__link" href="{{ route('login') }}">
+                    <a class="btn btn--purple btn--small" href="{{ route('login') }}">
                         aanmelden
                     </a>
                 @else

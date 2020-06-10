@@ -35,6 +35,12 @@ button {
 		&:hover {
 			background-color: transparent;
 		}
+
+		&.clicked {
+			.icon.is-heart {
+				fill: $pink
+			}
+		}
 	}
 
 	&--purple {

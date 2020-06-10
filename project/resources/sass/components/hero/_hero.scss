@@ -34,6 +34,8 @@
 			min-width: 100%;
 			min-height: 100%;
 
+			object-fit: cover;
+
 			position: absolute;
 			top: 50%;
 			left: 50%;
@@ -125,7 +127,7 @@
 	}
 
 	&__subtitle {
-		padding-top: 0;
+		padding: 0;
 	}
 
 	&__title {
@@ -171,5 +173,9 @@
 		&:before {
 			@include gradient(right, $medium-grey, $medium-grey);
 		}
+	}
+
+	&__ticket {
+		padding-bottom: 20px;
 	}
 }

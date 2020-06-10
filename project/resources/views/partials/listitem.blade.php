@@ -25,7 +25,7 @@
 					<div class="item__actions row row--stretch">
 						<form
 							class="form"
-							onsubmit="return confirm('Ben je zeker dat je {{ $event['title'] }} voor alle organisatoren wilt {{ $event['published'] === 0 ? 'zichtbaar maken' : 'onzichtbaar maken' }}?');"
+							onsubmit="return confirm('Ben je zeker dat je {{ $event['title'] }} wilt {{ $event['published'] === 0 ? 'zichtbaar maken' : 'onzichtbaar maken' }}?');"
 							method="POST"
 							action="{{ route('event.publish', ['organisation_id' => $organisation['id'], 'event-id' => $event['id'] ]) }}"
 						>
@@ -58,43 +58,26 @@
 						</form>
 					</div>
 				@else
-					<form
-						class="form"
-						method="POST"
-						action="{{ route('event.save', ['event-id' => $event['id'] ]) }}"
-					>
-						{{ csrf_field() }}
-						@if(Auth::user() && $event->savedusers->contains(Auth::user()->id))
-							<button title="download" class="button is-icon" type="submit">
-								@svg('check', 'is-btn')
-							</button>
-						@else
-							<button title="download" class="button is-icon" type="submit">
-								@svg('download', 'is-btn')
-							</button>
-						@endif
-					</form>
-					<form
-						class="form"
-						method="POST"
-						action="{{ route('event.like', ['event-id' => $event['id'] ]) }}"
-					>
-						{{ csrf_field() }}
+					@if(Auth::user())
+						<button title="like" class="button is-icon" onclick="postAjax('/user/event/{{$event->id}}/like', null, this)">
+					@else
+						<a title="like" class="button is-icon" href="{{ route('login') }}">
+					@endif
 						@if(Auth::user() && $event->favusers->contains(Auth::user()->id))
-							<button title="unlike" class="button is-icon" type="submit">
-								@svg('heart-full', 'is-btn is-heart')
-							</button>
+							@svg('heart-full', 'is-btn is-heart')
 						@else
-							<button title="like" class="button is-icon" type="submit">
-								@svg('heart-line', 'is-btn is-heart')
-							</button>
+							@svg('heart-line', 'is-btn is-heart')
 						@endif
-					</form>
+					@if(Auth::user())
+						</button>
+					@else
+						</a>
+					@endif
 				@endif
 			</div>
 		</div>
 		
-		<div class="item__section row">
+		<div class="item__section row with-data">
 			<div class="row needs-space">
 				@svg('clock')
 				{{ \Jenssegers\Date\Date::parse(strtotime($event['starttime']))->format('H:i') }}

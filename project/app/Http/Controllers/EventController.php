@@ -169,8 +169,8 @@ class EventController extends Controller
 			'starttime'=> 'required|date_format:H:i',
 			'endtime'=> 'nullable|date_format:H:i',
 			'ig-username' => 'nullable|string|max:255',
-			'logo'=> 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
-			'image'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
+			'logo'=> 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:256', //image
+			'image'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024', //image
 		]);
 
 		$event = new Event;
@@ -282,8 +282,8 @@ class EventController extends Controller
 			'starttime'=> 'required|date_format:H:i',
 			'endtime'=> 'nullable|date_format:H:i',
 			'ig-username' => 'nullable|string|max:255',
-			'logo'=> 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
-			'image'=> 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
+			'logo'=> 'image|mimes:jpeg,png,jpg,gif,svg|max:256', //image
+			'image'=> 'image|mimes:jpeg,png,jpg,gif,svg|max:1024', //image
 		]);
 
 		$event = Event::find($event_id);

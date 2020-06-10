@@ -5,46 +5,20 @@
 @section('content')
 	<div class="page special">
 		<style>
-			.header .nav__link {
-				color: {{ $event['textcolor'] }}
-			}
-			
-			.header .logo::before {
-				background-color: {{ $event['textcolor'] }};
-			}
-			
-			.btn {
-				border: none;
-				width: auto;
-				background-color: {{ $event['textcolor'] }};
-				color: {{ $event['prim_color'] }}
-			}
-			
-			.btn:hover {
-				border: none;
-				background-color: {{ $event['textcolor'] }};
+			.tab__heading.dark .tab__button.active {
 				color: {{ $event['prim_color'] }};
 			}
 			
-			.special__svg svg {
-				fill: {{ $event['prim_color'] }};
-			}
-			
-			.btn:hover svg {
-				fill: {{ $event['prim_color'] }};
-			}
-			
-			.tab {
-				color: #000;
-			}
-			
 			.tab__button.active {
-				background-color:{{ $event['prim_color'] }};
-				color: {{ $event['textcolor'] }};
+				color: {{ $event['prim_color'] }};
 			}
 			
-			.table__item:nth-child(odd) {
-				background-color: {{ $event['prim_color'] }}55; /* laatste twee cijfers zijn opacity*/
+			.tab__heading.dark .tab__button.active::after {
+				background-color: {{ $event['prim_color'] }};
+			}
+			
+			.tab__button.active:after {
+				background-color: {{ $event['prim_color'] }};
 			}
 		</style>
 		
