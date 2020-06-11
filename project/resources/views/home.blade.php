@@ -85,16 +85,16 @@
                 <div class="form__group">
                     <select class="select" id="type" name="type">
                         <option value="">categorie</option>
-                        <option value="conference">conferentie</option>
-                        <option value="workshop">workshop</option>
-                        <option value="reunion">reunie</option>
-                        <option value="party">feest</option>
-                        <option value="gala">gala</option>
-                        <option value="festival">festival</option>
-                        <option value="semenar">semenarie</option>
-                        <option value="auction">veiling</option>
-                        <option value="market">beurs</option>
-                        <option value="not given">niet opgegeven</option>
+	                    <option value="onbekend">onbekend</option>
+	                    <option value="conferentie">conferentie</option>
+	                    <option value="workshop">workshop</option>
+	                    <option value="reunie">reunie</option>
+	                    <option value="feest">feest</option>
+	                    <option value="gala">gala</option>
+	                    <option value="festival">festival</option>
+	                    <option value="semenarie">semenarie</option>
+	                    <option value="veiling">veiling</option>
+	                    <option value="beurs">beurs</option>
                     </select>
                    
                     @error('type')

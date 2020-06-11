@@ -1862,6 +1862,17 @@ input[type=radio]:disabled {
   width: auto;
 }
 
+.form__label.is-price {
+  position: absolute;
+  top: 35%;
+  right: 20px;
+  color: #FF5E91;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  width: auto;
+}
+
 .form__row {
   -webkit-box-pack: justify;
           justify-content: space-between;

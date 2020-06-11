@@ -120,6 +120,8 @@
 							placeholder="tussen 1000 en 9999"
 							value="{{ old('zipcode') }}"
 							required
+							min="1000"
+							max="9999"
 						>
 						<label for="zipcode" class="form__label">
 							Postcode

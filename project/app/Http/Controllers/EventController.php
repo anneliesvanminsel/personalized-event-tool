@@ -159,13 +159,15 @@ class EventController extends Controller
 	public function postCreateEvent(Request $request, $organisation_id) {
 		$organisation = Organisation::findOrFail($organisation_id);
 
+		$today = Carbon::yesterday();
+
 		//validatie
 		$this->validate($request, [
 			'title' => 'required|string|max:255',
 			'description' => 'required|string|max:1000',
 			'type'=> 'required',
-			'startdate'=> 'required|date|max:20',
-			'enddate'=> 'nullable|date|max:20',
+			'startdate'=> 'required|date|after:' . $today,
+			'enddate'=> 'nullable|date|after:' . $today,
 			'starttime'=> 'required|date_format:H:i',
 			'endtime'=> 'nullable|date_format:H:i',
 			'ig-username' => 'nullable|string|max:255',
@@ -272,13 +274,15 @@ class EventController extends Controller
 	public function postUpdateEvent(Request $request, $organisation_id, $event_id) {
 		$org = Organisation::where('id', $organisation_id)->first();
 
+		$today = Carbon::yesterday();
+
 		//validatie
 		$this->validate($request, [
 			'title' => 'required|string|max:255',
 			'description' => 'required|string|max:1000',
 			'type'=> 'required',
-			'startdate'=> 'required|date|max:20',
-			'enddate'=> 'nullable|date|max:20',
+			'startdate'=> 'required|date|after:' . $today,
+			'enddate'=> 'nullable|date|after:' . $today,
 			'starttime'=> 'required|date_format:H:i',
 			'endtime'=> 'nullable|date_format:H:i',
 			'ig-username' => 'nullable|string|max:255',

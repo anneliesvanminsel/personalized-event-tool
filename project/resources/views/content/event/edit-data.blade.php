@@ -220,15 +220,15 @@
 			<div class="form__group is-select">
 				<select class="select is-large" id="type" name="type">
 					<option value="{{ $event->category }}">{{ $event->category }}</option>
-					<option value="conference">conferentie</option>
+					<option value="conferentie">conferentie</option>
 					<option value="workshop">workshop</option>
-					<option value="reunion">reunie</option>
-					<option value="party">feest</option>
+					<option value="reunie">reunie</option>
+					<option value="feest">feest</option>
 					<option value="gala">gala</option>
 					<option value="festival">festival</option>
-					<option value="semenar">semenarie</option>
-					<option value="auction">veiling</option>
-					<option value="market">beurs</option>
+					<option value="semenarie">semenarie</option>
+					<option value="veiling">veiling</option>
+					<option value="beurs">beurs</option>
 				</select>
 				<label for="type" class="form__label">
 					evenementstype
