@@ -920,9 +920,17 @@ button {
   background-color: transparent;
 }
 
-.btn.is-icon.clicked .icon.is-heart,
-.button.is-icon.clicked .icon.is-heart {
-  fill: #FF5E91;
+.btn.is-icon.clicked .icon.is-heart.full,
+.button.is-icon.clicked .icon.is-heart.full {
+  stroke: #46D5EF;
+  stroke-width: 3px;
+  fill: transparent;
+}
+
+.btn.is-icon.clicked .icon.is-heart.empty,
+.button.is-icon.clicked .icon.is-heart.empty {
+  fill: #46D5EF;
+  stroke: none;
 }
 
 .btn--purple,
@@ -2376,14 +2384,16 @@ input[type=radio]:disabled {
 
 .list .item__actions {
   position: absolute;
-  top: -200px;
+  top: -220px;
   z-index: 999;
-  right: 15px;
+  right: -20px;
+  -webkit-filter: drop-shadow(0 0 2px #141414);
+          filter: drop-shadow(0 0 2px #141414);
 }
 
 @media screen and (min-width: 420px) {
   .list .item__actions {
-    top: -150px;
+    top: -170px;
   }
 }
 
@@ -2392,8 +2402,14 @@ input[type=radio]:disabled {
     position: relative;
     top: 0;
     right: 0;
+    -webkit-filter: none;
+            filter: none;
     text-align: right;
   }
+}
+
+.list .item__actions .is-heart svg {
+  fill: blue;
 }
 
 .list .item__actions .form:last-child svg {
@@ -2556,8 +2572,15 @@ input[type=radio]:disabled {
           transform: scale(1.2);
 }
 
-.icon.is-heart {
+.icon.is-heart.full {
   fill: #46D5EF;
+  stroke: none;
+}
+
+.icon.is-heart.empty {
+  stroke: #46D5EF;
+  stroke-width: 3px;
+  fill: transparent;
 }
 
 .icon.is-white {
@@ -3014,7 +3037,7 @@ input[type=radio]:disabled {
   }
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 768px) {
   .card {
     width: calc((100% / 4) - 8px );
     margin: 0 5px;
@@ -3038,7 +3061,7 @@ input[type=radio]:disabled {
   }
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 768px) {
   .card.sub {
     width: calc((100% / 3) - 15px );
   }
@@ -3067,7 +3090,7 @@ input[type=radio]:disabled {
   }
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 768px) {
   .card--container {
     flex-wrap: nowrap;
     -webkit-box-pack: start;
@@ -3084,7 +3107,7 @@ input[type=radio]:disabled {
   margin-right: 0;
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 768px) {
   .card--container .card:nth-child(2) {
     margin-right: 5px;
   }
@@ -3100,7 +3123,7 @@ input[type=radio]:disabled {
   margin-left: 0;
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 768px) {
   .card--container .card:nth-child(3) {
     margin-left: 5px;
   }
@@ -3117,7 +3140,7 @@ input[type=radio]:disabled {
   margin-top: 24px;
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 768px) {
   .card--container .card:nth-child(3),
   .card--container .card:nth-child(4) {
     margin-top: 0;
@@ -3261,6 +3284,8 @@ input[type=radio]:disabled {
 }
 
 .card__like svg {
+  -webkit-filter: drop-shadow(0 0 2px #141414);
+          filter: drop-shadow(0 0 2px #141414);
   fill: #46D5EF;
 }
 

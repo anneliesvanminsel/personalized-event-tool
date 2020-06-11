@@ -112,7 +112,7 @@ class EventTableSeeder extends Seeder
 			[
 				"title" => "Kennismakingsbrunch",
 				"description" => "I shall purr myself to sleep floof tum, tickle bum, jellybean footies curly toes see brother cat receive pets, attack out of jealousy find box a little too small and curl up with fur hanging out intrigued by the shower. Meow stand in front of the computer screen. Steal mom's crouton while she is in the bathroom.",
-				"category" => "not given",
+				"category" => "onbekend",
 				"published" => 1,
 				"image" => "brunch.jpeg",
 				"organisation_id" => 1,
