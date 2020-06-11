@@ -104,20 +104,11 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="btn btn--small">
+                <button class="btn btn--small" type="submit"">
                     zoek
                 </button>
             </div>
         </form>
-	    
-	    <script>
-            ( ()=> {
-                const button = document.querySelector('.filter__icon');
-                button.addEventListener('click', () => {
-                    document.querySelector('.filter--container').classList.toggle('is-open');
-                })
-            })();
-	    </script>
 	    
         <div class="list">
             @if($searchedevents->count() > 0)
@@ -134,6 +125,15 @@
             {{ $searchedevents->fragment('search-events-form')->links() }}
         </div>
     </section>
+
+    <script>
+        ( ()=> {
+            const button = document.querySelector('.filter__icon');
+            button.addEventListener('click', () => {
+                document.querySelector('.filter--container').classList.toggle('is-open');
+            })
+        })();
+    </script>
     
     @php
         $ip_address = \Request::ip();
@@ -170,5 +170,12 @@
 		    @endforeach
 	    </div>
     </section>
-	
+    @if(strpos(Route::currentRouteName(), 'home.search') === 0)
+	    <script>
+            ( ()=> {
+                var ele = document.getElementById('search-events-form');
+                window.scrollTo(ele.offsetLeft,ele.offsetTop);
+            })();
+	    </script>
+    @endif
 @endsection
