@@ -1,4 +1,4 @@
-@extends('layouts.masterlayout')
+@extends('layouts.speciallayout')
 @section('title')
 	evento - mijn ticket
 @endsection

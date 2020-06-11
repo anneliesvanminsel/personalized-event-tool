@@ -1,6 +1,6 @@
 @extends('layouts.masterlayout')
 @section('title')
-	401 - not found
+	419 - expired
 @endsection
 @section('content')
 	<div class="section">
@@ -9,13 +9,10 @@
 		<div class="row row--stretch spacing-top-m">
 			<div>
 				<p>
-					Je bent niet bevoegd om deze pagina te bekijken.
-				</p>
-				<p>
-					Ben je zeker dat je aangemeld bent?
+					Er is iets misgegaan.
 				</p>
 			</div>
 		</div>
-		
+	
 	</div>
 @endsection

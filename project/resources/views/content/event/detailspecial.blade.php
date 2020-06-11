@@ -69,38 +69,21 @@
 					</form>
 				</div>
 			@else
-				<form
-					class="form"
-					method="POST"
-					action="{{ route('event.save', ['event-id' => $event['id'] ]) }}"
-				>
-					{{ csrf_field() }}
-					@if(Auth::user() && $event->savedusers->contains(Auth::user()->id))
-						<button title="download" class="button is-icon" type="submit">
-							@svg('download', 'is-btn is-white')
-						</button>
-					@else
-						<button title="download" class="button is-icon" type="submit">
-							@svg('download', 'is-btn is-white')
-						</button>
-					@endif
-				</form>
-				<form
-					class="form"
-					method="POST"
-					action="{{ route('event.like', ['event-id' => $event['id'] ]) }}"
-				>
-					{{ csrf_field() }}
-					@if(Auth::user() && $event->favusers->contains(Auth::user()->id))
-						<button title="unlike" class="button is-icon" type="submit">
-							@svg('heart-full', 'is-btn is-heart')
-						</button>
-					@else
-						<button title="like" class="button is-icon" type="submit">
-							@svg('heart-line', 'is-btn is-heart')
-						</button>
-					@endif
-				</form>
+				@if(Auth::user())
+					<button title="like" class="button is-icon" onclick="postAjax('/user/event/{{$event->id}}/like', null, this)">
+				@else
+					<a title="like" class="button is-icon" href="{{ route('login') }}">
+				@endif
+						@if(Auth::user() && $event->favusers->contains(Auth::user()->id))
+							@svg('heart-full', 'is-btn is-heart full')
+						@else
+							@svg('heart-full', 'is-btn is-heart empty')
+						@endif
+				@if(Auth::user())
+					</button>
+				@else
+					</a>
+				@endif
 			@endif
 		</div>
 		
@@ -236,12 +219,12 @@
 			}
 		@endphp
 		
-		<section class="section schedule {{ $event['theme'] }}">
+		<section class="section schedule {{ $event['theme'] }}" id="schedule">
 			<div class="row row--center">
 				<h3 class="schedule__title">
 					Planning
 				</h3>
-				{{ $sessions->links('vendor.pagination.simple') }}
+				{{ $sessions->fragment('schedule')->links('vendor.pagination.simple') }}
 			</div>
 			
 			@if($event->schedule === 'timeline')

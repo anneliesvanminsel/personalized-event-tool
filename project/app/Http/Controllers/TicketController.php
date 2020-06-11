@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Organisation;
+use App\Subscription;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -46,22 +48,27 @@ class TicketController extends Controller
     public function postCreateTicket(Request $request, $organisation_id, $event_id) {
         $event = Event::where('id', $event_id)->first();
 		$org = Organisation::where('id', $organisation_id)->first();
+		$sub = Subscription::where('id', $org->subscription_id)->first();
+
 
 		//validatie
         $this->validate($request, [
             'description' => 'nullable|string|max:255',
             'type'=> 'nullable|string',
-            'date'=> 'required|date',
+            'date'=> 'required',
             'price'=> 'required|regex:/^\d*(\.\d{2})?$/',
             'totaltickets'=> 'nullable|string',
         ]);
 
         $ticket = new Ticket;
 
+        $price =  (int)$request->input('price') + (int)$sub->price;
+        $date = Carbon::parse($request->input('date'));
+
         $ticket->description = $request->input('description');
         $ticket->type = $request->input('type');
-        $ticket->date = $request->input('date');
-        $ticket->price = $request->input('price');
+        $ticket->date = $date;
+        $ticket->price = $price;
         $ticket->totaltickets = $request->input('totaltickets');
         $ticket->event_id = $event['id'];
 
@@ -84,20 +91,25 @@ class TicketController extends Controller
         $ticket = Ticket::where('id', $ticket_id)->first();
 		$event = Event::where('id', $event_id)->first();
 		$org = Organisation::where('id', $organisation_id)->first();
+		$sub = Subscription::where('id', $org->subscription_id)->first();
 
-        //validatie
+
+		//validatie
         $this->validate($request, [
             'description' => 'nullable|string|max:255',
             'type'=> 'nullable|string',
-            'date'=> 'required|date',
+            'date'=> 'required',
             'price'=> 'required|regex:/^\d*(\.\d{2})?$/',
-            'totaltickets'=> 'required|string',
+            'totaltickets'=> 'nullable|string',
         ]);
 
-        $ticket->description = $request->input('description');
+		$date = Carbon::parse($request->input('date'));
+		$price =  (int)$request->input('price') + (int)$sub->price;
+
+		$ticket->description = $request->input('description');
         $ticket->type = $request->input('type');;
-        $ticket->date = $request->input('date');
-        $ticket->price = $request->input('price');
+        $ticket->date = $date;
+        $ticket->price = $price;
         $ticket->totaltickets = $request->input('totaltickets');
 
         $ticket->save();
@@ -105,12 +117,13 @@ class TicketController extends Controller
         return redirect()->route('event.settings.ticket', ['organisation_id' => $org['id'], 'event_id' => $event['id']]);
     }
 
-    public function deleteTicket($event_id, $ticket_id){
-        $event = Event::find($event_id);
-        $ticket = Ticket::find($ticket_id);
+    public function deleteTicket($organisation_id, $event_id, $ticket_id){
+        $event = Event::findOrFail($event_id);
+        $ticket = Ticket::findOrFail($ticket_id);
+		$org = Organisation::where('id', $organisation_id)->first();
         $ticket->delete();
 
-        return redirect()->route('event.edit.settings', ['id' => $event['id']]);
+		return redirect()->route('event.settings.ticket', ['organisation_id' => $org['id'], 'event_id' => $event['id']]);
     }
 
     public function buyEventTicket($event_id, $ticket_id){

@@ -74,38 +74,21 @@
 					</form>
 				</div>
 			@else
-				<form
-					class="form"
-					method="POST"
-					action="{{ route('event.save', ['event-id' => $event['id'] ]) }}"
-				>
-					{{ csrf_field() }}
-					@if(Auth::user() && $event->savedusers->contains(Auth::user()->id))
-						<button title="download" class="button is-icon" type="submit">
-							@svg('check', 'is-btn is-white')
-						</button>
-					@else
-						<button title="download" class="button is-icon" type="submit">
-							@svg('download', 'is-btn is-white')
-						</button>
-					@endif
-				</form>
-				<form
-					class="form"
-					method="POST"
-					action="{{ route('event.like', ['event-id' => $event['id'] ]) }}"
-				>
-					{{ csrf_field() }}
+				@if(Auth::user())
+					<button title="like" class="button is-icon" onclick="postAjax('/user/event/{{$event->id}}/like', null, this)">
+				@else
+					<a title="like" class="button is-icon" href="{{ route('login') }}">
+				@endif
 					@if(Auth::user() && $event->favusers->contains(Auth::user()->id))
-						<button title="unlike" class="button is-icon" type="submit">
-							@svg('heart-full', 'is-btn is-heart')
-						</button>
+						@svg('heart-full', 'is-btn is-heart full')
 					@else
-						<button title="like" class="button is-icon" type="submit">
-							@svg('heart-line', 'is-btn is-heart')
-						</button>
+						@svg('heart-full', 'is-btn is-heart empty')
 					@endif
-				</form>
+				@if(Auth::user())
+					</button>
+				@else
+					</a>
+				@endif
 			@endif
 		</div>
 		
@@ -183,7 +166,7 @@
 	
 	@if($event->tickets()->exists())
 		<section class="section is-pull-up">
-			<div class="row row--center">
+			<div class="hero__ticket row row--center">
 				<h3 class="is-white hero__subtitle">
 					tickets
 				</h3>
@@ -195,7 +178,7 @@
 				@endif
 			</div>
 			
-			<div class="card--container">
+			<div class="card--container tickets">
 				@foreach($event->tickets()->get() as $ticket)
 					@include('partials.ticket', $ticket)
 				@endforeach
@@ -240,12 +223,12 @@
 			}
 		@endphp
 		
-		<section class="section schedule {{ $event['theme'] }}">
+		<section class="section schedule {{ $event['theme'] }}" id="schedule">
 			<div class="row row--center">
 				<h3 class="schedule__title">
 					Planning
 				</h3>
-				{{ $sessions->links('vendor.pagination.simple') }}
+				{{ $sessions->fragment('schedule')->links('vendor.pagination.simple') }}
 			</div>
 			
 			@if($event->schedule === 'timeline')

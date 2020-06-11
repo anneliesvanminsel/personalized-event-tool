@@ -23,6 +23,9 @@ a {
   line-height: 1;
   display: inline-block;
 
+  &:hover {
+    border-bottom: 1px $pink solid;
+  }
 }
 
 iframe {

@@ -23,7 +23,9 @@
         <header class="header">
             <a class="logo is-special row row--center is-grow" href="{{ route('event.detail.special', [ 'event_title' => $event['title'], 'event_id' => $event['id'] ]) }}">
                 @if($event->logo)
-                    <img src="{{ asset('images/' . $event['logo'] ) }}" alt="">
+                    <div class="ctn--image">
+                        <img src="{{ asset('images/' . $event['logo'] ) }}" alt="">
+                    </div>
                 @endif
                 <div>
                     {{ $event->title }}
@@ -32,25 +34,31 @@
             <div class="nav">
                 <div class="is-grow"></div>
                 <div class="nav__bar is-special">
-                    <a class="nav__link nav__item" href="#tickets">
-                        tickets
-                    </a>
-                    <a class="nav__link nav__item" href="#schedule">
-                        planning
-                    </a>
+                    @if($event->tickets()->exists())
+                        <a class="nav__item" href="#tickets">
+                            <span class="nav__link">tickets</span>
+                        </a>
+                    @endif
+    
+                    @if($event->sessions()->exists())
+                        <a class="nav__item" href="#schedule">
+                            <span class="nav__link">planning</span>
+                        </a>
+                    @endif
+                    
                     
                     @guest
-                        <a class="nav__link nav__item" href="{{ route('login') }}">
-                            aanmelden
+                        <a class="nav__item" href="{{ route('login') }}">
+                            <span class="nav__link">aanmelden</span>
                         </a>
                     @else
                         @if(Auth::user()->role == "organisator")
-                            <a class="nav__link nav__item {{ (strpos(Route::currentRouteName(), 'org.dashboard') === 0) ? 'active' : '' }}" href="{{ route('org.dashboard', ['user_id' => Auth::user()->id]) }}">
-                                dashboard
+                            <a class="nav__item {{ (strpos(Route::currentRouteName(), 'org.dashboard') === 0) ? 'active' : '' }}" href="{{ route('org.dashboard', ['user_id' => Auth::user()->id]) }}">
+                                <span class="nav__link">dashboard</span>
                             </a>
                         @else
-                            <a class="nav__link nav__item {{ (strpos(Route::currentRouteName(), 'user.account') === 0) || (strpos(Route::currentRouteName(), 'user.events') === 0) || (strpos(Route::currentRouteName(), 'user.favorites') === 0) ? 'active' : '' }}" href="{{ route('user.account', ['user_id' => Auth::user()->id]) }}">
-                                {{ Auth::user()->name }}
+                            <a class="nav__item {{ (strpos(Route::currentRouteName(), 'user.account') === 0) || (strpos(Route::currentRouteName(), 'user.events') === 0) || (strpos(Route::currentRouteName(), 'user.favorites') === 0) ? 'active' : '' }}" href="{{ route('user.account', ['user_id' => Auth::user()->id]) }}">
+                                <span class="nav__link">{{ Auth::user()->name }}</span>
                             </a>
                         @endif
                     @endguest
@@ -122,7 +130,7 @@
                         </h5>
                     </li>
                     <li class="list__item">
-                        <a class="list__link {{ (strpos(Route::currentRouteName(), 'index') === 0) ? 'active' : '' }}" href="{{ route('index') }}">
+                        <a class="list__link {{ (strpos(Route::currentRouteName(), 'index') === 0) ? 'active' : '' }}" href="{{ route('index') }}#search-events-form">
                             zoek evenementen
                         </a>
                     </li>
@@ -132,7 +140,7 @@
                                 maak nu een account
                             </a>
                         @else
-                            @if(Auth::user()->role === "volunteer" || Auth::user()->role === "guest" )
+                            @if(Auth::user()->role === "guest" )
                                 <a class="list__link {{ (strpos(Route::currentRouteName(), 'user.account') === 0) ? 'active' : '' }}" href="{{ route('user.account', ['user_id' => Auth::user()->id]) }}#tickets">
                                     bekijk mijn tickets
                                 </a>

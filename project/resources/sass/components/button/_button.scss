@@ -35,6 +35,23 @@ button {
 		&:hover {
 			background-color: transparent;
 		}
+
+		&.clicked {
+			.icon {
+				&.is-heart {
+					&.full {
+						stroke: $blue;
+						stroke-width: 3px;
+						fill: transparent;
+					}
+
+					&.empty {
+						fill: $blue;
+						stroke: none;
+					}
+				}
+			}
+		}
 	}
 
 	&--purple {

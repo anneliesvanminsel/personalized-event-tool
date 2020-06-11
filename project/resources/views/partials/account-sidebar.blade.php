@@ -20,14 +20,6 @@
 				mijn favorieten
 			</a>
 		</div>
-		<div class="sidebar__item">
-			<a
-				class="sidebar__link {{ (strpos(Route::currentRouteName(), 'user.events') === 0) ? 'active' : '' }}"
-				href="{{ route('user.events', ['user_id' => Auth::user()->id]) }}"
-			>
-				mijn evenementen
-			</a>
-		</div>
 	</div>
 	
 	<div>

@@ -111,7 +111,7 @@ class EventController extends Controller
 
 		$event->save();
 
-		return redirect()->route('org.dashboard', ['user_id' => $organisation['account_id']]);
+		return redirect()->route('org.dashboard', ['user_id' => $user['id']]);
 	}
 
     public function likeEvent($event_id){
@@ -159,18 +159,20 @@ class EventController extends Controller
 	public function postCreateEvent(Request $request, $organisation_id) {
 		$organisation = Organisation::findOrFail($organisation_id);
 
+		$today = Carbon::yesterday();
+
 		//validatie
 		$this->validate($request, [
 			'title' => 'required|string|max:255',
 			'description' => 'required|string|max:1000',
 			'type'=> 'required',
-			'startdate'=> 'required|date|max:20',
-			'enddate'=> 'nullable|date|max:20',
+			'startdate'=> 'required|date|after:' . $today,
+			'enddate'=> 'nullable|date|after:' . $today,
 			'starttime'=> 'required|date_format:H:i',
 			'endtime'=> 'nullable|date_format:H:i',
 			'ig-username' => 'nullable|string|max:255',
-			'logo'=> 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
-			'image'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
+			'logo'=> 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:256', //image
+			'image'=> 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024', //image
 		]);
 
 		$event = new Event;
@@ -272,18 +274,20 @@ class EventController extends Controller
 	public function postUpdateEvent(Request $request, $organisation_id, $event_id) {
 		$org = Organisation::where('id', $organisation_id)->first();
 
+		$today = Carbon::yesterday();
+
 		//validatie
 		$this->validate($request, [
 			'title' => 'required|string|max:255',
 			'description' => 'required|string|max:1000',
 			'type'=> 'required',
-			'startdate'=> 'required|date|max:20',
-			'enddate'=> 'nullable|date|max:20',
+			'startdate'=> 'required|date|after:' . $today,
+			'enddate'=> 'nullable|date|after:' . $today,
 			'starttime'=> 'required|date_format:H:i',
 			'endtime'=> 'nullable|date_format:H:i',
 			'ig-username' => 'nullable|string|max:255',
-			'logo'=> 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
-			'image'=> 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', //image
+			'logo'=> 'image|mimes:jpeg,png,jpg,gif,svg|max:256', //image
+			'image'=> 'image|mimes:jpeg,png,jpg,gif,svg|max:1024', //image
 		]);
 
 		$event = Event::find($event_id);

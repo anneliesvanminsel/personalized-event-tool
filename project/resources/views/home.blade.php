@@ -28,7 +28,7 @@
 	    </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="search-events-form">
 	    <div class="row">
 		    <h3 class="is-grow">
 			    Wat is er te doen?
@@ -38,7 +38,7 @@
 		    </button>
 	    </div>
        
-        <form action="{{ route('home.searchevents') }}" method="post" class="filter--container">
+        <form action="{{ route('home.searchevents') }}" method="post" class="filter--container" >
             @csrf
             <div class="row filter">
                 <div class="form__group">
@@ -85,16 +85,16 @@
                 <div class="form__group">
                     <select class="select" id="type" name="type">
                         <option value="">categorie</option>
-                        <option value="conference">conferentie</option>
-                        <option value="workshop">workshop</option>
-                        <option value="reunion">reunie</option>
-                        <option value="party">feest</option>
-                        <option value="gala">gala</option>
-                        <option value="festival">festival</option>
-                        <option value="semenar">semenarie</option>
-                        <option value="auction">veiling</option>
-                        <option value="market">beurs</option>
-                        <option value="not given">niet opgegeven</option>
+	                    <option value="onbekend">onbekend</option>
+	                    <option value="conferentie">conferentie</option>
+	                    <option value="workshop">workshop</option>
+	                    <option value="reunie">reunie</option>
+	                    <option value="feest">feest</option>
+	                    <option value="gala">gala</option>
+	                    <option value="festival">festival</option>
+	                    <option value="semenarie">semenarie</option>
+	                    <option value="veiling">veiling</option>
+	                    <option value="beurs">beurs</option>
                     </select>
                    
                     @error('type')
@@ -104,20 +104,11 @@
                     @enderror
                 </div>
 
-                <button type="submit" class="btn btn--small">
+                <button class="btn btn--small" type="submit"">
                     zoek
                 </button>
             </div>
         </form>
-	    
-	    <script>
-            ( ()=> {
-                const button = document.querySelector('.filter__icon');
-                button.addEventListener('click', () => {
-                    document.querySelector('.filter--container').classList.toggle('is-open');
-                })
-            })();
-	    </script>
 	    
         <div class="list">
             @if($searchedevents->count() > 0)
@@ -131,21 +122,30 @@
             @endif
         </div>
         <div>
-            {{ $searchedevents->links() }}
+            {{ $searchedevents->fragment('search-events-form')->links() }}
         </div>
     </section>
+
+    <script>
+        ( ()=> {
+            const button = document.querySelector('.filter__icon');
+            button.addEventListener('click', () => {
+                document.querySelector('.filter--container').classList.toggle('is-open');
+            })
+        })();
+    </script>
     
     @php
         $ip_address = \Request::ip();
 		$position = \Location::get($ip_address);
     @endphp
     
-    <section class="section">
+    <section class="section" id="popular">
 	    <div class="row row--center">
 		    <h3>
 			    populair bij jou in de buurt
 		    </h3>
-		    {{ $popularevents->links('vendor.pagination.simple') }}
+		    {{ $popularevents->fragment('popular')->links('vendor.pagination.simple') }}
 	    </div>
 	    
 	    <div class="card--container">
@@ -170,4 +170,12 @@
 		    @endforeach
 	    </div>
     </section>
+    @if(strpos(Route::currentRouteName(), 'home.search') === 0)
+	    <script>
+            ( ()=> {
+                var ele = document.getElementById('search-events-form');
+                window.scrollTo(ele.offsetLeft,ele.offsetTop);
+            })();
+	    </script>
+    @endif
 @endsection

@@ -23,13 +23,17 @@
 		<div class="header__container {{ (strpos(Route::currentRouteName(), 'event.detail') === 0) ? $event['theme'] : '' }}">
 			<header class="header">
 				<div class="row row--center is-grow">
-					<a href="{{ url()->previous() }}">
-						@if($event['theme'] === "dark")
-							@svg('left', 'is-white')
-						@else
-							@svg('left')
-						@endif
-					</a>
+					@if((strpos(Route::currentRouteName(), 'event.special') === 0))
+					
+					@else
+						<a href="{{ url()->previous() }}">
+							@if($event['theme'] === "dark")
+								@svg('left', 'is-white')
+							@else
+								@svg('left')
+							@endif
+						</a>
+					@endif
 					
 					<a href="{{ route('event.special', ['event' => $event['id']] ) }}">
 						<h2 class="{{ $event['theme'] === 'dark' ? 'is-white' : '' }}">
@@ -37,7 +41,7 @@
 						</h2>
 					</a>
 				</div>
-				<a href="{{ route('user.events', ['user_id' => Auth::user()->id]) }}">
+				<a href="{{ route('user.favorites', ['user_id' => Auth::user()->id]) }}">
 					@if($event['theme'] === "dark")
 						@svg('account', 'is-white is-large')
 					@else

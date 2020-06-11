@@ -66,7 +66,7 @@
 					placeholder="Een korte beschrijving van jouw evenement."
 					required
 					autocomplete="off"
-					maxlength="1000"
+					maxlength="300"
 				>{{ $event->description }}</textarea>
 				
 				<label for="description" class="form__label">
@@ -82,7 +82,7 @@
 				@enderror
 				<script>
                     document.getElementById('description').onkeyup = function () {
-                        document.getElementById('word-counter').innerHTML = this.value.length + "/1000";
+                        document.getElementById('word-counter').innerHTML = this.value.length + "/300";
                     };
 				</script>
 			</div>
@@ -94,6 +94,7 @@
 						class="form__input @error('logo') is-invalid @enderror"
 						name="logo"
 						value="{{ old('logo') }}"
+						accept=".jpeg,.png,.jpg"
 					>
 					
 					<label for="logo" class="form__label">
@@ -203,7 +204,7 @@
 					class="form__input @error('image') is-invalid @enderror"
 					name="image"
 					value="{{ old('image') }}"
-					autocomplete="off"
+					accept=".jpeg,.png,.jpg"
 				>
 				
 				<label for="image" class="form__label">
@@ -220,15 +221,15 @@
 			<div class="form__group is-select">
 				<select class="select is-large" id="type" name="type">
 					<option value="{{ $event->category }}">{{ $event->category }}</option>
-					<option value="conference">conferentie</option>
+					<option value="conferentie">conferentie</option>
 					<option value="workshop">workshop</option>
-					<option value="reunion">reunie</option>
-					<option value="party">feest</option>
+					<option value="reunie">reunie</option>
+					<option value="feest">feest</option>
 					<option value="gala">gala</option>
 					<option value="festival">festival</option>
-					<option value="semenar">semenarie</option>
-					<option value="auction">veiling</option>
-					<option value="market">beurs</option>
+					<option value="semenarie">semenarie</option>
+					<option value="veiling">veiling</option>
+					<option value="beurs">beurs</option>
 				</select>
 				<label for="type" class="form__label">
 					evenementstype

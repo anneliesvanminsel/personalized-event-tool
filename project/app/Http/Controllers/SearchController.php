@@ -129,12 +129,13 @@ class SearchController extends Controller
 
 		$highlights = Event::where('published', '=', 1)->where('startdate', '>', Carbon::now())->orderBy('id', 'desc')->take(4)->get();
 
+
 		$ip_address = \Request::ip();
 		$position = \Location::get($ip_address);
 
 		if($position && $position->cityName) {
 			$popularevents = Event::whereHas('address', function ($q) use ($position) {
-				$q->where('city', 'like', '%' . $position->cityname . '%')->orWhere('locationname', 'like', '%' . $position->cityname . '%');
+				$q->where('city', 'like', '%' . $position->cityName . '%')->orWhere('locationname', 'like', '%' . $position->cityName . '%');
 			})->where('published', '=', 1)
 				->where('startdate', '>', Carbon::now())
 				->orderBy('startdate', 'asc')

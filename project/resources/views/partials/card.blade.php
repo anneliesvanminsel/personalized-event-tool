@@ -40,38 +40,29 @@
 				</form>
 			</div>
 		@else
-			<form
-				class="form"
-				method="POST"
-				action="{{ route('event.save', ['event-id' => $event['id'] ]) }}"
-			>
-				{{ csrf_field() }}
+			<!--button title="download" class="button is-icon" onclick="postAjax('user/event/{{$event->id}}/like')">
 				@if(Auth::user() && $event->savedusers->contains(Auth::user()->id))
-					<button title="download" class="button is-icon" type="submit">
-						@svg('check', 'is-btn is-white')
-					</button>
+					@svg('check', 'is-btn is-white')
 				@else
-					<button title="download" class="button is-icon" type="submit">
-						@svg('download', 'is-btn is-white')
-					</button>
+					@svg('download', 'is-btn is-white')
 				@endif
-			</form>
-			<form
-				class="form"
-				method="POST"
-				action="{{ route('event.like', ['event-id' => $event['id'] ]) }}"
-			>
-				{{ csrf_field() }}
+			</button-->
+			
+			@if(Auth::user())
+				<button title="like" class="button is-icon" onclick="postAjax('/user/event/{{$event->id}}/like', null, this)">
+			@else
+				<a title="like" class="button is-icon" href="{{ route('login') }}">
+			@endif
 				@if(Auth::user() && $event->favusers->contains(Auth::user()->id))
-					<button title="unlike" class="button is-icon" type="submit">
-						@svg('heart-full', 'is-btn is-heart')
-					</button>
+					@svg('heart-full', 'is-btn is-heart full')
 				@else
-					<button title="like" class="button is-icon" type="submit">
-						@svg('heart-line', 'is-btn is-heart')
-					</button>
+					@svg('heart-full', 'is-btn is-heart empty')
 				@endif
-			</form>
+			@if(Auth::user())
+				</button>
+			@else
+				</a>
+			@endif
 		@endif
 	</div>
 	<div class="card__image">
@@ -104,7 +95,7 @@
 		@endif
 	</div>
 	<div class="card__actions">
-		@if(strpos(Route::currentRouteName(), 'user.events') === 0)
+		@if(strpos(Route::currentRouteName(), 'user.favorites') === 0)
 			<a class="btn btn--primary" href={{ route('event.special', ['event_id' => $event->id]) }}>
 				event details
 			</a>

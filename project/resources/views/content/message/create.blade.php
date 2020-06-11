@@ -77,6 +77,7 @@
 						class="form__input @error('image') is-invalid @enderror"
 						name="image"
 						value="{{ old('image') }}"
+						accept=".jpeg,.png,.jpg"
 					>
 					
 					<label for="image" class="form__label">

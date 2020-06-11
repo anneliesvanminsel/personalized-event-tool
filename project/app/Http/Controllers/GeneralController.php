@@ -8,6 +8,7 @@ use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Auth;
 
 class GeneralController extends Controller
 {
@@ -44,23 +45,32 @@ class GeneralController extends Controller
 
 
 	public function getOrganisationPage() {
-		$subs = Subscription::orderBy('created_at', 'desc')->get();
+		$subs = Subscription::orderBy('id', 'asc')->get();
 		return view('org-overview', ['subs' => $subs]);
 	}
 
 	public function getAccount($id) {
-		$user = User::where('id', $id)->first();
-		return view('content.user.account-tickets', ['user' => $user]);
+		if(Auth::user()) {
+			$user = User::where('id', $id)->first();
+			return view('content.user.account-tickets', ['user' => $user]);
+		}
+		return redirect()->route('login');
 	}
 
 	public function getAccountFav($id) {
-		$user = User::where('id', $id)->first();
-		return view('content.user.account-favorites', ['user' => $user]);
+		if(Auth::user()) {
+			$user = User::where('id', $id)->first();
+			return view('content.user.account-favorites', ['user' => $user]);
+		}
+		return redirect()->route('login');
 	}
 
 	public function getAccountEvent($id) {
-		$user = User::where('id', $id)->first();
-		return view('content.user.account-events', ['user' => $user]);
+		if(Auth::user()) {
+			$user = User::where('id', $id)->first();
+			return view('content.user.account-events', ['user' => $user]);
+		}
+		return redirect()->route('login');
 	}
 
 	public function getAccountEdit($id) {

@@ -53,6 +53,22 @@
 			text-decoration: none;
 			color: $white;
 			position: relative;
+			width: fit-content;
+
+			&.active {
+				font-family: "MontserratBlack", sans-serif;
+				font-size: 17px;
+				letter-spacing: 1px;
+			}
+
+			&:hover {
+				&:after {
+					@include pseudo();
+					height: 1px;
+					width: 100%;
+					background-color: $blue;
+				}
+			}
 		}
 	}
 }

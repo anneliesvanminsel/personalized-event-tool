@@ -54,7 +54,7 @@
 							name="image"
 							value="{{ old('image') }}"
 							required
-							autocomplete="off"
+							accept=".jpeg,.png,.jpg"
 					>
 					
 					<label for="image" class="form__label">

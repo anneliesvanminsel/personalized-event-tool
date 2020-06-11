@@ -31,7 +31,7 @@
 					</h5>
 				</li>
 				<li class="list__item">
-					<a class="list__link {{ (strpos(Route::currentRouteName(), 'index') === 0) ? 'active' : '' }}" href="{{ route('index') }}">
+					<a class="list__link {{ (strpos(Route::currentRouteName(), 'index') === 0) ? 'active' : '' }}" href="{{ route('index') }}#search-events-form">
 						zoek evenementen
 					</a>
 				</li>

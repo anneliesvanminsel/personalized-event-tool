@@ -60,6 +60,12 @@
 					<label for="price" class="form__label">
 						Prijs van het ticket
 					</label>
+					<div class="form__label is-price">
+						@php
+							$sub = App\Subscription::where('id', $organisation->subscription_id)->first();
+						@endphp
+						+ € {{ $sub->price }}
+					</div>
 				</div>
 				
 				<div class="form__group">
@@ -77,14 +83,12 @@
 					</label>
 				</div>
 				
-				<div class="form__group">
-					<input
-							type="date"
-							name="date"
-							id="date"
-							required
-							value="{{ \Carbon\Carbon::parse($event['startdate'])->format('Y-m-d') }}"
-					>
+				<div class="form__group is-select">
+					<select class="select is-large" id="date" name="date">
+						@foreach($event->sessions()->get() as $session)
+							<option value="{{ \Carbon\Carbon::parse($session['date']) }}">{{  date('d / m / Y', strtotime( $session['date'])) }}</option>
+						@endforeach
+					</select>
 					<label for="date" class="form__label">
 						Datum van het ticket
 					</label>
