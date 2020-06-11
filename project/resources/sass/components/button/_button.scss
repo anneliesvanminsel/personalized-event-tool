@@ -37,8 +37,19 @@ button {
 		}
 
 		&.clicked {
-			.icon.is-heart {
-				fill: $pink
+			.icon {
+				&.is-heart {
+					&.full {
+						stroke: $blue;
+						stroke-width: 3px;
+						fill: transparent;
+					}
+
+					&.empty {
+						fill: $blue;
+						stroke: none;
+					}
+				}
 			}
 		}
 	}

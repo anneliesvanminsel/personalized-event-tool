@@ -15,7 +15,7 @@
 		width: calc((100% / 2) - 15px );
 	}
 
-	@media screen and (min-width: $breakpoint-tablet-small) {
+	@media screen and (min-width: $breakpoint-tablet) {
 		width: calc((100% / 4) - 8px );
 		margin: 0 5px;
 	}
@@ -32,7 +32,7 @@
 			width: calc((100% / 2) - 15px );
 		}
 
-		@media screen and (min-width: $breakpoint-tablet-small) {
+		@media screen and (min-width: $breakpoint-tablet) {
 			width: calc((100% / 3) - 15px );
 		}
 	}
@@ -53,7 +53,7 @@
 			justify-content: center;
 		}
 
-		@media screen and (min-width: $breakpoint-tablet-small) {
+		@media screen and (min-width: $breakpoint-tablet) {
 			flex-wrap: nowrap;
 			justify-content: flex-start;
 
@@ -66,7 +66,7 @@
 			&:nth-child(2) {
 				margin-right: 0;
 
-				@media screen and (min-width: $breakpoint-tablet-small) {
+				@media screen and (min-width: $breakpoint-tablet) {
 					margin-right: 5px;
 				}
 
@@ -78,7 +78,7 @@
 			&:nth-child(3) {
 				margin-left: 0;
 
-				@media screen and (min-width: $breakpoint-tablet-small) {
+				@media screen and (min-width: $breakpoint-tablet) {
 					margin-left: 5px;
 				}
 
@@ -91,7 +91,7 @@
 			&:nth-child(4) {
 				margin-top: 24px;
 
-				@media screen and (min-width: $breakpoint-tablet-small) {
+				@media screen and (min-width: $breakpoint-tablet) {
 					margin-top: 0;
 				}
 			}
@@ -218,6 +218,7 @@
 		top: 10px;
 
 		svg {
+			filter: drop-shadow(0 0 2px $darkest-grey);
 			fill: $blue;
 		}
 	}

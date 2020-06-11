@@ -74,13 +74,21 @@
 					</form>
 				</div>
 			@else
-				<button title="like" class="button is-icon" onclick="postAjax('/user/event/{{$event->id}}/like', null, this)">
+				@if(Auth::user())
+					<button title="like" class="button is-icon" onclick="postAjax('/user/event/{{$event->id}}/like', null, this)">
+				@else
+					<a title="like" class="button is-icon" href="{{ route('login') }}">
+				@endif
 					@if(Auth::user() && $event->favusers->contains(Auth::user()->id))
-						@svg('heart-full', 'is-btn is-heart')
+						@svg('heart-full', 'is-btn is-heart full')
 					@else
-						@svg('heart-line', 'is-btn is-heart')
+						@svg('heart-full', 'is-btn is-heart empty')
 					@endif
-				</button>
+				@if(Auth::user())
+					</button>
+				@else
+					</a>
+				@endif
 			@endif
 		</div>
 		

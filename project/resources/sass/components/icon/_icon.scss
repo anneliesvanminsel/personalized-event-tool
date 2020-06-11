@@ -14,7 +14,16 @@
 	}
 
 	&.is-heart {
-		fill: $blue;
+		&.full {
+			fill: $blue;
+			stroke: none;
+		}
+
+		&.empty {
+			stroke: $blue;
+			stroke-width: 3px;
+			fill: transparent;
+		}
 	}
 
 	&.is-white {

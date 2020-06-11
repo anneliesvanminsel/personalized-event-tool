@@ -92,20 +92,27 @@
 
 		&__actions {
 			position: absolute;
-			top: -200px;
+			top: -220px;
 			z-index: 999;
-			right: 15px;
+			right: -20px;
+			filter: drop-shadow(0 0 2px $darkest-grey);
 
 			@media screen and (min-width: $breakpoint-mobile) {
-				top: -150px;
+				top: -170px;
 			}
 
 			@media screen and (min-width: $breakpoint-tablet) {
 				position: relative;
 				top: 0;
 				right: 0;
-
+				filter: none;
 				text-align: right;
+			}
+
+			.is-heart {
+				svg {
+					fill: blue;
+				}
 			}
 
 			.form {

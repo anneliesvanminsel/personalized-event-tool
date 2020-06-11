@@ -64,9 +64,9 @@
 						<a title="like" class="button is-icon" href="{{ route('login') }}">
 					@endif
 						@if(Auth::user() && $event->favusers->contains(Auth::user()->id))
-							@svg('heart-full', 'is-btn is-heart')
+							@svg('heart-full', 'is-btn is-heart full')
 						@else
-							@svg('heart-line', 'is-btn is-heart')
+							@svg('heart-full', 'is-btn is-heart empty')
 						@endif
 					@if(Auth::user())
 						</button>
