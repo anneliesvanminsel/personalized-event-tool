@@ -76,6 +76,7 @@
 						type="file"
 						class="form__input @error('image') is-invalid @enderror"
 						name="image"
+						accept=".jpeg,.png,.jpg"
 						value="{{ old('image') }}"
 					>
 					

@@ -59,7 +59,7 @@
 											name="logo"
 											value="{{ old('logo') }}"
 											required
-											autocomplete="off"
+											accept=".jpeg,.png,.jpg"
 										>
 										
 										<label for="logo" class="form__label">

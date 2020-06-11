@@ -56,7 +56,7 @@
 							class="form__input @error('logo') is-invalid @enderror"
 							name="image"
 							value="{{ old('image') }}"
-							autocomplete="off"
+							accept=".jpeg,.png,.jpg"
 					>
 					
 					<label for="image" class="form__label">

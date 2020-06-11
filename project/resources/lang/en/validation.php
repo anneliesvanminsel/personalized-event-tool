@@ -78,8 +78,8 @@
 		'same'                 => 'Het :attribute en :other moeten hetzelfde zijn.',
 		'size'                 => [
 			'numeric' => 'Het :attribute moet :size zijn.',
-			'file'    => 'The :attribute must be :size kilobytes.',
-			'string'  => 'The :attribute must be :size characters.',
+			'file'    => 'Het :attribute mag niet groter zijn dan :size kilobytes.',
+			'string'  => 'Het :attribute mag niet langer zijn dan :size karakters.',
 			'array'   => 'The :attribute must contain :size items.',
 		],
 		'string'               => 'Het :attribute moet bestaan uit enkel letters.',

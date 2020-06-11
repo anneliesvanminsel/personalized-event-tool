@@ -163,6 +163,7 @@
 						name="logo"
 						type="file"
 						class="form__input optional"
+						accept=".jpeg,.png,.jpg"
 					>
 					
 					<label for="logo" class="form__label">
