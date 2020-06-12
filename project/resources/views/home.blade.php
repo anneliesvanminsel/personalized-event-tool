@@ -12,7 +12,7 @@
 		        evento
 	        </h1>
 	        <div class="hero__description is-large">
-		        Het platform voor jouw eventsnoden
+		        Het platform voor al jouw eventsnoden
 	        </div>
         </div>
     </div>

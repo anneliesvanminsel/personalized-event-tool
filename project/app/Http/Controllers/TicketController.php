@@ -62,7 +62,7 @@ class TicketController extends Controller
 
         $ticket = new Ticket;
 
-        $price =  (int)$request->input('price') + (int)$sub->price;
+        $price =  $request->input('price') + $sub->price;
         $date = Carbon::parse($request->input('date'));
 
         $ticket->description = $request->input('description');
@@ -104,7 +104,8 @@ class TicketController extends Controller
         ]);
 
 		$date = Carbon::parse($request->input('date'));
-		$price =  (int)$request->input('price') + (int)$sub->price;
+
+		$price =  $request->input('price') + $sub->price;
 
 		$ticket->description = $request->input('description');
         $ticket->type = $request->input('type');;
