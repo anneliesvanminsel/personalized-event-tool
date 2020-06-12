@@ -26,9 +26,9 @@
 		<div class="card--container">
 			@foreach($subs as $sub)
 				<div class="card ticket sub">
-					<div class="card__like">
+					<div class="card__like no-drop">
 						<a href="#feature-{{$loop->iteration}}">
-							@svg('info')
+							@svg('info', 'is-btn')
 						</a>
 					</div>
 					

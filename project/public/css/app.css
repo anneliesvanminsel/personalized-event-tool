@@ -3283,6 +3283,11 @@ input[type=radio]:disabled {
   top: 10px;
 }
 
+.card__like.no-drop svg {
+  -webkit-filter: none;
+          filter: none;
+}
+
 .card__like svg {
   -webkit-filter: drop-shadow(0 0 2px #141414);
           filter: drop-shadow(0 0 2px #141414);

@@ -217,6 +217,12 @@
 		right: 10px;
 		top: 10px;
 
+		&.no-drop {
+			svg {
+				filter: none;
+			}
+		}
+
 		svg {
 			filter: drop-shadow(0 0 2px $darkest-grey);
 			fill: $blue;

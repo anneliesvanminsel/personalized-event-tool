@@ -13,15 +13,19 @@
 				<a class="nav__item active" href="{{ route('event.settings.schedule', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
 					Planning
 				</a>
-				<a class="nav__item" href="{{ route('event.settings.floorplan', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
-					Grondplan
-				</a>
+				@if($organisation->subscription_id === 2 || $organisation->subscription_id === 3)
+					<a class="nav__item" href="{{ route('event.settings.floorplan', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
+						Grondplan
+					</a>
+				@endif
 				<a class="nav__item" href="{{ route('event.settings.ticket', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
 					Ticket
 				</a>
-				<a class="nav__item" href="{{ route('event.settings.message', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
-					Berichten
-				</a>
+				@if($organisation->subscription_id === 2 || $organisation->subscription_id === 3)
+					<a class="nav__item" href="{{ route('event.settings.message', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
+						Berichten
+					</a>
+				@endif
 			</div>
 		</div>
 		
