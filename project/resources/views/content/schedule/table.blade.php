@@ -49,9 +49,10 @@
 										{{ $sched['description'] }}
 									</p>
 								</div>
-								
 								<div class="item__location row row--center">
-									@svg('location') {{ $sched['location'] }}
+									@if($sched['location'])
+										@svg('location') {{ $sched['location'] }}
+									@endif
 								</div>
 							</div>
 						@endforeach

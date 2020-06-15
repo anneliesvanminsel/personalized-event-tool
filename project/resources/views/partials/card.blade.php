@@ -95,7 +95,7 @@
 		@endif
 	</div>
 	<div class="card__actions">
-		@if(strpos(Route::currentRouteName(), 'user.favorites') === 0)
+		@if(strpos(Route::currentRouteName(), 'user.favorites') === 0 && ($event->organisation->subscription_id === 2 || $event->organisation->subscription_id === 3) )
 			<a class="btn btn--primary" href={{ route('event.special', ['event_id' => $event->id]) }}>
 				event details
 			</a>

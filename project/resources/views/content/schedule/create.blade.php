@@ -183,7 +183,7 @@
 				</div>
 				
 				<div class="row spacing-top-s in-form">
-					<a class="btn is-cancel">
+					<a class="btn is-cancel" href="{{ route('event.settings.schedule', ['organisation_id' => $organisation['id'], 'event_id' => $event['id']]) }}">
 						Sluiten
 					</a>
 					<button type="submit" class="btn btn--full">
