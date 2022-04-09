@@ -31,7 +31,7 @@
         "@fullcalendar/daygrid": "^4.4.2",
         "@fullcalendar/list": "^4.4.2",
         "@fullcalendar/timegrid": "^4.4.2",
-        "moment": "^2.24.0",
+        "moment": "^2.29.2",
         "react-moment": "^0.9.7"
     }
 }
